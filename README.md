@@ -28,7 +28,7 @@ yarn start
 ## 开发
 <table>
 <tr>
-<th rowspan="2">值班人员</th>
+<th rowspan="2">开发人员</th>
 <th>Home</th>
 <th>Management</th>
 <th>Assignment</th>
