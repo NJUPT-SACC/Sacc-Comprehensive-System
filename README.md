@@ -35,7 +35,7 @@ yarn start
 <th>Comprtition</th>
 </tr>
 <tr>
-<td>谢炳辉、张颖</td>
+<td>张颖</td>
 <td>王文钦</td>
 <td>谢炳辉</td>
 <td>王文钦</td>
