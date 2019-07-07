@@ -4,8 +4,8 @@ module.exports = withLess({
     return config
   },
   distDir: 'build',
-  useFileSystemPublicRoutes: false,
   generateBuildId: async () => {
     return 'my-build-id'
-  }
+  },
+  pageExtensions: ['jsx', 'js']
 })
