@@ -1,5 +1,5 @@
 Arguments: 
-  C:\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add next-redux-thunk
+  C:\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add transform-decorators-legacy
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Users\Me\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Me\AppData\Local\Programs\Python\Python36\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\WEB\nvm;C:\Program Files\nodejs;F:\git\Git\cmd;C:\;C:\Qt\Qt5.6.1\5.6\mingw49_32\bin;C:\Qt\Qt5.6.1\Tools\QtCreator\bin;C:\Qt\Qt5.6.1\Tools\mingw492_32\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;F:\WEB\SQL;C:\TDM-GCC-64\bin;F:\mysql-8.0.12-winx64\bin;F:\WEB\node_modules\.bin\lessc;C:\Program Files (x86)\Yarn\bin\;F:\MongoDB\bin;C:\Users\Me\AppData\Local\Android\Sdk\platform-tools;C:\Program Files (x86)\Java\jdk1.8.0_211\jre\bin;C:\Program Files (x86)\Java\jdk1.8.0_211\bin;C:\Ruby25-x64\bin;C:\Users\Me\AppData\Local\Microsoft\WindowsApps;D:\WEB\nvm;C:\Program Files\nodejs;C:\Users\Me\AppData\Roaming\npm;F:\WEB\SQL;F:\Microsoft VS Code\bin;C:\Users\Me\AppData\Local\Yarn\bin;F:\idea\IntelliJ IDEA 2019.1.3\bin;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/next-redux-thunk: Not found
+  Error: https://registry.npm.taobao.org/transform-decorators-legacy: Not found
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65003:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:129018:22)
       at emitTwo (events.js:126:13)
@@ -38,6 +38,7 @@ npm manifest:
       "@zeit/next-less": "^1.0.1",
       "antd": "^3.20.0",
       "axios": "^0.19.0",
+      "babel-plugin-import": "^1.12.0",
       "immutable": "^4.0.0-rc.12",
       "less": "^3.9.0",
       "next": "^8.1.0",
@@ -771,6 +772,13 @@ Lockfile:
     dependencies:
       regenerator-runtime "^0.12.0"
   
+  "@babel/runtime@^7.0.0":
+    version "7.5.1"
+    resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.5.1.tgz#51b56e216e87103ab3f7d6040b464c538e242888"
+    integrity sha1-UbVuIW6HEDqz99YEC0ZMU44kKIg=
+    dependencies:
+      regenerator-runtime "^0.13.2"
+  
   "@babel/runtime@^7.4.5":
     version "7.5.0"
     resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.5.0.tgz?cache=0&sync_timestamp=1562245145476&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.5.0.tgz#49dcbcd637099a55d3a61e590a00d6861393b1b5"
@@ -1397,6 +1405,14 @@ Lockfile:
     integrity sha1-8A9Qe9qjw+P/bn5emNkKesq5b38=
     dependencies:
       object.assign "^4.1.0"
+  
+  babel-plugin-import@^1.12.0:
+    version "1.12.0"
+    resolved "https://registry.npm.taobao.org/babel-plugin-import/download/babel-plugin-import-1.12.0.tgz#12d50950aecfd8de3f10880730221f0f0843a755"
+    integrity sha1-EtUJUK7P2N4/EIgHMCIfDwhDp1U=
+    dependencies:
+      "@babel/helper-module-imports" "^7.0.0"
+      "@babel/runtime" "^7.0.0"
   
   babel-plugin-react-require@3.0.0:
     version "3.0.0"

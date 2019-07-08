@@ -12,7 +12,7 @@ class App extends React.Component{
 		return (
 			<div>
 				sacc
-				<Link href="/#/management/management">
+				<Link href="/management/management">
 					<a>here</a>
 				</Link>
 			</div>
