@@ -15,5 +15,5 @@ module.exports = withLess({
   generateBuildId: async () => {
     return 'my-build-id'
   },
-  pageExtensions: ['jsx', 'js']
+  pageExtensions: ['jsx', 'js'],
 })
