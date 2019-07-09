@@ -1,15 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import store from './store/store';
+import store from './store';
+
+// 页面
+import { SideBar } from './components'
+
+// 样式
+import './style/index.less'
+import './style/iconfont.css'
 
 class Assignment extends React.Component{
 	
 	render(){
 		return (
-            <div>
-                Assignment
-            </div>
+      <div>
+        <SideBar />
+      </div>
 		);
 	}
 }
@@ -17,10 +23,10 @@ const mapStateToProps = (state) =>{
 	return {
 		
 	}
-}
+};
 const mapDispatchToProps = (dispatch) => {
 	return {
 
 	}
-}
+};
 export default connect(mapStateToProps,mapDispatchToProps)(Assignment);

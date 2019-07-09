@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import store from '../store';
 import Link from 'next/link';
-// 页面
+
+// 样式
 
 class App extends React.Component{
 	
@@ -12,8 +13,11 @@ class App extends React.Component{
 		return (
 			<div>
 				sacc
-				<Link href="/#/management/management">
+				<Link href="/Management/Management">
 					<a>here</a>
+				</Link>
+				<Link href="/Assignment/Assignment">
+					<a>assignment</a>
 				</Link>
 			</div>
 		);

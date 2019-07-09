@@ -1,0 +1,53 @@
+body,
+html {
+  zoom: 1;
+}
+body,
+html,
+a,
+ul,
+ol,
+li,
+dd,
+dl,
+dt,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span,
+header,
+section,
+nav,
+section,
+img,
+button,
+textarea,
+input {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #333333;
+}
+input,
+textarea,
+button {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid #333333;
+  border-radius: 4px;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+
+/*# sourceMappingURL=styles.chunk.css.map*/

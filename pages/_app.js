@@ -6,6 +6,8 @@ import withRedux from 'next-redux-wrapper';
 
 import createStore from '../store';
 
+import './index.less'
+
 class MyApp extends App {
   static async getInitialProps({pageProps}) {
 
