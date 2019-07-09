@@ -35,10 +35,10 @@ yarn start
 <th>Comprtition</th>
 </tr>
 <tr>
-<td>张颖</td>
-<td>王文钦</td>
-<td>谢炳辉</td>
-<td>王文钦</td>
+<td>HKFPouu</td>
+<td>wwqin</td>
+<td>binghuixie</td>
+<td>wwqin</td>
 </tr>
 </table>
 
