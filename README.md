@@ -12,7 +12,7 @@ yarn build
 ```
 yarn start
 ```
-## 提交commit规范:smile:
+## 提交commit规范(？？):smile:
 一般情况下，提交 GIT 时的注释可以分成几类，可以用几个动词开始：
 - Added ( 新加入的需求 )
 - Fixed ( 修复 bug )
