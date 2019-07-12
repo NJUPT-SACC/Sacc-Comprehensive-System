@@ -1,7 +1,55 @@
+@import '../../style/variables';
+
 .sideBar{
   width: 240px;
   background-color: #1e1f26;
   box-shadow: 2px 0 5px rgba(0,0,0,0.2);
   max-height: 100vh;
   min-height: 100vh;
+  padding: 1em 0;
+  box-sizing: border-box;
+  .logo{
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Baloo Paaji', cursive;
+    letter-spacing: 4px;
+    font-weight: 900;
+    margin-bottom: 1em;
+    user-select: none;
+    cursor: pointer;
+    span{
+      color: rgba(244, 186, 2, 1);
+    }
+  }
+  .language-item{
+    cursor: pointer;
+    padding: 1em 1.5em;
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+    .imgBox{
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 12px;
+      width: 32px;
+    }
+    .language{
+      vertical-align: middle;
+      font-size: 20px;
+    }
+    .selected{
+      display: inline-block;
+      width: 16px;
+      height: 20px;
+      transform-origin: 50% 50%;
+      background-color: #000000;
+      position: absolute;
+      right: -6.4px;
+      top: 28px;
+      border-radius: 50%;
+    }
+    &:hover{
+      background-color: @commonBgColor;
+    }
+  }
 }

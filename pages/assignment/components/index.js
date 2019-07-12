@@ -1,5 +1,9 @@
-import SideBar from './Sidebar'
+import AssignmentSide from './Sidebar'
+import AssignmentHeader from './Header'
+import AssignmentContent from './Content'
 
 export {
-  SideBar
+  AssignmentSide,
+  AssignmentHeader,
+  AssignmentContent
 }
