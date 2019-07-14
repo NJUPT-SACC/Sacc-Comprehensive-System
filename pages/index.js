@@ -7,17 +7,20 @@ import Link from 'next/link';
 import Head from 'next/head';
 // 页面
 
+
 class App extends React.Component{
 	
 	render(){
 		return (
 			<div>
-			    <Head>
-				<title>SACC of Integrated system</title>
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-			    </Head>
+
+				<Head>
+					<title>SACC of Integrated system</title>
+					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				</Head>
+
 				sacc
-				<Link href="/#/management/management">
+				<Link href="/management/management">
 					<a>here</a>
 				</Link>
 			</div>
