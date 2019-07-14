@@ -13,10 +13,12 @@ class App extends React.Component{
 	render(){
 		return (
 			<div>
+
 				<Head>
 					<title>SACC of Integrated system</title>
 					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				</Head>
+
 				sacc
 				<Link href="/management/management">
 					<a>here</a>
