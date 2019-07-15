@@ -4,19 +4,26 @@ import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import store from '../store';
 import Link from 'next/link';
+import Head from 'next/head';
+// 页面
 
-// 样式
 
 class App extends React.Component{
 	
 	render(){
 		return (
 			<div>
+
+				<Head>
+					<title>SACC of Integrated system</title>
+					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				</Head>
+
 				sacc
-				<Link href="/Management/Management">
+				<Link href="/management/management">
 					<a>here</a>
 				</Link>
-				<Link href="/Assignment/Assignment/index">
+      <Link href="/Assignment/Assignment/index">
 					<a>assignment</a>
 				</Link>
 			</div>
