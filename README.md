@@ -12,7 +12,7 @@ yarn build
 ```
 yarn start
 ```
-## 提交commit规范:smile:
+## 提交commit规范(？？):smile:
 一般情况下，提交 GIT 时的注释可以分成几类，可以用几个动词开始：
 - Added ( 新加入的需求 )
 - Fixed ( 修复 bug )
@@ -35,10 +35,10 @@ yarn start
 <th>Comprtition</th>
 </tr>
 <tr>
-<td>张颖</td>
-<td>王文钦</td>
-<td>谢炳辉</td>
-<td>王文钦</td>
+<td>HKFPouu</td>
+<td>wwqin</td>
+<td>binghuixie</td>
+<td>wwqin</td>
 </tr>
 </table>
 

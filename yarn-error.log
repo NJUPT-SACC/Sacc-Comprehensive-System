@@ -1,20 +1,23 @@
 Arguments: 
-  C:\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add next-redux-thunk
+
+  C:\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add transform-decorators-legacy
+
 
 PATH: 
-  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Users\Me\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\Me\AppData\Local\Programs\Python\Python36\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\WEB\nvm;C:\Program Files\nodejs;F:\git\Git\cmd;C:\;C:\Qt\Qt5.6.1\5.6\mingw49_32\bin;C:\Qt\Qt5.6.1\Tools\QtCreator\bin;C:\Qt\Qt5.6.1\Tools\mingw492_32\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;F:\WEB\SQL;C:\TDM-GCC-64\bin;F:\mysql-8.0.12-winx64\bin;F:\WEB\node_modules\.bin\lessc;C:\Program Files (x86)\Yarn\bin\;F:\MongoDB\bin;C:\Users\Me\AppData\Local\Android\Sdk\platform-tools;C:\Program Files (x86)\Java\jdk1.8.0_211\jre\bin;C:\Program Files (x86)\Java\jdk1.8.0_211\bin;C:\Ruby25-x64\bin;C:\Users\Me\AppData\Local\Microsoft\WindowsApps;D:\WEB\nvm;C:\Program Files\nodejs;C:\Users\Me\AppData\Roaming\npm;F:\WEB\SQL;F:\Microsoft VS Code\bin;C:\Users\Me\AppData\Local\Yarn\bin;F:\idea\IntelliJ IDEA 2019.1.3\bin;
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;"C:\Program Files\Java\jdk-12.0.1\bin;C:\Program Files\Java\jdk-12.0.1\jre\bin;";C:\Program Files (x86)\Yarn\bin\;C:\Users\ASUS\AppData\Local\Microsoft\WindowsApps;C:\Users\ASUS\AppData\Roaming\npm;C:\Users\ASUS\AppData\Local\Yarn\bin
 
 Yarn version: 
-  1.12.3
+  1.16.0
 
 Node version: 
-  8.10.0
+  10.16.0
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/next-redux-thunk: Not found
+
+  Error: https://registry.npm.taobao.org/transform-decorators-legacy: Not found
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65003:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:129018:22)
       at emitTwo (events.js:126:13)
@@ -26,6 +29,7 @@ Trace:
       at Object.onceWrapper (events.js:313:30)
       at emitNone (events.js:111:20)
 
+
 npm manifest: 
   {
     "name": "sacc",
@@ -35,12 +39,13 @@ npm manifest:
     "author": "wwqin <245432372@qq.com>",
     "license": "MIT",
     "dependencies": {
-      "@zeit/next-less": "^1.0.1",
       "antd": "^3.20.0",
       "axios": "^0.19.0",
+      "babel-plugin-import": "^1.12.0",
       "immutable": "^4.0.0-rc.12",
       "less": "^3.9.0",
       "next": "^8.1.0",
+      "next-fonts": "^0.17.0",
       "next-redux-wrapper": "^3.0.0-alpha.3",
       "react": "^16.8.6",
       "react-dom": "^16.8.6",
@@ -48,6 +53,7 @@ npm manifest:
       "redux": "^4.0.1",
       "redux-devtools-extension": "^2.13.8",
       "redux-immutable": "^4.0.0",
+      "redux-saga": "^1.0.5",
       "redux-thunk": "^2.3.0",
       "styled-jsx": "^3.2.1"
     },
@@ -55,6 +61,9 @@ npm manifest:
       "dev": "next",
       "build": "next build",
       "start": "next start"
+    },
+    "devDependencies": {
+      "@zeit/next-less": "^1.0.1"
     }
   }
 
@@ -771,6 +780,13 @@ Lockfile:
     dependencies:
       regenerator-runtime "^0.12.0"
   
+  "@babel/runtime@^7.0.0":
+    version "7.5.1"
+    resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.5.1.tgz#51b56e216e87103ab3f7d6040b464c538e242888"
+    integrity sha1-UbVuIW6HEDqz99YEC0ZMU44kKIg=
+    dependencies:
+      regenerator-runtime "^0.13.2"
+  
   "@babel/runtime@^7.4.5":
     version "7.5.0"
     resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.5.0.tgz?cache=0&sync_timestamp=1562245145476&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.5.0.tgz#49dcbcd637099a55d3a61e590a00d6861393b1b5"
@@ -810,6 +826,50 @@ Lockfile:
       esutils "^2.0.2"
       lodash "^4.17.11"
       to-fast-properties "^2.0.0"
+  
+  "@redux-saga/core@^1.0.3":
+    version "1.0.3"
+    resolved "https://registry.npm.taobao.org/@redux-saga/core/download/@redux-saga/core-1.0.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40redux-saga%2Fcore%2Fdownload%2F%40redux-saga%2Fcore-1.0.3.tgz#c29ec7ae3d7dfcbcb8dc93177f2b3edc798c5d85"
+    integrity sha1-wp7Hrj19/Ly43JMXfys+3HmMXYU=
+    dependencies:
+      "@babel/runtime" "^7.0.0"
+      "@redux-saga/deferred" "^1.0.1"
+      "@redux-saga/delay-p" "^1.0.1"
+      "@redux-saga/is" "^1.0.2"
+      "@redux-saga/symbols" "^1.0.1"
+      "@redux-saga/types" "^1.0.2"
+      redux ">=0.10 <5"
+      typescript-tuple "^2.1.0"
+  
+  "@redux-saga/deferred@^1.0.1":
+    version "1.0.1"
+    resolved "https://registry.npm.taobao.org/@redux-saga/deferred/download/@redux-saga/deferred-1.0.1.tgz#c895445e486bded90acf0b873b4e978fbfe458c2"
+    integrity sha1-yJVEXkhr3tkKzwuHO06Xj7/kWMI=
+  
+  "@redux-saga/delay-p@^1.0.1":
+    version "1.0.1"
+    resolved "https://registry.npm.taobao.org/@redux-saga/delay-p/download/@redux-saga/delay-p-1.0.1.tgz#d69fc6103c7509ae80faa144ea17bbc69e51e029"
+    integrity sha1-1p/GEDx1Ca6A+qFE6he7xp5R4Ck=
+    dependencies:
+      "@redux-saga/symbols" "^1.0.1"
+  
+  "@redux-saga/is@^1.0.2":
+    version "1.0.2"
+    resolved "https://registry.npm.taobao.org/@redux-saga/is/download/@redux-saga/is-1.0.2.tgz#7f4be014c97061898d7efb11d6c9de31e943ed38"
+    integrity sha1-f0vgFMlwYYmNfvsR1sneMelD7Tg=
+    dependencies:
+      "@redux-saga/symbols" "^1.0.1"
+      "@redux-saga/types" "^1.0.2"
+  
+  "@redux-saga/symbols@^1.0.1":
+    version "1.0.1"
+    resolved "https://registry.npm.taobao.org/@redux-saga/symbols/download/@redux-saga/symbols-1.0.1.tgz#46512ae1275f88df061c42168d0f600ddb170c1e"
+    integrity sha1-RlEq4SdfiN8GHEIWjQ9gDdsXDB4=
+  
+  "@redux-saga/types@^1.0.2":
+    version "1.0.2"
+    resolved "https://registry.npm.taobao.org/@redux-saga/types/download/@redux-saga/types-1.0.2.tgz#1d94f02800b094753f9271c206a26c2a06ca14ee"
+    integrity sha1-HZTwKACwlHU/knHCBqJsKgbKFO4=
   
   "@types/prop-types@*":
     version "15.7.1"
@@ -1397,6 +1457,14 @@ Lockfile:
     integrity sha1-8A9Qe9qjw+P/bn5emNkKesq5b38=
     dependencies:
       object.assign "^4.1.0"
+  
+  babel-plugin-import@^1.12.0:
+    version "1.12.0"
+    resolved "https://registry.npm.taobao.org/babel-plugin-import/download/babel-plugin-import-1.12.0.tgz#12d50950aecfd8de3f10880730221f0f0843a755"
+    integrity sha1-EtUJUK7P2N4/EIgHMCIfDwhDp1U=
+    dependencies:
+      "@babel/helper-module-imports" "^7.0.0"
+      "@babel/runtime" "^7.0.0"
   
   babel-plugin-react-require@3.0.0:
     version "3.0.0"
@@ -2503,6 +2571,14 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/figgy-pudding/download/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
     integrity sha1-hiRwESkBxyeg5JWoB0S9W6odZ5A=
   
+  file-loader@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-2.0.0.tgz#39749c82f020b9e85901dcff98e8004e6401cfde"
+    integrity sha512-YCsBfd1ZGCyonOKLxPiKPdu+8ld9HAaMEvJewzz+b2eTF7uL5Zm/HdBF6FjCrpCMRq25Mi0U1gl4pwn2TlH7hQ==
+    dependencies:
+      loader-utils "^1.0.2"
+      schema-utils "^1.0.0"
+  
   fill-range@^4.0.0:
     version "4.0.0"
     resolved "https://registry.npm.taobao.org/fill-range/download/fill-range-4.0.0.tgz#d544811d428f98eb06a63dc402d2403c328c38f7"
@@ -3587,7 +3663,7 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/mime/download/mime-1.6.0.tgz?cache=0&sync_timestamp=1560034758817&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmime%2Fdownload%2Fmime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
     integrity sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=
   
-  mime@^2.3.1:
+  mime@^2.0.3, mime@^2.3.1:
     version "2.4.4"
     resolved "https://registry.npm.taobao.org/mime/download/mime-2.4.4.tgz?cache=0&sync_timestamp=1560034758817&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmime%2Fdownload%2Fmime-2.4.4.tgz#bd7b91135fc6b01cde3e9bae33d659b63d8857e5"
     integrity sha1-vXuRE1/GsBzePpuuM9ZZtj2IV+U=
@@ -3751,6 +3827,14 @@ Lockfile:
     version "2.6.1"
     resolved "https://registry.npm.taobao.org/neo-async/download/neo-async-2.6.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fneo-async%2Fdownload%2Fneo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
     integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
+  
+  next-fonts@^0.17.0:
+    version "0.17.0"
+    resolved "https://registry.yarnpkg.com/next-fonts/-/next-fonts-0.17.0.tgz#e5391503c5960894e9f1eb5d56c5366625edc509"
+    integrity sha512-7V0CZOmZXl4ObdchB+s8XQovqq6lCAd2W+nd1yWu8EhKSqrXG6TuQ954ecCenq3vZDOspBfivt9Sbi3Lf/8eVg==
+    dependencies:
+      file-loader "^2.0.0"
+      url-loader "^1.1.1"
   
   next-redux-wrapper@^3.0.0-alpha.3:
     version "3.0.0-alpha.3"
@@ -5073,12 +5157,19 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/redux-immutable/download/redux-immutable-4.0.0.tgz#3a1a32df66366462b63691f0e1dc35e472bbc9f3"
     integrity sha1-Ohoy32Y2ZGK2NpHw4dw15HK7yfM=
   
+  redux-saga@^1.0.5:
+    version "1.0.5"
+    resolved "https://registry.npm.taobao.org/redux-saga/download/redux-saga-1.0.5.tgz#03317261bc5fa7ee2ecb778f4e4848f573557bbb"
+    integrity sha1-AzFyYbxfp+4uy3ePTkhI9XNVe7s=
+    dependencies:
+      "@redux-saga/core" "^1.0.3"
+  
   redux-thunk@^2.3.0:
     version "2.3.0"
     resolved "https://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
     integrity sha1-UcLBmhhe1Rh6qpotCLZm0NZGdiI=
   
-  redux@^4.0.1:
+  "redux@>=0.10 <5", redux@^4.0.1:
     version "4.0.1"
     resolved "https://registry.npm.taobao.org/redux/download/redux-4.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fredux%2Fdownload%2Fredux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
     integrity sha1-Q2yubMQPvkcnaJ18j65EgI8b/vU=
@@ -5893,6 +5984,25 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
     integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
   
+  typescript-compare@^0.0.2:
+    version "0.0.2"
+    resolved "https://registry.npm.taobao.org/typescript-compare/download/typescript-compare-0.0.2.tgz#7ee40a400a406c2ea0a7e551efd3309021d5f425"
+    integrity sha1-fuQKQApAbC6gp+VR79MwkCHV9CU=
+    dependencies:
+      typescript-logic "^0.0.0"
+  
+  typescript-logic@^0.0.0:
+    version "0.0.0"
+    resolved "https://registry.npm.taobao.org/typescript-logic/download/typescript-logic-0.0.0.tgz#66ebd82a2548f2b444a43667bec120b496890196"
+    integrity sha1-ZuvYKiVI8rREpDZnvsEgtJaJAZY=
+  
+  typescript-tuple@^2.1.0:
+    version "2.2.1"
+    resolved "https://registry.npm.taobao.org/typescript-tuple/download/typescript-tuple-2.2.1.tgz#7d9813fb4b355f69ac55032e0363e8bb0f04dad2"
+    integrity sha1-fZgT+0s1X2msVQMuA2Pouw8E2tI=
+    dependencies:
+      typescript-compare "^0.0.2"
+  
   ua-parser-js@^0.7.18:
     version "0.7.20"
     resolved "https://registry.npm.taobao.org/ua-parser-js/download/ua-parser-js-0.7.20.tgz#7527178b82f6a62a0f243d1f94fd30e3e3c21098"
@@ -5974,6 +6084,15 @@ Lockfile:
     version "0.1.0"
     resolved "https://registry.npm.taobao.org/urix/download/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
     integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
+  
+  url-loader@^1.1.1:
+    version "1.1.2"
+    resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-1.1.2.tgz#b971d191b83af693c5e3fea4064be9e1f2d7f8d8"
+    integrity sha512-dXHkKmw8FhPqu8asTc1puBfe3TehOCo2+RmOOev5suNCIYBcT626kxiWg1NBVkwc4rO8BGa7gP70W7VXuqHrjg==
+    dependencies:
+      loader-utils "^1.1.0"
+      mime "^2.0.3"
+      schema-utils "^1.0.0"
   
   url@0.11.0, url@^0.11.0:
     version "0.11.0"
