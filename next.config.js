@@ -1,19 +1,22 @@
-const withLess = require('@zeit/next-less')
+const withLess = require('@zeit/next-less');
+const withCSS = require('@zeit/next-css');
+
 module.exports = withLess({
   webpack(config, options) {
+    config.module.rules.push({
+      test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 100000
+        }
+      }
+    })
     return config
-  },
-  cssModules: false,
-  cssLoaderOptions: {
-    importLoaders: 1,
-    localIdentName: '[local]--[hash:base64:5]'
-  },
-  lessLoaderOptions : {
-    javascriptEnabled : true
   },
   distDir: 'build',
   generateBuildId: async () => {
     return 'my-build-id'
   },
-  pageExtensions: ['jsx', 'js'],
+  pageExtensions: ['jsx', 'js']
 })

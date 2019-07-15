@@ -23,6 +23,9 @@ class App extends React.Component{
 				<Link href="/management/management">
 					<a>here</a>
 				</Link>
+      <Link href="/Assignment/Assignment/index">
+					<a>assignment</a>
+				</Link>
 			</div>
 		);
 	}
