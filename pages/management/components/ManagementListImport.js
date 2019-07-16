@@ -133,37 +133,53 @@ class ManagementListRadio extends React.Component{
         })
     }
 
-    onCheck(num){
-        // let errorNum=null;
-        // switch(num){
-        //     case 0:
-        //         if(this.state.fromTable.Name=='') errorNum=0;
-        //         break;
-        //     case 1:
-        //         if(this.state.fromTable.type=='') errorNum=1;
-        //         break;
-        //     case 2:
-        //         if(this.state.fromTable.isCheckbos=='') errorNum=2;
-        //         break;
-        //     case 3:
-        //         if(this.state.fromTable.Content=='') errorNum=3;
-        //         break;
-        //     case 4:
-        //         var Aflag=false,Sflag=true;
-        //         this.state.fromTable.answers.map((item) => {if(item) Aflag=true});
-        //         this.state.fromTable.Selects.map((item) => {if(!item) Sflag=false});
-        //         if(!Aflag&&!Sflag) errorNum=4;
-        //         break;
-        //     case 5:
-        //         if(this.state.fromTable.Score=='') errorNum=5;
-        //         break;
-        // }
-        // if(errorNum){
-        //     this.setState({ current:errorNum,error:'error' });
-        // }else{
-        //     num+=1;
-        //     this.setState({current:num,error:''})
-        // }
+    onCheck(){
+        if(this.state.fromTable.Name=='')
+        {
+            this.setState({ current:0,error:'error' });
+            return;
+        }
+        else
+            this.setState({ current:1,error:'' });
+        if(this.state.fromTable.type=='')
+        {
+            console.log(this.state.fromTable.type)
+            this.setState({ current:1,error:'error' });
+            return;
+        }
+        else
+            this.setState({ current:2,error:'' });
+        if(this.state.fromTable.isCheckbos=='')
+        {
+            this.setState({ current:2,error:'error' });
+            return;
+        }
+        else
+            this.setState({ current:3,error:'' });
+        if(this.state.fromTable.Content=='')
+        {
+            this.setState({ current:3,error:'error' });
+            return;
+        }
+        else
+            this.setState({ current:4,error:'' });
+        let Aflag=false,Sflag=true;
+        this.state.fromTable.answers.map((item) => {if(item) Aflag=true});
+        this.state.fromTable.Selects.map((item) => {if(!item) Sflag=false});
+        if(!Aflag&&!Sflag)
+        {
+            this.setState({ current:4,error:'error' });
+            return;
+        }
+        else
+            this.setState({ current:5,error:'' });
+        if(this.state.fromTable.Score=='')
+        {
+            this.setState({ current:5,error:'error' });
+            return;
+        }
+        else
+            this.setState({ current:6,error:'success' });
     }
 
     render(){
@@ -186,10 +202,10 @@ class ManagementListRadio extends React.Component{
                 <Divider />
                 <Form {...formItemLayout}>
                     <Form.Item label="题目名称" hasFeedback>
-                        <Input placeholder="请输入题目名称" onChange={(e) => this.changeName(e)} value={this.state.fromTable.Name} onBlur={this.onCheck(0)}/>
+                        <Input placeholder="请输入题目名称" onChange={(e) => this.changeName(e)} value={this.state.fromTable.Name} onBlur={this.onCheck}/>
                     </Form.Item>
                     <Form.Item label="题目类型" hasFeedback>
-                        <Select placeholder="请输入题目类型" onChange={(e) => this.changeType(e)} value={this.state.fromTable.type}>
+                        <Select placeholder="请输入题目类型" onChange={(e) => this.changeType(e)} value={this.state.fromTable.type}  onBlur={this.onCheck}>
                             {itemtype.map((item,index) => <Option key={index} value={item}>{item}</Option>)}
                         </Select>
                     </Form.Item>
@@ -198,15 +214,16 @@ class ManagementListRadio extends React.Component{
                         checkedChildren={<Icon type="check" />}
                         unCheckedChildren={<Icon type="close" />}
                         onChange={this.changeCheck}
+                        onBlur={this.onCheck}
                         />
                     </Form.Item>
                     <Form.Item label="题目内容" hasFeedback>
-                        <TextArea rows={4} onChange={(e) => this.changeContent(e)} value={this.state.fromTable.Content}/>
+                        <TextArea rows={4} onChange={(e) => this.changeContent(e)} value={this.state.fromTable.Content}  onBlur={this.onCheck}/>
                     </Form.Item>
                     <Form.Item label="选项及答案" hasFeedback>
                         {this.state.fromTable.Selects?this.state.fromTable.Selects.map((item,_index) => <span>
-                            <Checkbox onChange={(e) => this.changeAnswer(e,_index)} value={() => this.state.fromTable.answers[_index]}></Checkbox>
-                            <Input placeholder="请输入选项内容" value={item} onChange={(e) => this.changeItem(e,_index)}/>
+                            <Checkbox onChange={(e) => this.changeAnswer(e,_index)} value={() => this.state.fromTable.answers[_index]} onBlur={this.onCheck}></Checkbox>
+                            <Input placeholder="请输入选项内容" value={item} onChange={(e) => this.changeItem(e,_index)} />
                         </span>):''}
                         <Button type="dashed" onClick={this.addItem} style={{ width: '20%',marginRight:'2vw' }}>
                             <Icon type="plus" /> Add field
@@ -216,7 +233,7 @@ class ManagementListRadio extends React.Component{
                         </Button>
                     </Form.Item>
                     <Form.Item label="题目分数及难度" hasFeedback>
-                        <Slider min={1} max={10} value={this.state.fromTable.Score[0]} onChange={this.changeScore} marks={{2: '入门',4: '了解',6: '掌握',8: '熟练',10: '精通'}}/>
+                        <Slider min={1} max={10} value={this.state.fromTable.Score[0]} onChange={this.changeScore} marks={{2: '入门',4: '了解',6: '掌握',8: '熟练',10: '精通'}}  onBlur={this.onCheck}/>
                     </Form.Item>
                 </Form>
             </div>      
