@@ -8,8 +8,6 @@ class SubContent extends React.Component {
     return (
       <div className="sub-content">
         <div>
-          <span className="title">SACC</span>
-          <sub className="assignment-platform">Assignment Platform</sub>
         </div>
       </div>
     )

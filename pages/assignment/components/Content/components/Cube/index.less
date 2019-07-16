@@ -1,0 +1,157 @@
+@i:                 0;                  /*循环下标*/
+@n_prisms:          5;
+@base:              3em;
+@base_angle:        360deg / @n_prisms;
+@radius:            4.5 * @base;
+@t:                 120s;
+@translateT:        1s;
+
+.container {
+  width: 32em;
+  height: 32em;
+  perspective: 60em;
+  perspective-origin: 50% 54%;
+}
+
+.container * {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform-style: preserve-3d;
+}
+.prism__face {
+  margin: -.5*@base;
+  border: .5px solid rgba(255, 255, 255, .6);
+  box-sizing: border-box;
+  width: @base; height: @base;
+}
+
+.positioner {
+  transition: all .5s;
+}
+
+.positioner:nth-of-type(1)  .prism__face {
+  background-color: rgba(	255, 215, 0, .3);
+  box-shadow: 0 0 250px rgba(	255, 215, 0, 1);
+}
+
+.positioner:nth-of-type(2)  .prism__face {
+  background-color: rgba(	0, 255, 0, .3);
+  box-shadow: 0 0 250px rgba(	0, 255, 0, 1);
+}
+.positioner:nth-of-type(3)  .prism__face {
+  background-color: rgba(	255, 0, 0, .3);
+  box-shadow: 0 0 250px rgba(	255, 0, 0, 1);
+}
+.positioner:nth-of-type(4)  .prism__face {
+  background-color: rgba(255, 20, 147, .3);
+  box-shadow: 0 0 250px rgba(255, 20, 147, 1);
+}
+.positioner:nth-of-type(5)  .prism__face {
+  background-color: rgba(0, 191, 255, .3);
+  box-shadow: 0 0 250px rgba(0, 191, 255, 1);
+}
+.assembly {
+  transform: rotateX(-90deg);
+  cursor: pointer;
+}
+
+.prism__face:nth-of-type(1) {
+  transform: translateZ(.5*@base);
+}
+.prism__face:nth-of-type(2) {
+  transform:  rotateY(90deg) translateZ(.5*@base);
+}
+.prism__face:nth-of-type(3) {
+  transform: rotateY(180deg) translateZ(.5*@base);
+}
+.prism__face:nth-of-type(4) {
+  transform: rotateY(270deg) translateZ(.5*@base);
+}
+.prism__face:nth-of-type(5) {
+  transform: rotateX(90deg) translateZ(.5*@base);
+}
+.prism__face:nth-of-type(6) {
+  transform: rotateX(-90deg) translateZ(.5*@base);
+}
+
+/* 分发正方体 */
+.positioner {
+  &:nth-of-type(1) {
+    transform: rotateY(@base_angle) translateZ(@radius);
+  }
+  &:nth-of-type(2) {
+    transform: rotateY(2 * @base_angle) translateZ(@radius);
+  }
+  &:nth-of-type(3) {
+    transform: rotateY(3 * @base_angle) translateZ(@radius);
+  }
+  &:nth-of-type(4) {
+    transform: rotateY(4 * @base_angle) translateZ(@radius);
+  }
+  &:nth-of-type(5) {
+    transform: rotateY(5 * @base_angle) translateZ(@radius);
+  }
+}
+
+.prism {
+  animation: rot @t linear infinite;
+}
+
+@keyframes rot {
+  0% {
+    transform: rotateY(99deg) rotateX(16.5deg);
+  }
+  100% {
+    transform: rotateY(459deg) rotateX(376.5deg);
+  }
+}
+
+.positioner.active {
+  animation: translation @translateT cubic-bezier(0,.98,1,1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes translation {
+  90%{
+    transform: scale3d(1,1,1);
+  }
+  92%{
+    transform: scale3d(2,2,2);
+  }
+  94%{
+    transform: scale3d(2.5,2.5,2.5);
+  }
+  95%{
+    transform: scale3d(3, 3, 3);
+  }
+  96%{
+    transform: scale3d(2.5, 2.5, 2.5);
+  }
+  97%{
+    transform: scale3d(3, 3, 3);
+  }
+  100% {
+    transform: translateZ(0) scale3d(2.5, 2.5, 2.5);
+  }
+}
+
+.positioner{
+  &:hover {
+    &:nth-of-type(1) {
+      transform: rotateY(@base_angle) translateZ(@radius) scale3d(1.25, 1.25, 1.25);
+    }
+    &:nth-of-type(2) {
+      transform: rotateY(2 * @base_angle) translateZ(@radius) scale3d(1.25, 1.25, 1.25);
+    }
+    &:nth-of-type(3) {
+      transform: rotateY(3 * @base_angle) translateZ(@radius) scale3d(1.25, 1.25, 1.25);
+    }
+    &:nth-of-type(4) {
+      transform: rotateY(4 * @base_angle) translateZ(@radius) scale3d(1.25, 1.25, 1.25);
+    }
+    &:nth-of-type(5) {
+      transform: rotateY(5 * @base_angle) translateZ(@radius) scale3d(1.25, 1.25, 1.25);
+    }
+  }
+}
+

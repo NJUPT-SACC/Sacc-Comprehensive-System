@@ -1,6 +1,5 @@
 import React from 'react'
 import Prism from '../../prism.js';
-import CanvasComponent from './components/canvas'
 import '../../style/prism.css'
 
 // 样式
@@ -9,6 +8,7 @@ import './index.less'
 // 页面
 import EditorCode from './components/editorCode'
 import SubContent from './components/subContent'
+import Cube from './components/Cube'
 
 class Content extends React.Component {
 
@@ -69,9 +69,9 @@ class Content extends React.Component {
           }
         </div>
         <div className="contentComponent">
+          <Cube />
           <SubContent />
         </div>
-        <CanvasComponent />
       </div>
     )
 }}

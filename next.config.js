@@ -1,7 +1,7 @@
 const withLess = require('@zeit/next-less');
 const withCSS = require('@zeit/next-css');
 
-module.exports = withLess({
+module.exports = withCSS(withLess({
   webpack(config, options) {
     config.module.rules.push({
       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -19,4 +19,4 @@ module.exports = withLess({
     return 'my-build-id'
   },
   pageExtensions: ['jsx', 'js']
-})
+}))
