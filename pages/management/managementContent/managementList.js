@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Layout, Breadcrumb, Select, Form, Switch, Icon, Checkbox, Input, Button, Slider, Steps, Divider} from 'antd';
 
 import ManagementListRadio from '../components/ManagementListImport';
+import ManagementListTable from '../components/ManagementListTable';
 
 class ManagementList extends React.Component{
     constructor(props){
@@ -28,7 +29,8 @@ class ManagementList extends React.Component{
                     minHeight:'auto'
                 }}
                 >
-                <ManagementListRadio/>
+                <ManagementListTable/>
+                
                 </Content>
             </Layout>
         )
