@@ -1,0 +1,1 @@
+export const SET_CURRENT_TITLE = "assignments/set_current_title";

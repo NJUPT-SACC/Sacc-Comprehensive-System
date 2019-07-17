@@ -1,6 +1,7 @@
 .assign-content{
   padding: 20px 46px;
   position: relative;
+  display: flex;
   .editorComponent{
     display: inline-block;
     padding-right: 48px;
@@ -8,9 +9,13 @@
     max-height: 100%;
   }
   .contentComponent{
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    justify-content: space-between;
     vertical-align: top;
     width: calc(100% - 480px);
+    padding: 0 24px;
   }
 }
 @keyframes cursorEffect {

@@ -4,7 +4,6 @@ import store from './store';
 
 // 页面
 import {
-  AssignmentSide,
   AssignmentHeader,
   AssignmentContent,
 } from './components'
@@ -18,7 +17,6 @@ class Assignment extends React.Component{
 	render(){
 		return (
       <div className="assignment-wrapper">
-        {/*<AssignmentSide />*/}
         <div className="right-wrapper">
           <AssignmentHeader />
           <AssignmentContent />

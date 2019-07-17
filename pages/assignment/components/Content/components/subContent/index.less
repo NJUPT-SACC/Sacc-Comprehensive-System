@@ -1,22 +1,86 @@
 .sub-content{
-  text-align: right;
-  font-family: 'Baloo Paaji', cursive;
-  user-select: none;
+  font-family: Source Sans Pro;
   .title{
-    font-size: 84px;
-    line-height: 1;
+    font-size: 4em;
+    line-height: 2;
+    span{
+      font-size: 1.2em;
+      vertical-align: -4.5px;
+      margin-right: 8px;
+      font-weight: 200;
+      transition: color .5s ease-in-out;
+      filter: brightness(1.5);
+    }
   }
-  .assignment-platform{
-    display: block;
+  .intro{
     font-size: 2em;
+    line-height: 2;
+  }
+  .coding__button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4em;
+    padding: 0 24px;
+    .categories{
+      display: inline-block;
+      transform: translateY(15px);
+      transition: all .3s ease-in-out;
+      animation: .8s stepIn;
+      animation-fill-mode: forwards;
+      opacity: 0;
+      font-size: 1.5em;
+      letter-spacing: 2px;
+      filter: brightness(2.5);
+      font-weight: 600;
+    }
+    .start__coding {
+      display: inline-block;
+      border-radius: 4px;
+      font-size: 1.4em;
+      line-height: 2.5;
+      padding: 0 1.5em;
+      text-transform: uppercase;
+      transform: translateY(15px);
+      transition: all .3s ease-in-out;
+      animation: .8s stepIn .3s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+      filter: brightness(1.12);
+    }
+  }
+
+}
+
+.current__stepIn{
+  animation: .3s stepIn ease-in-out;
+  animation-fill-mode: forwards;
+}
+.former__stepOut{
+  animation: .3s stepOut ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+// 进入
+@keyframes stepIn {
+  0%{
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
-@media screen and (min-width: 1890px) {
-  .sub-content{
-    padding: 30px;
-    .title{
-      font-size: 108px;
-    }
+// 退出
+@keyframes stepOut {
+  0%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(-10px);
+    opacity: 0;
   }
 }

@@ -1,14 +1,13 @@
 import React from 'react'
 import Prism from '../../prism.js';
 import '../../style/prism.css'
-
 // 样式
 import './index.less'
-
 // 页面
 import EditorCode from './components/editorCode'
 import SubContent from './components/subContent'
 import Cube from './components/Cube'
+import Canvas from './components/starSky'
 
 class Content extends React.Component {
 
@@ -53,13 +52,13 @@ class Content extends React.Component {
   render () {
     return (
       <div className="assign-content">
+        <Canvas />
         <div className="editorComponent">
           {
             this.state.editorList.map(item => {
               return (
                 <EditorCode
                   key={item.language}
-                  onClick={(e) => {this.props.onHandleEditorClick(e)}}
                   classType={item.className}
                   language={item.language}
                   code={item.code}
@@ -69,8 +68,8 @@ class Content extends React.Component {
           }
         </div>
         <div className="contentComponent">
-          <Cube />
           <SubContent />
+          <Cube />
         </div>
       </div>
     )
