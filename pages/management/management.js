@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import { actionCreators, store} from './store';
-import './less/management.less'; 
 import Head from 'next/head';
-import ManagementHome from './managementContent/managementHome'
-import { getIn } from 'immutable';
+
+import './less/management.less'; 
+
+import ManagementHome from './managementContent/managementHome';
+import ManagementWork from './managementContent/managementWork';
+import ManagementGame from './managementContent/managementGame';
+import ManagementList from './managementContent/managementList';
 
 class Management extends React.Component{
 	constructor(props){
@@ -44,8 +48,8 @@ class Management extends React.Component{
 						}
 					>
 						<Menu.Item key="1" onClick={this.props.changeShow}><Icon type="bulb" />发布练习</Menu.Item>
-						<Menu.Item key="2"><Icon type="file-search" />练习列表</Menu.Item>
-						<Menu.Item key="3"><Icon type="search" />结果查询</Menu.Item>
+						<Menu.Item key="2" onClick={this.props.changeShow}><Icon type="file-search" />练习列表</Menu.Item>
+						<Menu.Item key="3" onClick={this.props.changeShow}><Icon type="search" />结果查询</Menu.Item>
 					</SubMenu>
 					<SubMenu
 						key="sub2"
@@ -57,8 +61,8 @@ class Management extends React.Component{
 						}
 					>
 						<Menu.Item key="4" onClick={this.props.changeShow}><Icon type="bulb" />举办比赛</Menu.Item>
-						<Menu.Item key="5"><Icon type="file-search" />比赛列表</Menu.Item>
-						<Menu.Item key="6"><Icon type="search" />成绩查询</Menu.Item>
+						<Menu.Item key="5" onClick={this.props.changeShow}><Icon type="file-search" />比赛列表</Menu.Item>
+						<Menu.Item key="6" onClick={this.props.changeShow}><Icon type="search" />成绩查询</Menu.Item>
 					</SubMenu>
 					<SubMenu
 						key="sub3"
@@ -69,7 +73,7 @@ class Management extends React.Component{
 						</span>
 						}
 					>
-						<Menu.Item key="7"><Icon type="form" />导入题目</Menu.Item>
+						<Menu.Item key="7" onClick={this.props.changeShow}><Icon type="form" />导入题目</Menu.Item>
 						<Menu.Item key="8" onClick={this.props.changeShow}><Icon type="ordered-list" />题目列表</Menu.Item>
 					</SubMenu>
 					</Menu>
@@ -77,13 +81,18 @@ class Management extends React.Component{
 				{(()=>{
 					switch(this.props.show){
 						case '个人中心':
-							return <ManagementHome content='个人中心' breadcrumb={['个人中心']}/>
+							return <ManagementHome content={this.props.show}/>
 						case '发布练习':
-							return <ManagementHome content='发布练习' breadcrumb={['作业平台','发布练习']}/>
+						case '练习列表':
+						case '结果查询':
+							return <ManagementWork content={this.props.show}/>
 						case '举办比赛':
-							return <ManagementHome content='举办比赛' breadcrumb={['比赛系统','举办比赛']}/>
+						case '比赛列表':
+						case '成绩查询':		
+							return <ManagementGame content={this.props.show}/>
 						case '题目列表':
-							return <ManagementHome content='题目列表' breadcrumb={['题库','题目列表']}/>
+						case '导入题目':	
+							return <ManagementList content={this.props.show}/>
 					}
 				})()}
 				</Layout>

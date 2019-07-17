@@ -2,7 +2,7 @@ import * as constants from './constants';
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
-  show:'个人中心'
+  show:'导入题目'
 });
 
 export default (state = defaultState, action) => {
