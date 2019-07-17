@@ -1,10 +1,19 @@
 @n_prisms:          5;
-@base:              3em;
+@base:              3rem;
 @base_angle:        360deg / @n_prisms;
 @radius:            3.5 * @base;
 @t:                 120s;
 @translateT:        1s;
 
+html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 1800px){
+  html{
+    font-size: 20px;
+  }
+}
 .container {
   width: 24em;
   height: 24em;

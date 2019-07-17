@@ -22,7 +22,7 @@ class EditorCode extends React.Component {
         </header>
         <div className="codeContent">
             <pre>
-              <code className={this.props.classType}>
+              <code className={this.props.classType} style={{fontSize: '0.95em'}}>
                 {
                   this.props.code
                 }
