@@ -10,7 +10,7 @@ import {
 
 // 样式
 import './style/index.less'
-import './style/iconfont.css'
+import '../../static/fonts/iconfont.css'
 
 class Assignment extends React.Component{
 	
