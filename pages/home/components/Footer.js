@@ -7,7 +7,7 @@ class Footer extends React.Component{
   render(){
     return (
       <footer>
-        ©2019 SACC All Rights Reserved
+        <span>©2019 SACC All Rights Reserved</span>
         <BackTop />
       </footer>
     )

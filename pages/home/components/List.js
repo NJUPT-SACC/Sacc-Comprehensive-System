@@ -7,7 +7,7 @@ class List extends React.Component{
 
   render(){
     return (
-      <div className="list">
+      <div className="list" id="list">
         <p id="list-title">系统入口</p>
         <Row type="flex" justify="space-around">
           {

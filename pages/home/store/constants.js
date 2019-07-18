@@ -31,19 +31,19 @@ export const  GroupListItems = [
   {
     IconUrl: 'https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png',
     tag: '后端组',
-    dec: 'xxxxxx',
+    dec: '后端组使用Java语言进行后端开发，处理前端发送的各种请求。',
     id: 1
   },
   {
     IconUrl: 'https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png',
     tag: 'Python组',
-    dec: 'Life is short，you need Python。python组旨在带领大家领略python的简洁优雅，并且希望大家从深度学习、数据挖掘与分析、web开发等方向找到适合自己的并有所成就。',
+    dec: 'Life is short，you need Python。python组旨在带领大家领略python的简洁优雅，找到适合自己的方向',
     id: 2
   },
   {
     IconUrl: 'https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png',
     tag: '算法组',
-    dec: 'xxxxxx',
+    dec: '算法是一个计算的具体步骤，常用于计算、数据处理和自动推理，在计算机这个行业中无处不在。',
     id: 3
   },
   {
