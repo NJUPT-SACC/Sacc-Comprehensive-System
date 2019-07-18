@@ -112,15 +112,15 @@ class ManagementListTable extends React.Component{
       ];
         return (
             <div>
-                <Table columns={this.props.fromTableItem} dataSource={data} />
+                <Table columns={columns} dataSource={this.props.fromTableList} />
                 <Modal
-                title="Basic Modal"
+                title={this.props.fromTableItem.Name}
                 visible={this.state.visible}
                 onOk={this.handleOk}
                 onCancel={this.handleCancel}
                 >
-                    <button>Some contents...</button>
-                    <p>Some contents...</p>
+                    <h2>{this.props.fromTableItem.Content}</h2>
+                    <ul>{this.props.fromTableItem.Selects.map((item)=> <li>{item}</li>)}</ul>
                     <p>Some contents...</p>
                 </Modal>
             </div>
@@ -128,9 +128,8 @@ class ManagementListTable extends React.Component{
     }
 
     componentDidMount(){
-      this.props.receiveList();
-      this.props.receiveItem();
-      console.log(this.props.fromTableList)
+        this.props.receiveList();
+        this.props.receiveItem();
     }
 }
 const mapStateToProps = (state) =>{

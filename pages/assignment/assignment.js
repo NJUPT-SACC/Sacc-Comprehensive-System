@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import store from './store';
 
 // 页面
 import {
-  AssignmentHeader,
-  AssignmentContent,
-} from './components'
+  AssignmentHome,
+  AssignmentCoding
+} from './pages'
 
 // 样式
 import './style/index.less'
@@ -17,10 +16,8 @@ class Assignment extends React.Component{
 	render(){
 		return (
       <div className="assignment-wrapper">
-        <div className="right-wrapper">
-          <AssignmentHeader />
-          <AssignmentContent />
-        </div>
+        <AssignmentHome />
+        <AssignmentCoding />
       </div>
 		);
 	}

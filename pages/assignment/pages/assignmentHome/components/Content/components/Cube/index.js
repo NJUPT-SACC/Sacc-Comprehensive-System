@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import { actionCreators } from '../../../../store'
+import { actionCreators } from '../../../../../../store'
 
 import './index.less'
 
@@ -51,7 +51,13 @@ class Cube extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      categories: [{id: 0, title: "前端开发组"}, {id: 1, title: "后端开发组"}, {id: 2, title: "python组"}, {id: 3, title: "游戏组"}, {id: 4, title: "安全组"}],
+      categories: [
+        {id: 0, title: "前端开发组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png"},
+        {id: 1, title: "后端开发组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/java.png"},
+        {id: 2, title: "python组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/python.png"},
+        {id: 3, title: "游戏组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E6%B8%B8%E6%88%8F.png"},
+        {id: 4, title: "安全组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%AE%89%E5%85%A8.png"},
+        {id: 5, title: "算法组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png"}],
     };
   }
 

@@ -3,13 +3,15 @@ import { fromJS } from "immutable";
 
 const defaultState = fromJS({
   currentTitle: '',
-  currentColor: "#ffffff"
+  currentColor: "#ffffff",
+  iconURL: ""
 });
 
 const setCurrentTitle = (state, action) => {
   return state.merge({
     currentTitle: action.current,
-    currentColor: action.color
+    currentColor: action.color,
+    iconURL: action.iconURL
   })
 };
 
