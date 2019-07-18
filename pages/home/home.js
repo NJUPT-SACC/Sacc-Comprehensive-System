@@ -1,14 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import store from './store';
+import './styles/reset.less'
+import Navigation from './components/Navigation'
+import Logo from './components/Logo'
+import List from './components/List'
+import GroupList from './components/GroupList'
+import Footer from './components/Footer'
 
 class Home extends React.Component{
 	
 	render(){
 		return (
             <div>
-                Home
+                <Navigation />
+                <Logo />
+                <List />
+                <GroupList />
+                <Footer />
             </div>
 		);
 	}
