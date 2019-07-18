@@ -3,7 +3,14 @@ import { fromJS } from "immutable";
 
 const defaultState = fromJS({
   show:'导入题目',
-  fromTableList:[],
+  fromTableList:[{
+    "id": "无",
+    "Name": "无",
+    "type": "无",
+    "Content": "无",
+    "Score": '无',
+    "Grade":'无'
+  }],
   fromTableItem:{}
 });
 

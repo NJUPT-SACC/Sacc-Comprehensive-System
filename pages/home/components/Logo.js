@@ -4,6 +4,10 @@ import { Icon } from 'antd';
 import { LOGO_URL } from '../store/constants';
 
 class Logo extends React.Component{
+  scrollToAnchor = (anchorName) => {
+    let anchorElement = document.getElementById(anchorName);
+    anchorElement.scrollIntoView({block: 'start', behavior: 'smooth'});
+  }
   render(){
     return (
       <div className="logo">
@@ -11,7 +15,9 @@ class Logo extends React.Component{
           <img src={ LOGO_URL }></img>
           <button>Learn More</button>
         </div>
-        <Icon type="down" />
+        <a onClick={() => this.scrollToAnchor('list')}>
+          <Icon type="down"/>
+        </a> 
       </div>
     )
   }

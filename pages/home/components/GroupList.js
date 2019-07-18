@@ -8,14 +8,14 @@ class GroupList extends React.Component{
     return (
       <div className="Group-list">
         <div className="Group-list-title">
-          <p id="Group-list-title">技术组分类</p>
-          <p id="Group-list-dec">DEDSSFSDFSDFSDFSDF</p>
+          <p id="Group-list-title">SACC技术部门</p>
+          <p id="Group-list-dec">基于南京邮电大学计软网安院科协</p>
         </div>
         <div className="Group-list-items">
           <ul>
             {
               GroupListItems.map(item => 
-              <li>
+              <li key={item.id}>
                 <div className="imgBox">
                   <img src={item.IconUrl}></img>
                 </div>
