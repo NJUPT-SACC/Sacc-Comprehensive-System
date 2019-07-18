@@ -1,35 +1,45 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import store from './store';
-import './styles/reset.less'
-import Navigation from './components/Navigation'
-import Logo from './components/Logo'
-import List from './components/List'
-import GroupList from './components/GroupList'
-import Footer from './components/Footer'
+import { actionCreators, store} from './store';
+import HomePage from './HomePage/HomePage';
+import PersonCenter from './PersonCenter/personCenter';
 
 class Home extends React.Component{
-	
 	render(){
 		return (
-            <div>
-                <Navigation />
-                <Logo />
-                <List />
-                <GroupList />
-                <Footer />
-            </div>
+      <div>
+        <ul>
+          <li onClick={(e) => {this.props.changeShow(e)}} className="homepages">
+            主页
+          </li>
+          <li onClick={(e) => {this.props.changeShow(e)}} className="person">
+            个人中心
+          </li>
+        </ul>
+          {(()=>{
+          switch(this.props.show){
+            case 'homepages':
+              return <HomePage content={this.props.show}/>
+            case 'person':	
+              return <PersonCenter content={this.props.show}/>
+          }
+          })()}
+      </div>
 		);
 	}
 }
 const mapStateToProps = (state) =>{
 	return {
-		
+		show: state.getIn(['home','show'])
 	}
 }
+
 const mapDispatchToProps = (dispatch) => {
 	return {
-
+		changeShow(e){
+			dispatch(actionCreators.changeShow(e.target.className))
+		}
 	}
 }
+
 export default connect(mapStateToProps,mapDispatchToProps)(Home);

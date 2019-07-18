@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/list.less';
-import { listItems } from '../store/constants';
+import '../less/list.less';
+import { listItems } from '../../store/constants';
 import { Row, Col } from 'antd';
 
 class List extends React.Component{

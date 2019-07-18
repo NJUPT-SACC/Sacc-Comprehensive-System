@@ -1,0 +1,59 @@
+body{
+  background: #eee
+}
+.head{
+  width: 60vw;
+  margin: 0 20vw;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  padding: 1vh 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.personHeadLeft{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.personHeadLeft .imgBox{
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  overflow: hidden;
+  background-color: red;
+  border-radius: 50%;
+}
+.personHeadLeft .imgBox img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 0;
+}
+.personHeadLeft .des{
+  width: 88%;
+  padding-left: 24px;
+  line-height: 2;
+}
+.personHeadLeft .des p{
+  color: #ccc;
+  font-size: 1rem;
+  
+}
+.personHeadRight button{
+  padding: .5rem 2rem;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #25bb9b;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.personHeadRight button:hover{
+  background-color: #22ae90;
+}

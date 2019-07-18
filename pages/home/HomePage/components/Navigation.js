@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/navigation.less'
+import '../less/navigation.less'
 
 class Navigation extends React.Component{
   render(){
@@ -13,7 +13,7 @@ class Navigation extends React.Component{
             <li>导航一</li>
             <li>导航二</li>
             <li>导航三</li>
-            <li>导航四</li>
+            <li>个人中心</li>
           </ul>
         </div>
       </div>

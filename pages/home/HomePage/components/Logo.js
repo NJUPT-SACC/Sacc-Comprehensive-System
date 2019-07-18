@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/logo.less';
+import '../less/logo.less';
 import { Icon } from 'antd';
-import { LOGO_URL } from '../store/constants';
+import { LOGO_URL } from '../../store/constants';
 
 class Logo extends React.Component{
   scrollToAnchor = (anchorName) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/footer.less';
+import '../less/footer.less';
 import { BackTop } from 'antd';
 
 class Footer extends React.Component{

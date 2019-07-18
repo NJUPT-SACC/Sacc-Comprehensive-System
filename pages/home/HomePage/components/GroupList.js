@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/GroupList.less';
-import { GroupListItems } from '../store/constants';
+import '../less/GroupList.less';
+import { GroupListItems } from '../../store/constants';
 
 class GroupList extends React.Component{
 
