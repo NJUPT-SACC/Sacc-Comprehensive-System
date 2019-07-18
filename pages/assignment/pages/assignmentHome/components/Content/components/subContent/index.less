@@ -26,7 +26,7 @@
     .categories{
       display: inline-block;
       transform: translateY(15px);
-      transition: all .3s ease-in-out;
+      transition: transform, opacity .3s ease-in-out;
       animation: .8s stepIn;
       animation-fill-mode: forwards;
       opacity: 0;
@@ -48,6 +48,10 @@
       animation-fill-mode: forwards;
       opacity: 0;
       filter: brightness(1.12);
+      cursor: pointer;
+      &:hover{
+        filter: brightness(.95);
+      }
     }
   }
 

@@ -1,4 +1,4 @@
-@n_prisms:          5;
+@n_prisms:          6;
 @base:              3rem;
 @base_angle:        360deg / @n_prisms;
 @radius:            3.5 * @base;
@@ -58,6 +58,10 @@ html {
   background-color: rgba(0, 191, 255, .3);
   box-shadow: 0 0 250px rgba(0, 191, 255, 1);
 }
+.positioner:nth-of-type(6)  .prism__face {
+  background-color: rgba(250,178,123, .3);
+  box-shadow: 0 0 250px rgba(250,178,123, .3);
+}
 .assembly {
   transform: rotateX(-90deg);
   cursor: pointer;
@@ -104,6 +108,9 @@ html {
   }
   &:nth-of-type(5) {
     transform: rotateY(5 * @base_angle) translateZ(@radius);
+  }
+  &:nth-of-type(6) {
+    transform: rotateY(6 * @base_angle) translateZ(@radius);
   }
 }
 
@@ -160,6 +167,9 @@ html {
     }
     &:nth-of-type(5) {
       transform: rotateY(5 * @base_angle) translateZ(@radius) scale3d(1.25, 1.25, 1.25);
+    }
+    &:nth-of-type(6) {
+      transform: rotateY(6 * @base_angle) translateZ(@radius) scale3d(1.25, 1.25, 1.25);
     }
   }
 }

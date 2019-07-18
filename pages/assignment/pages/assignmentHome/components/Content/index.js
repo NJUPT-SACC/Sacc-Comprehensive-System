@@ -1,6 +1,6 @@
 import React from 'react'
-import Prism from '../../prism.js';
-import '../../style/prism.css'
+import Prism from '../../../../prism.js';
+import '../../../../style/prism.css'
 // 样式
 import './index.less'
 // 页面
