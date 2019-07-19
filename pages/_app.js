@@ -9,6 +9,10 @@ import createStore from '../store';
 import './index.less'
 
 class MyApp extends App {
+  static async getInitialProps({pageProps}) {
+    console.log(pageProps)
+    return { pageProps };
+  }
 
   render() {
     const { Component, pageProps, store } = this.props;
