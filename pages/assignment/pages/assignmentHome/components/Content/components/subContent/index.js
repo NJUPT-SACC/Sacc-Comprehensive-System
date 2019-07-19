@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Router from 'next/router'
 
 // 样式
 import './index.less'
@@ -8,10 +9,18 @@ class SubContent extends React.Component {
 
   constructor (props) {
     super (props);
+
   }
 
+  navigateTo (path) {
+    if (true) { /* 登录验证判断 */
+      Router.push({
+        pathname: '/assignment/coding',
+        query: { type: path }
+      })
+    }
+  }
   render () {
-
     return (
       <div className="sub-content">
         <div className="title">
@@ -29,14 +38,15 @@ class SubContent extends React.Component {
             {this.props.currentTitle}
           </span>
           {
-              this.props.currentTitle === '' ? '' :
-                <span
+            this.props.currentTitle === '' ? '' :
+              <span
+                  onClick={() => {this.navigateTo(this.props.currentEnglish)}}
                   key={this.props.currentColor}
                   className="start__coding"
                   style={{backgroundColor: this.props.currentColor, boxShadow: `0 0 800px ${this.props.currentColor}`}}
                 >
-                  Start Coding
-                </span>
+                Start Coding
+              </span>
           }
         </div>
       </div>
@@ -46,7 +56,8 @@ class SubContent extends React.Component {
 
 const mapStateToProps = (state) => ({
   currentTitle: state.getIn(["assignment", "currentTitle"]),
-  currentColor: state.getIn(["assignment", "currentColor"])
+  currentColor: state.getIn(["assignment", "currentColor"]),
+  currentEnglish: state.getIn(["assignment", "english"]),
 });
 
 const mapDispatchToProps = () => ({

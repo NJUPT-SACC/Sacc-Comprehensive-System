@@ -15,6 +15,7 @@ class CubeItem  extends React.Component{
 
   transformMatrix (e) {
     const { title } = e.target.parentNode.parentNode;
+    const { english } = this.props;
     const currentColor = window.getComputedStyle(ReactDOM.findDOMNode(e.target)).getPropertyValue("background-color");
     const assembly = e.target.parentNode.parentNode.parentNode;
     Array.from(assembly.children).map(item => {
@@ -23,7 +24,7 @@ class CubeItem  extends React.Component{
       }
     });
     e.target.parentNode.parentNode.classList.add("active");
-    this.props.transformMatrix(title, currentColor)
+    this.props.transformMatrix(title, currentColor, english)
   }
 
   render() {
@@ -52,18 +53,18 @@ class Cube extends React.Component {
     super(props);
     this.state = {
       categories: [
-        {id: 0, title: "前端开发组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png"},
-        {id: 1, title: "后端开发组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/java.png"},
-        {id: 2, title: "python组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/python.png"},
-        {id: 3, title: "游戏组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E6%B8%B8%E6%88%8F.png"},
-        {id: 4, title: "安全组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%AE%89%E5%85%A8.png"},
-        {id: 5, title: "算法组", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png"}],
+        {id: 0, title: "前端开发组", english: "front_end_development", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png"},
+        {id: 1, title: "后端开发组", english: "back_end_development", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/java.png"},
+        {id: 2, title: "python组", english: "python", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/python.png"},
+        {id: 3, title: "游戏组", english: "game", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E6%B8%B8%E6%88%8F.png"},
+        {id: 4, title: "安全组", english: "security", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%AE%89%E5%85%A8.png"},
+        {id: 5, title: "算法组", english: "algorithm", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png"}],
     };
   }
 
   render () {
     return (
-      <div className="container">
+      <div className="assignment_container">
         <div className="assembly">
           {
             this.state.categories.map(item => {
@@ -71,7 +72,8 @@ class Cube extends React.Component {
                 <CubeItem
                   key={item.title}
                   catename={item.title}
-                  transformMatrix={(e, color) => {this.props.transformCube(e, color)}}
+                  english={item.english}
+                  transformMatrix={(e, color, english) => {this.props.transformCube(e, color, english)}}
                 />
               )
             })
@@ -83,8 +85,8 @@ class Cube extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  transformCube (title, color) {
-    dispatch(actionCreators.onSetCurrentTitle(title, color));
+  transformCube (title, color, english) {
+    dispatch(actionCreators.onSetCurrentTitle(title, color, english));
   }
 });
 export default connect(null, mapDispatchToProps)(Cube)
