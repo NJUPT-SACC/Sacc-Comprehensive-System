@@ -3,7 +3,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper'
 import Head from 'next/head';
-
 import createStore from '../store';
 
 import './index.less'
@@ -14,6 +13,7 @@ class MyApp extends App {
     return { pageProps };
   }
 
+  
   render() {
     const { Component, pageProps, store } = this.props;
     return (
