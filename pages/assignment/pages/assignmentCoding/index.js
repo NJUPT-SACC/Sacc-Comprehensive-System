@@ -1,26 +1,25 @@
 import React from 'react'
+import Util from '../../utli/utli'
+
+const utli = new Util();
 
 class AssignmentCoding extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      param: ""
+    }
   }
-
-  componentWillReceiveProps(nextProps, nextContext) {
-    console.log(nextProps,nextContext)
-  }
-
-  static async getInitialProps(context) {
-    console.log(context);
-    const { type } = context.query;
-    return type
-  }
-
   componentDidMount() {
-    // console.log(this.$route.params.type);
-
+    this.setState({
+      param: utli.getUrlParam("type")
+    })
   }
 
   render () {
+    if (this.state.param) {
+      console.log(this.state.param);
+    }
     return (
       <div className="assignment_coding" >12312312321</div>
     )
