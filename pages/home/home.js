@@ -22,6 +22,8 @@ class Home extends React.Component{
               return <HomePage content={this.props.show}/>
             case 'person':	
               return <PersonCenter content={this.props.show}/>
+            default:
+              return false;
           }
           })()}
       </div>

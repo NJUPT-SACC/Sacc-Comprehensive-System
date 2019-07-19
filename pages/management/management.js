@@ -23,7 +23,6 @@ class Management extends React.Component{
 		return (
             <Layout style={{height:'100vh'}}>
 				<Header className="header">
-				<div className="logo" />
 				</Header>
 				<Layout>
 				<Sider width={200} style={{ background: '#fff' }}>
