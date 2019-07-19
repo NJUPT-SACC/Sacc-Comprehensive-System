@@ -22,10 +22,6 @@ class Management extends React.Component{
 		console.log(this.props.show)
 		return (
             <Layout style={{height:'100vh'}}>
-				<Head>
-					<title>SACC of Integrated system</title>
-					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				</Head>
 				<Header className="header">
 				<div className="logo" />
 				</Header>
