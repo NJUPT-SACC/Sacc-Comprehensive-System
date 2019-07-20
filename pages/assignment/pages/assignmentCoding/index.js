@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router';
 
 class AssignmentCoding extends React.Component {
   constructor(props){
@@ -7,12 +8,6 @@ class AssignmentCoding extends React.Component {
 
   componentWillReceiveProps(nextProps, nextContext) {
     console.log(nextProps,nextContext)
-  }
-
-  static async getInitialProps(context) {
-    console.log(context);
-    const { type } = context.query;
-    return type
   }
 
   componentDidMount() {
