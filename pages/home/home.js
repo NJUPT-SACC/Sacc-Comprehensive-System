@@ -8,37 +8,21 @@ class Home extends React.Component{
 	render(){
 		return (
       <div>
-        <ul>
-          <li onClick={(e) => {this.props.changeShow(e)}} className="homepages">
-            主页
-          </li>
-          <li onClick={(e) => {this.props.changeShow(e)}} className="person">
-            个人中心
-          </li>
-        </ul>
-          {(()=>{
-          switch(this.props.show){
-            case 'homepages':
-              return <HomePage content={this.props.show}/>
-            case 'person':	
-              return <PersonCenter content={this.props.show}/>
-          }
-          })()}
+        <HomePage />
+        <PersonCenter />
       </div>
 		);
 	}
 }
 const mapStateToProps = (state) =>{
 	return {
-		show: state.getIn(['home','show'])
+		
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		changeShow(e){
-			dispatch(actionCreators.changeShow(e.target.className))
-		}
+		
 	}
 }
 

@@ -6,7 +6,7 @@ class Footer extends React.Component{
 
   render(){
     return (
-      <footer>
+      <footer className="Homefooter">
         <span>©2019 SACC All Rights Reserved</span>
         <BackTop />
       </footer>

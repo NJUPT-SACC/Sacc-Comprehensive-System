@@ -1,48 +1,51 @@
 body{
   background: #eee
 }
-.head{
+.PChead{
   width: 60vw;
   margin: 0 20vw;
   background-color: #fff;
   border: 1px solid #e0e0e0;
   border-radius: 3px;
-  padding: 1vh 1vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .personHeadLeft{
-  width: 80%;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 1vw;
 }
-.personHeadLeft .imgBox{
+.personHeadLeft .PCimgBox{
   display: inline-block;
   width: 70px;
   height: 70px;
   position: relative;
   overflow: hidden;
-  background-color: red;
-  border-radius: 50%;
+
 }
-.personHeadLeft .imgBox img{
+.personHeadLeft .PCimgBox img{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   padding: 0;
+  width: 100%;
+  border-radius: 50%;
 }
-.personHeadLeft .des{
+.personHeadLeft .PCDes{
   width: 88%;
   padding-left: 24px;
   line-height: 2;
 }
-.personHeadLeft .des p{
+.personHeadLeft .PCDes p{
   color: #ccc;
   font-size: 1rem;
-  
+}
+.personHeadRight{
+  padding: 0 1vw;
 }
 .personHeadRight button{
   padding: .5rem 2rem;
@@ -56,4 +59,9 @@ body{
 }
 .personHeadRight button:hover{
   background-color: #22ae90;
+}
+.PCgreenSlide{
+  background: #25bb9b;
+  width: 1.5%;
+  height: 10vh;
 }
