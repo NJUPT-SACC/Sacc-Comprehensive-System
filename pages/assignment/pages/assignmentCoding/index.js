@@ -13,7 +13,8 @@ class AssignmentCoding extends React.Component {
   componentDidMount() {
     this.setState({
       param: utli.getUrlParam("type")
-    })
+    });
+
   }
 
   render () {
@@ -21,10 +22,10 @@ class AssignmentCoding extends React.Component {
       console.log(this.state.param);
     }
     return (
-      <div className="assignment_coding" >12312312321</div>
+      <div className="assignment_coding">
+        <Editor />
+      </div>
     )
   }
 }
-
-
 export default AssignmentCoding

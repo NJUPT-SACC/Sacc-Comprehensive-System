@@ -1,9 +1,14 @@
 const withLess = require('@zeit/next-less');
 const withCSS = require('@zeit/next-css');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const path = require('path');
+const APP_DIR = path.resolve(__dirname, './pages');
+const MONACO_DIR = path.resolve(__dirname, './node_modules/monaco-editor');
 
 module.exports = withCSS(withLess({
   webpack(config, options) {
-    config.module.rules.push({
+    config.module.rules.push(
+      {
       test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
       use: {
         loader: 'url-loader',
