@@ -15,7 +15,7 @@ class SubContent extends React.Component {
   navigateTo (path) {
     if (true) { /* 登录验证判断 */
       Router.push({
-        pathname: '/assignment/coding',
+        pathname: `/assignment/coding`,
         query: { type: path }
       })
     }

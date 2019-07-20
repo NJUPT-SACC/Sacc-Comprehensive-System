@@ -29,8 +29,7 @@ class ManagementList extends React.Component{
                     minHeight:'auto'
                 }}
                 >
-                <ManagementListTable/>
-                
+                {this.props.show=='导入题目'?<ManagementListRadio />:<ManagementListTable />}
                 </Content>
             </Layout>
         )
@@ -38,7 +37,7 @@ class ManagementList extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-		
+		show: state.getIn(['management','show'])
 	}
 }
 const mapDispatchToProps = (dispatch) => {
