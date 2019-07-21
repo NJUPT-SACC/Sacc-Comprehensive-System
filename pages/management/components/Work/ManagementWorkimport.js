@@ -45,7 +45,7 @@ const treeData = [
 
   const { SHOW_PARENT } = TreeSelect;
 
-class ManagemenGameimport extends React.Component{
+class ManagemenWorkimport extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -97,14 +97,15 @@ class ManagemenGameimport extends React.Component{
         }
         else
             this.setState({ current:1,error:'' });
-        if(this.state.fromTable.Place=='')
+        if(this.state.fromTable.type=='')
         {
+            console.log(this.state.fromTable.type)
             this.setState({ current:1,error:'error' });
             return;
         }
         else
             this.setState({ current:2,error:'' });
-        if(this.state.fromTable.Time=='')
+        if(this.state.fromTable.isCheckbos=='')
         {
             this.setState({ current:2,error:'error' });
             return;
@@ -118,13 +119,23 @@ class ManagemenGameimport extends React.Component{
         }
         else
             this.setState({ current:4,error:'' });
-        if(this.state.fromTable.List=='')
+        let Aflag=false,Sflag=true;
+        this.state.fromTable.answers.map((item) => {if(item) Aflag=true});
+        this.state.fromTable.Selects.map((item) => {if(!item) Sflag=false});
+        if(!Aflag&&!Sflag)
         {
             this.setState({ current:4,error:'error' });
             return;
         }
         else
             this.setState({ current:5,error:'' });
+        if(this.state.fromTable.Score=='')
+        {
+            this.setState({ current:5,error:'error' });
+            return;
+        }
+        else
+            this.setState({ current:6,error:'success' });
     };
 
     onChange = value => {
@@ -156,23 +167,23 @@ class ManagemenGameimport extends React.Component{
         return (
             <div>
                 <Steps current={current} status={this.state.error}>
-                    <Step title="Step 1" description="比赛名称." />
-                    <Step title="Step 2" description="比赛地点." />
-                    <Step title="Step 3" description="比赛时间." />
+                    <Step title="Step 1" description="练习名称." />
+                    <Step title="Step 2" description="练习地点." />
+                    <Step title="Step 3" description="练习时间." />
                     <Step title="Step 4" description="注意事项." />
                     <Step title="Step 5" description="题目列表." />
                 </Steps>
                 <Divider />
                 <Form {...formItemLayout}>
-                    <Form.Item label="比赛名称" hasFeedback>
-                        <Input placeholder="请输入比赛名称" onChange={this.changeName} value={this.state.fromTable.Name} onBlur={this.onCheck}/>
+                    <Form.Item label="练习名称" hasFeedback>
+                        <Input placeholder="请输入练习名称" onChange={this.changeName} value={this.state.fromTable.Name} onBlur={this.onCheck}/>
                     </Form.Item>
-                    <Form.Item label="比赛地点" hasFeedback>
-                        <Input placeholder="请输入比赛地点" onChange={this.changePlace} value={this.state.fromTable.Place} onBlur={this.onCheck}/>
+                    <Form.Item label="练习地点" hasFeedback>
+                        <Input placeholder="请输入练习地点" onChange={this.changePlace} value={this.state.fromTable.Place} onBlur={this.onCheck}/>
                     </Form.Item>
-                    <Form.Item label="比赛时间" hasFeedback>
-                        <InputNumber min={2019} max={2040} defaultValue={2019}/>年<InputNumber min={1} max={12} defaultValue={8}/>月<InputNumber min={1} max={31} defaultValue={8}/>日
-                        <TimePicker />~<TimePicker />
+                    <Form.Item label="练习时间" hasFeedback>
+                    <InputNumber min={2019} max={2040} defaultValue={2019} style={{width:85}}/>年<InputNumber min={1} max={12} style={{width:55}}/>月<InputNumber min={1} max={31} style={{width:55}}/>日
+                        <TimePicker />~<InputNumber min={2019} max={2040} defaultValue={2019} style={{width:85}}/>年<InputNumber min={1} max={12} style={{width:55}}/>月<InputNumber min={1} max={31} style={{width:55}}/>日<TimePicker />
                     </Form.Item>
                     <Form.Item label="注意事项" hasFeedback>
                         <TextArea rows={4} onChange={this.changeContent} value={this.state.fromTable.Content}  onBlur={this.onCheck}/>
@@ -195,4 +206,4 @@ const mapDispatchToProps = (dispatch) => {
 
 	}
 }
-export default connect(mapStateToProps,mapDispatchToProps)(ManagemenGameimport);
+export default connect(mapStateToProps,mapDispatchToProps)(ManagemenWorkimport);

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Layout, Breadcrumb, Select, Form, Switch, Icon, Checkbox, Input, Button, Slider, Steps, Divider} from 'antd';
+import { Layout, Breadcrumb } from 'antd';
 
-import ManagementListRadio from '../components/ManagementListImport';
-import ManagementListTable from '../components/ManagementListTable';
+import ManagementListRadio from '../components/List/ManagementListImport';
+import ManagementListTable from '../components/List/ManagementListTable';
 
 class ManagementList extends React.Component{
     constructor(props){

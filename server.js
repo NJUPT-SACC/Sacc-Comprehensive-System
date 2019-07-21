@@ -18,7 +18,6 @@ app.prepare()
   server.get('/assignment', (req, res) => {
     const actualPage = '/assignment/assignment'
     const queryParams = 'assignment'
-    console.log(req)
     app.render(req, res, actualPage, queryParams)
   })
 
