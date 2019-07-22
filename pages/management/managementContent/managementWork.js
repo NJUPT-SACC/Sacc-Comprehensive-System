@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Layout, Breadcrumb } from 'antd';
 
+import ManagementWorkimport from '../components/ManagementWorkimport'
+
 class ManagementWork extends React.Component{
     constructor(props){
         super(props);
@@ -12,7 +14,8 @@ class ManagementWork extends React.Component{
         return (
             <Layout style={{ padding: '0 24px 24px' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>个人中心</Breadcrumb.Item>
+                <Breadcrumb.Item>练习系统</Breadcrumb.Item>
+                <Breadcrumb.Item>{this.props.content}</Breadcrumb.Item>
                 </Breadcrumb>
                 <Content
                 style={{
@@ -22,7 +25,7 @@ class ManagementWork extends React.Component{
                     minHeight: 280,
                 }}
                 >
-                {this.props.content}
+                <ManagementWorkimport/>
                 </Content>
             </Layout>
         )

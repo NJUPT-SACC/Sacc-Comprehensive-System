@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import { actionCreators, store} from './store';
-import Head from 'next/head';
 
 import './less/management.less'; 
 
@@ -13,21 +12,22 @@ import ManagementGame from './managementContent/managementGame';
 import ManagementList from './managementContent/managementList';
 
 class Management extends React.Component{
+	static async getInitialProps({ req }) {
+		console.log(req)
+		return req;
+	  }
+
 	constructor(props){
 		super(props);
 	}
+
 	render(){
 		const { SubMenu } = Menu;
 		const { Header, Content, Sider } = Layout;
-		console.log(this.props.show)
+		console.log(this.req)
 		return (
             <Layout style={{height:'100vh'}}>
-				<Head>
-					<title>SACC of Integrated system</title>
-					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				</Head>
 				<Header className="header">
-				<div className="logo" />
 				</Header>
 				<Layout>
 				<Sider width={200} style={{ background: '#fff' }}>

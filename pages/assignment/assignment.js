@@ -17,7 +17,6 @@ class Assignment extends React.Component{
 		return (
       <div className="assignment-wrapper">
         <AssignmentHome />
-        <AssignmentCoding />
       </div>
 		);
 	}

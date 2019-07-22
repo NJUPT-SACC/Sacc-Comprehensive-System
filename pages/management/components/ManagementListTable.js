@@ -120,7 +120,6 @@ class ManagementListTable extends React.Component{
                 onCancel={this.handleCancel}
                 >
                     <h2>{this.props.fromTableItem.Content}</h2>
-                    <ul>{this.props.fromTableItem.Selects.map((item)=> <li>{item}</li>)}</ul>
                     <p>Some contents...</p>
                 </Modal>
             </div>

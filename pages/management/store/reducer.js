@@ -2,7 +2,7 @@ import * as constants from './constants';
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
-  show:'导入题目',
+  show:'个人中心',
   fromTableList:[{
     "id": "无",
     "Name": "无",
@@ -11,7 +11,27 @@ const defaultState = fromJS({
     "Score": '无',
     "Grade":'无'
   }],
-  fromTableItem:{}
+  fromTableItem:{
+    "id": "0",
+    "Name": "无",
+    "type": "无",
+    "Content": "无",
+    "Selects": [
+      "无",
+      "无",
+      "无",
+      "无"
+    ],
+    "isCheckbos": false,
+    "answers": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "Score": "无",
+    "Grade": 0
+  }
 });
 
 export default (state = defaultState, action) => {

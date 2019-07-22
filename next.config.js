@@ -14,6 +14,16 @@ module.exports = withCSS(withLess({
     })
     return config
   },
+  useFileSystemPublicRoutes: false,
+  exportPathMap: function(defaultPathMap) {
+    return {
+      '/': { page: '/home/home', query: { title: 'home' }  },
+      '/management': { page: '/management/management', query: { title: 'management' }  },
+      '/assignment': { page: '/assignment/assignment', query: { title: 'assignment' }  },
+      '/competition': { page: '/competition/competition', query: { title: 'competition' }  }
+    }
+  },
+  generateEtags: false,
   distDir: 'build',
   generateBuildId: async () => {
     return 'my-build-id'

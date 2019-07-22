@@ -46,12 +46,6 @@ class List extends React.Component{
             </Col>
             )
           }
-          {(()=>{
-            switch(this.props.show){
-              case 'person':	
-                return <PersonCenter content={this.props.show}/>
-            }
-          })()}
         </Row>
       </div>
     )

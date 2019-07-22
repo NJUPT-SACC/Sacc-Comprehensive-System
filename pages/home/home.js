@@ -8,15 +8,16 @@ class Home extends React.Component{
 	render(){
 		return (
       <div>
-        <HomePage />
-        <PersonCenter />
+        {
+          this.props.show == 'person'?<PersonCenter />:<HomePage />
+        }
       </div>
 		);
 	}
 }
 const mapStateToProps = (state) =>{
 	return {
-		
+		show:state.getIn(['home','show'])
 	}
 }
 
