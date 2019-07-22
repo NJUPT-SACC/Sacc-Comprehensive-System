@@ -4,11 +4,11 @@ import '../less/navigation.less'
 class Navigation extends React.Component{
   render(){
     return (
-      <div className="navigation">
-        <div className="navigation-left fl">
+      <div className="Homenavigation">
+        <div className="Homenavigation-left fl">
           <span>SACC</span>
         </div>
-        <div className="navigation-right fr">
+        <div className="Homenavigation-right fr">
           <ul>
             <li>导航一</li>
             <li>导航二</li>

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import store from '../store';
 import Head from './components/head'
+import SlideBar from './components/slideBar'
 
 class PersonCenter extends React.Component{
 	
@@ -9,6 +10,7 @@ class PersonCenter extends React.Component{
 		return (
             <div>
                 <Head />
+                <SlideBar />
             </div>
 		);
 	}

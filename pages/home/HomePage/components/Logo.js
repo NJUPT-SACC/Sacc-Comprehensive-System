@@ -14,8 +14,8 @@ class Logo extends React.Component{
   }
   render(){
     return (
-      <div className="logo">
-        <div className="container">
+      <div className="Homelogo">
+        <div className="Homecontainer">
           <img src={ LOGO_URL }></img>
           <button>Learn More</button>
         </div>
