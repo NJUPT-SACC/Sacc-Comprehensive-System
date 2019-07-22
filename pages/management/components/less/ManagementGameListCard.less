@@ -1,0 +1,55 @@
+.ManagementGameListCard-Content{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(199, 188, 191, .5);
+    height: 15rem;
+    margin: .4rem;
+    flex-basis:19rem;
+    position: relative;
+    animation: ManagementGameListCard-animation 1s;
+    .ManagementGameListCard-title{
+        font-size: 1.2rem;
+        height: 3rem;
+        text-align: center;
+        margin:auto;
+        display: flex;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: rgba(199, 188, 191, .5);
+        span{
+            margin:auto;
+        }
+    }
+    .ManagementGameListCard-container{
+        padding: .5rem;
+        font-size: 1.1rem;
+        position: relative;
+        height: 12rem;
+        .ManagementGameListCard-icon{
+            display: inline-block;
+            position: absolute;
+            bottom: 3px;
+            right: 3px;
+            .ManagementGameListCard-iconitem{
+                font-size:16px;
+                cursor: pointer;
+                margin: 5px;
+                :hover{
+                    opacity: .8;
+                }
+            }
+        }
+    }
+}
+
+@keyframes ManagementGameListCard-animation{
+    0%{
+        transform: scale(0,0);
+    }
+    70%{
+        transform: scale(1.02,1.02);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}

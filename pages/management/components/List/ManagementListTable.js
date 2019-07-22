@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal, Table, Divider, Tag, Icon} from 'antd';
-import { actionCreators } from '../store'
+import { actionCreators } from '../../store'
 
 
   
