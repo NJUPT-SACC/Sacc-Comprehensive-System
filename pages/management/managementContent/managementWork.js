@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Layout, Breadcrumb } from 'antd';
 
-import ManagementWorkimport from '../components/ManagementWorkimport'
+import ManagementWorkimport from '../components/Work/ManagementWorkimport'
 
 class ManagementWork extends React.Component{
     constructor(props){

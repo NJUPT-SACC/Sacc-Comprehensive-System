@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Layout, Breadcrumb } from 'antd';
 
-import ManagementGameimport from '../components/ManagementGameimport'
+import ManagementGameimport from '../components/Game/ManagementGameimport'
+import ManagementGameList from '../components/Game/ManagementGameList'
 
 class ManagementGame extends React.Component{
     constructor(props){
@@ -25,7 +26,7 @@ class ManagementGame extends React.Component{
                     minHeight:'auto'
                 }}
                 >
-                <ManagementGameimport/>
+                {this.props.show=='举办比赛'?<ManagementGameimport/>:<ManagementGameList/>}
                 </Content>
             </Layout>
         )
@@ -33,7 +34,7 @@ class ManagementGame extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-		
+		show: state.getIn(['management','show'])
 	}
 }
 const mapDispatchToProps = (dispatch) => {

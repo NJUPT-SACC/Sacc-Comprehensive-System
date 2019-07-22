@@ -2,15 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1d21403-6dac-4ee0-a91f-98a7a8f238d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/components/editor/editor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/components/editor/editor.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/components/editor/theme/ace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sacc-Comprehensive-System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sacc-Comprehensive-System.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/home/PersonCenter/components/slideBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/home/PersonCenter/less/slidebar.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/management/components/Game/ManagementGameList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/management/components/Game/ManagementGameListCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/management/components/less/ManagementGameListCard.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/components/GroupList.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/components/GroupList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/components/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/components/List.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/components/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/components/Logo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/components/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/components/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/less/GroupList.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/less/GroupList.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/less/footer.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/less/footer.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/less/list.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/less/list.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/less/logo.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/less/logo.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/HomePage/less/navigation.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/HomePage/less/navigation.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/PersonCenter/components/head.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/PersonCenter/components/head.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/PersonCenter/less/head.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/PersonCenter/less/head.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/PersonCenter/personCenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/PersonCenter/personCenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/store/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/store/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/management/components/ManagementGameimport.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/management/components/Game/ManagementGameimport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/management/components/ManagementListImport.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/management/components/List/ManagementListImport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/management/components/ManagementListTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/management/components/List/ManagementListTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/management/components/ManagementWorkimport.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/management/components/Work/ManagementWorkimport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/management/management.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/management/management.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/management/managementContent/managementGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/management/managementContent/managementGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/management/managementContent/managementList.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/management/managementContent/managementList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/management/managementContent/managementWork.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/management/managementContent/managementWork.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/components/editor/editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="390">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -39,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/pages/components/editor/editor.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
-              <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="9" selection-end-column="3" />
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -98,7 +122,6 @@
         <option value="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/index.less" />
         <option value="$PROJECT_DIR$/pages/components/editor.less" />
         <option value="$PROJECT_DIR$/pages/components/editor.js" />
-        <option value="$PROJECT_DIR$/next.config.js" />
         <option value="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/index.js" />
         <option value="$PROJECT_DIR$/pages/components/editor/theme/ace.json" />
         <option value="$PROJECT_DIR$/pages/components/editor/theme/ace.js" />
@@ -107,6 +130,7 @@
         <option value="$PROJECT_DIR$/node_modules/monaco-themes/themes/Sacc.json" />
         <option value="$PROJECT_DIR$/pages/components/editor/editor.js" />
         <option value="$PROJECT_DIR$/pages/components/editor/editor.less" />
+        <option value="$PROJECT_DIR$/next.config.js" />
       </list>
     </option>
   </component>
@@ -131,31 +155,6 @@
             <path>
               <item name="Sacc-Comprehensive-System" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sacc-Comprehensive-System" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sacc-Comprehensive-System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sacc-Comprehensive-System" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sacc-Comprehensive-System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sacc-Comprehensive-System" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="monaco-themes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sacc-Comprehensive-System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sacc-Comprehensive-System" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="monaco-themes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sacc-Comprehensive-System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sacc-Comprehensive-System" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="monaco-themes" type="462c0819:PsiDirectoryNode" />
-              <item name="themes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sacc-Comprehensive-System" type="b2602c69:ProjectViewProjectNode" />
@@ -232,12 +231,12 @@
       <updated>1562573428820</updated>
       <workItem from="1562573430330" duration="3752000" />
       <workItem from="1563694498961" duration="1410000" />
-      <workItem from="1563767360819" duration="20171000" />
+      <workItem from="1563767360819" duration="20476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25333000" />
+    <option name="totallyTimeSpent" value="25638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -402,13 +401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/next.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/monaco-editor/esm/vs/platform/files/common/files.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -520,18 +512,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/components/editor/editor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="390">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/next.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="42" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/components/editor/editor.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="7" column="2" lean-forward="true" selection-start-line="7" selection-start-column="2" selection-end-line="9" selection-end-column="3" />
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>

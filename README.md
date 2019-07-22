@@ -16,8 +16,8 @@ yarn start
 一般情况下，提交 GIT 时的注释可以分成几类，可以用几个动词开始：
 - Added ( 新加入的需求 )
 - Fixed ( 修复 bug )
-- Changed ( 完成的任务 )
-- Updated ( 完成的任务，或者由于第三方模块变化而做的变化 )
+- Changed ( 修改的任务 )
+- Updated ( 更新的任务，或者由于第三方模块变化而做的变化 )
 尽量将注释缩减为一句话，不要包含详细的内容。
 ## 使用依赖
 本次开发采用的是React+Redux+Router，有不同的是加入了Nextjs来完成服务端渲染，Nextjs和React有啥不同我就不赘述了。
