@@ -106,7 +106,7 @@ const mapStateToProps = (state) =>{
 	}
 }
 const mapDispatchToProps = (dispatch) => {
-	-return 
+	return{ 
 		changeShow(e){
 			dispatch(actionCreators.changeShow(e.item.props.children[1]))
 		}

@@ -25,8 +25,8 @@ export default class ManagementGameList extends React.Component{
                         <Col><div>比赛地点: <span>计算机学科楼101</span></div></Col>
                     </Row>
                     <div className='ManagementGameListCard-icon'>
-                        <span className='ManagementGameListCard-iconitem'><Icon type="home" theme="filled" /></span>
-                        <span className='ManagementGameListCard-iconitem'><Icon type="edit" theme="filled" /></span>
+                        <span className='ManagementGameListCard-iconitem'><Icon type="home" theme="filled"/></span>
+                        <span className='ManagementGameListCard-iconitem'><Icon type="edit" theme="filled" onClick={this.props.showDrawer}/></span>
                         <span className='ManagementGameListCard-iconitem'><Icon type="setting" theme="filled" /></span>
                     </div>
                 </div>
