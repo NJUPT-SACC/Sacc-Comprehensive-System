@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import store from '../store';
-import './less/reset.less'
+import './less/scroll.less'
 import Navigation from './components/Navigation'
 import Logo from './components/Logo'
 import List from './components/List'
@@ -12,7 +12,7 @@ class HomePage extends React.Component{
 	
 	render(){
 		return (
-            <div>
+            <div className="HomePage">
                 <Navigation />
                 <Logo />
                 <List />

@@ -6,6 +6,7 @@
   "author": "wwqin <245432372@qq.com>",
   "license": "MIT",
   "dependencies": {
+    "@antv/data-set": "^0.10.2",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
     "antd": "^3.20.0",
@@ -30,7 +31,8 @@
     "redux-thunk": "^2.3.0",
     "style-loader": "^0.23.1",
     "styled-jsx": "^3.2.1",
-    "url-loader": "^2.0.1"
+    "url-loader": "^2.0.1",
+    "viser-react": "^2.4.6"
   },
   "scripts": {
     "dev": "node server.js",

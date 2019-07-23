@@ -2,11 +2,15 @@
     border-style: solid;
     border-width: 1px;
     border-color: rgba(199, 188, 191, .5);
+    background: linear-gradient(#F2F2EF,#EDE9E4);
+    border-radius: 10px;
     height: 15rem;
     margin: .4rem;
     flex-basis:19rem;
     position: relative;
     animation: ManagementGameListCard-animation 1s;
+    box-shadow: #c3c3c3 9px 9px 10px 0px;
+    transition: all .2s;
     .ManagementGameListCard-title{
         font-size: 1.2rem;
         height: 3rem;
@@ -42,6 +46,10 @@
     }
 }
 
+.ManagementGameListCard-Content:hover{
+    transform: scale(1.02,1.02);
+    box-shadow: #c3c3c3 3px 3px 10px 0px;
+}
 @keyframes ManagementGameListCard-animation{
     0%{
         transform: scale(0,0);
