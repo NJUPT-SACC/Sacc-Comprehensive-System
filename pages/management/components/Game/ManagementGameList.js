@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Drawer, Descriptions } from 'antd';
+import { Drawer, Descriptions, Input, Divider } from 'antd';
 
 import ManagementGameListCard from "./ManagementGameListCard";
+
+const { Search } = Input;
 
 class ManagementGameList extends React.Component{
     constructor(props){
@@ -25,22 +27,24 @@ class ManagementGameList extends React.Component{
     render(){
         return (
             <div style={{display:'flex',flex:'auto',flexWrap:'wrap'}}>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
-                <ManagementGameListCard showDrawer={this.showDrawer}/>
+                <Search placeholder="请输入搜索内容" onSearch={value => console.log(value)} enterButton/>
+                <Divider />
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='已结束'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='正在进行'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='已结束'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='未进行'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='未进行'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='已结束'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='正在进行'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='已结束'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='正在进行'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='已结束'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='未进行'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='已结束'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='正在进行'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='正在进行'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='已结束'/>
+                <ManagementGameListCard showDrawer={this.showDrawer} gameId='23' did='已结束'/>
                 <Drawer
                 width={640}
                 placement="right"

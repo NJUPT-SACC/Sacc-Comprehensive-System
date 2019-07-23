@@ -43,7 +43,7 @@ const treeData = [
     },
   ];
 
-  const { SHOW_PARENT } = TreeSelect;
+const { SHOW_PARENT } = TreeSelect;
 
 class ManagemenGameimport extends React.Component{
     constructor(props){

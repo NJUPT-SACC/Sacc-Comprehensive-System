@@ -4,6 +4,7 @@ import { Layout, Breadcrumb } from 'antd';
 
 import ManagementGameimport from '../components/Game/ManagementGameimport'
 import ManagementGameList from '../components/Game/ManagementGameList'
+import ManagementGameDetails from '../components/Game/ManagementGameDetails'
 
 class ManagementGame extends React.Component{
     constructor(props){
@@ -14,10 +15,17 @@ class ManagementGame extends React.Component{
 		const { Content } = Layout;
         return (
             <Layout style={{ padding: '0 24px 24px' }}>
+                {this.props.show=='比赛详情'?
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>比赛系统</Breadcrumb.Item>
-                <Breadcrumb.Item>{this.props.content}</Breadcrumb.Item>
+                    <Breadcrumb.Item>比赛系统</Breadcrumb.Item>
+                    <Breadcrumb.Item>比赛列表</Breadcrumb.Item>
+                    <Breadcrumb.Item>比赛详情</Breadcrumb.Item>
                 </Breadcrumb>
+                :<Breadcrumb style={{ margin: '16px 0' }}>
+                    <Breadcrumb.Item>比赛系统</Breadcrumb.Item>
+                    <Breadcrumb.Item>{this.props.content}</Breadcrumb.Item>
+                </Breadcrumb>}
+                
                 <Content
                 style={{
                     background: '#fff',
@@ -26,7 +34,7 @@ class ManagementGame extends React.Component{
                     minHeight:'auto'
                 }}
                 >
-                {this.props.show=='举办比赛'?<ManagementGameimport/>:<ManagementGameList/>}
+                {this.props.show=='举办比赛'?<ManagementGameimport/>:this.props.show=='比赛列表'?<ManagementGameList/>:<ManagementGameDetails/>}
                 </Content>
             </Layout>
         )

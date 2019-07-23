@@ -37,7 +37,6 @@ class Management extends React.Component{
 					defaultOpenKeys={['0']}
 					style={{ height: '100%', borderRight: 0 }}
 					>
-						<Menu.Item key="0" onClick={this.props.changeShow}><Icon type="user" />个人中心</Menu.Item>
 					<SubMenu
 						key="sub1"
 						title={
@@ -76,11 +75,12 @@ class Management extends React.Component{
 						<Menu.Item key="7" onClick={this.props.changeShow}><Icon type="form" />导入题目</Menu.Item>
 						<Menu.Item key="8" onClick={this.props.changeShow}><Icon type="ordered-list" />题目列表</Menu.Item>
 					</SubMenu>
+					<Menu.Item key="0" onClick={this.props.changeShow}><Icon type="user" />操作日志</Menu.Item>
 					</Menu>
 				</Sider>
 				{(()=>{
 					switch(this.props.show){
-						case '个人中心':
+						case '操作日志':
 							return <ManagementHome content={this.props.show}/>
 						case '发布练习':
 						case '练习列表':
@@ -88,7 +88,8 @@ class Management extends React.Component{
 							return <ManagementWork content={this.props.show}/>
 						case '举办比赛':
 						case '比赛列表':
-						case '成绩查询':		
+						case '成绩查询':
+						case '比赛详情':		
 							return <ManagementGame content={this.props.show}/>
 						case '题目列表':
 						case '导入题目':	

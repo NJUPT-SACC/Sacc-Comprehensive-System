@@ -12,7 +12,7 @@ class ManagementHome extends React.Component{
         return (
             <Layout style={{ padding: '0 24px 24px' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>个人中心</Breadcrumb.Item>
+                <Breadcrumb.Item>操作日志</Breadcrumb.Item>
                 </Breadcrumb>
                 <Content
                 style={{
