@@ -2,7 +2,8 @@ import * as constants from './constants';
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
-  show:'个人中心',
+  show:'操作日志',
+  showId:0,
   fromTableList:[{
     "id": "无",
     "Name": "无",
@@ -37,7 +38,7 @@ const defaultState = fromJS({
 export default (state = defaultState, action) => {
   switch(action.type){
     case constants.MANAGEMENT_CHANGE_SHOW:
-      return state.set('show',action.show);
+      return state.merge({show:action.show,showId:action.id});
     case constants.MANAGEMENT_SHOW_LIST:
       return state.set('fromTableList',action.fromTableList);
     case constants.MANAGEMENT_SHOW_ITEM:
