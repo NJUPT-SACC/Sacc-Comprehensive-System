@@ -60,8 +60,4 @@ const mapStateToProps = (state) => ({
   currentEnglish: state.getIn(["assignment", "english"]),
 });
 
-const mapDispatchToProps = () => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SubContent)
+export default connect(mapStateToProps, null)(SubContent)

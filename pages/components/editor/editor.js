@@ -1,6 +1,5 @@
 import React from 'react'
 import './editor.less'
-import { ace } from './theme/ace'
 let monaco;
 
 if (typeof window !== 'undefined') {
@@ -16,17 +15,17 @@ class MonacoEditor extends React.Component {
 
   constructor (props) {
     super (props);
-    console.log(props);
   }
 
   componentDidMount() {
-    console.log(monaco);
     this.monacoEditor = monaco.editor.create(this._editor, {
       value: `/* edit your code below this line */`,
-      language: this.props.language,
+      language: this.props.language || "",
       automaticLayout: this.props.automaticLayout || false,
       autoIndent: this.props.autoIndent || false,
-      fontSize: this.props.fontSize || 14
+      fontSize: this.props.fontSize || 14,
+      scrollBeyondLastLine: this.props.scrollBeyondLastLine || false,
+      scrollbar: this.props.scrollbar
     });
   }
 
