@@ -1,13 +1,29 @@
 import React from 'react';
 import '../less/head.less';
+import { Avatar } from 'antd';
+
+const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
+const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
+
 
 class Head extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: UserList[0],
+      color: colorList[0],
+    };
+  }
+
   render(){
     return (
       <div className="PChead">
         <div className="PCgreenSlide"></div>
         <div className="personHeadLeft">
-          <div className="PCimgBox"><img src="http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png"></img></div>
+        <Avatar style={{ backgroundColor: this.state.color, verticalAlign: 'middle' }} size="large">
+          {this.state.user}
+        </Avatar>
           <div className="PCDes">
             <p>ouu21456897123</p>
             <span>前端组</span>

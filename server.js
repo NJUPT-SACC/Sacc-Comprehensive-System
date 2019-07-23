@@ -14,7 +14,13 @@ app.prepare()
     const queryParams = 'home'
     app.render(req, res, actualPage, queryParams)
   })
-  
+
+  server.get('/personcenter', (req, res) => {
+    const actualPage = '/home/PersonCenter/personCenter'
+    const queryParams = 'personcenter'
+    app.render(req, res, actualPage, queryParams)
+  })
+
   server.get('/assignment', (req, res) => {
     const actualPage = '/assignment/assignment'
     const queryParams = 'assignment'
