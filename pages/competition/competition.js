@@ -2,14 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import store from './store';
+import { Layout, Menu } from 'antd';
 
+import Navigation from '../home/HomePage/components/Navigation'
+import CompetitionMain from './competitionContent/CompetitionMain'
+
+const { Header, Content, Footer } = Layout;
 class Competition extends React.Component{
 	
 	render(){
 		return (
-            <div>
-                Competition
-            </div>
+			<Layout className="layout">
+				<div style={{backgroundColor:'#000'}}><Navigation/></div>
+				<CompetitionMain/>
+		</Layout>	
 		);
 	}
 }
