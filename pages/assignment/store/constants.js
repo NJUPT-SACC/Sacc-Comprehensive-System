@@ -1,5 +1,6 @@
-export const SET_CURRENT_TITLE = "assignments/set_current_title";
-export const GET_QUESTION_DISC = "assignment/get_question_disc";
+export const SET_CURRENT_TITLE = "assignments: set_current_title";
+export const GET_QUESTION_DISC = "assignment: get_question_disc";
+export const GET_QUESTION_LIST = 'assignment: get_question_list';
 export const categories = [
   {id: 0, title: "前端开发组", lang: ["html", "css", "javascript"], english: "front_end_development", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png"},
   {id: 1, title: "后端开发组", lang: ["java"], english: "back_end_development", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/java.png"},

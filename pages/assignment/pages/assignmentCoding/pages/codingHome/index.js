@@ -1,11 +1,18 @@
 import React from 'react'
-import Navigation from "../../../../../home/HomePage/components/Navigation";
+
+import CodingHomeHeader from '../components/Header'
+import CodingQuestionList from './questionList'
+
+import './index.less'
 
 class Home extends React.Component {
   render() {
     return (
-      <div>
-        <Navigation />
+      <div className="coding_home_container">
+        <CodingHomeHeader />
+        <div className="question_list_container">
+          <CodingQuestionList />
+        </div>
       </div>
     )
   }

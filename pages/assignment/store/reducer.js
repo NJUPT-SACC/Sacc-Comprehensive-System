@@ -5,7 +5,8 @@ const defaultState = fromJS({
   currentTitle: '',
   currentColor: "#ffffff",
   english: "",
-  questions: []
+  questions: [],
+  questionList: []
 });
 
 const setCurrentTitle = (state, action) => {
@@ -14,6 +15,10 @@ const setCurrentTitle = (state, action) => {
     currentColor: action.color,
     english: action.english
   })
+};
+
+const getQuestionList = (state, action) => {
+  return state.set("questionList", action.questionList)
 };
 
 const getQuestions = (state, action) => {
@@ -27,6 +32,8 @@ export default (state = defaultState, action) => {
       return setCurrentTitle(state, action);
     case constants.GET_QUESTION_DISC:
       return getQuestions(state, action);
+    case constants.GET_QUESTION_LIST:
+        return getQuestionList(state, action);
     default:
       return state;
   }
