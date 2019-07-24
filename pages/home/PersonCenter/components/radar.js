@@ -1,7 +1,6 @@
 import React from 'react';
 const DataSet = require('@antv/data-set');
 let ViserComponent;
-import '../less/radar.less'
 import { Button, Menu, Dropdown, Icon } from 'antd';
 
 if (typeof window !== 'undefined') {
@@ -86,15 +85,22 @@ export default class Radar extends React.Component {
             </Button>
           </Dropdown>
         </div>
-      {typeof window !== 'undefined'?<ViserComponent.Chart forceFit height={400} data={data} padding={[50, 50, 50, 50]} scale={scale}>
-        <ViserComponent.Tooltip />
-        <ViserComponent.Axis {...axis1Opts} />
-        <ViserComponent.Axis {...axis2Opts} />
-        <ViserComponent.Coord {...coordOpts} />
-        <ViserComponent.Line position="item*score" color="user" size={2} />
-        <ViserComponent.Point position="item*score" color="user" size={4} shape="circle"/>
-        <ViserComponent.Area position="item*score" color="user"/>
-      </ViserComponent.Chart>:''}
+        <div className="radarContent" style={{paddingBottom: '400px', height: 0, overflow: 'hidden'}}>
+          {
+            typeof window !== 'undefined' ? 
+              <ViserComponent.Chart forceFit height={400} data={data} padding={[50, 50, 50, 50]} scale={scale}>
+                <ViserComponent.Tooltip />
+                <ViserComponent.Axis {...axis1Opts} />
+                <ViserComponent.Axis {...axis2Opts} />
+                <ViserComponent.Coord {...coordOpts} />
+                <ViserComponent.Line position="item*score" color="user" size={2} />
+                <ViserComponent.Point position="item*score" color="user" size={4} shape="circle"/>
+                <ViserComponent.Area position="item*score" color="user"/>
+              </ViserComponent.Chart>
+            :''
+          }
+        </div>
+      
       </div>
     );
   }

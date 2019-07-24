@@ -1,6 +1,7 @@
 import React from 'react';
-import Item from 'antd/lib/list/Item';
 import '../less/slidebar.less';
+import { connect } from 'react-redux';
+import { actionCreators, store} from '../../store';
 
 const slideBarList = [
   {
@@ -15,18 +16,23 @@ const slideBarList = [
   },
   {
     IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    itemName: '技能树',
+    itemName: '技能雷达',
     id: 2
   },
   {
     IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    itemName: '基本资料',
+    itemName: '技能栈',
     id: 3
   },
   {
     IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    itemName: '设置',
+    itemName: '基本资料',
     id: 4
+  },
+  {
+    IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
+    itemName: '设置',
+    id: 5
   }
 ]
 
@@ -37,7 +43,7 @@ class SlideBar extends React.Component{
         <ul>
           {
             slideBarList.map(item => 
-              <li key={item.id}>
+              <li key={item.id} onClick={this.props.changeShow}>
                 <div className="SlideBarLeft">
                   <img src={item.IconUrl}></img>
                   <span>{item.itemName}</span>  
@@ -53,5 +59,16 @@ class SlideBar extends React.Component{
     )
   }
 }
-
-export default SlideBar
+const mapStateToProps = (state) =>{
+	return {
+		show: state.getIn(['home','show'])
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+    changeShow(e){
+      dispatch(actionCreators.changeShow(e.target.innerText))
+    }
+	}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(SlideBar);
