@@ -13,11 +13,15 @@ class HomePage extends React.Component{
 	render(){
 		return (
             <div className="HomePage">
-                <Navigation />
+              <div className="HomeNav">
+                <Navigation />                
+              </div>
                 <Logo />
                 <List />
                 <GroupList />
-                <Footer />
+                <div className="HomeFoot">
+                  <Footer />
+                </div>
             </div>
 		);
 	}

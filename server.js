@@ -9,7 +9,7 @@ app.prepare()
 .then(() => {
   const server = express()
 
-  server.get('/', (req, res) => {
+  server.get('/home', (req, res) => {
     const actualPage = '/home/home'
     const queryParams = 'home'
     app.render(req, res, actualPage, queryParams)
