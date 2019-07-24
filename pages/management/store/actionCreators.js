@@ -19,7 +19,7 @@ const showItem = (fromTableItem) => ({
 
 export const receiveList = () => {
   return (dispatch) =>{
-    axios('https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/testlist')
+    axios('https://www.easy-mock.com/mock/5d38436e11c41657e4bcd7e4/_copy/getQuerstions')
     .then(res => {
       dispatch(showList(res.data.data))
     })
@@ -31,7 +31,7 @@ export const receiveList = () => {
 
 export const receiveItem = () => {
     return (dispatch) => {
-        axios('https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/testitem')
+        axios('https://www.easy-mock.com/mock/5d38436e11c41657e4bcd7e4/_copy/getQuestion')
         .then(res => {
             console.log(res.data.data)
             dispatch(showItem(res.data.data))
