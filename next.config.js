@@ -1,6 +1,7 @@
 const withLess = require('@zeit/next-less');
 const withCSS = require('@zeit/next-css');
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+const path = require("path");
 
 module.exports = withCSS(withLess({
   webpack(config, options) {
