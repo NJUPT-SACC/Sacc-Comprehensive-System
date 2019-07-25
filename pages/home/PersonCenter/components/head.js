@@ -31,7 +31,6 @@ class Head extends React.Component{
           </div>
         </div>
         <div className="personHeadRight">
-          <button>编辑</button>
           <button>打卡</button>
         </div>
     </div>

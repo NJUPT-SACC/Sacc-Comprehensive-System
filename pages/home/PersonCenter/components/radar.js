@@ -8,7 +8,7 @@ if (typeof window !== 'undefined') {
 }
 
 function handleMenuClick(e) {
-  console.log('click', e);
+
 }
 
 

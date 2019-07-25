@@ -6,7 +6,6 @@ import { LOGO_URL } from '../../store/constants';
 class Logo extends React.Component{
   constructor(props){
     super(props);
-    console.log(Logo)
   }
   scrollToAnchor = (anchorName) => {
     let anchorElement = document.getElementById(anchorName);

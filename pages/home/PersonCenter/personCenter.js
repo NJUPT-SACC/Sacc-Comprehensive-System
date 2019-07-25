@@ -7,6 +7,10 @@ import Foot from '../HomePage/components/Footer';
 import SlideBar from './components/slideBar';
 import PcHome from './components/PcHome';
 import { actionCreators, store} from '../store';
+import CountPieChart from './components/countPieChart';
+import TechnologyStackList from './components/TechnologyStackList';
+import Radar from './components/radar';
+import BasicInformation from './components/BasicInformation'
 class PersonCenter extends React.Component{
 	
 	render(){
@@ -23,9 +27,11 @@ class PersonCenter extends React.Component{
                   case '首页':
                     return <PcHome  content={this.props.show}/>
                   case '刷题':
-                  case '技能雷达':
-                  case '技能栈':
-                  case '基本资料':		
+                    return <CountPieChart content={this.props.show}/>
+                  case '技术栈':
+                      return <TechnologyStackList content={this.props.show}/>
+                  case '基本资料':	
+                      return <BasicInformation content={this.props.show}/>	
                   case '设置':	
                   }
                 })()}
