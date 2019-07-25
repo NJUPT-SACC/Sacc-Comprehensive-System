@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from '../../../../../store'
 import Pagination from "./components/pagination";
+import Loading from "../../../../../../components/loading";
 
 import './index.less'
 
@@ -21,6 +22,10 @@ class List extends React.Component {
       for (let i = (currentPage - 1) * 10; i < currentPage * 10; i++) {
         pageList.push(questionList[i]);
       }
+    } else {
+      return (
+        <div className="loading">加载中，请稍后</div>
+      )
     }
     return (
       pageList.map(item => {
@@ -37,6 +42,11 @@ class List extends React.Component {
               >{item.difficulty}</span>
               <span>{item.type}</span>
               <span></span>
+              {
+                item.finish ?
+                  <span className="iconfont">&#xe6ae;</span>
+                  : ''
+              }
             </div>
           )
         }
