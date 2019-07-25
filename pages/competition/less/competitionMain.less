@@ -1,28 +1,73 @@
 .CompetitionMain-content{
   background: linear-gradient(-150deg, #222222 15%, #373737 70%, #3c4859 94%);
-  height: 93vh;
-  position: relative;
-  img{
+  height: 100vh;
+  width: 100%;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  z-index: 0;
+  .CompetitionMain-main{
     position: absolute;
     transform: translate(-50%,-50%);
-    left: 50%;
-    top: 30%;
-    width: 10%;
+    left: 35%;
+    top: 55%;
+    height: 80vh;
+    width: 55vw;
   }
-  .CompetitionMain-content-title{
+  .CompetitionMain-title{
     position: absolute;
-    transform: translateX(-50%);
+    width: 20vw;
+    height: 40vh;
+    transform: translate(-50%,-50%);
     left: 50%;
-    color: #fff;
-    font-size: 48px;
-    top: 42%;
+    top: 50%;
+    transition: all 1s;
+    img{
+      position: relative;
+      margin-left:6vw;
+      width: 8vw;
+    }
+    .CompetitionMain-content-head{
+      position: relative;
+      color: #fff;
+      font-size: 48px;
+      text-align: center;
+    }
+    .CompetitionMain-content-text{
+      position: relative;
+      color: rgb(117, 116, 116);
+      font-size: 16px;
+      text-align: center;
+    }
+    .CompetitionMain-content-button{
+      border-style: solid;
+      border-color: transparent;
+      border-width: 1px;
+      border-radius: 6px;
+      display: inline-block;
+      width: 10vw;
+      margin-left: 5vw;
+      color: #fff;
+      font-size: 28px;
+      text-align: center;
+      cursor: pointer;
+      background-color: #2d8cf0;
+      margin-top: 2vh;
+    }
   }
-  .CompetitionMain-content-text{
-    position: absolute;
-    transform: translateX(-50%);
-    left: 50%;
-    color: rgb(117, 116, 116);
-    font-size: 16px;
-    top: 52%;
-  }
+}
+
+.CompetitionMain-content-button:hover{
+  opacity: .9;
+  transform: scale(1.02,1.02)
+}
+
+.CompetitionMain-rank{
+  width: 20vw;
+  height: 65vh;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  right: 0%;
+  top: 65%;
 }

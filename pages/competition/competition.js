@@ -13,7 +13,7 @@ class Competition extends React.Component{
 	render(){
 		return (
 			<Layout className="layout">
-				<div style={{backgroundColor:'#000'}}><Navigation/></div>
+				<div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
 				<CompetitionMain/>
 		</Layout>	
 		);
