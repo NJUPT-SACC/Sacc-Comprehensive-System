@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { Icon, Table} from 'antd';
+import { Icon, Table, Avatar} from 'antd';
 
 import './less/CompetitionRank.less'
 
@@ -11,20 +11,18 @@ class CompetitionRank extends React.Component{
 	render(){
     const columns = [
       {
-        title: '比赛名称',
+        title: '名称',
         dataIndex: 'name',
         key: 'name',
-        render: text => <a href="javascript:;">{text}</a>,
+        render: text => <a href="javascript:;">
+          <Avatar style={{ verticalAlign: 'middle' }} size="large">
+          {text[0]}
+      </Avatar>&nbsp;&nbsp;{text}</a>,
       },
       {
-        title: '地点',
-        dataIndex: 'place',
-        key: 'place',
-      },
-      {
-        title: '时间',
-        dataIndex: 'startTime',
-        key: 'startTime',
+        title: '成绩',
+        dataIndex: 'grade',
+        key: 'grade',
       },
       {
         title: '',
@@ -37,51 +35,37 @@ class CompetitionRank extends React.Component{
       }
     ];
     const data = [{
-      id: 1,
-      name: '计算机基础知识大赛',
-      startTime: '2019 7 25 18:00:00',
-      endtime: '2019 7 25 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }, {
-      id: 2,
-      name: '计算机知识大赛',
-      startTime: '2019 7 24 18:00:00',
-      endtime: '2019 7 24 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }, {
-      id: 3,
-      name: '计算机基础大赛',
-      startTime: '2019 7 26 18:00:00',
-      endtime: '2019 7 26 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
+      name:'张三',
+      avatar:'Z',
+      grade:9
     },{
-      id: 1,
-      name: '计算机基础知识大赛',
-      startTime: '2019 7 25 18:00:00',
-      endtime: '2019 7 25 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }, {
-      id: 2,
-      name: '计算机知识大赛',
-      startTime: '2019 7 24 18:00:00',
-      endtime: '2019 7 24 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }, {
-      id: 3,
-      name: '计算机基础大赛',
-      startTime: '2019 7 26 18:00:00',
-      endtime: '2019 7 26 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
+      name:'李四',
+      avatar:'L',
+      grade:7
+    },{
+      name:'王五',
+      avatar:'W',
+      grade:7
+    },{
+      name:'Alex',
+      avatar:'A',
+      grade:5
+    },{
+      name:'Mike',
+      avatar:'M',
+      grade:5
+    },{
+      name:'BigBoss',
+      avatar:'B',
+      grade:4
+    },{
+      name:'小明',
+      avatar:'Z',
+      grade:3
     }]
     return (
 			<div className='CompetitionRank-content'>
-        <div className='CompetitionRank-title'>往期比赛回顾<div>> 我的比赛记录</div></div>
+        <div className='CompetitionRank-title'><Icon type="global" />&nbsp;&nbsp;排名</div>
         <div><Table columns={columns} dataSource={data} pagination={false}/></div>
 			</div>
 		);
