@@ -6,6 +6,7 @@ import Head from 'next/head';
 import createStore from '../store';
 
 import './index.less'
+import '../static/fonts/iconfont.css'
 
 class MyApp extends App {
   static async getInitialProps({pageProps}) {

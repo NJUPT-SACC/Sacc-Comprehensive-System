@@ -1,0 +1,32 @@
+.CompetitionCard-content{
+  border-radius: 20px;
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all .5s;
+  animation: CompetitionCard-in .8s;
+  opacity: 1;
+}
+.CompetitionCard-time{
+  position: absolute;
+  font-size: 14px;
+  bottom: 1vh;
+  left: .5vw;
+}
+
+.CompetitionCard-content:hover{
+  transform: scale(1.05);
+  box-shadow: #fff 0px 0px 15px 10px;
+}
+
+@keyframes CompetitionCard-in{
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
