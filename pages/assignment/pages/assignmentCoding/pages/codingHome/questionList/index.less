@@ -1,5 +1,5 @@
 .question_list {
-  position: absolute;
+  display: inline-block;
   .list_content {
     .list_table{
       .table_header_wrapper{
@@ -18,11 +18,18 @@
         }
       }
       .list_body_wrapper {
+        height: 0;
+        padding-bottom: 400px;
+        overflow: hidden;
         .list_row{
           padding: 8px 0;
           border-radius: 2px;
           &:nth-of-type(odd) {
             background-color: #fafafa;
+          }
+          &:last-of-type {
+            border-bottom: 1px solid #aaaaaa;
+            position: relative;
           }
           &:hover{
             background-color: #ecf0f1;
@@ -30,6 +37,13 @@
           span{
             margin: 0 22px;
             display: inline-block;
+            &.item_title{
+              transition: color .3s;
+              cursor: pointer;
+              &:hover{
+                color: #2F54EB;
+              }
+            }
             &:nth-of-type(1){
               width: 80px;
               margin: 0;
@@ -45,6 +59,13 @@
               border-radius: 16px;
               color: #ffffff;
             }
+          }
+        }
+        .void {
+          text-align: center;
+          line-height: 160px;
+          .iconfont {
+            font-size: 24px;
           }
         }
       }

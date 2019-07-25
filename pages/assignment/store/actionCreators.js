@@ -19,6 +19,16 @@ export const onSetCurrentTitle = (current, color, english) => ({
   english
 });
 
+export const setTotalPage = (totalPage) => ({
+  type: constants.SET_TOTAL_PAGE,
+  totalPage
+});
+
+export const changeCurrentPage = (currentPage) => ({
+  type: constants.CHANGE_CURRENT_PAGE,
+  currentPage
+});
+
 export const onGetQuestionDisc = (langArr) => {
   return (dispatch) => {
     axios.get('https://easy-mock.com/mock/5d2c1c823a04ad635d14cffc/getQuestion', langArr)
