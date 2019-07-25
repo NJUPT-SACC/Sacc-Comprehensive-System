@@ -7,10 +7,11 @@ import './less/CompetitionCard.less'
 
 class CompetitionCard extends React.Component{
 	
+	
 	render(){
     const mainStyle={
       background:'linear-gradient(#fffc43, #ffd479)',
-      height:'28vh',
+      height:'20vh',
       width:`${this.props.width}vw`
     }
 		return (
