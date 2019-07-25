@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { actionCreators, constants } from '../../../store'
+import { actionCreators, constants } from '../../../../../store'
 
 import './index.less'
 
@@ -15,7 +15,6 @@ class QuestionDisc extends React.Component {
     const langArr = constants.categories.filter(item => {
       return item.english === nextProps.param;
     });
-    console.log(langArr);
     this.setState({
       usageLang: typeof langArr[0].lang !== 'undefined' ? langArr[0].lang: []
     }, () => {
