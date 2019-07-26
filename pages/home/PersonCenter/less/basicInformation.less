@@ -2,20 +2,49 @@
   background: #fff;
   width: 44vw;
 }
-.BasicInformation dl dt{
+.BasicInformationCaption{
+  height: 10%;
+  border-bottom: 1px solid #ddd;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.BasicInformationCaption>p{
+  width: 80%;
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 2.8;
+}
+.BasicInformationCaption>button{
+  padding: .3rem 2rem;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #25bb9b;
+  border: none;
+  cursor: pointer;
+}
+.BasicInformationList{
+  margin-top: 2%;
+}
+.BasicInformationList>dl dt{
   float: left;
   width: 15%;
   text-align: right;
   line-height: 2.8;
 }
-.BasicInformation dl dd{
+.BasicInformationList>dl dd{
   margin-left:20%;
   line-height: 2.8;
   color: #999;
+  font-size: 1rem;
+  border: 1px solid transparent;
 }
-.BasicInformation dl dd>input{
+.BasicInformationList>dl dd>input{
   padding-left: 1%;
   border: 1px solid #ddd;
   width: 80%;
-  font-size: 1rem
+  color: #000;
 }
