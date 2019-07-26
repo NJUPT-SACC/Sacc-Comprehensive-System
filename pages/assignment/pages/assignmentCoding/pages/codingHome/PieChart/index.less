@@ -1,0 +1,28 @@
+.chart_container{
+  padding: 24px 0 24px 48px;
+  .iconfont{
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  .chart_title{
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .pieChart_content{
+    .progress_list{
+      display: flex;
+      flex-direction: row-reverse;
+      & > span{
+        margin-right: 16px;
+        &:nth-of-type(1){
+          order: 2;
+          color: #3aa1ff;
+        }
+        &:nth-of-type(2){
+          order: 1;
+          color: #36cbcb;
+        }
+      }
+    }
+  }
+}
