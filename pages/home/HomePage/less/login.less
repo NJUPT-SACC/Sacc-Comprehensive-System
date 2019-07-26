@@ -1,0 +1,124 @@
+.Home {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.HomeLogin {
+  width: 100%;
+}
+
+.HomeLoginCaption {
+  text-align: center;
+}
+
+.HomeLoginCaption>p {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+#beginBtn {
+  font-size: 1rem;
+  margin-top: 2%;
+  cursor: pointer;
+  background: #a271ff;
+  color: #fff;
+  line-height: 2.8;
+  padding: 0 111px;
+}
+
+.LoginInput {
+  position: relative;
+  animation: slideOut .8s forwards linear;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LoginInput>input {
+  margin-top: 2%;
+  padding-left: 1%;
+  font-size: 1rem;
+  line-height: 2.5;
+  background: #fff;
+  width: 306px;
+  display: inline-block;
+}
+
+.LoginInputActive {
+  background-color: rgb(232, 240, 254) !important;
+  background-image: none !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+#HomeLogin {
+  font-size: 1rem;
+  margin-top: 2%;
+  cursor: pointer;
+  animation: fadeIn .8s forwards ease-in-out;
+  line-height: 2.7;
+  padding: 0 136px;
+}
+.HomeLoginBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  margin: 0 auto;
+}
+.HomeLoginBox>p{
+  margin-bottom: 0;
+  width: 50%;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 5%;
+  cursor: pointer;
+}
+#LoginLabel{
+  border-bottom: 3px solid red;
+}
+.slick-list {
+  height: 100vh !important
+}
+
+.LoginNarrow {
+  animation: narrow 1s forwards cubic-bezier(0, -0.02, 1, 0);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(-100%)
+  }
+
+  100% {
+    transform: translateX(0)
+  }
+}
+
+@keyframes narrow {
+  0% {
+    transform: scale(1)
+  }
+
+  50% {
+    transform: scale(1.2)
+  }
+
+  100% {
+    transform: scale(0)
+  }
+}
