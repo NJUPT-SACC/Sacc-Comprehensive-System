@@ -1,8 +1,7 @@
 import React from 'react';
 import '../less/list.less';
-import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
-import Router from 'next/router'
+import Router from 'next/router';
 
 
 const listItems = [
@@ -15,7 +14,7 @@ const listItems = [
     routerUrl:'/competition'
   },
   {
-    IconUrl: 'https://zos.alipayobjects.com/rmsportal/xMSBjgxBhKfyMWX.png',
+    IconUrl: 'https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png',
     tag: 'ex',
     dec: 'xxxxxx',
     name: '练习系统',
@@ -37,18 +36,17 @@ class List extends React.Component{
   render(){
     return (
       <div className="Homelist" >
-        <p id="Homelist-title">系统入口</p>
-        <Row type="flex" justify="space-around" id="Homelist">
+        <ul>
           {
             listItems.map(item => 
-            <Col span={4} key={item.id}>
+            <li key={item.id}>
               <img className={item.tag} onClick={() => Router.push(`${item.routerUrl}`)} src={item.IconUrl}  ></img>
                 <p className={item.tag} onClick={() => Router.push(`${item.routerUrl}`)}>{item.name}</p>
                 <p className={item.tag} id="dec">{item.dec}</p>
-            </Col>
+            </li>
             )
           }
-        </Row>
+        </ul>
       </div>
     )
   }
