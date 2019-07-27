@@ -21,12 +21,20 @@ class CompetitionMain extends React.Component{
 		e.target.parentNode.style.top = '10%';
 		e.target.parentNode.style.left = '75%';
 		e.target.parentNode.style.transform = 'scale(.5) translate(-50%,-50%)';
-		setTimeout(()=>{
+		if(!this.state.ready){
+			setTimeout(()=>{
+				this.setState({
+					ready:true
+				})
+			},1000)
+		}else{
+			e.target.parentNode.style.top = '50%';
+			e.target.parentNode.style.left = '50%';
+			e.target.parentNode.style.transform = 'scale(1) translate(-50%,-50%)';
 			this.setState({
-				ready:true
+				ready:false
 			})
-		},1000)
-		console.log(e.target.parentNode.style)
+		}
 	}
 
 	render(){
@@ -37,7 +45,7 @@ class CompetitionMain extends React.Component{
 						<img src="https://static.leetcode-cn.com/cn-legacy-assets/images/LeetCode_Cup.png" alt="奖杯"/>
 						<div className='CompetitionMain-content-head'>竞赛系统</div>
 						<div className="CompetitionMain-content-text">快来参加每周排位赛，提升你的世界排名</div>
-						<div className='CompetitionMain-content-button' onClick={this.readyStart}>开始</div>
+						<div className='CompetitionMain-content-button' onClick={this.readyStart}>{this.state.ready?"关闭":"开始"}</div>
 					</div>
 					{this.state.ready?<div className="CompetitionMain-main">
 						<Row>
