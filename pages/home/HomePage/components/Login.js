@@ -11,8 +11,8 @@ class Login extends React.Component{
     this.state = {
       showInputBox:false,
       showSys:false,
-      userName:'',
-      Password:'',
+      userName:'admin',
+      Password:'123',
       targetLogin:''
     }
     this.LoginRef = React.createRef();
@@ -43,8 +43,6 @@ class Login extends React.Component{
 
   login = () =>{
     this.props.IfLogin(this.state.userName, this.state.Password)
-
-    if(this.props.loginStatus === 2000){
       this.LoginRef.current.classList.add("LoginNarrow");
       const self = this;
       setTimeout(function(){
@@ -52,8 +50,6 @@ class Login extends React.Component{
           showSys: true
         })
       }, 1100)
-    }
-
   }
 
   showLogin = (e) => {
@@ -68,7 +64,8 @@ class Login extends React.Component{
     return(
       <div className="Home">
       {
-        loginStatus === 2000 && this.state.showSys? <List /> :
+        loginStatus === 2000 && this.state.showSys? 
+        <List />:
         <div className="HomeLogin" ref={this.LoginRef}>
           <div className="HomeLoginCaption">
             { 
@@ -81,7 +78,7 @@ class Login extends React.Component{
               </div>
             : 
             <div>
-              <p>计软网安院科协比赛系统</p>
+              <p>SACC 比赛系统</p>
               <button onClick={this.changeShowButton} id="beginBtn">开始使用</button>
             </div>
             }

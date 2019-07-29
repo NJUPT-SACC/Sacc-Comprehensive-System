@@ -6,7 +6,7 @@ import Router from 'next/router';
 
 const listItems = [
   {
-    IconUrl: 'https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png',
+    IconUrl: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%A5%96%E6%9D%AF.png',
     tag: 'cm',
     dec: 'xxxxxx',
     name: '比赛系统',
@@ -14,7 +14,7 @@ const listItems = [
     routerUrl:'/competition'
   },
   {
-    IconUrl: 'https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png',
+    IconUrl: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%BB%83%E4%B9%A0%20%281%29.png',
     tag: 'ex',
     dec: 'xxxxxx',
     name: '练习系统',
@@ -22,7 +22,7 @@ const listItems = [
     routerUrl:'/assignment'
   },
   {
-    IconUrl: 'https://zos.alipayobjects.com/rmsportal/YPMsLQuCEXtuEkmXTTdk.png',
+    IconUrl: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%B0%8F%E4%BA%BA.png',
     tag: 'person',
     dec: 'xxxxxx',
     name: '个人中心',

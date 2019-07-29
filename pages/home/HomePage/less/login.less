@@ -25,11 +25,12 @@
   color: #fff;
   line-height: 2.8;
   padding: 0 111px;
+  border: none
 }
 
 .LoginInput {
   position: relative;
-  animation: slideOut .8s forwards linear;
+  animation: HomeslideOut .8s forwards linear;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,9 +41,10 @@
   padding-left: 1%;
   font-size: 1rem;
   line-height: 2.5;
-  background: #fff;
+  background: rgba(255,255,255,0.75);
   width: 306px;
   display: inline-block;
+  border: none;
 }
 
 .LoginInputActive {
@@ -57,39 +59,40 @@
   cursor: pointer;
   animation: fadeIn .8s forwards ease-in-out;
   line-height: 2.7;
-  padding: 0 136px;
-  background:#fff
+  padding: 0 146px;
+  background:rgba(255,255,255,0.75);
+  border: none
 }
 .HomeLoginBox{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 10%;
   margin: 0 auto;
+  color: rgba(255,255,255,0.75)
 }
 .HomeLoginBox>p{
   margin-bottom: 0;
-  width: 50%;
   text-align: center;
   font-size: 1.5rem;
-  margin-top: 5%;
   cursor: pointer;
 }
 .HomeLoginCaption p{
   margin-bottom: 0;
   text-align: center;
   font-size: 1.5rem;
-  color: #fff
+  color: rgba(255,255,255,0.75);
+  border: 3px solid transparent;
 }
 #LoginLabel{
-  border-bottom: 3px solid red;
+  border-bottom-color: aquamarine
 }
 .slick-list {
   height: 100vh !important
 }
 
 .LoginNarrow {
-  animation: narrow 1s forwards cubic-bezier(0, -0.02, 1, 0);
+  animation: Homenarrow 1s forwards cubic-bezier(0, -0.02, 1, 0);
 }
 
 @keyframes fadeIn {
@@ -106,7 +109,7 @@
   }
 }
 
-@keyframes slideOut {
+@keyframes HomeslideOut {
   0% {
     transform: translateX(-100%)
   }
@@ -116,7 +119,7 @@
   }
 }
 
-@keyframes narrow {
+@keyframes Homenarrow {
   0% {
     transform: scale(1)
   }
