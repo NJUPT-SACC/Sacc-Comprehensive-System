@@ -13,31 +13,37 @@ app.prepare()
     const actualPage = '/home/home'
     const queryParams = 'home'
     app.render(req, res, actualPage, queryParams)
-  })
+  });
 
   server.get('/personcenter', (req, res) => {
     const actualPage = '/home/PersonCenter/personCenter'
     const queryParams = 'personcenter'
     app.render(req, res, actualPage, queryParams)
-  })
+  });
 
   server.get('/assignment', (req, res) => {
     const actualPage = '/assignment/assignment'
     const queryParams = 'assignment'
     app.render(req, res, actualPage, queryParams)
-  })
+  });
 
   server.get('/assignment/coding', (req, res) => {
-    const actualPage = `/assignment/pages/assignmentCoding`;
+    const actualPage = `/assignment/pages/assignmentCoding/pages/codingHome`;
     const queryParams = 'assignmentCoding';
     app.render(req, res, actualPage, queryParams)
-  })
+  });
+
+  server.get('/assignment/question', (req, res) => {
+    const actualPage = `/assignment/pages/assignmentCoding/pages/codingDetail`;
+    const queryParams = 'codingDetail';
+    app.render(req, res, actualPage, queryParams)
+  });
 
   server.get('/competition', (req, res) => {
     const actualPage = '/competition/competition'
     const queryParams = 'competition'
     app.render(req, res, actualPage, queryParams)
-  })
+  });
 
   server.get('/management', (req, res) => {
     const actualPage = '/management/management'
