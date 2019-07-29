@@ -12,11 +12,10 @@ class Loading extends React.Component {
     var canvas = this.$_canvas;
     var ctx = canvas.getContext("2d");
     let timeS = 0,timeA1 = 0,timeA2 = 0,timeA3 = 0,timeC1 = 0,timeC2 = 0;
-    var wid=window.innerWidth*0.4;
-    var hei=window.innerHeight*0.4;
+    var wid=window.innerWidth*this.props.scale;
+    var hei=window.innerHeight*this.props.scale;
     canvas.style.width=wid+"px";
     canvas.style.height=hei+"px";
-    console.log(window)
     ctx.lineWidth = 20;
     ctx.strokeStyle = "#000";
     ctx.shadowBlur=10;
@@ -160,8 +159,12 @@ class Loading extends React.Component {
   }
 
   render() {
+    const style = {
+      width:`${this.props.width}vw`,
+      height:`${this.props.height}vh`
+    }
     return (
-      <div className="Loading_wrapper">
+      <div className="Loading_wrapper" style={style}>
         <canvas id="Loading-canvas" ref={ref => this.canvas = ref} width={1900} height={900}></canvas>
       </div>
     )
