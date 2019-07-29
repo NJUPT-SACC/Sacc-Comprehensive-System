@@ -35,4 +35,4 @@ const slideBarList = [
   }
 ]
 
-export const HOME_LOGIN = 'HOME_LOGIN';
+export const HOME_LOGIN = 'home: HOME_LOGIN';

@@ -6,7 +6,7 @@ class Footer extends React.Component{
 
   render(){
     return (
-      <footer className="Homefooter">
+      <footer className="PCfooter">
         <span>©2019 SACC All Rights Reserved</span>
         <BackTop />
       </footer>
@@ -15,7 +15,3 @@ class Footer extends React.Component{
 }
 
 export default Footer
-
-
-
-

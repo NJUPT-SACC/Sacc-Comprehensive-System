@@ -10,8 +10,8 @@ const module = [
     rightIcon: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png',
     rightPercent: '83%',
     wrongIcon: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png',
-    wrongPercent: '17%'
-
+    wrongPercent: '17%',
+    id:0
   },
   {
     moduleName: 'personCenter-practice',
@@ -21,7 +21,8 @@ const module = [
     rightIcon: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png',
     rightPercent: '83%',
     wrongIcon: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png',
-    wrongPercent: '17%'
+    wrongPercent: '17%',
+    id:1
   }
 ]
 class Count extends React.Component{
@@ -34,7 +35,7 @@ class Count extends React.Component{
         <div className="module">
           {
             module.map(item => 
-              <div className={item.moduleName}>
+              <div className={item.moduleName} key={item.id}>
               <div className="module-title">
                 <img className="module-icon" src={item.icon}></img>
                 <span>{item.moduleTitle}</span>

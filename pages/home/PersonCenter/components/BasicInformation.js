@@ -9,28 +9,36 @@ class BasicInformation extends React.Component{
       BasicInformationList: [
         {
           key: '昵称',
-          value: 'ouu'
+          value: 'ouu',
+          id: 0
         },{
           key:'姓名',
-          value: '张颖'
+          value: '张颖',
+          id: 1
         },{
           key: '学号',
-          value:'B18030406'
+          value:'B18030406',
+          id: 2
         },{
           key: '组别',
-          value: '前端组'
+          value: '前端组',
+          id: 3
         },{
           key: '邮箱',
-          value: '389746410@qq.com'
+          value: '389746410@qq.com',
+          id: 4
         },{
           key: '学院',
-          value: '计算机学院、软件学院、网络空间安全学院'
+          value: '计算机学院、软件学院、网络空间安全学院',
+          id: 5
         },{
           key: '专业',
-          value: '计算机科学与技术'
+          value: '计算机科学与技术',
+          id: 6
         },{
           key: '年级',
-          value: '大一'
+          value: '大一',
+          id: 7
         }
       ]
     }
@@ -65,7 +73,7 @@ class BasicInformation extends React.Component{
         <div className="BasicInformationList">
           {
             this.state.BasicInformationList.map(item =>
-              <dl>
+              <dl key={item.id}>
                 <dt>{item.key}</dt>
                 <dd>{this.state.flag? <input value={item.value} onChange={this.changeValue} name={item.key}/>:item.value}</dd>
               </dl>

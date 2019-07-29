@@ -39,7 +39,6 @@ class SlideBar extends React.Component{
     }
   }
   ChangeActiveColor(e, item){
-    console.log(item);
     this.setState({
       currentIndex: item.id
     })
@@ -75,9 +74,7 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = (dispatch) => {
 	return {
     changeShow(e){
-      console.log(e.target.innerText)
       dispatch(actionCreators.changeShow(e.target.innerText))
-
     }
 	}
 }

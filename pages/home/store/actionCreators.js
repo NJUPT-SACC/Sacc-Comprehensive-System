@@ -6,23 +6,23 @@ export const changeShow = (showClassName) => ({
   show: showClassName
 });
 
-const Iflogin = (loginStatus) => {
-  type: constants.HOME_LOGIN
+const Iflogin = (loginStatus) => ({
+  type: constants.HOME_LOGIN,
   loginStatus
-}
+});
 
-const Login = (username,password) =>{
-  return (dispath) =>{
+export const Login = (username,password) => {
+  return (dispatch) =>{
     axios.post("http://192.168.1.50:8080/admin/login",{
       username,
       password
     })
     .then(res => {
-      const LoginStatus = res.data.status;
-      dispath(Iflogin(LoginStatus));
-    })
-    .catch(err => {
+      console.log(res.data)
+      dispatch(Iflogin(res.data.status));
+    }).catch(err => {
       console.log(err)
     })
   }
 }
+

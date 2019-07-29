@@ -42,20 +42,18 @@ class Login extends React.Component{
   }
 
   login = () =>{
-
-    this.props.IfLogin(this.state.userName,this.state.Password)
-
-    console.log(this.props.loginStatus)
+    this.props.IfLogin(this.state.userName, this.state.Password)
 
     if(this.props.loginStatus === 2000){
       this.LoginRef.current.classList.add("LoginNarrow");
       const self = this;
       setTimeout(function(){
         self.setState({
-          showSys:true
+          showSys: true
         })
       }, 1100)
     }
+
   }
 
   showLogin = (e) => {
@@ -66,10 +64,11 @@ class Login extends React.Component{
   }
 
   render(){
+    const { loginStatus }  = this.props;
     return(
       <div className="Home">
       {
-        this.state.showSys ? <List /> :
+        loginStatus === 2000 && this.state.showSys? <List /> :
         <div className="HomeLogin" ref={this.LoginRef}>
           <div className="HomeLoginCaption">
             { 
@@ -90,28 +89,38 @@ class Login extends React.Component{
             {
               this.state.targetLogin == '登录'?                
               <div className="LoginInput">
-                <input type="text" placeholder="用户名" 
-                onChange={this.changeInputColor} 
-                value={this.state.userName} 
-                name="userName"
+                <input 
+                  type="text" 
+                  placeholder="用户名" 
+                  onChange={this.changeInputColor} 
+                  value={this.state.userName} 
+                  name="userName"
                 />
-                <input type="password" placeholder="密码" 
-                onChange={this.changeInputColor} 
-                value={this.state.Password} 
-                name="password"
+                <input 
+                  type="password" 
+                  placeholder="密码" 
+                  onChange={this.changeInputColor} 
+                  value={this.state.Password} 
+                  name="password"
                 />
                 <button id="HomeLogin" onClick={this.login}>登录</button>
               </div>
               :this.state.targetLogin == '注册'?
               <div className="re">
-                <input type="text" placeholder="用户名" 
-                onChange={this.changeInputColor} 
-                value={this.state.userName} 
-                name="userName"/>
-                <input type="password" placeholder="密码" 
-                onChange={this.changeInputColor} 
-                value={this.state.Password} 
-                name="password"/>
+                <input 
+                  type="text" 
+                  placeholder="用户名" 
+                  onChange={ this.changeInputColor } 
+                  value={ this.state.userName } 
+                  name="userName"
+                />
+                <input 
+                  type="password" 
+                  placeholder="密码" 
+                  onChange={this.changeInputColor} 
+                  value={this.state.Password} 
+                  name="password"
+                />
               </div>
               :''
             }

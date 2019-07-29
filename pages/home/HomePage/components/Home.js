@@ -1,7 +1,8 @@
 import React from 'react';
 import GroupList from './GroupList';
-import Login from './Login'
-import '../less/Home.less'
+import Login from './Login';
+import '../less/Home.less';
+import ParticleCanvas from './particle'
 class Home extends React.Component {
 
   constructor(props){
@@ -34,6 +35,7 @@ class Home extends React.Component {
   render() {
     return (
         <div className="HomeLoginPage">
+          <ParticleCanvas />
           <div ref={this.LoginRef}>
             <Login />
           </div>
