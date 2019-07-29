@@ -1,11 +1,16 @@
 /* 代码编辑页侧边栏样式 */
-.question_disc{
+.question_disc_outer{
   padding: 4px 6px;
+  width: 30%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar{
+    width: 1px;
+  }
   .disc_inner_container{
     border: 1px solid #eeeeee;
     border-radius: 4px;
     height: 100%;
-    .question_disc{
+    .question_disc_inner{
       padding: 0 12px;
       line-height: 42px;
       font-size: 16px;
@@ -15,8 +20,61 @@
       span{
         margin-right: 8px;
       }
-      .question_content{
+      }
+    .question_content{
+      padding: 8px 14px;
+      .question_item_disc{
 
+      }
+      .IOStandard ,
+      .IOSample_list{
+        & > div{
+          background-color: #f7f9fa;
+          border-radius: 4px;
+          border: 1px solid #f7f9fa;
+          margin: 4px 4px 16px 4px;
+          padding: 8px 10px;
+        }
+        .preview_box{
+          padding-top: 28px;
+          .iText, .oText{
+            span{
+              diplay: inline-block;
+              height: 22px;
+              background-color: #eeeeee;
+              margin-bottom: 12px;
+              &:nth-of-type(1){
+                width: 20%;
+                margin-right: 10px;
+              }
+              &:nth-of-type(2){
+                width: 65%;
+              }
+            }
+          }
+          .oText{
+            span{
+              &:nth-of-type(1){
+                width: 65%;
+              }
+              &:nth-of-type(2){
+                width: 20%;
+              }
+            }
+          }
+        }
+        span{
+          color: #263238;
+          display: inline-block;
+          line-height: 2.5;
+          font-weight: 900;
+          font-size: 16px;
+        }
+        pre{
+          display: inline-block;
+          font-size: 16px;
+          text-indent: 1em;
+        }
       }
     }
   }

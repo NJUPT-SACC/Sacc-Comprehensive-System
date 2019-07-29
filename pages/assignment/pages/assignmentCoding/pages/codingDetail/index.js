@@ -1,13 +1,14 @@
 import React from 'react'
-import Util from '../../../../utli/utli'
 
+import Utli from "../../../../utli/utli";
 import MonacoEditor from '../../../../../components/editor/editor'
 import QuestionDisc from './questionDisc'
 import FooterMenu from './footerMenu'
+import HeaderMenu from "./headerMenu";
 
 import './index.less'
 
-const utli = new Util();
+const utli = new Utli();
 
 class Detail extends React.Component {
 
@@ -22,22 +23,28 @@ class Detail extends React.Component {
         arrowSize: 6,
         verticalScrollbarSize: 6,
         horizontalSliderSize: 6
-      }
+      },
+      questionId: 0
     }
   }
-
+  
   componentDidMount() {
+    const questionId = utli.getUrlParam("id");
     this.setState({
-      param: utli.getUrlParam("type")
-    });
+      questionId
+    })
   }
-
+  
   render () {
+    const { questionId } = this.props;
     return (
       <div>
+        <HeaderMenu
+          questionId={this.state.questionId}
+        />
         <div className="assignment_coding">
           <QuestionDisc
-            param={this.state.param}
+            questionId={this.state.questionId}
           />
           <MonacoEditor
             language={this.state.langType}

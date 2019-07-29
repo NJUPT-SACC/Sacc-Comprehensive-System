@@ -1,45 +1,69 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { actionCreators, constants } from '../../../../../store'
+import Utli from "../../../../../utli/utli";
 
 import './index.less'
+const utli = new Utli();
 
 class QuestionDisc extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      usageLang: ''
-    }
   }
-  componentWillReceiveProps(nextProps, nextContext) {
-    const langArr = constants.categories.filter(item => {
-      return item.english === nextProps.param;
-    });
-    this.setState({
-      usageLang: typeof langArr[0].lang !== 'undefined' ? langArr[0].lang: []
-    }, () => {
-      this.props.getQuestionDisc(this.state.usageLang);
-    })
+  componentDidMount() {
+    const teamType = localStorage.getItem("assignmentEnglish");
+    const questionId = utli.getUrlParam("id");
+    /* 获取当前题目 */
+    this.props.getQuestionDisc(questionId);
   }
-
   render () {
+    const { disc, iStandard, oStandard, IOSample } = this.props.currentQuestion;
     return (
-      <div className="question_disc">
-        <div className="disc_inner_container" >
-          <p className="question_disc">
+      <div className="question_disc_outer">
+        <div className="disc_inner_container">
+          <p className="question_disc_inner">
             <span className="iconfont">&#xe652;</span>
             题目描述
           </p>
           <div className="question_content">
-            {
-              this.props.questions.map(item => {
-                return (
-                  <div>{item.disc}</div>
-                )
-              })
-            }
-          </div>
-          <div>
+           <div className="question_item_disc">{disc}</div>
+            <div className="IOStandard">
+              <div className="question_item_iStandard">
+                <span>输入描述：</span>
+                <pre>{iStandard}</pre>
+              </div>
+              <div className="question_item_oStandard">
+                <span>输出描述：</span>
+                <pre>{ oStandard }</pre>
+              </div>
+            </div>
+           <div className="IOSample_list">
+             {
+               typeof IOSample === 'undefined'?
+                 <div className="preview_box">
+                  <div className="iText">
+                    <span/><span/>
+                  </div>
+                  <div className="oText">
+                    <span/><span/>
+                  </div>
+                 </div> :
+                 IOSample.map(item => {
+                   return (
+                     <div style={{marginBottom: '8px'}}>
+                       <div className="question_item_iSample">
+                         <span>输入样例：</span>
+                         <pre>{item.iSample}</pre>
+                       </div>
+                       <div className="question_item_oSample">
+                         <span>输出样例：</span>
+                         <pre>{item.oSample}</pre>
+                       </div>
+                     </div>
+                   )
+                 })
+             }
+           </div>
           </div>
         </div>
       </div>
@@ -47,13 +71,15 @@ class QuestionDisc extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  questions: state.getIn(["assignment", "questions"])
-});
+const mapStateToProps = (state) => {
+  return {
+    currentQuestion: state.getIn(["assignment", "currentQuestion"])
+  }
+};
 
 const mapDispatchToProps = (dispatch) => ({
-  getQuestionDisc (langArr) {
-    dispatch(actionCreators.onGetQuestionDisc(langArr))
+  getQuestionDisc (questionId) {
+    dispatch(actionCreators.onGetQuestionDisc(questionId))
   }
 });
 

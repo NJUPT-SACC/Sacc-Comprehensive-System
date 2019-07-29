@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1d21403-6dac-4ee0-a91f-98a7a8f238d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/PieChart/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/PieChart/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/headerMenu/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentHome/assignmentHome.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/questionDisc/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/questionDisc/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/questionDisc/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/questionDisc/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/questionList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/questionList/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/questionList/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/questionList/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentHome/components/Content/components/subContent/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentHome/components/Content/components/subContent/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentHome/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentHome/assignmentHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentHome/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/headerMenu/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/store/actionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/store/actionCreators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/store/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/store/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/assignment/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/store/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/components/editor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/components/editor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,25 +35,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Less File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>active4D</find>
-      <find>000000</find>
-      <find>45ae34</find>
-      <find>/**/</find>
-      <find>237893</find>
-      <find>metatag</find>
-      <find>metatag.content.html</find>
-      <find>d4d4d4</find>
-      <find>tag</find>
-      <find>constant</find>
-      <find>ff0000</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,10 +52,11 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../learnReact/React开发简书" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -70,16 +67,17 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\My_Work\前端\科协暑期集训项目\Sacc-Comprehensive-System\pages\assignment\pages\assignmentHome\store" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\My_Work\前端\科协暑期集训项目\Sacc-Comprehensive-System\build" />
       <recent name="E:\My_Work\前端\科协暑期集训项目\Sacc-Comprehensive-System\node_modules\_@ant-design_icons-react@2.0.1@@ant-design" />
       <recent name="E:\My_Work\前端\科协暑期集训项目\Sacc-Comprehensive-System\pages\components\editor" />
       <recent name="E:\My_Work\前端\科协暑期集训项目\Sacc-Comprehensive-System\Sacc-Comprehensive-System\pages\assignment\style" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\My_Work\前端\科协暑期集训项目\Sacc-Comprehensive-System\pages\assignment\pages\assignmentHome\store" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -110,7 +108,11 @@
       <workItem from="1563840365150" duration="16562000" />
       <workItem from="1563867381483" duration="4940000" />
       <workItem from="1563876142377" duration="2184000" />
-      <workItem from="1564119605574" duration="8243000" />
+      <workItem from="1564119605574" duration="8893000" />
+      <workItem from="1564194164668" duration="9877000" />
+      <workItem from="1564288917814" duration="13951000" />
+      <workItem from="1564319626018" duration="3238000" />
+      <workItem from="1564362202529" duration="10505000" />
     </task>
     <servers />
   </component>
@@ -129,5 +131,14 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="Sacc-Comprehensive-System" type="b2602c69:ProjectViewProjectNode" />
+        <item name="Sacc-Comprehensive-System" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>

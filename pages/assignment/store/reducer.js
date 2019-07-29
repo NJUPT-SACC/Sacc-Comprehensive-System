@@ -1,15 +1,15 @@
 import * as constants from './constants';
 import { fromJS } from "immutable";
-import {changeCurrentPage} from "./actionCreators";
 
 const defaultState = fromJS({
   currentTitle: '',
   currentColor: "#ffffff",
   english: "",
-  questions: [],
+  currentQuestion: {},
   questionList: [],
   totalPage: 1,
-  currentPage: 1
+  currentPage: 1,
+  codingParam: ''
 });
 
 const setCurrentTitle = (state, { current, color, english }) => {
@@ -25,7 +25,7 @@ const getQuestionList = (state, { questionList }) => {
 };
 
 const getQuestions = (state, { data }) => {
-  return state.set("questions", data)
+  return state.set("currentQuestion", data)
 };
 
 const setTotalPageReducer = (state, { totalPage }) => {
@@ -34,6 +34,10 @@ const setTotalPageReducer = (state, { totalPage }) => {
 
 const changeCurrentPageReducer = (state, { currentPage }) => {
   return state.set("currentPage", currentPage)
+};
+
+const setCodingListParam = (state, { param })  => {
+  return state.set("codingParam", param)
 };
 
 export default (state = defaultState, action) => {
@@ -48,6 +52,8 @@ export default (state = defaultState, action) => {
       return setTotalPageReducer(state, action);
     case constants.CHANGE_CURRENT_PAGE:
       return changeCurrentPageReducer(state, action);
+    case constants.SET_CODING_LIST_PARAM:
+      return setCodingListParam(state, action);
     default:
       return state;
   }

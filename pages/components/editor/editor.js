@@ -4,10 +4,10 @@ let monaco;
 
 if (typeof window !== 'undefined') {
   monaco = require("monaco-editor/esm/vs/editor/edcore.main");
-  import('monaco-themes/themes/Dawn.json')
+  import('monaco-themes/themes/Amy.json')
     .then(data => {
-      monaco.editor.defineTheme('dawn', data);
-      monaco.editor.setTheme('dawn');
+      monaco.editor.defineTheme('amy', data);
+      monaco.editor.setTheme('amy');
   })
 }
 

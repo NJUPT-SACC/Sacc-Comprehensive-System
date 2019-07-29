@@ -29,9 +29,14 @@ export const changeCurrentPage = (currentPage) => ({
   currentPage
 });
 
-export const onGetQuestionDisc = (langArr) => {
+export const onSetCodingListParam = (param) => ({
+  type: constants.SET_CODING_LIST_PARAM,
+  param
+});
+
+export const onGetQuestionDisc = (questionId) => {
   return (dispatch) => {
-    axios.get('https://easy-mock.com/mock/5d2c1c823a04ad635d14cffc/getQuestion', langArr)
+    axios.get('https://easy-mock.com/mock/5d2c1c823a04ad635d14cffc/questionDetail', questionId)
       .then(res => {
         const { data } = res.data;
         dispatch(getQuestions(data));

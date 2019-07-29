@@ -1,3 +1,3 @@
-import AssignmentHome from './assignmentHome'
+import AssignmentHome from './assignmentHome/assignmentHome'
 
 export { AssignmentHome }

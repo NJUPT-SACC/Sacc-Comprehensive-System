@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { actionCreators } from '../../../../../store'
 import Pagination from "./components/pagination";
 import Loading from "../../../../../../components/loading";
+import Router from 'next/router'
 
 import './index.less'
 
@@ -33,7 +34,7 @@ class List extends React.Component {
           return (
             <div key={item.id} className="list_row">
               <span>{item.id}</span>
-              <span className="item_title" onClick={() => {this.startCoding(item.id)}}>{item.title}</span>
+              <span className="item_title" onClick={() => {this.startCoding(item)}}>{item.title}</span>
               <span
                 style={{
                   borderColor: item.difficulty === '中等' ? '#f0ad4e' : item.difficulty === '困难' ? '#d9534f' : '#5cb85c',
@@ -54,8 +55,25 @@ class List extends React.Component {
     )
   }
 
-  startCoding (id) {
-    console.log(id);
+  startCoding ({ id, type }) {
+    const encodeType = encodeURIComponent(type);
+    if (type === '编程题') {
+      Router.push({
+        pathname: '/assignment/question',
+        query: {
+          type: encodeType,
+          id
+        }
+      });
+    } else if (type === '选择题') {
+      Router.push({
+        pathname: '/assignment/question',
+        query: {
+          type: encodeType
+          , id
+        }
+      });
+    }
   }
 
   componentDidMount() {
@@ -112,7 +130,8 @@ class List extends React.Component {
 const mapStateToProps = (state) => ({
   questionList: state.getIn(["assignment", "questionList"]),
   totalPage: state.getIn(["assignment", "totalPage"]),
-  currentPage: state.getIn(["assignment", 'currentPage'])
+  currentPage: state.getIn(["assignment", 'currentPage']),
+  currentEnglish: state.getIn(["assignment", "english"])
 });
 
 const mapDispatchToProps = (dispatch) => ({
