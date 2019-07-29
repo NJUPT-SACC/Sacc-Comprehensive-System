@@ -34,3 +34,5 @@ const slideBarList = [
     id: 5
   }
 ]
+
+export const HOME_LOGIN = 'home: HOME_LOGIN';

@@ -66,6 +66,7 @@ class GroupList extends React.Component{
             }
           </ul>
         </div>
+        <footer>©2019 SACC All Rights Reserved</footer>
       </div>
     )
   }

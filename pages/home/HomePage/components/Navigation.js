@@ -29,30 +29,6 @@ class Navigation extends React.Component{
             <li onClick={() => Router.push('/competition')}>比赛系统</li>
             <li onClick={() => Router.push('/assignment')}>练习系统</li>
             <li onClick={() => Router.push('/personcenter')}>个人中心</li>
-            {/* <li onClick={() => this.setLoginVisible(true)}>登录</li>
-            <li onClick={() => this.setRegisteredVisible(true)}>注册</li>
-            <Modal
-            title="登录"
-            centered
-            visible={this.state.LoginVisible}
-            onOk={() => this.setLoginVisible(false)}
-            onCancel={() => this.setLoginVisible(false)}
-            >
-              <input type="text" placeholder="用户名"></input>
-              <input type="text" placeholder="密码"></input>
-            </Modal>
-            <Modal
-              title="注册"
-              centered
-              visible={this.state.RegisteredVisible}
-              onOk={() => this.setRegisteredVisible(false)}
-              onCancel={() => this.setRegisteredVisible(false)}
-            >
-              <input type="text" placeholder="用户名"></input>
-              <input type="text" placeholder="验证邮箱"></input>
-              <input type="text" placeholder="密码"></input>
-              <input type="text" placeholder="验证密码"></input>
-            </Modal> */}
           </ul>
         </div>
       </div>

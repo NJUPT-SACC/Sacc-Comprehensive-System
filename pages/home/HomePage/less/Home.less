@@ -1,11 +1,41 @@
-.ant-carousel .slick-slide {
-  // background: #235984;
-  background: #ddd
+.HomeLoginPage{
+  height: 100vh;
+  overflow: hidden;
+  
 }
-.ant-carousel-vertical .slick-dots li button,
-.ant-carousel-vertical .slick-dots li.slick-active button {
+.HomeLoginPage>ul{
+  position: fixed;
+  top: 45%;
+  left: 1%;
+}
+.HomeLoginPage ul li{
+  margin-top: 2vh;
+}
+.HomeLoginPage ul li>button{
+  border-radius: 50%;
   width: 1rem;
   height: 1rem;
-  border: 1px solid transparent;
-  border-radius: 50%;
+  cursor: pointer;
+}
+.transfromTopShow{
+  transform: translateY(100%);
+  transition: all .5s;
+}
+.transfromBottomShow{
+  transform: translateY(-100%);
+  transition: all .5s;
+}
+.transfromBackTopShow{
+  transform: translateY(100%);
+  transition: all .5s;
+}
+.transfromBackBottomShow{
+  transform: translateY(0);
+  transition: all .5s;
+}
+.HomeParticle>canvas{
+  position: absolute;
+  z-index: -99999;
+  background: #557c5e
+  // #1b2e1f #7fc08e
 }

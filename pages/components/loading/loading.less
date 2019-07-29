@@ -1,0 +1,28 @@
+.Loading_wrapper{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  background-color: aliceblue;
+  opacity: 1;
+  animation: Loading-out 2s 4s;
+  overflow: hidden;
+  #Loading-canvas{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+  }
+}
+
+@keyframes Loading-out{
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+}

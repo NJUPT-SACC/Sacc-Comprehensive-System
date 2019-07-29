@@ -6,6 +6,7 @@ import { Layout, Menu } from 'antd';
 
 import Navigation from '../home/HomePage/components/Navigation'
 import CompetitionMain from './competitionContent/CompetitionMain'
+import Loading from '../components/loading/loading'
 
 const { Header, Content, Footer } = Layout;
 class Competition extends React.Component{
@@ -14,6 +15,7 @@ class Competition extends React.Component{
 		return (
 			<Layout className="layout">
 				<div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
+				<Loading/>
 				<CompetitionMain/>
 		</Layout>	
 		);

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Head from './components/head';
 import Navigation from '../HomePage/components/Navigation';
 import './less/personCenter.less';
-import Foot from '../HomePage/components/Footer';
+import Foot from './components/foot';
 import SlideBar from './components/slideBar';
 import PcHome from './components/PcHome';
 import { actionCreators, store} from '../store';
