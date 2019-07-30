@@ -23,11 +23,14 @@ const competitionMedel = (gold,silver,copper) => ({
   copper
 })
 
-const basicInformation = (key,value,id) => ({
-  type:constants.HOME_BASIC_INFORMATION,
-  key,
-  value,
-  id
+const basicInformation = (BasicInformationList) => ({
+  type: constants.HOME_BASIC_INFORMATION,
+  BasicInformationList
+})
+
+export const changeBasicInformation = (NewBasicInformationList) => ({
+  type: constants.HOME_CHANGE_BASICINFORMATION,
+  NewBasicInformationList
 })
 
 export const Login = (username,password) => {
@@ -58,9 +61,31 @@ export const PracticeRate = () => {
 
 export const CompetitionMedel = () => {
   return(dispatch) => {
-    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PercenCenter/competitionMedel")
+    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/personCenter/competitionMedel")
     .then(res => {
       dispatch(competitionMedel(res.data.data.gold,res.data.data.silver,res.data.data.copper))
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+
+export const BasicInformation = () => {
+  return (dispatch) => {
+    axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation")
+    .then(res => {
+      dispatch(basicInformation(res.data.data))
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+
+export const SaveNewBasicInformation = (List) => {
+  return (dispatch) =>{
+    axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",List)
+    .then(res => {
+      
     }).catch(err => {
       console.log(err)
     })

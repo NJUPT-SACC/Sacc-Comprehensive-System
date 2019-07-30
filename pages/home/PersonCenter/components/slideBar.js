@@ -35,7 +35,7 @@ class SlideBar extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      currentIndex: null
+      currentIndex: 0
     }
   }
   ChangeActiveColor(e, item){

@@ -1,59 +1,20 @@
 import React from 'react';
 import '../less/basicInformation.less';
+import { actionCreators } from '../../store';
+import { connect } from 'react-redux';
+
 class BasicInformation extends React.Component{
 
   constructor(props){
     super(props)
     this.state={
       flag: false,
-      BasicInformationList: [
-        {
-          key: '昵称',
-          value: 'ouu',
-          id: 0
-        },{
-          key:'姓名',
-          value: '张颖',
-          id: 1
-        },{
-          key: '学号',
-          value:'B18030406',
-          id: 2
-        },{
-          key: '组别',
-          value: '前端组',
-          id: 3
-        },{
-          key: '邮箱',
-          value: '389746410@qq.com',
-          id: 4
-        },{
-          key: '学院',
-          value: '计算机学院、软件学院、网络空间安全学院',
-          id: 5
-        },{
-          key: '专业',
-          value: '计算机科学与技术',
-          id: 6
-        },{
-          key: '年级',
-          value: '大一',
-          id: 7
-        }
-      ]
+      num:0
     }
   }
 
-  changeValue = (e) => {
-    let List = this.state.BasicInformationList;
-    List.map((obj) =>  {
-      if(e.target.name == obj.key){
-        obj.value = e.target.value;
-      }
-    })
-    this.setState({
-      BasicInformationList: List
-    })
+  componentWillMount(){
+    this.props.showBlist()
   }
 
   Editor = () => {
@@ -61,6 +22,21 @@ class BasicInformation extends React.Component{
     this.setState({
       flag: !currentFlag
     })
+  }
+
+  changeBasicInformation = (value) =>{
+    let List =  this.props.BasicInformationList;
+    const name = value.target.name;
+    const Value = value.target.value;
+    List.map(item => {
+      if(item.key == name){
+        item.value = Value
+      }
+    })
+    this.setState({
+      num:1
+    })
+    this.props.changeBasicInformation(List)
   }
 
   render(){
@@ -72,10 +48,10 @@ class BasicInformation extends React.Component{
         </div>
         <div className="BasicInformationList">
           {
-            this.state.BasicInformationList.map(item =>
+            this.props.BasicInformationList.map(item =>
               <dl key={item.id}>
                 <dt>{item.key}</dt>
-                <dd>{this.state.flag? <input value={item.value} onChange={this.changeValue} name={item.key}/>:item.value}</dd>
+                <dd>{this.state.flag? <input value={item.value} onChange={this.changeBasicInformation} name={item.key}/>:item.value}</dd>
               </dl>
               )
           }
@@ -84,5 +60,19 @@ class BasicInformation extends React.Component{
     )
   }
 }
-
-export default BasicInformation
+const mapStateToProps = (state) =>{
+	return {
+    BasicInformationList: state.getIn(['home','BasicInformationList'])
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+    showBlist(){
+      dispatch(actionCreators.BasicInformation())
+    },
+    changeBasicInformation(NewBasicInformationList){
+      dispatch(actionCreators.changeBasicInformation(NewBasicInformationList))
+    }
+	}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(BasicInformation);
