@@ -85,7 +85,6 @@ class List extends React.Component {
   componentWillReceiveProps(nextProps, nextContext) {
     if (typeof nextProps.questionList !== 'undefined') {
       this.setPagination(nextProps);
-      localStorage.setItem("questionList", JSON.stringify(nextProps.questionList))
     }
   }
 
@@ -131,10 +130,10 @@ class List extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  questionList: state.getIn(["assignment", "questionList"]),
-  totalPage: state.getIn(["assignment", "totalPage"]),
-  currentPage: state.getIn(["assignment", 'currentPage']),
-  currentEnglish: state.getIn(["assignment", "english"])
+  questionList: state.assignment.questionList,
+  totalPage: state.assignment.totalPage,
+  currentPage: state.assignment.currentPage,
+  currentEnglish: state.assignment.english
 });
 
 const mapDispatchToProps = (dispatch) => ({

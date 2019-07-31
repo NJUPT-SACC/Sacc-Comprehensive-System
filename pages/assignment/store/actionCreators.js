@@ -34,6 +34,7 @@ export const onSetCodingListParam = (param) => ({
   param
 });
 
+/* 根据题目 id 获取当前题目 */
 export const onGetQuestionDisc = (questionId) => {
   return (dispatch) => {
     axios.get('https://easy-mock.com/mock/5d2c1c823a04ad635d14cffc/questionDetail', questionId)
@@ -44,6 +45,7 @@ export const onGetQuestionDisc = (questionId) => {
   }
 };
 
+/* 获取题目列表 (题目列表里面的题目只有题目描述和题目id，难度等，没有题目的详细信息) */
 export const getQuestionList = () => {
   return (dispatch) => {
     axios.get('https://easy-mock.com/mock/5d2c1c823a04ad635d14cffc/questionList')

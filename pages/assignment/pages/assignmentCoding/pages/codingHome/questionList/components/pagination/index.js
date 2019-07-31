@@ -79,8 +79,8 @@ class Pagination extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  totalPage: state.getIn(["assignment", "totalPage"]),
-  currentPage: state.getIn(["assignment", 'currentPage'])
+  totalPage: state.assignment.totalPage,
+  currentPage: state.assignment.currentPage
 });
 
 const mapDispatchToProps = (dispatch) => ({

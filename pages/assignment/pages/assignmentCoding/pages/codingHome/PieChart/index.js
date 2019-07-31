@@ -83,7 +83,7 @@ class PieChart extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  questionList: state.getIn(["assignment", "questionList"])
+  questionList: state.assignment.questionList
 });
 
 export default connect(mapStateToProps, null)(PieChart);

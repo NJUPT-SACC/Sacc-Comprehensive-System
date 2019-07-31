@@ -65,13 +65,13 @@ class Count extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    rightPercent: state.getIn(['home','rightPercent']),
-    wrongPercent: state.getIn(['home','wrongPercent']),
-    gold: state.getIn(['home','gold']),
-    silver: state.getIn(['home','silver']),
-    copper: state.getIn(['home','copper'])
+    rightPercent: state.home.rightPercent,
+    wrongPercent: state.home.wrongPercent,
+    gold: state.home.gold,
+    silver: state.home.silver,
+    copper: state.home.copper
 	}
-}
+};
 const mapDispatchToProps = (dispatch) => {
 	return {
     PCshowRate(){

@@ -15,10 +15,7 @@ class SubContent extends React.Component {
   navigateTo (path) {
     if (true) { /* 登录验证判断 */
       Router.push({
-        pathname: `/assignment/coding`,
-        query: {
-        
-        }
+        pathname: `/assignment/coding`
       })
     }
   }
@@ -57,9 +54,9 @@ class SubContent extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentTitle: state.getIn(["assignment", "currentTitle"]),
-  currentColor: state.getIn(["assignment", "currentColor"]),
-  currentEnglish: state.getIn(["assignment", "english"]),
+  currentTitle: state.assignment.currentTitle,
+  currentColor: state.assignment.currentColor,
+  currentEnglish: state.assignment.english
 });
 
 export default connect(mapStateToProps, null)(SubContent)

@@ -11,9 +11,8 @@ class QuestionDisc extends React.Component {
     super(props);
   }
   componentDidMount() {
-    const teamType = localStorage.getItem("assignmentEnglish");
     const questionId = utli.getUrlParam("id");
-    /* 获取当前题目 */
+    /* 根据题目 id 获取当前题目 */
     this.props.getQuestionDisc(questionId);
   }
   render () {
@@ -50,7 +49,7 @@ class QuestionDisc extends React.Component {
                  </div> :
                  IOSample.map(item => {
                    return (
-                     <div style={{marginBottom: '8px'}}>
+                     <div style={{marginBottom: '8px'}} key={item.iSample}>
                        <div className="question_item_iSample">
                          <span>输入样例：</span>
                          <pre>{item.iSample}</pre>
@@ -73,7 +72,7 @@ class QuestionDisc extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentQuestion: state.getIn(["assignment", "currentQuestion"])
+    currentQuestion: state.assignment.currentQuestion
   }
 };
 

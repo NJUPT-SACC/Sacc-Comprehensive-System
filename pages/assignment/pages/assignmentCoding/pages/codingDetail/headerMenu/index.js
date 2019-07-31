@@ -28,7 +28,7 @@ class HeaderMenu extends React.Component {
 }
 
 const  mapStateToProps = state => ({
-  currentQuestion: state.getIn(["assignment", "currentQuestion"])
+  currentQuestion: state.assignment.currentQuestion
 });
 
 export default connect(mapStateToProps, null)(HeaderMenu)

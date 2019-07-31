@@ -1,44 +1,52 @@
 import * as constants from './constants';
-import { fromJS } from "immutable";
 
-const defaultState = fromJS({
+const defaultState = {
   currentTitle: '',
   currentColor: "#ffffff",
   english: "",
   currentQuestion: {},
   questionList: [],
   totalPage: 1,
-  currentPage: 1,
-  codingParam: ''
-});
+  currentPage: 1
+};
 
 const setCurrentTitle = (state, { current, color, english }) => {
-  return state.merge({
+  return {
+    ...state,
     currentTitle: current,
     currentColor: color,
     english: english
-  })
+  }
 };
 
 const getQuestionList = (state, { questionList }) => {
-  return state.set("questionList", questionList)
+  return {
+    ...state,
+    "questionList": questionList
+  }
 };
 
 const getQuestions = (state, { data }) => {
-  return state.set("currentQuestion", data)
+  return {
+    ...state,
+    currentQuestion: data
+  }
 };
 
 const setTotalPageReducer = (state, { totalPage }) => {
-  return state.set("totalPage", totalPage)
+  return {
+    ...state,
+    "totalPage": totalPage
+  }
 };
 
 const changeCurrentPageReducer = (state, { currentPage }) => {
-  return state.set("currentPage", currentPage)
+  return {
+    ...state,
+    "currentPage": currentPage
+  }
 };
 
-const setCodingListParam = (state, { param })  => {
-  return state.set("codingParam", param)
-};
 
 export default (state = defaultState, action) => {
   switch(action.type){
@@ -52,8 +60,6 @@ export default (state = defaultState, action) => {
       return setTotalPageReducer(state, action);
     case constants.CHANGE_CURRENT_PAGE:
       return changeCurrentPageReducer(state, action);
-    case constants.SET_CODING_LIST_PARAM:
-      return setCodingListParam(state, action);
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import Prism from '../../../../prism.js';
+import Prism from '../../../../utli/prism.js';
 import '../../../../style/prism.css'
 // 样式
 import './index.less'

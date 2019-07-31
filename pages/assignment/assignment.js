@@ -1,11 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 // 页面
-import {
-  AssignmentHome,
-  AssignmentCoding
-} from './pages'
+import AssignmentHome from './pages/assignmentHome'
 
 // 样式
 import './style/index.less'
@@ -20,15 +16,5 @@ class Assignment extends React.Component{
       </div>
 		);
 	}
-}
-const mapStateToProps = (state) =>{
-	return {
-		
-	}
 };
-const mapDispatchToProps = (dispatch) => {
-	return {
-
-	}
-};
-export default connect(mapStateToProps,mapDispatchToProps)(Assignment);
+export default Assignment

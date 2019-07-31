@@ -63,7 +63,7 @@ class SlideBar extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-		show: state.getIn(['home','show'])
+		show: state.home.show
 	}
 }
 const mapDispatchToProps = (dispatch) => {
