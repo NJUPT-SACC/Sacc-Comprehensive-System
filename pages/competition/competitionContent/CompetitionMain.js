@@ -5,9 +5,9 @@ import { Row, Col } from 'antd';
 
 import '../less/competitionMain.less'
 
-import CompetitionCard from '../components/CompetitionCard'
-import CompetitionHistory from '../components/CompetitionHistory'
-import CompetitionRank from '../components/CompetitionRank'
+import CompetitionCard from './components/CompetitionCard'
+import CompetitionHistory from './components/CompetitionHistory'
+import CompetitionRank from './components/CompetitionRank'
 
 class CompetitionMain extends React.Component{
 	constructor(props){
@@ -42,15 +42,15 @@ class CompetitionMain extends React.Component{
 			<div style={{backgroundColor:'#eaeaea',minHeight:'70vh'}}>
 				<div className='CompetitionMain-content'>
 					<div className='CompetitionMain-title'>
-						<img src="https://static.leetcode-cn.com/cn-legacy-assets/images/LeetCode_Cup.png" alt="奖杯"/>
+						<img src="https://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/VS%20%281%29.png" alt="奖杯"/>
 						<div className='CompetitionMain-content-head'>竞赛系统</div>
-						<div className="CompetitionMain-content-text">快来参加每周排位赛，提升你的世界排名</div>
+						<div className="CompetitionMain-content-text">快来参加比赛，提升你的能力</div>
 						<div className='CompetitionMain-content-button' onClick={this.readyStart}>{this.state.ready?"关闭":"开始"}</div>
 					</div>
 					{this.state.ready?<div className="CompetitionMain-main">
 						<Row>
 							<Col span={10} offset={1}><CompetitionCard width={22}/></Col>
-							<Col span={9} offset={3}><CompetitionCard width={20}/></Col>
+							<Col span={10} offset={2}><CompetitionCard width={22}/></Col>
 						</Row>
 						<Row>
 							<Col offset={1}><CompetitionHistory/></Col>

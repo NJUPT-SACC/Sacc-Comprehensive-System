@@ -1,0 +1,1 @@
+export const COMPETITION_CHANGE_NAME = 'competition_change_name'

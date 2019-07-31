@@ -11,10 +11,6 @@ const bindMiddleware = middleware => {
   return applyMiddleware(...middleware);
 };
 
-export function configureStore(preState) {
-  const store = createStore(reducer, Immutable.Map({}), bindMiddleware([thunkMiddleware]));
-
-  return store;
+export function initializeStore(initialState = {}) {
+	return createStore(reducer, initialState, bindMiddleware([thunkMiddleware]));
 }
-
-export default configureStore;

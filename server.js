@@ -45,6 +45,12 @@ app.prepare()
     app.render(req, res, actualPage, queryParams)
   });
 
+  server.get('/competition/Arena', (req, res) => {
+    const actualPage = '/competition/competitionArena/competitionArena'
+    const queryParams = { competitionNum: req.query.competitionNum }
+    app.render(req, res, actualPage, queryParams)
+  });
+
   server.get('/management', (req, res) => {
     const actualPage = '/management/management'
     const queryParams = 'management'

@@ -11,7 +11,6 @@ import './index.less'
 const utli = new Utli();
 
 class Detail extends React.Component {
-
   constructor(props){
     super(props);
     this.state = {
@@ -36,15 +35,15 @@ class Detail extends React.Component {
   }
   
   render () {
-    const { questionId } = this.props;
+    const { questionId } = this.state;
     return (
       <div>
         <HeaderMenu
-          questionId={this.state.questionId}
+          questionId={questionId}
         />
         <div className="assignment_coding">
           <QuestionDisc
-            questionId={this.state.questionId}
+            questionId={questionId}
           />
           <MonacoEditor
             language={this.state.langType}
@@ -57,7 +56,9 @@ class Detail extends React.Component {
             scrollbar={this.state.scrollbar}
           />
         </div>
-        <FooterMenu />
+        <FooterMenu
+          questionId={questionId}
+        />
       </div>
     )
   }
