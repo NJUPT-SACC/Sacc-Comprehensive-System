@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { Row, Col, Layout } from 'antd';
+import { Row, Col, Layout, Icon, Button, Radio } from 'antd';
 import router from 'next/router'
-
-import Navigation from '../../home/HomePage/components/Navigation'
-
-
-
 import '../less/competitionArena.less'
+import Navigation from '../../home/HomePage/components/Navigation'
+import CompetitionArenaReady from './components/competitionArenaReady'
+
+
+
 class CompetitionArena extends React.Component{
 	constructor(props){
 		super(props);
@@ -22,13 +22,11 @@ class CompetitionArena extends React.Component{
   }  
 
 	render(){
-    console.log(this.props.userName)
 		return (
       <Layout className="layout">
         <div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
-        <div style={{backgroundColor:'#eaeaea',minHeight:'93vh'}} onClick={this.print}>
-          竞技场欢迎你
-					{this.props.name}
+        <div style={{backgroundColor:'rgba(234,234,234,.4)',minHeight:'93vh'}}>
+					<CompetitionArenaReady/>
         </div>
       </Layout>		
 		);
