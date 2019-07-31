@@ -22,6 +22,8 @@ class BasicInformation extends React.Component{
     this.setState({
       flag: !currentFlag
     })
+    if(!this.state.flag)
+      this.props.saveNewBasicInformation(this.props.BasicInformationList)
   }
 
   changeBasicInformation = (value) =>{
@@ -70,8 +72,11 @@ const mapDispatchToProps = (dispatch) => {
     showBlist(){
       dispatch(actionCreators.BasicInformation())
     },
-    changeBasicInformation(NewBasicInformationList){
-      dispatch(actionCreators.changeBasicInformation(NewBasicInformationList))
+    changeBasicInformation(onChangeBasicInformationList){
+      dispatch(actionCreators.changeBasicInformation(onChangeBasicInformationList))
+    },
+    saveNewBasicInformation(NewBasicInformationList){
+      dispatch(actionCreators.SaveNewBasicInformation(NewBasicInformationList))
     }
 	}
 }

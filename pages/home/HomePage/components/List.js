@@ -28,7 +28,7 @@ class List extends React.Component{
   }
 
   changeImg = () => {
-    switch (this.props.flag){
+    switch (this.props.BasicInformationList[8].value){
       case '男':
         return 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%94%B7%E5%AD%A9%20-%20%E5%89%AF%E6%9C%AC.png';
       case '女':
@@ -62,7 +62,7 @@ class List extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    flag:state.getIn(['home','flag'])
+    BasicInformationList: state.getIn(['home','BasicInformationList'])
 	}
 }
 
@@ -72,4 +72,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(List);
+export default connect(mapStateToProps,mapDispatchToProps)(List)

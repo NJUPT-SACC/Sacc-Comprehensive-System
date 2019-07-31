@@ -10,7 +10,7 @@ const defaultState = fromJS({
   silver: 0,
   copper: 0,
   BasicInformationList:[],
-  flag: '男'
+  portrait: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%A6%96%E9%A1%B5-%E9%80%89%E4%B8%AD.png'
 });
 
 export default (state = defaultState, action) => {
@@ -26,7 +26,11 @@ export default (state = defaultState, action) => {
     case constants.HOME_BASIC_INFORMATION:
       return state.set('BasicInformationList',action.BasicInformationList)
     case constants.HOME_CHANGE_BASICINFORMATION:
+      return state.set('BasicInformationList',action.onChangeBasicInformationList)
+    case constants.HOME_SAVE_BASICINFORMATION:
       return state.set('BasicInformationList',action.NewBasicInformationList)
+    case constants.HOME_CHANGE_PORTRAIT:
+      return state.set('portrait',action.portrait)
     default:
       return state;
   }

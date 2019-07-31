@@ -10,24 +10,19 @@ const slideBarList = [
     id: 0
   },
   {
-    IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%8D%9A%E5%A3%AB%E5%B8%BD.png',
-    itemName: '刷题',
-    id: 1
-  },
-  {
     IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E6%8A%80%E6%9C%AF%E6%A0%88.png',
     itemName: '技术栈',
-    id: 2
+    id: 1
   },
   {
     IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%9F%BA%E6%9C%AC%E8%B5%84%E6%96%99.png',
     itemName: '基本资料',
-    id: 3
+    id: 2
   },
   {
     IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E8%AE%BE%20%E7%BD%AE.png',
     itemName: '设置',
-    id: 4
+    id: 3
   }
 ]
 

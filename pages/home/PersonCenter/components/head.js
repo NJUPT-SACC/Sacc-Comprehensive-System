@@ -1,31 +1,41 @@
 import React from 'react';
 import '../less/head.less';
-import { Avatar } from 'antd';
-
-const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
-const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
-
+import { connect } from 'react-redux';
+import { actionCreators, store} from '../../store';
 
 class Head extends React.Component{
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: UserList[0],
-      color: colorList[0],
-    };
+  constructor(props){
+    super(props)
+    this.portraitRef = React.createRef()
   }
 
-  render(){
+  changePortrait = (e) => {
+
+    for (let i in e.target.files) {
+        let file = e.target.files.item(i);
+        let freader = new FileReader();
+        freader.readAsDataURL(file);
+        freader.onload = (e) => {
+          this.props.changePortrait(e.target.result)
+        } 
+    }
+    
+  }
+
+    render(){
     return (
       <div className="PChead">
         <div className="PCgreenSlide"></div>
         <div className="personHeadLeft">
-        <Avatar style={{ backgroundColor: this.state.color, verticalAlign: 'middle' }} size="large">
-          {this.state.user}
-        </Avatar>
+          <div className="PCimgBox">
+            <label>
+              <img src={this.props.portrait}  style={{width:'70px',height: '70px'}}></img>
+              <input id="avatarFile" accept="image/*" name="avatarFile" type="file" onChange={this.changePortrait}/>
+            </label>
+          </div>
           <div className="PCDes">
-            <p>ouu21456897123</p>
+            <p>ouu</p>
             <span>前端组</span>
             <span>打字员打字员</span>
           </div>
@@ -38,4 +48,17 @@ class Head extends React.Component{
   }
 }
 
-export default Head
+const mapStateToProps = (state) =>{
+	return {
+    portrait: state.getIn(['home','portrait']),
+    BasicInformationList: state.getIn(['home','BasicInformationList'])
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+    changePortrait(portrait){
+        dispatch(actionCreators.ChangePortrait(portrait))
+    }
+	}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Head)

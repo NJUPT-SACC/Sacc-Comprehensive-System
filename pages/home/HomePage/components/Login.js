@@ -48,6 +48,7 @@ class Login extends React.Component{
 
   login = () =>{
     this.props.IfLogin(this.state.userName, this.state.Password)
+    this.props.showBlist()
       this.LoginRef.current.classList.add("LoginNarrow");
       const self = this;
       setTimeout(function(){
@@ -145,7 +146,8 @@ class Login extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-		loginStatus: state.getIn(['home','loginStatus'])
+    loginStatus: state.getIn(['home','loginStatus']),
+    BasicInformationList: state.getIn(['home','BasicInformationList'])
 	}
 }
 
@@ -153,6 +155,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		IfLogin(userName,password){
       dispatch(actionCreators.Login(userName,password));
+    },
+    showBlist(){
+      dispatch(actionCreators.BasicInformation())
     }
 	}
 }

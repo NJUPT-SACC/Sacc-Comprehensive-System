@@ -28,8 +28,13 @@ const basicInformation = (BasicInformationList) => ({
   BasicInformationList
 })
 
-export const changeBasicInformation = (NewBasicInformationList) => ({
+export const changeBasicInformation = (onChangeBasicInformationList) => ({
   type: constants.HOME_CHANGE_BASICINFORMATION,
+  onChangeBasicInformationList
+})
+
+const saveNewBasicInformation = (NewBasicInformationList) => ({
+  type: constants.HOME_SAVE_BASICINFORMATION,
   NewBasicInformationList
 })
 
@@ -74,7 +79,7 @@ export const BasicInformation = () => {
   return (dispatch) => {
     axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation")
     .then(res => {
-      dispatch(basicInformation(res.data.data))
+      dispatch(basicInformation(res.data.data.list))
     }).catch(err => {
       console.log(err)
     })
@@ -83,9 +88,30 @@ export const BasicInformation = () => {
 
 export const SaveNewBasicInformation = (List) => {
   return (dispatch) =>{
-    axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",List)
+    axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
+      List
+    })
     .then(res => {
-      
+      dispatch(saveNewBasicInformation(res.data.data.list))
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+const changePortrait = (portrait) => ({
+  type:constants.HOME_CHANGE_PORTRAIT,
+  portrait
+})
+
+export const ChangePortrait = (portrait) => {
+  return (dispatch) =>{
+    axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
+      portrait
+    })
+    .then(res => {
+      console.log("portrait",portrait)
+      console.log("res",res.data.data.portrait)
+      dispatch(changePortrait(res.data.data.portrait))
     }).catch(err => {
       console.log(err)
     })

@@ -49,6 +49,7 @@ class Home extends React.Component {
               onClick={this.changeShow} 
               tabIndex="1"
               className={this.state.currentIndex === 1 ? 'HomeActive':''}
+              style={this.state.currentIndex === 1 ? {opacity:1}:{opacity:0.5}}
               ></button>
             </li>
             <li>
@@ -56,6 +57,7 @@ class Home extends React.Component {
               onClick={this.changeShow} 
               tabIndex="2"
               className={this.state.currentIndex === 2 ? 'HomeActive':''}
+              style={this.state.currentIndex === 2 ? {opacity:1}:{opacity:0.5}}
               ></button>
             </li>
           </ul>
