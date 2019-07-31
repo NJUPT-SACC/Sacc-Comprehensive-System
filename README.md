@@ -42,4 +42,41 @@ yarn start
 </tr>
 </table>
 
-# PS:分支大概一周合并一次，如果有特殊的需求要合并可以自行解决
+## 重构demo
+```
+//调用redux里的数据
+//原本是这么写的：name: state.getIn(["competition", "name"])
+const mapStateToProps = (state) =>{
+	return {
+		name: state.competition.competitionName
+	}
+}
+```
+```
+//redux里更改数据
+//state.set("competitionName", action.name)
+//fromJS也去掉了
+const defaultState = {
+  competitionName:''
+};
+
+export default (state = defaultState, action) => {
+  switch(action.type){
+    case constants.COMPETITION_CHANGE_NAME:
+      return {...state,'competitionName':action.name}
+    default:
+      return state;
+  }
+}
+```
+接下来是比较重要的部分，因为无法持续化的问题我引入了redux-persist，关于数据需要将有必要进行持续化的数据加入白名单（whitelist）中才能将需要持续化的数据持续化
+```
+const competitionpersistConfig = {
+    key: 'competition',
+    storage,
+    whitelist: ['competitionName'] // place to select which state you want to persist
+} 
+const reducer = combineReducers({
+    competition: persistReducer(competitionpersistConfig, competitionReducer),
+});
+```
