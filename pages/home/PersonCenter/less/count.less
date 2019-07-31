@@ -2,34 +2,36 @@
   display: flex;
   width: 44vw;
 }
+.module img{
+  width: 30px
+}
+.module span{
+  padding-left: .5vw;
+  vertical-align: middle;
+}
 .module-title{
   font-size: 1rem;
   font-weight: 600;
-  padding: 1vh 0 1vh 1vw;
+  line-height: 3;
+  padding-left: 2%;
   background: #f6f6f6;
 }
 .module-details{
   display: flex;
-  padding: 2vh 1vw 2vh 1.5vw;
-}
-.module-right{
-  padding-right: 2vw;
-  width: 50%;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.module-right>span,
-.module-wrong>span,
-.module-title>span{
-padding-left: .5vw;
-vertical-align: middle;
+
+
+.module-right,
+.module-wrong,
+.module-gold,
+.module-copper,
+.module-silver{
+  line-height: 5;
 }
 
-.module-right>img,
-.module-wrong>img,
-.module-icon
-{
-  width: 30px;
-}
 .personCenter-competition,
 .personCenter-practice{
   width: 50%;
@@ -37,6 +39,7 @@ vertical-align: middle;
   margin: 2% 5%;
   cursor: pointer;
 }
+
 .module-title:hover{
   color: #22ae90;
 }

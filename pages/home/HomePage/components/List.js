@@ -2,36 +2,41 @@ import React from 'react';
 import '../less/list.less';
 import { connect } from 'react-redux';
 import Router from 'next/router';
+import { actionCreators } from '../../store';
 
 
 const listItems = [
   {
-    IconUrl: 'https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png',
+    IconUrl: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%A5%96%E6%9D%AF.png',
     tag: 'cm',
-    dec: 'xxxxxx',
     name: '比赛系统',
     id: 0,
     routerUrl:'/competition'
   },
   {
-    IconUrl: 'https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png',
+    IconUrl: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%BB%83%E4%B9%A0%20%281%29.png',
     tag: 'ex',
-    dec: 'xxxxxx',
     name: '练习系统',
     id: 1,
     routerUrl:'/assignment'
-  },
-  {
-    IconUrl: 'https://zos.alipayobjects.com/rmsportal/YPMsLQuCEXtuEkmXTTdk.png',
-    tag: 'person',
-    dec: 'xxxxxx',
-    name: '个人中心',
-    id: 2,
-    routerUrl:'/personcenter'
   }
 ];
 
 class List extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
+  changeImg = () => {
+    switch (this.props.flag){
+      case '男':
+        return 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%94%B7%E5%AD%A9%20-%20%E5%89%AF%E6%9C%AC.png';
+      case '女':
+        return 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%A5%B3%E5%AD%A9%20-%20%E5%89%AF%E6%9C%AC.png';
+      default:
+        return 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%B0%8F%E4%BA%BA.png';
+    }
+  }
 
   render(){
     return (
@@ -40,12 +45,15 @@ class List extends React.Component{
           {
             listItems.map(item => 
             <li key={item.id}>
-              <img className={item.tag} onClick={() => Router.push(`${item.routerUrl}`)} src={item.IconUrl}  ></img>
+              <img className={item.tag} onClick={() => Router.push(`${item.routerUrl}`)} src={item.IconUrl} ></img>
                 <p className={item.tag} onClick={() => Router.push(`${item.routerUrl}`)}>{item.name}</p>
-                <p className={item.tag} id="dec">{item.dec}</p>
             </li>
             )
           }
+          <li key="2">
+              <img className='person' onClick={() => Router.push('/personcenter')} src={this.changeImg()}  ></img>
+                <p className='person' onClick={() => Router.push('/personcenter')}>个人中心</p>
+            </li>
         </ul>
       </div>
     )
@@ -54,7 +62,7 @@ class List extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-
+    flag:state.getIn(['home','flag'])
 	}
 }
 

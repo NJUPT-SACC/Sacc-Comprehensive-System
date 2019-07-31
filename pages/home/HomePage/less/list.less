@@ -1,3 +1,6 @@
+.Homelist{
+  animation: HomeScale 1s  forwards cubic-bezier(0, -0.02, 1, 0);
+}
 .Homelist>ul{
   display: flex;
   width: 100vw;
@@ -12,7 +15,6 @@
 }
 .Homelist p{
   text-align: center;
-  cursor: pointer;
   margin-bottom: 0; 
   font-size: 2rem;
 }
@@ -22,4 +24,15 @@
 .Homelist .dec{
   font-size: 2rem;
   margin-top: 1vh;
+}
+@keyframes HomeScale {
+  0%{
+    transform: scale(0)
+  }
+  75%{
+    transform: scale(1.1)
+  }
+  100%{
+    transform: scale(1)
+  }
 }

@@ -15,7 +15,7 @@ class Competition extends React.Component{
 		return (
 			<Layout className="layout">
 				<div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
-				<Loading/>
+				{/* <Loading width='100' height='100' scale='1'/> */}
 				<CompetitionMain/>
 		</Layout>	
 		);

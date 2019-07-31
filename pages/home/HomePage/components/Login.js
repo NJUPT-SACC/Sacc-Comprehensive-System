@@ -11,18 +11,23 @@ class Login extends React.Component{
     this.state = {
       showInputBox:false,
       showSys:false,
-      userName:'',
-      Password:'',
+      userName:'admin',
+      Password:'123',
       targetLogin:''
     }
     this.LoginRef = React.createRef();
+    this.beginRef = React.createRef();
   }
 
   changeShowButton = () => {
-    this.setState({
-      showInputBox:true,
-      targetLogin:'登录'
-    })
+    this.beginRef.current.classList.add('Home-beginAnimation');
+    const self = this;
+    setTimeout(function(){
+      self.setState({
+        showInputBox:true,
+        targetLogin:'登录'
+      })
+    },500)
   }
 
   changeInputColor = (e) =>{
@@ -43,8 +48,6 @@ class Login extends React.Component{
 
   login = () =>{
     this.props.IfLogin(this.state.userName, this.state.Password)
-
-    if(this.props.loginStatus === 2000){
       this.LoginRef.current.classList.add("LoginNarrow");
       const self = this;
       setTimeout(function(){
@@ -52,8 +55,6 @@ class Login extends React.Component{
           showSys: true
         })
       }, 1100)
-    }
-
   }
 
   showLogin = (e) => {
@@ -68,21 +69,30 @@ class Login extends React.Component{
     return(
       <div className="Home">
       {
-        loginStatus === 2000 && this.state.showSys? <List /> :
+        loginStatus === 5002 && this.state.showSys? 
+        <List />:
         <div className="HomeLogin" ref={this.LoginRef}>
           <div className="HomeLoginCaption">
             { 
               this.state.showInputBox ? 
-              <div>
                 <div className="HomeLoginBox">
-                  <p id="LoginLabel" onClick={this.showLogin}>登录</p>
-                  <p id="registeredLabel" onClick={this.showLogin}>注册</p>
+                  <p 
+                  onClick={this.showLogin} 
+                  className={this.state.targetLogin === '登录'? 'LoginActive': ''}
+                  >
+                    登录
+                  </p>
+                  <p 
+                  onClick={this.showLogin}
+                  className={this.state.targetLogin === '注册'? 'LoginActive': ''}
+                  >
+                    注册
+                  </p>
                 </div>
-              </div>
             : 
-            <div>
-              <p>计软网安院科协比赛系统</p>
-              <button onClick={this.changeShowButton} id="beginBtn">开始使用</button>
+            <div ref = { this.beginRef } className="HomeBegin">
+              <p>SACC 比赛系统</p>
+              <button onClick={this.changeShowButton}  id="beginBtn">开始使用</button>
             </div>
             }
 
