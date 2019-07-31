@@ -13,22 +13,21 @@ yarn build
 yarn start
 ```
 ## 提交commit规范(？？):smile:
-一般情况下，提交 GIT 时的注释可以分成几类，可以用几个动词开始：
-- Added ( 新加入的需求 )
-- Fixed ( 修复 bug )
-- Changed ( 修改的任务 )
-- Updated ( 更新的任务，或者由于第三方模块变化而做的变化 )
-尽量将注释缩减为一句话，不要包含详细的内容。
-## 使用依赖
-本次开发采用的是React+Redux+Router，有不同的是加入了Nextjs来完成服务端渲染，Nextjs和React有啥不同我就不赘述了。
+In general, comment for git submission can be divided into serval groups, started with a few verbs:
+- Added ( add new demand into the project )
+- Fixed ( fix bug )
+- Changed ( mission that has been changed )
+- Updated ( missison has been updated, or due to third-party module change )
+## dependencies
+React + Redux + Router，and we use Next.js to finsih Server Side Rendering 
 ### [Redux](http://cn.redux.js.org/docs/react-redux/)
 ### [Next+Less](https://github.com/zeit/next-plugins/tree/master/packages/next-less)
 ### [Next](https://nextjs.frontendx.cn/docs/#%E5%AE%89%E8%A3%85)
 ### [styled-jsx](https://github.com/zeit/styled-jsx)
-## 开发
+## development
 <table>
 <tr>
-<th rowspan="2">开发人员</th>
+<th rowspan="2">members</th>
 <th>Home</th>
 <th>Management</th>
 <th>Assignment</th>
@@ -42,10 +41,11 @@ yarn start
 </tr>
 </table>
 
-## 重构demo
+## refactor example
 ```
-//调用redux里的数据
-//原本是这么写的：name: state.getIn(["competition", "name"])
+// use state in stored in redux 
+// code in the past：name: state.getIn(["competition", "name"])
+// now:
 const mapStateToProps = (state) =>{
 	return {
 		name: state.competition.competitionName
@@ -53,9 +53,10 @@ const mapStateToProps = (state) =>{
 }
 ```
 ```
-//redux里更改数据
+// reducer.js
+// change redux state when its immutable
 //state.set("competitionName", action.name)
-//fromJS也去掉了
+// remove fromJS
 const defaultState = {
   competitionName:''
 };
@@ -69,8 +70,10 @@ export default (state = defaultState, action) => {
   }
 }
 ```
-接下来是比较重要的部分，因为无法持续化的问题我引入了redux-persist，关于数据需要将有必要进行持续化的数据加入白名单（whitelist）中才能将需要持续化的数据持续化
+Here's come the important part, we use redux-persist (redux state can't persist when navigate using next/router) 
+you need to put those data needed to persist into whitelist, so that it can persist
 ```
+// configuration in root reducer.js
 const competitionpersistConfig = {
     key: 'competition',
     storage,

@@ -62,7 +62,7 @@ class List extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    BasicInformationList: state.getIn(['home','BasicInformationList'])
+    BasicInformationList: state.home.BasicInformationList
 	}
 }
 

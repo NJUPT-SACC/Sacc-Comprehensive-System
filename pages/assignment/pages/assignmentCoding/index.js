@@ -1,9 +1,7 @@
 import React from 'react'
 
 import CodingHome from './pages/codingHome'
-import CodingDetail from './pages/codingDetail'
 import './index.less'
-
 
 let javascript, cpp, csharp, css, html, java, python, less;
 if (typeof window !== 'undefined') {

@@ -146,8 +146,8 @@ class Login extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    loginStatus: state.getIn(['home','loginStatus']),
-    BasicInformationList: state.getIn(['home','BasicInformationList'])
+    loginStatus: state.home.loginStatus,
+    BasicInformationList: state.home.BasicInformationList
 	}
 }
 

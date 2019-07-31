@@ -50,15 +50,15 @@ class Head extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    portrait: state.getIn(['home','portrait']),
-    BasicInformationList: state.getIn(['home','BasicInformationList'])
+    portrait: state.home.portrait,
+    BasicInformationList: state.home.BasicInformationList
 	}
-}
+};
 const mapDispatchToProps = (dispatch) => {
 	return {
     changePortrait(portrait){
         dispatch(actionCreators.ChangePortrait(portrait))
     }
 	}
-}
+};
 export default connect(mapStateToProps,mapDispatchToProps)(Head)

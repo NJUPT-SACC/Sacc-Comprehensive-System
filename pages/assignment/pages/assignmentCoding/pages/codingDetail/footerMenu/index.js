@@ -1,26 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Router from 'next/router'
 
 import './index.less'
 
-class FooterMenu extends React.Component {wda
+class FooterMenu extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
       questionList: []
     }
   }
-  
-  componentDidMount () {
-    const questionList = localStorage.getItem("questionList");
+  componentWillReceiveProps(nextProps, nextContext) {
     this.setState({
-      questionList: JSON.parse(questionList)
+      questionList: nextProps.questionList
     })
   }
+  
   showQuestionList () {
   
   }
+  
   render() {
     const { questionId } = this.props;
     const { questionList } = this.state;
@@ -55,7 +54,7 @@ class FooterMenu extends React.Component {wda
 }
 
 const mapStateToProps = (state) => ({
-
+  questionList: state.assignment.questionList
 });
 
 export default connect(mapStateToProps, null)(FooterMenu)
