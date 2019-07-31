@@ -8,7 +8,9 @@ const defaultState = fromJS({
   wrongPercent: '0%',
   gold: 0,
   silver: 0,
-  copper: 0
+  copper: 0,
+  BasicInformationList:[],
+  flag: '男'
 });
 
 export default (state = defaultState, action) => {
@@ -21,6 +23,10 @@ export default (state = defaultState, action) => {
       return state.merge({'rightPercent':action.rightPercent,'wrongPercent':action.wrongPercent})
     case constants.HOME_COMPETITION_MEDEL:
       return state.merge({'gold':action.gold,'silver':action.silver,'copper':action.copper})
+    case constants.HOME_BASIC_INFORMATION:
+      return state.set('BasicInformationList',action.BasicInformationList)
+    case constants.HOME_CHANGE_BASICINFORMATION:
+      return state.set('BasicInformationList',action.NewBasicInformationList)
     default:
       return state;
   }

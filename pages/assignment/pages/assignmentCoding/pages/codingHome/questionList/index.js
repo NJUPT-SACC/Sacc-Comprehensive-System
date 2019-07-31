@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { actionCreators } from '../../../../../store'
 import Pagination from "./components/pagination";
 import Router from 'next/router'
+import Loading from '../../../../../../components/loading/loading.js'
 
 import './index.less'
 
@@ -24,7 +25,9 @@ class List extends React.Component {
       }
     } else {
       return (
-        <div className="loading">加载中，请稍后</div>
+        <div className="loading">
+          <Loading />
+        </div>
       )
     }
     return (
@@ -82,6 +85,7 @@ class List extends React.Component {
   componentWillReceiveProps(nextProps, nextContext) {
     if (typeof nextProps.questionList !== 'undefined') {
       this.setPagination(nextProps);
+      localStorage.setItem("questionList", JSON.stringify(nextProps.questionList))
     }
   }
 

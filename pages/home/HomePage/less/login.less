@@ -41,7 +41,7 @@
   padding-left: 1%;
   font-size: 1rem;
   line-height: 2.5;
-  background: rgba(255,255,255,0.75);
+  background: rgba(255, 255, 255, 0.75);
   width: 306px;
   display: inline-block;
   border: none;
@@ -60,33 +60,40 @@
   animation: fadeIn .8s forwards ease-in-out;
   line-height: 2.7;
   padding: 0 146px;
-  background:rgba(255,255,255,0.75);
+  background: rgba(255, 255, 255, 0.75);
   border: none
 }
-.HomeLoginBox{
+
+.HomeLoginBox {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 10%;
   margin: 0 auto;
-  color: rgba(255,255,255,0.75)
+  color: rgba(255, 255, 255, 0.75);
+  animation: HomeTranslatebottom .5s  forwards ease-in-out;
 }
-.HomeLoginBox>p{
+
+.HomeLoginBox>p {
   margin-bottom: 0;
   text-align: center;
   font-size: 1.5rem;
   cursor: pointer;
+  border-bottom: 3px solid transparent;
 }
-.HomeLoginCaption p{
+
+.HomeBegin>p {
   margin-bottom: 0;
   text-align: center;
   font-size: 1.5rem;
-  color: rgba(255,255,255,0.75);
-  border: 3px solid transparent;
+  color: rgba(255, 255, 255, 0.75);
+
 }
-#LoginLabel{
-  border-bottom-color: aquamarine
+
+.LoginActive {
+  border-bottom-color: aquamarine !important
 }
+
 .slick-list {
   height: 100vh !important
 }
@@ -95,6 +102,29 @@
   animation: Homenarrow 1s forwards cubic-bezier(0, -0.02, 1, 0);
 }
 
+.Home-beginAnimation {
+  animation: HomeTranslateTop .5s forwards ease-in-out;
+}
+
+@keyframes HomeTranslateTop {
+  0% {
+    transform: translateY(0)
+  }
+
+  100% {
+    transform: translateY(-100%)
+  }
+}
+
+@keyframes HomeTranslatebottom {
+  0% {
+    transform: translateY(-100%)
+  }
+
+  100% {
+    transform: translateY(0)
+  }
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;

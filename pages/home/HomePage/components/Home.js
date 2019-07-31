@@ -8,7 +8,7 @@ class Home extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      activeColor:'#fff'
+      currentIndex: 1
     }
     this.LoginRef = React.createRef();
     this.GroupListRef = React.createRef();
@@ -17,16 +17,16 @@ class Home extends React.Component {
   changeShow = (e) => {
     this.LoginRef.current.classList = '';
     this.GroupListRef.current.classList = '';
-
-    let currentColor = e.target.attributes['color'].value; 
-    let newColor = currentColor === "#fff" ? "#000" : "#fff";
-    e.target.style.backgroundColor = newColor; 
-    e.target.setAttribute('color' , newColor); 
-
     if(e.target.tabIndex == 1){
+      this.setState({
+        currentIndex:1
+      })
       this.LoginRef.current.classList.add('transfromBackBottomShow');
       this.GroupListRef.current.classList.add('transfromBackTopShow');
     }else{
+      this.setState({
+        currentIndex:2
+      })
       this.LoginRef.current.classList.add('transfromTopShow');
       this.GroupListRef.current.classList.add('transfromBottomShow');
     }
@@ -48,14 +48,14 @@ class Home extends React.Component {
               <button 
               onClick={this.changeShow} 
               tabIndex="1"
-              color = {this.state.activeColor}
+              className={this.state.currentIndex === 1 ? 'HomeActive':''}
               ></button>
             </li>
             <li>
               <button 
               onClick={this.changeShow} 
               tabIndex="2"
-              color = {this.state.activeColor}
+              className={this.state.currentIndex === 2 ? 'HomeActive':''}
               ></button>
             </li>
           </ul>
