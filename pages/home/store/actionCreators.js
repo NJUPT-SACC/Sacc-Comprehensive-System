@@ -32,7 +32,7 @@ const basicInformation = (key,value,id) => ({
 
 export const Login = (username,password) => {
   return (dispatch) =>{
-    axios.post("http://192.168.1.50:8080/admin/login",{
+    axios.post("http://192.168.1.52:8080/admin/login",{
       username,
       password
     })

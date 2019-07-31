@@ -6,6 +6,7 @@ import { Layout, Menu } from 'antd';
 
 import Navigation from '../home/HomePage/components/Navigation'
 import CompetitionMain from './competitionContent/CompetitionMain'
+import CompetitionArena from './competitionArena/competitionArena'
 import Loading from '../components/loading/loading'
 
 const { Header, Content, Footer } = Layout;

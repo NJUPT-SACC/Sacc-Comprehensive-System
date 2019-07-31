@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from '../../../../../store'
 import Pagination from "./components/pagination";
-import Loading from "../../../../../../components/loading";
 import Router from 'next/router'
 
 import './index.less'
