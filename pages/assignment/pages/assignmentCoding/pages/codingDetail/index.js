@@ -5,6 +5,7 @@ import MonacoEditor from '../../../../../components/editor/editor'
 import QuestionDisc from './questionDisc'
 import FooterMenu from './footerMenu'
 import HeaderMenu from "./headerMenu";
+import QuestionList from './leftQuestionList'
 
 import './index.less'
 
@@ -37,7 +38,8 @@ class Detail extends React.Component {
   render () {
     const { questionId } = this.state;
     return (
-      <div>
+      <div className="coding_detail_container">
+        <QuestionList />
         <HeaderMenu
           questionId={questionId}
         />

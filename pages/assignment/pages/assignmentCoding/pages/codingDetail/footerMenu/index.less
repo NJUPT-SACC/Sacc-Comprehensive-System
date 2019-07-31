@@ -41,12 +41,12 @@
   .right_part{
     display: flex;
     flex-direction: row-reverse;
-    padding: 0 24px;
     flex: 1;
     & > div{
       line-height: var(--footerHeight);
       &.execute_code,
-      &.submit_code {
+      &.submit_code,
+      &.save_code {
         & > span{
           border: 1px solid rgba(38, 50, 56, .7);
           color: rgba(38, 50, 56, .7);
@@ -69,6 +69,9 @@
             font-size: 12px;
           }
         }
+      }
+      &.save_code{
+        order: 10
       }
       &.execute_code {
         order: 5;

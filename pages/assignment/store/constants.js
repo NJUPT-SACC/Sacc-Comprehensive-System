@@ -3,7 +3,7 @@ export const GET_QUESTION_DISC = "assignment: get_question_disc";
 export const GET_QUESTION_LIST = 'assignment: get_question_list';
 export const SET_TOTAL_PAGE = 'assignment: set_total_page';
 export const CHANGE_CURRENT_PAGE = 'assignment: change_current_page';
-
+export const CHANGE_LIST_DISPLAY = 'assignment: change_list_display';
 
 export const categories = [
   {id: 0, title: "前端开发组", lang: ["html", "css", "javascript"], english: "front_end_development", icon: "http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/js.png"},

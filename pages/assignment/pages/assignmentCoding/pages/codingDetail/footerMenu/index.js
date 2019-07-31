@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {actionCreators} from "../../../../../store";
 
 import './index.less'
 
@@ -17,7 +18,7 @@ class FooterMenu extends React.Component {
   }
   
   showQuestionList () {
-  
+    this.props.changeListDisplay(true);
   }
   
   render() {
@@ -41,6 +42,9 @@ class FooterMenu extends React.Component {
           </div>
         </div>
         <div className="right_part">
+          <div className="save_code">
+            <span><span className="iconfont">&#xe62e;</span>保存</span>
+          </div>
           <div className="execute_code">
             <span><span className="iconfont">&#xe625;</span>执行代码</span>
           </div>
@@ -56,5 +60,10 @@ class FooterMenu extends React.Component {
 const mapStateToProps = (state) => ({
   questionList: state.assignment.questionList
 });
+const mapDispatchToProps = dispatch => ({
+  changeListDisplay (isShow) {
+    return dispatch(actionCreators.onChangeListDisplay(isShow))
+  }
+});
 
-export default connect(mapStateToProps, null)(FooterMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(FooterMenu)

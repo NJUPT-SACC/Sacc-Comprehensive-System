@@ -1,5 +1,5 @@
-# 计软网安院科协综合系统
-## 启动方式
+# SACC Comprehensive System
+## start
 ### dev
 ```
 yarn dev
@@ -12,7 +12,7 @@ yarn build
 ```
 yarn start
 ```
-## 提交commit规范(？？):smile:
+## commit standard (？？):smile:
 In general, comment for git submission can be divided into serval groups, started with a few verbs:
 - Added ( add new demand into the project )
 - Fixed ( fix bug )
