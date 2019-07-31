@@ -38,11 +38,11 @@ const defaultState = fromJS({
 export default (state = defaultState, action) => {
   switch(action.type){
     case constants.MANAGEMENT_CHANGE_SHOW:
-      return state.merge({show:action.show,showId:action.id});
+      return {...state,show:action.show,showId:action.id};
     case constants.MANAGEMENT_SHOW_LIST:
-      return state.set('fromTableList',action.fromTableList);
+      return {...state,'fromTableList':action.fromTableList};
     case constants.MANAGEMENT_SHOW_ITEM:
-      return state.set('fromTableItem',action.fromTableItem);
+      return {...state,'fromTableItem':action.fromTableItem};
     default:
       return state;
   }

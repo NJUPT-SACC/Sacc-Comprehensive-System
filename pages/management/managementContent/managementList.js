@@ -37,7 +37,7 @@ class ManagementList extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-		show: state.getIn(['management','show'])
+		show: state.management.show
 	}
 }
 const mapDispatchToProps = (dispatch) => {

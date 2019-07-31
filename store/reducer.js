@@ -9,21 +9,28 @@ import immutableTransform from 'redux-persist-transform-immutable'
 const homepersistConfig = {
     key: 'home',
     storage,
-    whitelist: ['*'] // place to select which state you want to persist
+    whitelist: ['*']
 }
 const competitionpersistConfig = {
     key: 'competition',
     storage,
-    whitelist: ['competitionName'] // place to select which state you want to persist
+    whitelist: ['competitionName']
 }  
+const managementpersistConfig = {
+    key: 'management',
+    storage,
+    whitelist: ['currentTitle','currentColor','english','currentQuestion','questionList','totalPage','currentPage','codingParam']
+}
 const assignmentpersistConfig = {
     key: 'assignment',
     storage,
-    whitelist: ['currentTitle','currentColor','english','currentQuestion','questionList','totalPage','currentPage','codingParam'] // place to select which state you want to persist
+    whitelist: ['show','showId','fromTableList','fromTableItem']
 }
 const reducer = combineReducers({
     home: persistReducer(homepersistConfig, homeReducer),
     competition: persistReducer(competitionpersistConfig, competitionReducer),
+    management: persistReducer(managementpersistConfig, managementReducer),
+    assignment: persistReducer(assignmentpersistConfig, assignmentReducer)
 });
 
 export default reducer;
