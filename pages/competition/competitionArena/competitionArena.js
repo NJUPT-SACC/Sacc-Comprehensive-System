@@ -6,7 +6,7 @@ import router from 'next/router'
 import '../less/competitionArena.less'
 import Navigation from '../../home/HomePage/components/Navigation'
 import CompetitionArenaReady from './components/competitionArenaReady'
-
+import CompetitionArenaStart from './components/competitionArenaStart'
 
 
 class CompetitionArena extends React.Component{
@@ -17,16 +17,12 @@ class CompetitionArena extends React.Component{
 		}
 	}
 
-  componentDidMount(){
-    // console.log(router.router.query)
-  }  
-
 	render(){
 		return (
       <Layout className="layout">
         <div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
         <div style={{backgroundColor:'rgba(234,234,234,.4)',minHeight:'93vh'}}>
-					<CompetitionArenaReady/>
+					<CompetitionArenaStart/>
         </div>
       </Layout>		
 		);
