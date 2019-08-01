@@ -19,19 +19,22 @@ export const onSetCurrentTitle = (current, color, english) => ({
   english
 });
 
+/* 根据题目总数设定总的页数，默认是每一页 10 道踢 */
 export const setTotalPage = (totalPage) => ({
   type: constants.SET_TOTAL_PAGE,
   totalPage
 });
 
+/* 分页器改变当前页 */
 export const changeCurrentPage = (currentPage) => ({
   type: constants.CHANGE_CURRENT_PAGE,
   currentPage
 });
 
-export const onSetCodingListParam = (param) => ({
-  type: constants.SET_CODING_LIST_PARAM,
-  param
+/* 控制题目详情页面的题目列表的显示和隐藏 */
+export const onChangeListDisplay = (isShow) => ({
+  type: constants.CHANGE_LIST_DISPLAY,
+  showQuestionList: isShow
 });
 
 /* 根据题目 id 获取当前题目 */

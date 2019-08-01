@@ -7,7 +7,8 @@ const defaultState = {
   currentQuestion: {},
   questionList: [],
   totalPage: 1,
-  currentPage: 1
+  currentPage: 1,
+  showQuestionList: false
 };
 
 const setCurrentTitle = (state, { current, color, english }) => {
@@ -47,6 +48,13 @@ const changeCurrentPageReducer = (state, { currentPage }) => {
   }
 };
 
+const changeListDisplayReducer = (state, { showQuestionList }) => {
+  return {
+    ...state,
+    showQuestionList
+  }
+};
+
 
 export default (state = defaultState, action) => {
   switch(action.type){
@@ -60,6 +68,8 @@ export default (state = defaultState, action) => {
       return setTotalPageReducer(state, action);
     case constants.CHANGE_CURRENT_PAGE:
       return changeCurrentPageReducer(state, action);
+    case constants.CHANGE_LIST_DISPLAY:
+        return changeListDisplayReducer(state, action);
     default:
       return state;
   }
