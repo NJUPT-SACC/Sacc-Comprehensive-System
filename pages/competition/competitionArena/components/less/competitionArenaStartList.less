@@ -1,5 +1,29 @@
 .CompetitionArenaStartList-main{
   height: 65vh;
   margin-top: 24px;
-  background: #fff;
+  background: transparent;
+  padding: 6px;
+  .CompetitionArenaStartList-title{
+    font-size: 24px;
+  }
+  .CompetitionArenaStartList-table{
+    height: 60vh;
+    margin-top: 4px;
+    background: #fff;
+    border-radius: 10px;
+    overflow-y: auto;
+  }
+  .CompetitionArenaStartList-table::-webkit-scrollbar {
+    width: 4px;    
+  }
+  .CompetitionArenaStartList-table::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+  }
+  .CompetitionArenaStartList-table::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+  }
 }
