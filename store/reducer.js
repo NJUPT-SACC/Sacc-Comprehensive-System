@@ -9,7 +9,7 @@ import immutableTransform from 'redux-persist-transform-immutable'
 const homepersistConfig = {
   key: 'home',
   storage,
-  whitelist: ['*']
+  whitelist: ['BasicInformationList','loginStatus']
 };
 const competitionpersistConfig = {
   key: 'competition',

@@ -1,7 +1,6 @@
 import * as constants from './constants';
-import { fromJS } from "immutable";
 
-const defaultState = fromJS({
+const defaultState = {
   show: '首页',
   loginStatus: 5002,
   rightPercent: '0%',
@@ -10,27 +9,30 @@ const defaultState = fromJS({
   silver: 0,
   copper: 0,
   BasicInformationList:[],
-  portrait: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%A6%96%E9%A1%B5-%E9%80%89%E4%B8%AD.png'
-});
+  portrait: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%A6%96%E9%A1%B5-%E9%80%89%E4%B8%AD.png',
+  skillList: []
+};
 
 export default (state = defaultState, action) => {
   switch(action.type){
     case constants.PERSON_CENTER_CHANGE_SHOW:
-      return state.set('show',action.show);
+      return  {...state,'show':action.show}
     case constants.HOME_LOGIN:
-      return state.set('loginStatus',action.loginStatus);
+      return  {...state,'loginStatus':action.loginStatus}
     case constants.HOME_PRACTICE_RATE:
-      return state.merge({'rightPercent':action.rightPercent,'wrongPercent':action.wrongPercent})
+      return {...state,'rightPercent':action.rightPercent, 'wrongPercent':action.wrongPercent}
     case constants.HOME_COMPETITION_MEDEL:
-      return state.merge({'gold':action.gold,'silver':action.silver,'copper':action.copper})
+      return {...state,'gold':action.gold, 'silver':action.silver, 'copper':action.copper}
     case constants.HOME_BASIC_INFORMATION:
-      return state.set('BasicInformationList',action.BasicInformationList)
+      return {...state,'BasicInformationList':action.BasicInformationList}
     case constants.HOME_CHANGE_BASICINFORMATION:
-      return state.set('BasicInformationList',action.onChangeBasicInformationList)
+      return {...state,'BasicInformationList':action.onChangeBasicInformationList}
     case constants.HOME_SAVE_BASICINFORMATION:
-      return state.set('BasicInformationList',action.NewBasicInformationList)
+      return {...state,'BasicInformationList':action.NewBasicInformationList}
     case constants.HOME_CHANGE_PORTRAIT:
-      return state.set('portrait',action.portrait)
+      return {...state,'portrait':action.portrait}
+    case constants.HOME_SKILL:
+      return {...state, 'skillList':action.skillList}
     default:
       return state;
   }
