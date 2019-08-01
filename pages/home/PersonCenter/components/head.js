@@ -3,7 +3,7 @@ import '../less/head.less';
 import { connect } from 'react-redux';
 import { actionCreators, store} from '../../store';
 import { Upload, Icon, message } from 'antd';
-
+import axios from 'axios'
 function getBase64(img, callback) {
   const reader = new FileReader();
   reader.addEventListener('load', () => callback(reader.result));
@@ -32,6 +32,18 @@ class Head extends React.Component{
     }
   }
 
+  getyu = url =>{
+    axios.get("http://192.168.1.8:8080/admin/test",{
+      url
+    })
+    .then(res => {
+      console.log(res.data)
+    }).catch(err => {
+      console.log(err)
+    })
+    console.log(url)
+  }
+
   handleChange = info => {
     if (info.file.status === 'uploading') {
       this.setState({ loading: true });
@@ -43,9 +55,10 @@ class Head extends React.Component{
         this.setState({
           imageUrl,
           loading: false,
-        }),
+        })
       );
     }
+    //this.getyu(this.state.imageUrl)
   };
 
     render(){
@@ -65,8 +78,8 @@ class Head extends React.Component{
                 name="avatar"
                 listType="picture-card"
                 className="avatar-uploader"
-                showUploadList={false}
-                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                showUploadList={true}
+                action="http://192.168.1.8:8080/admin/test"
                 beforeUpload={beforeUpload}
                 onChange={this.handleChange}
               >
