@@ -19,12 +19,12 @@ const competitionpersistConfig = {
 const managementpersistConfig = {
     key: 'management',
     storage,
-    whitelist: ['currentTitle','currentColor','english','currentQuestion','questionList','totalPage','currentPage','codingParam']
+    whitelist: ['show','showId','fromTableList','fromTableItem']
 }
 const assignmentpersistConfig = {
     key: 'assignment',
     storage,
-    whitelist: ['show','showId','fromTableList','fromTableItem']
+    whitelist: ['currentTitle','currentColor','english','currentQuestion','questionList','totalPage','currentPage','codingParam']
 }
 const reducer = combineReducers({
     home: persistReducer(homepersistConfig, homeReducer),
