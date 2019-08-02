@@ -115,11 +115,9 @@ export const Skill = () => {
   }
 }
 
-const registered = (unregisteredName,unregisteredPassword,unregisteredMail) => ({
+const registered = (registeredStatus) => ({
   type: constants.HOME_REGISTERED,
-  unregisteredName,
-  unregisteredPassword,
-  unregisteredMail
+  registeredStatus
 })
 
 export const Registered = (username,password,email) => {
@@ -131,7 +129,7 @@ export const Registered = (username,password,email) => {
     })
     .then(res => {
       console.log(res.data)
-      dispatch(registered(res.data))
+      dispatch(registered(res.data.status))
     }).catch(err => {
       console.log(err)
     })

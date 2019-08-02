@@ -3,6 +3,7 @@ import '../less/login.less'
 import List from './List';
 import { connect } from 'react-redux';
 import { actionCreators, store} from '../../store';
+import { Button, notification } from 'antd';
 
 class Login extends React.Component{
 
@@ -19,7 +20,8 @@ class Login extends React.Component{
       unregisteredMail:'',
       flag:false,
       show:false,
-      finishRegistered:false
+      finishRegistered:false,
+      registeredMessages:''
     }
     this.LoginRef = React.createRef();
     this.beginRef = React.createRef();
@@ -92,7 +94,19 @@ class Login extends React.Component{
   
   unregistered = () => {
     this.props.registered(this.state.unregisteredUserName, this.state.unregisteredPassword, this.state.unregisteredMail)
+
+     this.openNotification();
   }
+
+  openNotification = () => {
+    notification.open({
+      description:this.state.registeredMessages,
+      style: {
+        width: 600,
+        marginLeft: 335 - 600,
+      },
+    });
+  };
 
   showLogin = (e) => {
     this.setState({
@@ -129,6 +143,8 @@ class Login extends React.Component{
     }
   }
 
+  
+  
   render(){
     const { loginStatus }  = this.props;
     return(
@@ -209,12 +225,13 @@ class Login extends React.Component{
                   name="unregisteredPassword"
                 />
                 <p onClick={this.unregistered}>
-                  <img 
+                   <img
                     src={
                       this.state.finishRegistered ?
                         'https://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%B7%A6%E7%AE%AD%E5%A4%B4.png'
                         :'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%94%99%E8%AF%AF.png'}
-                /></p>
+                />
+                </p>
               </div>
               :''
             }
@@ -230,7 +247,8 @@ class Login extends React.Component{
 const mapStateToProps = (state) =>{
 	return {
     loginStatus: state.home.loginStatus,
-    BasicInformationList: state.home.BasicInformationList
+    BasicInformationList: state.home.BasicInformationList,
+    registeredStatus: state.home.registeredStatus
 	}
 }
 

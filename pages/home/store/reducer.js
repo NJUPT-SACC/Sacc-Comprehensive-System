@@ -10,7 +10,8 @@ const defaultState = {
   copper: 0,
   BasicInformationList:[],
   portrait: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%A6%96%E9%A1%B5-%E9%80%89%E4%B8%AD.png',
-  skillList: []
+  skillList: [],
+  registeredStatus: 5002
 };
 
 export default (state = defaultState, action) => {
@@ -33,6 +34,8 @@ export default (state = defaultState, action) => {
       return {...state,'portrait':action.portrait}
     case constants.HOME_SKILL:
       return {...state, 'skillList':action.skillList}
+    case constants.HOME_REGISTERED:
+      return {...state, 'registeredStatus':action.registeredStatus}
     default:
       return state;
   }
