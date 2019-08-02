@@ -44,15 +44,15 @@ class List extends React.Component{
         <ul>
           {
             listItems.map(item => 
-            <li key={item.id}>
-              <img className={item.tag} onClick={() => Router.push(`${item.routerUrl}`)} src={item.IconUrl} ></img>
-                <p className={item.tag} onClick={() => Router.push(`${item.routerUrl}`)}>{item.name}</p>
+            <li key={item.id} onClick={() => Router.push(`${item.routerUrl}`)}>
+              <img className={item.tag} src={item.IconUrl} ></img>
+                <p className={item.tag}> {item.name} </p>
             </li>
             )
           }
-          <li key="2">
-              <img className='person' onClick={() => Router.push('/personcenter')} src={this.changeImg()}  ></img>
-                <p className='person' onClick={() => Router.push('/personcenter')}>个人中心</p>
+          <li key="2" onClick={() => Router.push('/personcenter')}>
+              <img className='person' src={this.changeImg()}  ></img>
+                <p className='person'>个人中心</p>
             </li>
         </ul>
       </div>

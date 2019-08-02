@@ -28,7 +28,9 @@ class Head extends React.Component{
     super(props)
     this.portraitRef = React.createRef()
     this.state ={
-      loading:false
+      loading:false,
+      flag: false,
+      num: 0
     }
   }
 
@@ -61,6 +63,23 @@ class Head extends React.Component{
     //this.getyu(this.state.imageUrl)
   };
 
+
+  changeSignatureInput = () => {
+    this.setState({
+      flag: !flag
+    })
+  }
+  changeSignature = (e) => {
+    this.props.BasicInformationList[9].value = e.target.value;
+
+    this.setState({
+      num:1
+    })
+    
+    this.props.changeBasicInformation(List)
+  }
+
+
     render(){
       const uploadButton = (
         <div>
@@ -87,9 +106,15 @@ class Head extends React.Component{
             </Upload>
           </div>
           <div className="PCDes">
-            <p>ouu</p>
-            <span>前端组</span>
-            <span>打字员打字员</span>
+            <p>{this.props.BasicInformationList[0].value}</p>
+            <span>{this.props.BasicInformationList[4].value}</span>
+            <span 
+            onClick={this.changeSignatureInput}
+            >
+            {this.state.flag ?
+            <input value={this.props.BasicInformationList[9].value} onChange={this.changeSignature}/>
+            :this.props.BasicInformationList[9].value}
+            </span>
           </div>
         </div>
         <div className="personHeadRight">
@@ -102,6 +127,7 @@ class Head extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
+    BasicInformationList: state.home.BasicInformationList
 	}
 };
 const mapDispatchToProps = (dispatch) => {

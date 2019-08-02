@@ -99,26 +99,6 @@ export const SaveNewBasicInformation = (List) => {
   }
 }
 
-// const changePortrait = (portrait) => ({
-//   type:constants.HOME_CHANGE_PORTRAIT,
-//   portrait
-// })
-
-// export const ChangePortrait = (portrait) => {
-//   return (dispatch) =>{
-//     axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
-//       portrait
-//     })
-//     .then(res => {
-//       console.log("portrait",portrait)
-//       console.log("res",res.data.data.portrait)
-//       dispatch(changePortrait(res.data.data.portrait))
-//     }).catch(err => {
-//       console.log(err)
-//     })
-//   }
-// }
-
 const skill = (skillList) => ({
   type:constants.HOME_SKILL,
   skillList
@@ -129,6 +109,29 @@ export const Skill = () => {
     axios.get("https://www.easy-mock.com/mock/5d3d184d62e39b55d16e97b6/home/personCenter/radar")
     .then(res => {
       dispatch(skill(res.data.data))
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+
+const registered = (unregisteredName,unregisteredPassword,unregisteredMail) => ({
+  type: constants.HOME_REGISTERED,
+  unregisteredName,
+  unregisteredPassword,
+  unregisteredMail
+})
+
+export const Registered = (username,password,email) => {
+  return (dispatch) => {
+    axios.post("http://192.168.1.8:8080/admin/signup",{
+      username,
+      password,
+      email
+    })
+    .then(res => {
+      console.log(res.data)
+      dispatch(registered(res.data))
     }).catch(err => {
       console.log(err)
     })
