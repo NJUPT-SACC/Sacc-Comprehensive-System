@@ -9,28 +9,28 @@ import immutableTransform from 'redux-persist-transform-immutable'
 const homepersistConfig = {
   key: 'home',
   storage,
-  whitelist: ['*']
+  whitelist: ['BasicInformationList','loginStatus']
 };
 const competitionpersistConfig = {
-  key: 'competition',
-  storage,
-  whitelist: ['competitionName']
-};
-const assignmentpersistConfig = {
-  key: 'management',
-  storage,
-  whitelist: ['currentTitle','currentColor','english','currentQuestion','questionList','totalPage','currentPage','codingParam', 'currentQuestionType']
-};
+    key: 'competition',
+    storage,
+    whitelist: ['competitionName']
+}  
 const managementpersistConfig = {
-  key: 'assignment',
-  storage,
-  whitelist: ['show','showId','fromTableList','fromTableItem']
-};
+    key: 'management',
+    storage,
+    whitelist: ['show','showId','fromTableList','fromTableItem']
+}
+const assignmentpersistConfig = {
+    key: 'assignment',
+    storage,
+    whitelist: ['currentTitle','currentColor','english','currentQuestion','questionList','totalPage','currentPage','codingParam']
+}
 const reducer = combineReducers({
-  home: persistReducer(homepersistConfig, homeReducer),
-  competition: persistReducer(competitionpersistConfig, competitionReducer),
-  management: persistReducer(managementpersistConfig, managementReducer),
-  assignment: persistReducer(assignmentpersistConfig, assignmentReducer)
+    home: persistReducer(homepersistConfig, homeReducer),
+    competition: persistReducer(competitionpersistConfig, competitionReducer),
+    management: persistReducer(managementpersistConfig, managementReducer),
+    assignment: persistReducer(assignmentpersistConfig, assignmentReducer)
 });
 
 export default reducer;

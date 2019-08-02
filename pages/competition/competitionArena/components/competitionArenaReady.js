@@ -31,7 +31,7 @@ class CompetitionArenaReady extends React.Component{
           </Col>
           <Col span={14} offset={5}>
             <div className="competitionArenaReady-slider">
-              <div className="competitionArenaReady-slider-text">>距离比赛结束还有120分钟</div>
+              <div className="competitionArenaReady-slider-text">>距离比赛开始还有120分钟</div>
               <div className="competitionArenaReady-slider-block"></div>
             </div>
           </Col>

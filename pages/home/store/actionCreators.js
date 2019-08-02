@@ -66,7 +66,7 @@ export const PracticeRate = () => {
 
 export const CompetitionMedel = () => {
   return(dispatch) => {
-    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/personCenter/competitionMedel")
+    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/personCenter/competitionMedal")
     .then(res => {
       dispatch(competitionMedel(res.data.data.gold,res.data.data.silver,res.data.data.copper))
     }).catch(err => {
@@ -98,20 +98,37 @@ export const SaveNewBasicInformation = (List) => {
     })
   }
 }
-const changePortrait = (portrait) => ({
-  type:constants.HOME_CHANGE_PORTRAIT,
-  portrait
+
+// const changePortrait = (portrait) => ({
+//   type:constants.HOME_CHANGE_PORTRAIT,
+//   portrait
+// })
+
+// export const ChangePortrait = (portrait) => {
+//   return (dispatch) =>{
+//     axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
+//       portrait
+//     })
+//     .then(res => {
+//       console.log("portrait",portrait)
+//       console.log("res",res.data.data.portrait)
+//       dispatch(changePortrait(res.data.data.portrait))
+//     }).catch(err => {
+//       console.log(err)
+//     })
+//   }
+// }
+
+const skill = (skillList) => ({
+  type:constants.HOME_SKILL,
+  skillList
 })
 
-export const ChangePortrait = (portrait) => {
+export const Skill = () => {
   return (dispatch) =>{
-    axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
-      portrait
-    })
+    axios.get("https://www.easy-mock.com/mock/5d3d184d62e39b55d16e97b6/home/personCenter/radar")
     .then(res => {
-      console.log("portrait",portrait)
-      console.log("res",res.data.data.portrait)
-      dispatch(changePortrait(res.data.data.portrait))
+      dispatch(skill(res.data.data))
     }).catch(err => {
       console.log(err)
     })

@@ -21,11 +21,40 @@
   font-size: 1rem;
   margin-top: 2%;
   cursor: pointer;
-  background: #7fc08e;
+  background: rgba(255, 255, 255, 0.75);
   color: #fff;
   line-height: 2.8;
   padding: 0 111px;
-  border: none
+  border: none;
+  opacity: 0.75;
+  position: relative;
+}
+
+#beginBtn::before {
+  position: absolute;
+  content: "";
+  background: #7fc08e;
+  transition-duration: 0.5s;
+  z-index: -1;
+  top: 0px;
+  left: auto;
+  bottom: auto;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+#beginBtn:hover::before {
+  width: 0px;
+  height: 100%;
+  opacity: 1;
+}
+
+#beginBtn:hover {
+  background: rgba(255,255,255,0.75);
+  color:#000;
+  transition: all 0.5s ease 0s;
 }
 
 .LoginInput {
@@ -57,11 +86,42 @@
   font-size: 1rem;
   margin-top: 2%;
   cursor: pointer;
-  animation: fadeIn .8s forwards ease-in-out;
   line-height: 2.7;
   padding: 0 137px;
   background: rgba(255, 255, 255, 0.75);
-  border: none
+  border: none;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.6s;
+}
+
+#HomeLogin:before {
+  content: '';
+  position: absolute;
+}
+
+#HomeLogin:after {
+  content: '';
+  background-color: #7fc08e;
+  width: 200%;
+  height: 0%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transition: all 0.3s;
+  z-index: -1;
+  opacity: 0.75;
+}
+
+#HomeLogin:hover {
+  transform: scale(1.05);
+  color: rgba(255, 255, 255, 0.75)
+}
+
+#HomeLogin:hover:after {
+  height: 568%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
 
 .HomeLoginBox {
@@ -71,7 +131,7 @@
   width: 10%;
   margin: 0 auto;
   color: rgba(255, 255, 255, 0.75);
-  animation: HomeTranslatebottom .5s  forwards ease-in-out;
+  animation: HomeTranslatebottom .5s forwards ease-in-out;
 }
 
 .HomeLoginBox>p {
@@ -123,19 +183,6 @@
 
   100% {
     transform: translateY(0)
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
   }
 }
 
