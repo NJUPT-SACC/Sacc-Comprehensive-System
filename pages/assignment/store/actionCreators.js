@@ -37,12 +37,19 @@ export const onChangeListDisplay = (isShow) => ({
   showQuestionList: isShow
 });
 
+/* 设定题目类型，是选择题还是编程题 */
+export const onSetQuestionType = (type) => ({
+  type: constants.SET_QUESTION_TYPE,
+  currentQuestionType: type
+});
+
 /* 根据题目 id 获取当前题目 */
 export const onGetQuestionDisc = (questionId) => {
   return (dispatch) => {
-    axios.get('https://easy-mock.com/mock/5d2c1c823a04ad635d14cffc/questionDetail', questionId)
+    axios.get('https://easy-mock.com/mock/5d2c1c823a04ad635d14cffc/choiceQuestion', questionId)
       .then(res => {
         const { data } = res.data;
+        console.log(data);
         dispatch(getQuestions(data));
       })
   }

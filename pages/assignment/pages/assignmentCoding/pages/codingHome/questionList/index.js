@@ -17,7 +17,7 @@ class List extends React.Component {
   }
 
   getListArea () {
-    const { questionList, totalPage, currentPage } = this.props;
+    const { questionList, currentPage } = this.props;
     const pageList = [];
     if (questionList.length) {
       for (let i = (currentPage - 1) * 10; i < currentPage * 10; i++) {
@@ -58,24 +58,15 @@ class List extends React.Component {
   }
 
   startCoding ({ id, type }) {
+    this.props.setQuestionType(type);
     const encodeType = encodeURIComponent(type);
-    if (type === '编程题') {
-      Router.push({
-        pathname: '/assignment/question',
-        query: {
-          type: encodeType,
-          id
-        }
-      });
-    } else if (type === '选择题') {
-      Router.push({
-        pathname: '/assignment/question',
-        query: {
-          type: encodeType
-          , id
-        }
-      });
-    }
+    Router.push({
+      pathname: '/assignment/question',
+      query: {
+        type: encodeType,
+        id
+      }
+    });
   }
 
   componentDidMount() {
@@ -133,7 +124,8 @@ const mapStateToProps = (state) => ({
   questionList: state.assignment.questionList,
   totalPage: state.assignment.totalPage,
   currentPage: state.assignment.currentPage,
-  currentEnglish: state.assignment.english
+  currentEnglish: state.assignment.english,
+  currentQuestion: state.assignment.currentQuestion
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -142,6 +134,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setTotalPage (totalPage) {
     dispatch(actionCreators.setTotalPage(totalPage))
+  },
+  setQuestionType (type) {
+    dispatch(actionCreators.onSetQuestionType(type));
   }
 });
 

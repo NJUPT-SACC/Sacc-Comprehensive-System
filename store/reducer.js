@@ -16,12 +16,12 @@ const competitionpersistConfig = {
   storage,
   whitelist: ['competitionName']
 };
-const managementpersistConfig = {
+const assignmentpersistConfig = {
   key: 'management',
   storage,
-  whitelist: ['currentTitle','currentColor','english','currentQuestion','questionList','totalPage','currentPage','codingParam']
+  whitelist: ['currentTitle','currentColor','english','currentQuestion','questionList','totalPage','currentPage','codingParam', 'currentQuestionType']
 };
-const assignmentpersistConfig = {
+const managementpersistConfig = {
   key: 'assignment',
   storage,
   whitelist: ['show','showId','fromTableList','fromTableItem']
