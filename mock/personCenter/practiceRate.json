@@ -1,0 +1,8 @@
+{
+  "status": 2000,
+  "message": "success",
+  "data": {
+    "rightPercent": "83%",
+    "wrongPercent": "17%"
+  }
+}
