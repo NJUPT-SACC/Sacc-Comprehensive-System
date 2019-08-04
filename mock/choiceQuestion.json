@@ -1,0 +1,24 @@
+{
+  "status": 2000,
+  "message": "获取题目成功",
+  "data": {
+    "id": 9,
+    "title": "树莓派6.0",
+    "disc": "小明是个可爱的男孩子，大一就加入了科协，然后他发现科协里面有好多块叫做树莓派的小电脑，那么这种树莓派的cpu是什么架构呢？",
+    "choices": [{
+      "choice": "A",
+      "content": "MIPS",
+    }, {
+      "choice": "B",
+      "content": "Power",
+    }, {
+      "choice": "C",
+      "content": "ARM",
+    }, {
+      "choice": "D",
+      "content": "UltraSPARC",
+    }],
+    "type": 1,
+    "difficulty": "简单"
+  }
+}
