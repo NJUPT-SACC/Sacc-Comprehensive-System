@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { actionCreators, constants } from '../../../../../store'
-import Utli from "../../../../../utli/utli";
+import { actionCreators } from '../../../../../../store'
+import Utli from "../../../../../../utli/utli";
 
 import './index.less'
 const utli = new Utli();

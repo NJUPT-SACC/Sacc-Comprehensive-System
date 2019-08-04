@@ -57,23 +57,40 @@
   transition: all 0.5s ease 0s;
 }
 
-.LoginInput {
+.LoginInput,
+.unregisteredInput {
   position: relative;
-  animation: HomeslideOut .8s forwards linear;
   display: flex;
   flex-direction: column;
   align-items: center;
+  line-height: 3;
+}
+.unregisteredInput img{
+  width:2vw;
+  margin-top: 2vh;
+  animation: changeLogin .3s forwards linear;
+  cursor: pointer;
 }
 
-.LoginInput>input {
+@keyframes changeLogin{
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 2vw;
+  }
+}
+
+.LoginInput>input,
+.unregisteredInput>input {
   margin-top: 2%;
   padding-left: 1%;
   font-size: 1rem;
-  line-height: 2.5;
   background: rgba(255, 255, 255, 0.75);
   width: 306px;
   display: inline-block;
   border: none;
+  line-height:2.5
 }
 
 .LoginInputActive {
@@ -87,7 +104,7 @@
   margin-top: 2%;
   cursor: pointer;
   line-height: 2.7;
-  padding: 0 137px;
+  padding: 0 146px;
   background: rgba(255, 255, 255, 0.75);
   border: none;
   overflow: hidden;
@@ -120,7 +137,7 @@
 }
 
 #HomeLogin:hover:after {
-  height: 568%;
+  height: 610%;
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
 
@@ -164,6 +181,28 @@
 
 .Home-beginAnimation {
   animation: HomeTranslateTop .5s forwards ease-in-out;
+}
+
+.unregisteredInput{
+  animation: HomeslideUp .3s forwards linear;
+}
+
+@keyframes HomeslideBottom{
+  0%{
+    transform: translateY(0)
+  }
+  100%{
+    transform: translateY(50px)
+  }
+}
+
+@keyframes HomeslideUp{
+  0%{
+    transform: translateY(50px)
+  }
+  100%{
+    transform: translateY(0)
+  }
 }
 
 @keyframes HomeTranslateTop {

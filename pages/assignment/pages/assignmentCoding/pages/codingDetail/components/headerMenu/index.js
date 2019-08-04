@@ -9,6 +9,7 @@ class HeaderMenu extends React.Component {
   }
   render () {
     const { currentQuestion: { title, difficulty }, questionId } = this.props;
+    console.log(this.props.currentQuestion);
     return (
       <div className="coding_header_menu">
         <div className="left_part">
@@ -27,7 +28,7 @@ class HeaderMenu extends React.Component {
   }
 }
 
-const  mapStateToProps = state => ({
+const mapStateToProps = state => ({
   currentQuestion: state.assignment.currentQuestion
 });
 
