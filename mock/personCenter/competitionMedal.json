@@ -1,0 +1,9 @@
+{
+  "status": "2000",
+  "message": "success",
+  "data": {
+    "gold": 3,
+    "silver": 2,
+    "copper": 1
+  }
+}
