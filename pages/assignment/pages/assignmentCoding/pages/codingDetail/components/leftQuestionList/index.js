@@ -8,12 +8,17 @@ class QuestionList extends React.Component {
   constructor(props){
     super(props)
   }
+  /* 收回题目列表 */
   transformBack () {
     this.props.changeListDisplay(false);
   }
+  /* 根据点击的 id 获取题目 */
+  getQuestionDetail (questionId) {
+    console.log(questionId);
+    this.props.getQuestionDisc(questionId);
+  }
   render() {
     const { showQuestionList, questionList } = this.props;
-    console.log(questionList);
     return (
       <div
         className="left_questionList"
@@ -38,7 +43,11 @@ class QuestionList extends React.Component {
             questionList ?
               questionList.map(item => {
                 return (
-                  <div className="question_item_wrapper">
+                  <div
+                    className="question_item_wrapper"
+                    key={item.id}
+                    onClick={() => {this.getQuestionDetail(item.id)}}
+                  >
                     <div className="item_left">
                       <span className="item_id">{item.id}</span>
                       <span className="item_title">{item.title}</span>
@@ -63,7 +72,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   changeListDisplay (isShow) {
-    return dispatch(actionCreators.onChangeListDisplay(isShow))
+    dispatch(actionCreators.onChangeListDisplay(isShow))
+  },
+  getQuestionDisc (questionId) {
+    dispatch(actionCreators.onGetQuestionDisc(questionId))
   }
 });
 

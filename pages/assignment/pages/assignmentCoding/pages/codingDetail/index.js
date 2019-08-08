@@ -13,26 +13,27 @@ class Detail extends React.Component {
     super(props);
     this.state = {
       param: "",
-      questionId: 0
+      questionId: 0,
+      questionType: ''
     }
   }
-  
   componentDidMount() {
     const questionId = utli.getUrlParam("id");
+    const type = decodeURIComponent(utli.getUrlParam("type"));
     this.setState({
-      questionId
+      questionId,
+      questionType: type
     })
   }
   
   render () {
-    const { questionId } = this.state;
-    const { currentQuestionType } = this.props;
+    const { questionId, questionType } = this.state;
     return (
       <div className="coding_detail_container">
         {
-          currentQuestionType === '' ?
+          questionType === '' ?
             <div>加载中，请稍后</div>
-            : currentQuestionType === '编程题' ?
+            : questionType === '编程题' ?
             <Programming questionId={questionId}/> :
             <Selection questionId={questionId}/>
         }
@@ -41,8 +42,4 @@ class Detail extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  currentQuestionType: state.assignment.currentQuestionType
-});
-
-export default connect(mapStateToProps, null)(Detail)
+export default Detail
