@@ -12,11 +12,6 @@ import ManagementGame from './managementContent/managementGame';
 import ManagementList from './managementContent/managementList';
 
 class Management extends React.Component{
-	static async getInitialProps({ req }) {
-		console.log(req)
-		return req;
-	  }
-
 	constructor(props){
 		super(props);
 	}

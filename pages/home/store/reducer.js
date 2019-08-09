@@ -30,8 +30,6 @@ export default (state = defaultState, action) => {
       return {...state,'BasicInformationList':action.onChangeBasicInformationList}
     case constants.HOME_SAVE_BASICINFORMATION:
       return {...state,'BasicInformationList':action.NewBasicInformationList}
-    case constants.HOME_CHANGE_PORTRAIT:
-      return {...state,'portrait':action.portrait}
     case constants.HOME_SKILL:
       return {...state, 'skillList':action.skillList}
     case constants.HOME_REGISTERED:
