@@ -58,7 +58,6 @@ class List extends React.Component {
   }
 
   startCoding ({ id, type }) {
-    this.props.setQuestionType(type);
     const encodeType = encodeURIComponent(type);
     Router.push({
       pathname: '/assignment/question',
@@ -134,9 +133,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   setTotalPage (totalPage) {
     dispatch(actionCreators.setTotalPage(totalPage))
-  },
-  setQuestionType (type) {
-    dispatch(actionCreators.onSetQuestionType(type));
   }
 });
 

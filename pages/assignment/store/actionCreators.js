@@ -1,6 +1,7 @@
 import { constants } from './index'
 import axios from 'axios';
 
+/* 获取题目， 处理题目答案 */
 const getQuestions = (data) => ({
   type: constants.GET_QUESTION_DISC,
   data
@@ -10,7 +11,6 @@ const onGetQuestionList = (data) => ({
   type: constants.GET_QUESTION_LIST,
   questionList: data
 });
-
 
 export const onSetCurrentTitle = (current, color, english) => ({
   type: constants.SET_CURRENT_TITLE,
@@ -36,11 +36,10 @@ export const onChangeListDisplay = (isShow) => ({
   type: constants.CHANGE_LIST_DISPLAY,
   showQuestionList: isShow
 });
-
-/* 设定题目类型，是选择题还是编程题 */
-export const onSetQuestionType = (type) => ({
-  type: constants.SET_QUESTION_TYPE,
-  currentQuestionType: type
+/* 入参是当前题目的答案，该函数是搜集当前所有题目的答案 */
+export const onSetAnswerList = (ans) => ({
+  type: constants.SET_ANSWER_LIST,
+  currentQuestionAns: ans
 });
 
 /* 根据题目 id 获取当前题目 */
@@ -49,7 +48,6 @@ export const onGetQuestionDisc = (questionId) => {
     axios.get('https://easy-mock.com/mock/5d2c1c823a04ad635d14cffc/choiceQuestion', questionId)
       .then(res => {
         const { data } = res.data;
-        console.log(data);
         dispatch(getQuestions(data));
       })
   }

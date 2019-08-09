@@ -9,8 +9,11 @@ const defaultState = {
   totalPage: 1,
   currentPage: 1,
   showQuestionList: false,
-  currentQuestionType: ''
+  currentQuestionType: '',
+  choiceQuestionAnswer: []
 };
+/* 临时存储题目答案，作为中间变量最后返回给 choiceQuestionAnswer */
+let questionAnswers = [];
 
 const setCurrentTitle = (state, { current, color, english }) => {
   return {
@@ -27,11 +30,11 @@ const getQuestionList = (state, { questionList }) => {
     "questionList": questionList
   }
 };
-
-const getQuestions = (state, { data }) => {
+/* 获取题目详情（编程题和选择题） */
+const getQuestionReducer = (state, { data }) => {
   return {
     ...state,
-    "currentQuestion": data
+    currentQuestion: data
   }
 };
 /* 根据题目总数设定页数的数目 */
@@ -55,21 +58,31 @@ const changeListDisplayReducer = (state, { showQuestionList }) => {
     showQuestionList
   }
 };
-/* 设定当前题目类型是选择还是编程 */
-const setQuestionTypeReducer = (state, { currentQuestionType }) => {
+
+const setAnswerListReducer = (state, { currentQuestionAns }) => {
+  if (state.choiceQuestionAnswer === []) {
+    questionAnswers.push(currentQuestionAns);
+  } else {
+    questionAnswers.map((item, index) => {
+      if (item.id === currentQuestionAns.id) {
+        questionAnswers.splice(index)
+      }
+    });
+    questionAnswers.push(currentQuestionAns);
+  }
+  console.log('questionAnswers: ', questionAnswers);
   return {
     ...state,
-    currentQuestionType
+    choiceQuestionAnswer: questionAnswers
   }
 };
-
 
 export default (state = defaultState, action) => {
   switch(action.type){
     case constants.SET_CURRENT_TITLE:
       return setCurrentTitle(state, action);
     case constants.GET_QUESTION_DISC:
-      return getQuestions(state, action);
+      return getQuestionReducer(state, action);
     case constants.GET_QUESTION_LIST:
       return getQuestionList(state, action);
     case constants.SET_TOTAL_PAGE:
@@ -78,8 +91,8 @@ export default (state = defaultState, action) => {
       return changeCurrentPageReducer(state, action);
     case constants.CHANGE_LIST_DISPLAY:
       return changeListDisplayReducer(state, action);
-    case constants.SET_QUESTION_TYPE:
-      return setQuestionTypeReducer(state, action);
+    case constants.SET_ANSWER_LIST:
+      return setAnswerListReducer(state, action);
     default:
       return state;
   }

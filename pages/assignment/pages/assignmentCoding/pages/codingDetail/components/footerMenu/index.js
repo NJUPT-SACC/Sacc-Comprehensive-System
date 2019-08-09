@@ -26,8 +26,6 @@ class FooterMenu extends React.Component {
   
   render() {
     const { questionId, currentQuestionType, questionList } = this.props;
-    console.log("------footerMenu------");
-    console.log(questionList);
     return (
       <div className="footer_menu">
         <div className="left_part">
