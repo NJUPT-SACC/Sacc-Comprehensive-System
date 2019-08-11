@@ -1,14 +1,16 @@
 import * as constants from './constants';
-import { fromJS } from "immutable";
 
 const defaultState = {
-  competitionName:''
+  competitionId:'',
+  competitionList:''
 };
 
 export default (state = defaultState, action) => {
   switch(action.type){
     case constants.COMPETITION_CHANGE_NAME:
-      return {...state,'competitionName':action.name}
+      return {...state,'competitionId':action.name}
+    case constants.COMPETITION_INIT_LIST:
+      return {...state,'competitionList':action.competitionList}
     default:
       return state;
   }

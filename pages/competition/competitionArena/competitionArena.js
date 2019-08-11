@@ -30,7 +30,7 @@ class CompetitionArena extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-		name: state.competition.competitionName
+		id: state.competition.competitionId
 	}
 }
 const mapDispatchToProps = (dispatch) => {

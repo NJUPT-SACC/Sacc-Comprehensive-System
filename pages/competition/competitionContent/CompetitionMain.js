@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'antd';
 
 import '../less/competitionMain.less'
+import { actionCreators } from '../store';
 
 import CompetitionCard from './components/CompetitionCard'
 import CompetitionHistory from './components/CompetitionHistory'
@@ -14,6 +15,12 @@ class CompetitionMain extends React.Component{
 		super(props);
 		this.state = {
 			ready:false
+		}
+	}
+
+	componentDidMount(){
+		if(!this.props.competitionList){
+			this.props.initList();
 		}
 	}
 
@@ -49,8 +56,8 @@ class CompetitionMain extends React.Component{
 					</div>
 					{this.state.ready?<div className="CompetitionMain-main">
 						<Row>
-							<Col span={10} offset={1}><CompetitionCard width={22}/></Col>
-							<Col span={10} offset={2}><CompetitionCard width={22}/></Col>
+							<Col span={10} offset={1}><CompetitionCard width={22} competitionName={this.props.competitionList[0].name} startTime={this.props.competitionList[0].startTIme} endTime={this.props.competitionList[0].endTime} competitionId={this.props.competitionList[0].id}/></Col>
+							<Col span={10} offset={2}><CompetitionCard width={22} competitionName={this.props.competitionList[1].name} startTime={this.props.competitionList[1].startTIme} endTime={this.props.competitionList[1].endTime} competitionId={this.props.competitionList[1].id}/></Col>
 						</Row>
 						<Row>
 							<Col offset={1}><CompetitionHistory/></Col>
@@ -70,12 +77,14 @@ class CompetitionMain extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-		
+		competitionList:state.competition.competitionList
 	}
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-
+		initList(){
+      dispatch(actionCreators.init_list())
+    }
 	}
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CompetitionMain);

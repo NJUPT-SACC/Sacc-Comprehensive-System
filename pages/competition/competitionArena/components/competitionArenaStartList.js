@@ -107,9 +107,6 @@ const columns = [
   },
 ];
 
-
-
-
 class CompetitionArenaStartList extends React.Component{
 	render(){
 		return (

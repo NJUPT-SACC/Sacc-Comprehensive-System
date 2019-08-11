@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Icon, Table} from 'antd';
 
 import './less/CompetitionHistory.less'
+import { actionCreators } from '../../store';
 
 class CompetitionHistory extends React.Component{
 	
@@ -18,8 +19,8 @@ class CompetitionHistory extends React.Component{
       },
       {
         title: '地点',
-        dataIndex: 'place',
-        key: 'place',
+        dataIndex: 'location',
+        key: 'location',
       },
       {
         title: '时间',
@@ -36,65 +37,24 @@ class CompetitionHistory extends React.Component{
         ),
       }
     ];
-    const data = [{
-      id: 1,
-      name: '计算机基础知识大赛',
-      startTime: '2019 7 25 18:00:00',
-      endtime: '2019 7 25 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }, {
-      id: 2,
-      name: '计算机知识大赛',
-      startTime: '2019 7 24 18:00:00',
-      endtime: '2019 7 24 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }, {
-      id: 3,
-      name: '计算机基础大赛',
-      startTime: '2019 7 26 18:00:00',
-      endtime: '2019 7 26 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    },{
-      id: 1,
-      name: '计算机基础知识大赛',
-      startTime: '2019 7 25 18:00:00',
-      endtime: '2019 7 25 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }, {
-      id: 2,
-      name: '计算机知识大赛',
-      startTime: '2019 7 24 18:00:00',
-      endtime: '2019 7 24 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }, {
-      id: 3,
-      name: '计算机基础大赛',
-      startTime: '2019 7 26 18:00:00',
-      endtime: '2019 7 26 20:00:00',
-      place: '计算机学科楼101',
-      matters: '各位选手提前两小时到场'
-    }]
     return (
 			<div className='CompetitionHistory-content'>
         <div className='CompetitionHistory-title'>往期比赛回顾<div>> 我的比赛记录</div></div>
-        <div><Table columns={columns} dataSource={data} pagination={false}/></div>
+        <div><Table columns={columns} dataSource={this.props.competitionList} pagination={false}/></div>
 			</div>
 		);
-	}
+  }
 }
 const mapStateToProps = (state) =>{
 	return {
-		
+		competitionList:state.competition.competitionList
 	}
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-
+    initList(){
+      dispatch(actionCreators.init_list())
+    }
 	}
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CompetitionHistory);
