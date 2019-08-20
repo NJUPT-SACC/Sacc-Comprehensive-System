@@ -21,7 +21,7 @@ class Login extends React.Component{
       flag:false,
       show:false,
       finishRegistered:false,
-      registeredMessages:''
+      registeredMessages:'注册成功'
     }
     this.LoginRef = React.createRef();
     this.beginRef = React.createRef();
@@ -40,6 +40,7 @@ class Login extends React.Component{
   }
 
   changeInputColor = (e) =>{
+    console.log(e.target.value.length)
     switch(e.target.name){
       case 'userName':
         this.setState({
@@ -79,28 +80,38 @@ class Login extends React.Component{
       })
     }
   }
-
   login = () =>{
       this.props.IfLogin(this.state.userName, this.state.Password)
-      this.props.showBlist()
-      this.LoginRef.current.classList.add("LoginNarrow");
-      const self = this;
-      setTimeout(function(){
-        self.setState({
-          showSys: true
-        })
-      }, 1100)
+      this.openLogin()
+      if(this.props.loginStatus == 5002){
+        this.props.showBlist()
+        this.LoginRef.current.classList.add("LoginNarrow");
+        const self = this;
+        setTimeout(function(){
+          self.setState({
+            showSys: true
+          })
+        }, 1100)
+      }
   }
+  openLogin = () => {
+    notification.open({
+      description:this.props.loginMsg,
+      style: {
+        width: 600,
+        marginLeft: 335 - 600,
+      },
+    });
+  };
   
   unregistered = () => {
     this.props.registered(this.state.unregisteredUserName, this.state.unregisteredPassword, this.state.unregisteredMail)
-
-     this.openNotification();
+    this.openRegistered();
   }
 
-  openNotification = () => {
+  openRegistered = () => {
     notification.open({
-      description:this.state.registeredMessages,
+      description:this.props.registeredMsg,
       style: {
         width: 600,
         marginLeft: 335 - 600,
@@ -150,12 +161,12 @@ class Login extends React.Component{
     return(
       <div className="Home">
       {
-        loginStatus === 5002 && this.state.showSys? 
+        loginStatus == 5002 && this.state.showSys? 
         <List />:
         <div className="HomeLogin" ref={this.LoginRef}>
           <div className="HomeLoginCaption">
             { 
-              this.state.showInputBox ? 
+              loginStatus == 5002 && this.state.showInputBox ? 
                 <div className="HomeLoginBox">
                   <p 
                   onClick={this.showLogin} 
@@ -245,10 +256,12 @@ class Login extends React.Component{
 
 
 const mapStateToProps = (state) =>{
-	return {
+  	return {
     loginStatus: state.home.loginStatus,
     BasicInformationList: state.home.BasicInformationList,
-    registeredStatus: state.home.registeredStatus
+    registeredStatus: state.home.registeredStatus,
+    registeredMsg: state.home.registeredMsg,
+    loginMsg: state.home.loginMsg
 	}
 }
 
