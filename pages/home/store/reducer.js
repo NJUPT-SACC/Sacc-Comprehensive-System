@@ -2,16 +2,57 @@ import * as constants from './constants';
 
 const defaultState = {
   show: '首页',
-  loginStatus: 5002,
+  loginStatus: 2000,
   rightPercent: '0%',
   wrongPercent: '0%',
   gold: 0,
   silver: 0,
   copper: 0,
-  BasicInformationList:[],
-  portrait: 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%A6%96%E9%A1%B5-%E9%80%89%E4%B8%AD.png',
+  BasicInformationList:[
+        {
+          "key": "昵称",
+          "value": "游客"
+        },
+        {
+          "key": "姓名",
+          "value": ""
+        },
+        {
+          "key": "学号",
+          "value": ""
+        },
+        {
+          "key": "组别",
+          "value": "前端组"
+        },
+        {
+          "key": "邮箱",
+          "value": ""
+        },
+        {
+          "key": "学院",
+          "value": ""
+        },
+        {
+          "key": "专业",
+          "value": ""
+        },
+        {
+          "key": "年级",
+          "value": ""
+        },
+        {
+          "key": "性别",
+          "value": ""
+        },{
+          "key": "签名",
+          "value": "的发射点发射点"
+        }
+  ],
   skillList: [],
-  registeredStatus: 5002
+  registeredStatus: 5002,
+  registeredMsg:"注册",
+  loginMsg:"登录"
 };
 
 export default (state = defaultState, action) => {
@@ -19,7 +60,7 @@ export default (state = defaultState, action) => {
     case constants.PERSON_CENTER_CHANGE_SHOW:
       return  {...state,'show':action.show}
     case constants.HOME_LOGIN:
-      return  {...state,'loginStatus':action.loginStatus}
+      return  {...state,'loginStatus':action.loginStatus, 'loginMsg': action.loginMsg}
     case constants.HOME_PRACTICE_RATE:
       return {...state,'rightPercent':action.rightPercent, 'wrongPercent':action.wrongPercent}
     case constants.HOME_COMPETITION_MEDEL:
@@ -33,7 +74,7 @@ export default (state = defaultState, action) => {
     case constants.HOME_SKILL:
       return {...state, 'skillList':action.skillList}
     case constants.HOME_REGISTERED:
-      return {...state, 'registeredStatus':action.registeredStatus}
+      return {...state, 'registeredStatus':action.registeredStatus, 'registeredMsg': action.registeredMsg}
     default:
       return state;
   }

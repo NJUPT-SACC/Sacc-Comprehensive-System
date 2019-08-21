@@ -53,7 +53,10 @@ class List extends React.Component{
           <li key="2" onClick={() => Router.push('/personcenter')}>
               <img className='person' src={this.changeImg()}  ></img>
                 <p className='person'>个人中心</p>
-            </li>
+          </li>
+          {
+            
+          }
         </ul>
       </div>
     )

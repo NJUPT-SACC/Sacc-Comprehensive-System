@@ -6,9 +6,10 @@ export const changeShow = (showClassName) => ({
   show: showClassName
 });
 
-const Iflogin = (loginStatus) => ({
+const Iflogin = (loginStatus,loginMsg) => ({
   type: constants.HOME_LOGIN,
-  loginStatus
+  loginStatus,
+  loginMsg
 });
 
 const practiceRate = (rightPercent,wrongPercent) => ({
@@ -115,9 +116,10 @@ export const Skill = () => {
   }
 }
 
-const registered = (registeredStatus) => ({
+const registered = (registeredStatus,registeredMsg) => ({
   type: constants.HOME_REGISTERED,
-  registeredStatus
+  registeredStatus,
+  registeredMsg
 })
 
 export const Registered = (username,password,email) => {
@@ -129,7 +131,7 @@ export const Registered = (username,password,email) => {
     })
     .then(res => {
       console.log(res.data)
-      dispatch(registered(res.data.status))
+      dispatch(registered(res.data.status,res.data.msg))
     }).catch(err => {
       console.log(err)
     })
