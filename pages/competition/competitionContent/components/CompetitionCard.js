@@ -8,7 +8,7 @@ import './less/CompetitionCard.less'
 import { actionCreators } from '../../store';
 
 const { Countdown } = Statistic;
-const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
+const deadline = new Date("2019-8-21 15:00:00");
 class CompetitionCard extends React.Component{
 
 	getStartArena = () =>{

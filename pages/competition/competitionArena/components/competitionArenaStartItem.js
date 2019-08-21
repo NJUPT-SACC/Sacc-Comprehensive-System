@@ -10,7 +10,7 @@ class CompetitionArenaStartItem extends React.Component{
 	constructor(props){
     super(props);
     this.state = {
-      answers:0,
+      answers:null,
       value: `
       import App, { Container } from 'next/app';
       import React from 'react';
@@ -65,9 +65,6 @@ class CompetitionArenaStartItem extends React.Component{
     })
   }
   componentDidMount(){
-    // Axios.get({
-    //   url:''
-    // })
   }
 	render(){
     const options = ['A、MIPS','B、Power','C、ARM','D、UltraSPARC'];

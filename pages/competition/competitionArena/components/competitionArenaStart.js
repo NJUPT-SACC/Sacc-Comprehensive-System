@@ -5,15 +5,19 @@ import { Row, Col, Icon } from 'antd';
 import './less/competitionArenaStart.less'
 import CompetitionArenaStartItem from './competitionArenaStartItem'
 import CompetitionArenaStartList from './competitionArenaStartList'
-
+import Router from 'next/router'
 class CompetitionArenaStart extends React.Component{
-	
+	gotoCompetition=()=>{
+    Router.push({
+			pathname: '/competition'
+		})
+  }
 	render(){
 		return (
 			<Row style={{marginTop:'24px'}}>
         <Col span={14} offset={5}>
             <div style={{fontSize:'18',color:'gray'}}>
-              <div><Icon type="left" />  返回比赛主页</div>
+              <div style={{cursor:'pointer'}} onClick={this.gotoCompetition}><Icon type="left" />  返回比赛主页</div>
             </div>
           </Col>
           <Col span={14} offset={5}>
