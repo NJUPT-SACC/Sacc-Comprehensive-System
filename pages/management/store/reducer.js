@@ -2,7 +2,7 @@ import * as constants from './constants';
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
-  show:'操作日志',
+  show:'题目列表',
   showId:0,
   fromTableList:[{
     "id": "无",
