@@ -25,6 +25,7 @@ class ManagementGameList extends React.Component{
         });
     };
     render(){
+        const isDid = Date.now()>new Date("2019-9-21 14:50:00")?'已结束':Date.now()>new Date("2019-8-21 14:50:00")?'正在进行':'未开始'
         return (
             <div style={{display:'flex',flex:'auto',flexWrap:'wrap'}}>
                 <Search placeholder="请输入搜索内容" onSearch={value => console.log(value)} enterButton/>
