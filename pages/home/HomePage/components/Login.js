@@ -3,7 +3,6 @@ import '../less/login.less'
 import List from './List';
 import { connect } from 'react-redux';
 import { actionCreators, store} from '../../store';
-import { Button, notification } from 'antd';
 
 class Login extends React.Component{
 
@@ -79,45 +78,20 @@ class Login extends React.Component{
       })
     }
   }
-  login = () =>{
-      this.props.IfLogin(this.state.userName, this.state.Password)
-      if(this.props.loginStatus == 2000){
-        this.props.showBlist()
-        this.LoginRef.current.classList.add("LoginNarrow");
-        const self = this;
-        setTimeout(function(){
-          self.setState({
-            showSys: true
-          })
-        }, 1100)
-      }
-     
-      this.openLogin()
+   login =  async () =>{
+    await this.props.IfLogin(this.state.userName, this.state.Password,this.LoginRef)
+      this.props.showBlist()
+      const self = this;
+      setTimeout(function(){
+        self.setState({
+          showSys: true
+        })
+      }, 1100)
   }
-  openLogin = () => {
-    notification.open({
-      description:this.props.loginMsg,
-      style: {
-        width: 600,
-        marginLeft: 335 - 600,
-      },
-    });
-  };
   
   unregistered = () => {
     this.props.registered(this.state.unregisteredUserName, this.state.unregisteredPassword, this.state.unregisteredMail)
-    this.openRegistered();
   }
-
-  openRegistered = () => {
-    notification.open({
-      description:this.props.registeredMsg,
-      style: {
-        width: 600,
-        marginLeft: 335 - 600,
-      },
-    });
-  };
 
   showLogin = (e) => {
     this.setState({
@@ -157,97 +131,104 @@ class Login extends React.Component{
   
   
   render(){
-    const { loginStatus }  = this.props;
     return(
       <div className="Home">
       {
-        loginStatus == 2000 && this.state.showSys? 
-        <List />:
-        <div className="HomeLogin" ref={this.LoginRef}>
-          <div className="HomeLoginCaption">
-            { 
-               this.state.showInputBox ? 
-                <div className="HomeLoginBox">
-                  <p 
-                  onClick={this.showLogin} 
-                  className={this.state.targetLogin === '登录'? 'LoginActive': ''}
-                  >
-                    登录
-                  </p>
-                  <p 
-                  onClick={this.showLogin}
-                  className={this.state.targetLogin === '注册'? 'LoginActive': ''}
-                  >
-                    注册
-                  </p>
-                </div>
-            : 
-            <div ref = { this.beginRef } className="HomeBegin">
-              <p>SACC 比赛系统</p>
-              <button onClick={this.changeShowButton}  id="beginBtn">开始使用</button>
-            </div>
+        (()=>{
+          if(this.props.authKey){
+            if(this.state.showSys){
+              return (<List />)
             }
-
-            {
-              this.state.targetLogin == '登录'?                
-              <div className="LoginInput"
-                style={this.changeAnimation()}>
-                <input
-                  type="text" 
-                  placeholder="用户名" 
-                  onChange={this.changeInputColor} 
-                  value={this.state.userName} 
-                  name="userName"
-                />
-                <input 
-                  type="password" 
-                  placeholder="密码" 
-                  onChange={this.changeInputColor} 
-                  value={this.state.Password} 
-                  name="password"
-                />
-                <button id="HomeLogin" onClick={this.login}>登录</button>
-              </div>
-              :this.state.targetLogin == '注册'?
-              <div className="unregisteredInput"
-              style={this.state.flag?
-                {animation: 'HomeslideBottom .3s forwards linear'}
+          }else{
+            return(
+              <div className="HomeLogin" ref={this.LoginRef}>
+              <div className="HomeLoginCaption">
+                { 
+                   this.state.showInputBox ? 
+                    <div className="HomeLoginBox">
+                      <p 
+                      onClick={this.showLogin} 
+                      className={this.state.targetLogin === '登录'? 'LoginActive': ''}
+                      >
+                        登录
+                      </p>
+                      <p 
+                      onClick={this.showLogin}
+                      className={this.state.targetLogin === '注册'? 'LoginActive': ''}
+                      >
+                        注册
+                      </p>
+                    </div>
                 :
-                {animation:'HomeslideUp .3s forwards linear'}}>
-                <input 
-                  type="text" 
-                  placeholder="用户名" 
-                  onChange={ this.changeInputColor } 
-                  value={ this.state.unregisteredUserName } 
-                  name="unregisteredUserName"
-                />
-                <input 
-                  type="text" 
-                  placeholder="邮箱" 
-                  onChange={ this.changeInputColor } 
-                  value={ this.state.unregisteredMail } 
-                  name="unregisteredMail"
-                />
-                <input 
-                  type="password" 
-                  placeholder="密码" 
-                  onChange={this.changeInputColor} 
-                  value={this.state.unregisteredPassword} 
-                  name="unregisteredPassword"
-                />
-                <p onClick={this.unregistered}>
-                   <img
-                    src={
-                      this.state.finishRegistered ?
-                        'https://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%B7%A6%E7%AE%AD%E5%A4%B4.png'
-                        :'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%94%99%E8%AF%AF.png'}
-                />
-                </p>
+                <div ref = { this.beginRef } className="HomeBegin">
+                  <p>SACC 比赛系统</p>
+                  <button onClick={this.changeShowButton}  id="beginBtn">开始使用</button>
+                </div>
+                }
+    
+                {
+                  this.state.targetLogin == '登录'?                
+                  <div className="LoginInput"
+                    style={this.changeAnimation()}>
+                    <input
+                      type="text" 
+                      placeholder="用户名" 
+                      onChange={this.changeInputColor} 
+                      value={this.state.userName} 
+                      name="userName"
+                    />
+                    <input 
+                      type="password" 
+                      placeholder="密码" 
+                      onChange={this.changeInputColor} 
+                      value={this.state.Password} 
+                      name="password"
+                    />
+                    <button id="HomeLogin" onClick={this.login}>登录</button>
+                  </div>
+                  :this.state.targetLogin == '注册'?
+                  <div className="unregisteredInput"
+                  style={this.state.flag?
+                    {animation: 'HomeslideBottom .3s forwards linear'}
+                    :
+                    {animation:'HomeslideUp .3s forwards linear'}}>
+                    <input 
+                      type="text" 
+                      placeholder="用户名" 
+                      onChange={ this.changeInputColor } 
+                      value={ this.state.unregisteredUserName } 
+                      name="unregisteredUserName"
+                    />
+                    <input 
+                      type="text" 
+                      placeholder="邮箱" 
+                      onChange={ this.changeInputColor } 
+                      value={ this.state.unregisteredMail } 
+                      name="unregisteredMail"
+                    />
+                    <input 
+                      type="password" 
+                      placeholder="密码" 
+                      onChange={this.changeInputColor} 
+                      value={this.state.unregisteredPassword} 
+                      name="unregisteredPassword"
+                    />
+                    <p onClick={this.unregistered}>
+                       <img
+                        src={
+                          this.state.finishRegistered ?
+                            'https://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%B7%A6%E7%AE%AD%E5%A4%B4.png'
+                            :'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%94%99%E8%AF%AF.png'}
+                    />
+                    </p>
+                  </div>
+                  :''
+                }
               </div>
-              :''
-            }
           </div>
-      </div>
+            )
+          }
+        })()
     }
     </div>
     )
@@ -257,18 +238,18 @@ class Login extends React.Component{
 
 const mapStateToProps = (state) =>{
   	return {
-    loginStatus: state.home.loginStatus,
     BasicInformationList: state.home.BasicInformationList,
     registeredStatus: state.home.registeredStatus,
     registeredMsg: state.home.registeredMsg,
-    loginMsg: state.home.loginMsg
+    loginMsg: state.home.loginMsg,
+    authKey: state.home.authKey
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		IfLogin(userName,password){
-      dispatch(actionCreators.Login(userName,password));
+		IfLogin(userName,password,LoginRef){
+      dispatch(actionCreators.Login(userName,password,LoginRef));
     },
     showBlist(){
       dispatch(actionCreators.BasicInformation())

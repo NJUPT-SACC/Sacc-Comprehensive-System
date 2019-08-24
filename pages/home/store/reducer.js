@@ -2,7 +2,6 @@ import * as constants from './constants';
 
 const defaultState = {
   show: '首页',
-  loginStatus: 5002,
   rightPercent: '0%',
   wrongPercent: '0%',
   gold: 0,

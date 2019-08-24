@@ -41,7 +41,7 @@ const saveNewBasicInformation = (NewBasicInformationList) => ({
   NewBasicInformationList
 })
 
-export const Login = (username,password) => {
+export const Login = (username,password,ref) => {
   return (dispatch) =>{
     axios.post("http://192.168.1.15:8080/admin/login",{
       username,
@@ -49,8 +49,11 @@ export const Login = (username,password) => {
     })
     .then(res => {
       console.log(res.data)
-      console.log(res.data.data.user.roles[0])
-      dispatch(Iflogin(res.data.status,res.data.message,res.data.data.authKey,res.data.data.user.roles[0]));
+      ref.current.classList.add("LoginNarrow");
+      setTimeout(function(){
+        dispatch(Iflogin(res.data.status,res.data.message,res.data.data.authKey,res.data.data.user.roles[0]));
+      },1100)
+      
     }).catch(err => {
       console.log(err)
     })
