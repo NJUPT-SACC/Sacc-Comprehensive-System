@@ -8,7 +8,7 @@ const handle = app.getRequestHandler()
 app.prepare()
 .then(() => {
   const server = express()
-
+  
   server.get('/home', (req, res) => {
     const actualPage = '/home/home'
     const queryParams = 'home'
@@ -16,44 +16,107 @@ app.prepare()
   });
 
   server.get('/personcenter', (req, res) => {
-    const actualPage = '/home/PersonCenter/personCenter'
-    const queryParams = 'personcenter'
+    let actualPage = '/home/PersonCenter/personCenter'
+    let queryParams = 'personcenter'
+    let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
+    let cookieObject = {}
+    cookies.map((item) => {
+      cookieObject[item.split('=')[0]] = item.split('=')[1]
+    })
+    if(!cookieObject[' authkey']){
+      actualPage = '/home/home'
+      queryParams = '请登录后再进行操作.'
+    }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/assignment', (req, res) => {
-    const actualPage = '/assignment/assignment'
-    const queryParams = 'assignment'
+    let actualPage = '/assignment/assignment'
+    let queryParams = 'assignment'
+    let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
+    let cookieObject = {}
+    cookies.map((item) => {
+      cookieObject[item.split('=')[0]] = item.split('=')[1]
+    })
+    if(!cookieObject[' authkey']){
+      actualPage = '/home/home'
+      queryParams = '请登录后再进行操作.'
+    }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/assignment/coding', (req, res) => {
-    const actualPage = `/assignment/pages/assignmentCoding/pages/codingHome`;
-    const queryParams = 'assignmentCoding';
+    let actualPage = `/assignment/pages/assignmentCoding/pages/codingHome`;
+    let queryParams = 'assignmentCoding';
+    let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
+    let cookieObject = {}
+    cookies.map((item) => {
+      cookieObject[item.split('=')[0]] = item.split('=')[1]
+    })
+    if(!cookieObject[' authkey']){
+      actualPage = '/home/home'
+      queryParams = '请登录后再进行操作.'
+    }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/assignment/question', (req, res) => {
-    const actualPage = `/assignment/pages/assignmentCoding/pages/codingDetail`;
-    const queryParams = 'codingDetail';
+    let actualPage = `/assignment/pages/assignmentCoding/pages/codingDetail`;
+    let queryParams = 'codingDetail';
+    let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
+    let cookieObject = {}
+    cookies.map((item) => {
+      cookieObject[item.split('=')[0]] = item.split('=')[1]
+    })
+    if(!cookieObject[' authkey']){
+      actualPage = '/home/home'
+      queryParams = '请登录后再进行操作.'
+    }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/competition', (req, res) => {
-    const actualPage = '/competition/competition'
-    const queryParams = 'competition'
+    let actualPage = '/competition/competition'
+    let queryParams = 'competition'
+    let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
+    let cookieObject = {}
+    cookies.map((item) => {
+      cookieObject[item.split('=')[0]] = item.split('=')[1]
+    })
+    if(!cookieObject[' authkey']){
+      actualPage = '/home/home'
+      queryParams = '请登录后再进行操作.'
+    }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/competition/Arena', (req, res) => {
-    const actualPage = '/competition/competitionArena/competitionArena'
-    const queryParams = { competitionNum: req.query.competitionNum }
+    let actualPage = '/competition/competitionArena/competitionArena'
+    let queryParams = { competitionNum: req.query.competitionNum }
+    let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
+    let cookieObject = {}
+    cookies.map((item) => {
+      cookieObject[item.split('=')[0]] = item.split('=')[1]
+    })
+    if(!cookieObject[' authkey']){
+      actualPage = '/home/home'
+      queryParams = '请登录后再进行操作.'
+    }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/management', (req, res) => {
-    const actualPage = '/management/management'
-    const queryParams = 'management'
+    let actualPage = '/management/management'
+    let queryParams = 'management'
+    let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
+    let cookieObject = {}
+    cookies.map((item) => {
+      cookieObject[item.split('=')[0]] = item.split('=')[1]
+    })
+    if(!cookieObject[' authkey']){
+      actualPage = '/home/home'
+      queryParams = '请登录后再进行操作.'
+    }
     app.render(req, res, actualPage, queryParams)
   })
 

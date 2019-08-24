@@ -36,6 +36,7 @@ class Home extends React.Component {
     return (
         <div className="HomeLoginPage">
           <ParticleCanvas />
+          {}
           <div ref={this.LoginRef}>
             <Login />
           </div>

@@ -15,7 +15,9 @@ class Management extends React.Component{
 	constructor(props){
 		super(props);
 	}
-
+	componentDidMount(){
+		console.log(this.props)
+	}
 	render(){
 		const { SubMenu } = Menu;
 		const { Header, Content, Sider } = Layout;

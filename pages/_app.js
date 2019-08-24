@@ -10,14 +10,24 @@ import './index.less'
 import '../static/fonts/iconfont.css'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
-
+const warn = (value) =>{
+  alert(value)
+}
 class MyApp extends App {
   constructor (props) {
     super(props)
     this.persistor = persistStore(props.reduxStore)
   }
+  componentDidMount(){
+    console.log(Router.router.query)
+    if(Router.router.query=='请登录后再进行操作.'){
+      warn(Router.router.query)
+    }
+  }
+
   render() {
     const { Component, pageProps, router, reduxStore } = this.props;
+    
     return (
       <Container>
         <Head>
@@ -29,6 +39,7 @@ class MyApp extends App {
           <PersistGate
             loading={<Component {...pageProps} />}
             persistor={this.persistor}
+            router={router}
           >
             <Component {...pageProps} />
           </PersistGate>

@@ -6,7 +6,7 @@ import store from '../store';
 import Link from 'next/link';
 import Head from 'next/head';
 // 页面
-
+import Home from './home/home'
 
 class App extends React.Component{
 	
@@ -17,16 +17,7 @@ class App extends React.Component{
 					<title>SACC of Integrated system</title>
 					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				</Head>
-				sacc
-				<Link as='/Management' href="/management/management">
-					<a>here</a>
-				</Link><br/>
-				<Link as="/Assignment" href="/Assignment/Assignment">
-					<a>assignment</a>
-				</Link><br/>
-				<Link as="/Home" href="/Home/Home">
-					<a>home</a>
-				</Link>
+				<Home/>
 			</div>
 		);
 	}
