@@ -14,7 +14,7 @@ class BasicInformation extends React.Component{
   }
 
   componentWillMount(){
-    this.props.showBlist()
+    this.props.showBlist(this.props.authKey)
   }
 
   Editor = () => {
@@ -23,7 +23,7 @@ class BasicInformation extends React.Component{
       flag: !currentFlag
     })
     if(!this.state.flag)
-      this.props.saveNewBasicInformation(this.props.BasicInformationList)
+      this.props.saveNewBasicInformation(this.props.BasicInformationList,this.props.authKey)
   }
 
   changeBasicInformation = (value) =>{
@@ -64,19 +64,20 @@ class BasicInformation extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-    BasicInformationList: state.home.BasicInformationList
+    BasicInformationList: state.home.BasicInformationList,
+    authKey: state.home.authKey
 	}
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-    showBlist(){
-      dispatch(actionCreators.BasicInformation())
+    showBlist(authKey){
+      dispatch(actionCreators.BasicInformation(authKey))
     },
     changeBasicInformation(onChangeBasicInformationList){
       dispatch(actionCreators.changeBasicInformation(onChangeBasicInformationList))
     },
-    saveNewBasicInformation(NewBasicInformationList){
-      dispatch(actionCreators.SaveNewBasicInformation(NewBasicInformationList))
+    saveNewBasicInformation(NewBasicInformationList,authKey){
+      dispatch(actionCreators.SaveNewBasicInformation(NewBasicInformationList,authKey))
     }
 	}
 }

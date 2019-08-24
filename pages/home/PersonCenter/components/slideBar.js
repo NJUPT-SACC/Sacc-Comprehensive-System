@@ -21,7 +21,7 @@ const slideBarList = [
   },
   {
     IconUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E8%AE%BE%20%E7%BD%AE.png',
-    itemName: '设置',
+    itemName: '联系我们',
     id: 3
   }
 ]

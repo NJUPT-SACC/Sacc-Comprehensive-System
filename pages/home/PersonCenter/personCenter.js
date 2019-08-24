@@ -9,7 +9,8 @@ import PcHome from './components/PcHome';
 import { actionCreators, store} from '../store';
 import TechnologyStackList from './components/TechnologyStackList';
 import Radar from './components/radar';
-import BasicInformation from './components/BasicInformation'
+import BasicInformation from './components/BasicInformation';
+import Contact from './components/contact'
 class PersonCenter extends React.Component{
 	
 	render(){
@@ -29,7 +30,8 @@ class PersonCenter extends React.Component{
                       return <TechnologyStackList content={this.props.show}/>
                   case '基本资料':	
                       return <BasicInformation content={this.props.show}/>	
-                  case '设置':	
+                  case '联系我们':	
+                      return <Contact content={this.props.show} />
                   }
                 })()}
                 </div>

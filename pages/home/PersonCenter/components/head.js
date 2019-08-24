@@ -2,34 +2,14 @@ import React from 'react';
 import '../less/head.less';
 import { connect } from 'react-redux';
 import { actionCreators, store} from '../../store';
-import { Upload, Icon, message } from 'antd';
 import { Avatar } from 'antd';
 class Head extends React.Component{
-
-  constructor(props){
-    super(props)
-    this.portraitRef = React.createRef()
-    this.state ={
-      num: 0
+    componentDidMount(){
+      this.props.showBlist(this.props.authKey)
     }
-  }
-componentDidMount(){
-  this.props.showBlist()
-}
-
-  changeSignature = (e) => {
-    this.props.BasicInformationList[9].value = e.target.value;
-
-    this.setState({
-      num:1
-    })
-    
-    this.props.changeBasicInformation(List)
-  }
-
 
     render(){
-      const UserImgColor = '#63b5bb';      
+      const UserImgColor = '#63b5bb';   
     return (
       <div className="PChead">
         <div className="PCgreenSlide"></div>
@@ -55,13 +35,14 @@ componentDidMount(){
 
 const mapStateToProps = (state) =>{
 	return {
-    BasicInformationList: state.home.BasicInformationList
+    BasicInformationList: state.home.BasicInformationList,
+    authKey: state.home.authKey
 	}
 };
 const mapDispatchToProps = (dispatch) => {
 	return {
-    showBlist(){
-      dispatch(actionCreators.BasicInformation())
+    showBlist(authKey){
+      dispatch(actionCreators.BasicInformation(authKey))
     }
 	}
 };

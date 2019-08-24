@@ -41,23 +41,38 @@ class List extends React.Component{
   render(){
     return (
       <div className="Homelist" >
-        <ul>
           {
-            listItems.map(item => 
-            <li key={item.id} onClick={() => Router.push(`${item.routerUrl}`)}>
-              <img className={item.tag} src={item.IconUrl} ></img>
-                <p className={item.tag}> {item.name} </p>
-            </li>
-            )
-          }
-          <li key="2" onClick={() => Router.push('/personcenter')}>
-              <img className='person' src={this.changeImg()}  ></img>
+            this.props.roles = 'issuer' || 'administrator'?
+            <ul>
+              <li key="" onClick={() => Router.push('/management')}>
+                <img className='person' src="https://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%A1%E7%90%86%E5%91%98.png"  ></img>
+                <p className='person'>后台管理</p>
+              </li> 
+            </ul>
+            :
+            this.props.roles = 'team' ?
+            <ul>
+              <li key="2" onClick={() => Router.push('/personcenter')}>
+                  <img className='person' src="http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%A5%96%E6%9D%AF.png"  ></img>
+                  <p className='person'>比赛系统</p>
+              </li>
+            </ul>
+            :
+            <ul>
+              {
+                listItems.map(item => 
+                  <li key={item.id} onClick={() => Router.push(`${item.routerUrl}`)}>
+                    <img className={item.tag} src={item.IconUrl} ></img>
+                      <p className={item.tag}> {item.name} </p>
+                  </li>
+                )
+              }
+              <li key="2" onClick={() => Router.push('/personcenter')}>
+                <img className='person' src={this.changeImg()}  ></img>
                 <p className='person'>个人中心</p>
-          </li>
-          {
-            
+              </li>
+            </ul>
           }
-        </ul>
       </div>
     )
   }
@@ -65,7 +80,8 @@ class List extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    BasicInformationList: state.home.BasicInformationList
+    BasicInformationList: state.home.BasicInformationList,
+    roles: state.home.roles
 	}
 }
 
