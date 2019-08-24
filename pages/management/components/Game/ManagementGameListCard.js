@@ -4,7 +4,7 @@ import { Row, Col, Badge, Icon } from 'antd';
 import { actionCreators, store} from '../../store';
 import '../less/ManagementGameListCard.less'
 
-class ManagementGameList extends React.Component{
+class ManagementGameListCard extends React.Component{
     constructor(props){
         super(props);
     }
@@ -49,4 +49,4 @@ const mapDispatchToProps = (dispatch) => {
 		}
 	}
 }
-export default connect(mapStateToProps,mapDispatchToProps)(ManagementGameList);
+export default connect(mapStateToProps,mapDispatchToProps)(ManagementGameListCard);

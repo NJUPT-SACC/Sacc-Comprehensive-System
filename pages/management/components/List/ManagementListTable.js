@@ -98,8 +98,8 @@ class ManagementListTable extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-    fromTableList:state.getIn(['management','fromTableList']),
-    fromTableItem:state.getIn(['management','fromTableItem'])
+    fromTableList:state.management.fromTableList,
+    fromTableItem:state.management.fromTableItem
 	}
 }
 const mapDispatchToProps = (dispatch) => {

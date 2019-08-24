@@ -22,7 +22,7 @@ class CompetitionArena extends React.Component{
       <Layout className="layout">
         <div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
         <div style={{backgroundColor:'rgba(234,234,234,.4)',minHeight:'93vh'}}>
-					<CompetitionArenaStart/>
+					<CompetitionArenaReady/>
         </div>
       </Layout>		
 		);
