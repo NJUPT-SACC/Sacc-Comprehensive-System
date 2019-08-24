@@ -6,10 +6,12 @@ export const changeShow = (showClassName) => ({
   show: showClassName
 });
 
-const Iflogin = (loginStatus,loginMsg) => ({
+const Iflogin = (loginStatus,loginMsg, authKey,roles) => ({
   type: constants.HOME_LOGIN,
   loginStatus,
-  loginMsg
+  loginMsg,
+  authKey,
+  roles
 });
 
 const practiceRate = (rightPercent,wrongPercent) => ({
@@ -41,22 +43,25 @@ const saveNewBasicInformation = (NewBasicInformationList) => ({
 
 export const Login = (username,password) => {
   return (dispatch) =>{
-    axios.post("http://192.168.1.52:8080/admin/login",{
+    axios.post("http://192.168.1.15:8080/admin/login",{
       username,
       password
     })
     .then(res => {
       console.log(res.data)
-      dispatch(Iflogin(res.data.status));
+      console.log(res.data.data.user.roles[0])
+      dispatch(Iflogin(res.data.status,res.data.message,res.data.data.authKey,res.data.data.user.roles[0]));
     }).catch(err => {
       console.log(err)
     })
   }
 }
 
-export const PracticeRate = () => {
+export const PracticeRate = (authKey) => {
   return(dispatch) => {
-    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/personCenter/practiceRate")
+    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/personCenter/practiceRate",{
+      authKey
+    })
     .then(res => {
       dispatch(practiceRate(res.data.data.rightPercent,res.data.data.wrongPercent))
     }).catch(err => {
@@ -65,9 +70,11 @@ export const PracticeRate = () => {
   }
 }
 
-export const CompetitionMedel = () => {
+export const CompetitionMedel = (authKey) => {
   return(dispatch) => {
-    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/personCenter/competitionMedal")
+    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/personCenter/competitionMedal",{
+      authKey
+    })
     .then(res => {
       dispatch(competitionMedel(res.data.data.gold,res.data.data.silver,res.data.data.copper))
     }).catch(err => {
@@ -76,9 +83,11 @@ export const CompetitionMedel = () => {
   }
 }
 
-export const BasicInformation = () => {
+export const BasicInformation = (authKey) => {
   return (dispatch) => {
-    axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation")
+    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
+      authKey
+    })
     .then(res => {
       dispatch(basicInformation(res.data.data.list))
     }).catch(err => {
@@ -87,10 +96,11 @@ export const BasicInformation = () => {
   }
 }
 
-export const SaveNewBasicInformation = (List) => {
+export const SaveNewBasicInformation = (List,authKey) => {
   return (dispatch) =>{
     axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
-      List
+      List,
+      authKey
     })
     .then(res => {
       dispatch(saveNewBasicInformation(res.data.data.list))

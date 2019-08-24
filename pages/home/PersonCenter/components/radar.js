@@ -10,13 +10,11 @@ if (typeof window !== 'undefined') {
 }
 
 class Radar extends React.Component {
-
-
   componentDidMount(){
-    this.props.skill();
+    this.props.skill(this.props.authKey);
   }
   render() {
-    const dv = new DataSet.View().source(this.props.skillList);
+    const dv = new DataSet.View().source(this.props.skillList.slice(0,5));
     dv.transform({
       type: 'fold',
       fields: ['percentage'],
@@ -31,7 +29,7 @@ class Radar extends React.Component {
       max: 100,
     }];
     const axis1Opts = {
-      dataKey: 'item',
+      dataKey: 'technologyName',
       line: null,
       tickLine: null,
       grid: {
@@ -72,9 +70,9 @@ class Radar extends React.Component {
                 <ViserComponent.Axis {...axis1Opts} />
                 <ViserComponent.Axis {...axis2Opts} />
                 <ViserComponent.Coord {...coordOpts} />
-                <ViserComponent.Line position="item*score" color="user" size={2} />
-                <ViserComponent.Point position="item*score" color="user" size={4} shape="circle"/>
-                <ViserComponent.Area position="item*score" color="user"/>
+                <ViserComponent.Line position="technologyName*score" color="user" size={2} />
+                <ViserComponent.Point position="technologyName*score" color="user" size={4} shape="circle"/>
+                <ViserComponent.Area position="technologyName*score" color="user"/>
               </ViserComponent.Chart>
             :''
           }
@@ -88,13 +86,14 @@ class Radar extends React.Component {
 
 const mapStateToProps = (state) =>{
 	return {
-		skillList: state.home.skillList
+    skillList: state.home.skillList,
+    authKey: state.home.authKey
 	}
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-    skill(){
-      dispatch(actionCreators.Skill())
+    skill(authKey){
+      dispatch(actionCreators.Skill(authKey))
     }
 	}
 }

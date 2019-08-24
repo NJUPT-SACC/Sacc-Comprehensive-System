@@ -1,61 +1,12 @@
 import React from 'react';
 import '../less/TechnologyStackList.less';
-
-const StackList = [
-  {
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    technologyName:'JavaScript',
-    usersNum: 21,
-    id:0
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    technologyName:'JavaScript',
-    usersNum: 21,
-    id:1
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    technologyName:'JavaScript',
-    usersNum: 21,
-    id:2
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    technologyName:'JavaScript',
-    usersNum: 21,
-    id:3
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    technologyName:'JavaScript',
-    usersNum: 21,
-    id:4
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-    technologyName:'JavaScript',
-    usersNum: 21,
-    id:5
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-        technologyName:'JavaScript',
-    usersNum: 21,
-    id:6
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-        technologyName:'JavaScript',
-    usersNum: 21,
-    id:7
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-        technologyName:'JavaScript',
-    usersNum: 21,
-    id:8
-  },{
-    imgUrl:'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%AE%97%E6%B3%95.png',
-        technologyName:'JavaScript',
-    usersNum: 21,
-    id:9
-  }
-]
+import { connect } from 'react-redux';
+import { actionCreators,store} from '../../store';
 
 class TechnologyStackList extends React.Component{
+  componentDidMount(){
+    this.props.skill(this.props.authKey);
+  }
   render(){
     return (
       <div className="TechnologyStackList">
@@ -64,14 +15,14 @@ class TechnologyStackList extends React.Component{
         </div>
         <ul>
           {
-            StackList.map(item => 
-              <li key={item.id}>
+            this.props.skillList.map((item,index) => 
+              <li key={index}>
                 <div className="technologyStackList-imgBox">
-                  <img src={item.imgUrl}></img>     
+                  <img src={'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/' + item.technologyName + '.png'}></img>     
                 </div>
                 <div className="technologyStackList-des">
                   <p>{item.technologyName}</p>
-                  <p>使用人数：{item.usersNum}</p>
+                  <p>使用人数：{item.userNum}</p>
                 </div>
               </li>
             )
@@ -81,5 +32,17 @@ class TechnologyStackList extends React.Component{
     )
   }
 }
-
-export default TechnologyStackList
+const mapStateToProps = (state) =>{
+	return {
+    skillList: state.home.skillList,
+    authKey: state.home.authKey
+	}
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+    skill(authKey){
+      dispatch(actionCreators.Skill(authKey))
+    }
+	}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(TechnologyStackList)

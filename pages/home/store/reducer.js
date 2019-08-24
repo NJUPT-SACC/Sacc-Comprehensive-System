@@ -2,7 +2,7 @@ import * as constants from './constants';
 
 const defaultState = {
   show: '首页',
-  loginStatus: 2000,
+  loginStatus: 5002,
   rightPercent: '0%',
   wrongPercent: '0%',
   gold: 0,
@@ -48,11 +48,13 @@ const defaultState = {
           "key": "签名",
           "value": "的发射点发射点"
         }
-  ],
+      ],
   skillList: [],
   registeredStatus: 5002,
-  registeredMsg:"注册",
-  loginMsg:"登录"
+  registeredMsg:"",
+  loginMsg:"",
+  authKey:'',
+  roles:''
 };
 
 export default (state = defaultState, action) => {
@@ -60,7 +62,7 @@ export default (state = defaultState, action) => {
     case constants.PERSON_CENTER_CHANGE_SHOW:
       return  {...state,'show':action.show}
     case constants.HOME_LOGIN:
-      return  {...state,'loginStatus':action.loginStatus, 'loginMsg': action.loginMsg}
+      return  {...state,'loginStatus':action.loginStatus, 'loginMsg': action.loginMsg, 'authKey': action.authKey, 'roles': action.roles}
     case constants.HOME_PRACTICE_RATE:
       return {...state,'rightPercent':action.rightPercent, 'wrongPercent':action.wrongPercent}
     case constants.HOME_COMPETITION_MEDEL:

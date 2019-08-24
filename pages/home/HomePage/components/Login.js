@@ -12,7 +12,7 @@ class Login extends React.Component{
     this.state = {
       showInputBox:false,
       showSys:false,
-      userName:'admin',
+      userName:'ooo',
       Password:'123',
       targetLogin:'',
       unregisteredUserName:'',
@@ -40,7 +40,6 @@ class Login extends React.Component{
   }
 
   changeInputColor = (e) =>{
-    console.log(e.target.value.length)
     switch(e.target.name){
       case 'userName':
         this.setState({
@@ -82,8 +81,7 @@ class Login extends React.Component{
   }
   login = () =>{
       this.props.IfLogin(this.state.userName, this.state.Password)
-      this.openLogin()
-      if(this.props.loginStatus == 5002){
+      if(this.props.loginStatus == 2000){
         this.props.showBlist()
         this.LoginRef.current.classList.add("LoginNarrow");
         const self = this;
@@ -93,6 +91,8 @@ class Login extends React.Component{
           })
         }, 1100)
       }
+     
+      this.openLogin()
   }
   openLogin = () => {
     notification.open({
@@ -161,12 +161,12 @@ class Login extends React.Component{
     return(
       <div className="Home">
       {
-        loginStatus == 5002 && this.state.showSys? 
+        loginStatus == 2000 && this.state.showSys? 
         <List />:
         <div className="HomeLogin" ref={this.LoginRef}>
           <div className="HomeLoginCaption">
             { 
-              loginStatus == 5002 && this.state.showInputBox ? 
+               this.state.showInputBox ? 
                 <div className="HomeLoginBox">
                   <p 
                   onClick={this.showLogin} 

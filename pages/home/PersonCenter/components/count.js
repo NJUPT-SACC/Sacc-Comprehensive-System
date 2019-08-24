@@ -9,8 +9,8 @@ class Count extends React.Component{
     super(props)
   }
   componentDidMount(){
-    this.props.PCshowRate()
-    this.props.PCShowMedel()
+    this.props.PCshowRate(this.props.authKey)
+    this.props.PCShowMedel(this.props.authKey)
   }
   render(){
     return(
@@ -69,16 +69,17 @@ const mapStateToProps = (state) =>{
     wrongPercent: state.home.wrongPercent,
     gold: state.home.gold,
     silver: state.home.silver,
-    copper: state.home.copper
+    copper: state.home.copper,
+    authKey: state.home.authKey
 	}
 };
 const mapDispatchToProps = (dispatch) => {
 	return {
-    PCshowRate(){
-      dispatch(actionCreators.PracticeRate())
+    PCshowRate(authKey){
+      dispatch(actionCreators.PracticeRate(authKey))
     },
-    PCShowMedel(){
-      dispatch(actionCreators.CompetitionMedel())
+    PCShowMedel(authKey){
+      dispatch(actionCreators.CompetitionMedel(authKey))
     }
 	}
 }
