@@ -43,13 +43,14 @@ const saveNewBasicInformation = (NewBasicInformationList) => ({
 
 export const Login = (username,password,ref) => {
   return (dispatch) =>{
-    axios.post("http://192.168.1.15:8080/admin/login",{
+    axios.post("http://192.168.1.6:8080/admin/login",{
       username,
       password
     })
     .then(res => {
       console.log(res.data)
       ref.current.classList.add("LoginNarrow");
+      document.cookie = `authkey=${res.data.data.authKey}`;
       setTimeout(function(){
         dispatch(Iflogin(res.data.status,res.data.message,res.data.data.authKey,res.data.data.user.roles[0]));
       },1100)
@@ -101,7 +102,7 @@ export const BasicInformation = (authKey) => {
 
 export const SaveNewBasicInformation = (List,authKey) => {
   return (dispatch) =>{
-    axios.post("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
+    axios.get("https://www.easy-mock.com/mock/5d2c1c823a04ad635d14cffc/PersonCenter/BasicInformation",{
       List,
       authKey
     })
