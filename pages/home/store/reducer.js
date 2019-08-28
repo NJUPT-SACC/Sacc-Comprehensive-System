@@ -8,45 +8,38 @@ const defaultState = {
   silver: 0,
   copper: 0,
   BasicInformationList:[
-        {
-          "key": "昵称",
-          "value": "游客"
-        },
-        {
-          "key": "姓名",
-          "value": ""
-        },
-        {
-          "key": "学号",
-          "value": ""
-        },
-        {
-          "key": "组别",
-          "value": "前端组"
-        },
-        {
-          "key": "邮箱",
-          "value": ""
-        },
-        {
-          "key": "学院",
-          "value": ""
-        },
-        {
-          "key": "专业",
-          "value": ""
-        },
-        {
-          "key": "年级",
-          "value": ""
-        },
-        {
-          "key": "性别",
-          "value": ""
-        },{
-          "key": "签名",
-          "value": "的发射点发射点"
-        }
+    {
+      "key": "昵称",
+      "value": ""
+    }, {
+      "key": "姓名",
+      "value": ""
+    }, {
+      "key": "邮箱",
+      "value": ""
+    }, {
+      "key": "年级",
+      "value": ""
+    }, {
+      "key": "性别",
+      "value": ""
+    }, {
+      "key": "签名",
+      "value": ""
+    },
+    {
+      "key": "学号",
+      "value": ""
+    }, {
+      "key": "组别",
+      "value": ""
+    }, {
+      "key": "学院",
+      "value": ""
+    }, {
+      "key": "专业",
+      "value": ""
+    }
       ],
   skillList: [],
   registeredStatus: 5002,

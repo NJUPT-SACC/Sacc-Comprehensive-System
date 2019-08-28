@@ -22,7 +22,7 @@ class Head extends React.Component{
           <div className="PCDes">
             <p>{this.props.BasicInformationList[0].value}</p>
             <span>{this.props.BasicInformationList[3].value}</span>
-            <span>{this.props.BasicInformationList[9].value}</span>
+            <span>{this.props.BasicInformationList[5].value}</span>
           </div>
         </div>
         <div className="personHeadRight">

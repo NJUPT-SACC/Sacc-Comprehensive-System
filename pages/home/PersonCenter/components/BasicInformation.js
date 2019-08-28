@@ -13,7 +13,6 @@ class BasicInformation extends React.Component{
       majorList: ['通信工程','电子信息工程','广播电视工程']
     }
   }
-
   componentWillMount(){
     this.props.showBlist(this.props.authKey)
   }
@@ -43,6 +42,7 @@ class BasicInformation extends React.Component{
   }
   
   selectCollege = (value) => {
+    this.props.BasicInformationList[8].value = value.target.value
     switch(value.target.value){
       case '通信与信息工程学院':
         this.setState({
@@ -126,6 +126,9 @@ class BasicInformation extends React.Component{
         break;
     }
   }
+  selectMajor = (value) =>{
+    this.props.BasicInformationList[9].value = value.target.value
+  }
   render(){
     return(
       <div className="BasicInformation">
@@ -161,7 +164,7 @@ class BasicInformation extends React.Component{
                 <dd>
                   {
                     this.state.flag? 
-                    <select>{ this.state.majorList.map(item=><option value={item}>{item}</option>) }</select>
+                    <select onClick={this.selectMajor}>{ this.state.majorList.map(item=><option value={item}>{item}</option>) }</select>
                     :
                     this.props.BasicInformationList[9].value
                   } 

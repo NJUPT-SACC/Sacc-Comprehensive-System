@@ -1,8 +1,11 @@
 import React from 'react';
 import GroupList from './GroupList';
 import Login from './Login';
+import List from './List';
 import '../less/Home.less';
-import ParticleCanvas from './particle'
+import ParticleCanvas from './particle';
+import { actionCreators } from '../../store';
+import { connect } from 'react-redux';
 class Home extends React.Component {
 
   constructor(props){
@@ -36,9 +39,13 @@ class Home extends React.Component {
     return (
         <div className="HomeLoginPage">
           <ParticleCanvas />
-          {}
           <div ref={this.LoginRef}>
-            <Login />
+          {
+              this.props.authKey ? 
+              <List />
+              :
+              <Login /> 
+          }
           </div>
           <div ref={this.GroupListRef}>
             <GroupList />
@@ -67,4 +74,16 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+const mapStateToProps = (state) =>{
+  return {
+  authKey: state.home.authKey
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+return {
+
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home);

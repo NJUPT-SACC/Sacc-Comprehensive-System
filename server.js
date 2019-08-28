@@ -23,10 +23,11 @@ app.prepare()
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
-    if(!cookieObject[' authkey']){
+    if(!cookieObject['authkey']){
       actualPage = '/home/home'
       queryParams = '请登录后再进行操作.'
     }
+    console.log(cookieObject['authkey'])
     app.render(req, res, actualPage, queryParams)
   });
 
