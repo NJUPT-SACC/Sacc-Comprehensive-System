@@ -20,8 +20,8 @@ class MyApp extends App {
   }
   componentDidMount(){
     console.log(Router.router.query)
-    if(Router.router.query=='请登录后再进行操作.'){
-      warn(Router.router.query)
+    if(Router.router.query.Message=='请登录后再进行操作.'){
+      warn(Router.router.query.Message)
     }
   }
 

@@ -16,107 +16,108 @@ app.prepare()
   });
 
   server.get('/personcenter', (req, res) => {
-    let actualPage = '/home/PersonCenter/personCenter'
-    let queryParams = 'personcenter'
     let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
     let cookieObject = {}
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
-    if(!cookieObject[' authkey']){
+    let actualPage = '/home/PersonCenter/personCenter'
+    let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
+    if(!cookieObject['authkey']){
       actualPage = '/home/home'
-      queryParams = '请登录后再进行操作.'
+      queryParams = {'Message':'请登录后再进行操作.'}
     }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/assignment', (req, res) => {
-    let actualPage = '/assignment/assignment'
-    let queryParams = 'assignment'
     let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
     let cookieObject = {}
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
-    if(!cookieObject[' authkey']){
+    let actualPage = '/assignment/assignment'
+    let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
+    if(!cookieObject['authkey']){
       actualPage = '/home/home'
-      queryParams = '请登录后再进行操作.'
+      queryParams = {'Message':'请登录后再进行操作.'}
     }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/assignment/coding', (req, res) => {
-    let actualPage = `/assignment/pages/assignmentCoding/pages/codingHome`;
-    let queryParams = 'assignmentCoding';
     let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
     let cookieObject = {}
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
-    if(!cookieObject[' authkey']){
+    let actualPage = `/assignment/pages/assignmentCoding/pages/codingHome`;
+    let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']};
+    if(!cookieObject['authkey']){
       actualPage = '/home/home'
-      queryParams = '请登录后再进行操作.'
+      queryParams = {'Message':'请登录后再进行操作.'}
     }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/assignment/question', (req, res) => {
-    let actualPage = `/assignment/pages/assignmentCoding/pages/codingDetail`;
-    let queryParams = 'codingDetail';
     let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
     let cookieObject = {}
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
-    if(!cookieObject[' authkey']){
+    let actualPage = `/assignment/pages/assignmentCoding/pages/codingDetail`;
+    let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
+    if(!cookieObject['authkey']){
       actualPage = '/home/home'
-      queryParams = '请登录后再进行操作.'
+      queryParams = {'Message':'请登录后再进行操作.'}
     }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/competition', (req, res) => {
-    let actualPage = '/competition/competition'
-    let queryParams = 'competition'
     let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
     let cookieObject = {}
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
-    if(!cookieObject[' authkey']){
+    let actualPage = '/competition/competition'
+    let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
+    if(!cookieObject['authkey']){
       actualPage = '/home/home'
-      queryParams = '请登录后再进行操作.'
+      queryParams = {'Message':'请登录后再进行操作.'}
     }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/competition/Arena', (req, res) => {
-    let actualPage = '/competition/competitionArena/competitionArena'
-    let queryParams = { competitionNum: req.query.competitionNum }
     let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
     let cookieObject = {}
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
-    if(!cookieObject[' authkey']){
+    let actualPage = '/competition/competitionArena/competitionArena'
+    let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
+    if(!cookieObject['authkey']){
       actualPage = '/home/home'
-      queryParams = '请登录后再进行操作.'
+      queryParams = {'Message':'请登录后再进行操作.'}
     }
     app.render(req, res, actualPage, queryParams)
   });
 
   server.get('/management', (req, res) => {
-    let actualPage = '/management/management'
-    let queryParams = 'management'
     let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
     let cookieObject = {}
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
-    if(!cookieObject[' authkey']){
+    let actualPage = '/management/management'
+    let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
+    if(!cookieObject['authkey']){
       actualPage = '/home/home'
-      queryParams = '请登录后再进行操作.'
+      queryParams = {'Message':'请登录后再进行操作.'}
     }
+    
     app.render(req, res, actualPage, queryParams)
   })
 

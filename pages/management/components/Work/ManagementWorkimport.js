@@ -191,6 +191,7 @@ class ManagemenWorkimport extends React.Component{
                     <Form.Item label="题目列表" hasFeedback>
                         <TreeSelect {...tProps} />
                     </Form.Item>
+                    <Button type="primary" style={{left:'50%',transform:'translateX(-50%)'}}>确认提交</Button>
                 </Form>
             </div>      
         )

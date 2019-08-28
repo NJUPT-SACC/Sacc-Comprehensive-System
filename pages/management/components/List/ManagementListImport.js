@@ -235,6 +235,7 @@ class ManagementListRadio extends React.Component{
                     <Form.Item label="题目分数及难度" hasFeedback>
                         <Slider min={1} max={10} value={this.state.fromTable.Score[0]} onChange={this.changeScore} marks={{2: '入门',4: '了解',6: '掌握',8: '熟练',10: '精通'}}  onBlur={this.onCheck}/>
                     </Form.Item>
+                    <Button type="primary" style={{left:'50%',transform:'translateX(-50%)'}}>确认提交</Button>
                 </Form>
             </div>      
         )
