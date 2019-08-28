@@ -4,7 +4,7 @@ import HomePage from './HomePage/HomePage';
 
 class Home extends React.Component{
 	componentDidMount(){
-		document.cookie = `authkey=12312312312`
+		document.cookie = `authkey=${this.props.authkey}`
 	}
 	render(){
 		return (
@@ -16,7 +16,7 @@ class Home extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-		
+		authkey: state.home.authkey
 	}
 }
 

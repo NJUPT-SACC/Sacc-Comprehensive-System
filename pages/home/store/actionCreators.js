@@ -1,15 +1,14 @@
 import { constants } from './index'
 import axios from 'axios';
-
+import { message } from 'antd';
+import 'antd/dist/antd.css';
 export const changeShow = (showClassName) => ({
   type: constants.PERSON_CENTER_CHANGE_SHOW,
   show: showClassName
 });
 
-const Iflogin = (loginStatus,loginMsg, authKey,roles) => ({
+const Iflogin = (authKey,roles) => ({
   type: constants.HOME_LOGIN,
-  loginStatus,
-  loginMsg,
   authKey,
   roles
 });
@@ -49,12 +48,14 @@ export const Login = (username,password,ref) => {
     })
     .then(res => {
       console.log(res.data)
-      ref.current.classList.add("LoginNarrow");
+      if(res.data.message == "登陆失败")
+        message.error('用户名/密码错误');
       document.cookie = `authkey=${res.data.data.authKey}`;
       setTimeout(function(){
-        dispatch(Iflogin(res.data.status,res.data.message,res.data.data.authKey,res.data.data.user.roles[0]));
+        dispatch(Iflogin(res.data.data.authKey,res.data.data.user.roles[0]));
       },1100)
-      
+      message.success('已经成功登陆啦~');
+      ref.current.classList.add("LoginNarrow");
     }).catch(err => {
       console.log(err)
     })
@@ -130,22 +131,16 @@ export const Skill = () => {
   }
 }
 
-const registered = (registeredStatus,registeredMsg) => ({
-  type: constants.HOME_REGISTERED,
-  registeredStatus,
-  registeredMsg
-})
-
 export const Registered = (username,password,email) => {
   return (dispatch) => {
-    axios.post("http://192.168.1.8:8080/admin/signup",{
+    axios.post("http://192.168.1.6:8080/admin/signup",{
       username,
       password,
       email
     })
     .then(res => {
       console.log(res.data)
-      dispatch(registered(res.data.status,res.data.msg))
+      message.success('注册成功啦~');
     }).catch(err => {
       console.log(err)
     })

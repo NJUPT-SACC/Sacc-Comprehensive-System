@@ -42,9 +42,6 @@ const defaultState = {
     }
       ],
   skillList: [],
-  registeredStatus: 5002,
-  registeredMsg:"",
-  loginMsg:"",
   authkey:'',
   roles:''
 };
@@ -54,7 +51,7 @@ export default (state = defaultState, action) => {
     case constants.PERSON_CENTER_CHANGE_SHOW:
       return  {...state,'show':action.show}
     case constants.HOME_LOGIN:
-      return  {...state,'loginStatus':action.loginStatus, 'loginMsg': action.loginMsg, 'authKey': action.authKey, 'roles': action.roles}
+      return  {...state,'authKey': action.authKey, 'roles': action.roles}
     case constants.HOME_PRACTICE_RATE:
       return {...state,'rightPercent':action.rightPercent, 'wrongPercent':action.wrongPercent}
     case constants.HOME_COMPETITION_MEDEL:
@@ -67,8 +64,6 @@ export default (state = defaultState, action) => {
       return {...state,'BasicInformationList':action.NewBasicInformationList}
     case constants.HOME_SKILL:
       return {...state, 'skillList':action.skillList}
-    case constants.HOME_REGISTERED:
-      return {...state, 'registeredStatus':action.registeredStatus, 'registeredMsg': action.registeredMsg}
     default:
       return state;
   }

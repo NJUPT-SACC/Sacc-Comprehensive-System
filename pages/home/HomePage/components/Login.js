@@ -3,7 +3,6 @@ import '../less/login.less'
 import List from './List';
 import { connect } from 'react-redux';
 import { actionCreators, store} from '../../store';
-
 class Login extends React.Component{
 
   constructor(props){
@@ -19,8 +18,7 @@ class Login extends React.Component{
       unregisteredMail:'',
       flag:false,
       show:false,
-      finishRegistered:false,
-      registeredMessages:'注册成功'
+      finishRegistered:false
     }
     this.LoginRef = React.createRef();
     this.beginRef = React.createRef();
@@ -78,15 +76,15 @@ class Login extends React.Component{
       })
     }
   }
-   login =  async () =>{
+  login =  async () =>{
     await this.props.IfLogin(this.state.userName, this.state.Password,this.LoginRef)
-      this.props.showBlist()
-      const self = this;
-      setTimeout(function(){
-        self.setState({
-          showSys: true
-        })
-      }, 1100)
+    this.props.showBlist()
+    const self = this;
+    setTimeout(function(){
+      self.setState({
+        showSys: true
+      })
+    }, 1100)
   }
   
   unregistered = () => {

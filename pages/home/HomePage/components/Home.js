@@ -44,10 +44,10 @@ class Home extends React.Component {
           <ParticleCanvas />
           <div ref={this.LoginRef}>
           {
-              this.props.authKey ? 
-                <List />
-              :
-                <Login /> 
+            this.props.authKey ? 
+              <List />
+            :
+              <Login /> 
           }
           </div>
           <div ref={this.GroupListRef}>
