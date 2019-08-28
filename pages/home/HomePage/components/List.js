@@ -10,7 +10,7 @@ class List extends React.Component{
   }
 
   changeImg = () => {
-    switch (this.props.BasicInformationList[8].value){
+    switch (this.props.BasicInformationList[4].value){
       case '男':
         return 'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E7%94%B7%E5%AD%A9%20-%20%E5%89%AF%E6%9C%AC.png';
       case '女':

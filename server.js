@@ -10,8 +10,13 @@ app.prepare()
   const server = express()
   
   server.get('/home', (req, res) => {
-    const actualPage = '/home/home'
-    const queryParams = 'home'
+    let cookies = req.headers.cookie ? req.headers.cookie.split(';') : []
+    let cookieObject = {}
+    cookies.map((item) => {
+      cookieObject[item.split('=')[0]] = item.split('=')[1]
+    })
+    let actualPage = '/home/home'
+    let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
     app.render(req, res, actualPage, queryParams)
   });
 
