@@ -6,6 +6,7 @@ import '../less/Home.less';
 import ParticleCanvas from './particle';
 import { actionCreators } from '../../store';
 import { connect } from 'react-redux';
+import Router from 'next/router'
 class Home extends React.Component {
 
   constructor(props){
@@ -34,7 +35,9 @@ class Home extends React.Component {
       this.GroupListRef.current.classList.add('transfromBottomShow');
     }
   }
-   
+   componentDidMount(){
+    console.log(Router.router.query)
+   }
   render() {
     return (
         <div className="HomeLoginPage">
@@ -42,9 +45,9 @@ class Home extends React.Component {
           <div ref={this.LoginRef}>
           {
               this.props.authKey ? 
-              <List />
+                <List />
               :
-              <Login /> 
+                <Login /> 
           }
           </div>
           <div ref={this.GroupListRef}>

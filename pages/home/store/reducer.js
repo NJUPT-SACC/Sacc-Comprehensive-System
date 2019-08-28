@@ -45,7 +45,7 @@ const defaultState = {
   registeredStatus: 5002,
   registeredMsg:"",
   loginMsg:"",
-  authKey:'',
+  authkey:'',
   roles:''
 };
 
