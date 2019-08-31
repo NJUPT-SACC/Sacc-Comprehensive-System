@@ -3,6 +3,7 @@ import '../less/login.less'
 import List from './List';
 import { connect } from 'react-redux';
 import { actionCreators, store} from '../../store';
+import { message } from 'antd';
 class Login extends React.Component{
 
   constructor(props){
@@ -10,8 +11,8 @@ class Login extends React.Component{
     this.state = {
       showInputBox:false,
       showSys:false,
-      userName:'ooo',
-      Password:'123',
+      userName:'',
+      Password:'',
       targetLogin:'',
       unregisteredUserName:'',
       unregisteredPassword:'',
@@ -35,8 +36,7 @@ class Login extends React.Component{
       })
     },500)
   }
-
-  changeInputColor = (e) =>{
+  getValue = (e) => {
     switch(e.target.name){
       case 'userName':
         this.setState({
@@ -52,21 +52,35 @@ class Login extends React.Component{
         this.setState({
           unregisteredUserName: e.target.value
         })
+        if(e.target.value.length>16){
+          message.warning('用户名只能输入16位噢~')
+          e.target.className='err'
+          return e.returnValue = false
+        }
         break;
-      case 'unregisteredPassword':
+      case 'unregisteredPassword':{
         this.setState({
           unregisteredPassword: e.target.value
         })
+        if(e.target.value.length>16){
+          message.warning('密码只能输入16位噢~')
+          e.target.className='err'
+        }
         break;
+      }
       case 'unregisteredMail':
         this.setState({
           unregisteredMail: e.target.value
         })
         break;
     }
+  }
+  changeInputColor = async (e) =>{
     e.target.value ?  e.target.className='LoginInputActive': e.target.className="";
-
-    if(this.state.unregisteredUserName && this.state.unregisteredPassword && this.state.unregisteredMail){
+    await this.getValue(e);
+    if(this.state.unregisteredUserName.length<=16 && this.state.unregisteredPassword.length<=16 && 
+      this.state.unregisteredUserName.length>0 && this.state.unregisteredPassword.length>0 &&
+      this.state.unregisteredMail.match('^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$') ){
       this.setState({
         finishRegistered: true
       })
@@ -81,16 +95,25 @@ class Login extends React.Component{
     this.props.showBlist()
     const self = this;
     setTimeout(function(){
-      self.setState({
+      self.setState({  
         showSys: true
       })
     }, 1100)
   }
   
-  unregistered = () => {
-    this.props.registered(this.state.unregisteredUserName, this.state.unregisteredPassword, this.state.unregisteredMail)
+  unregistered = async () => {
+    await this.props.registered(this.state.unregisteredUserName, this.state.unregisteredPassword, this.state.unregisteredMail)
+    this.login(this.state.unregisteredUserName, this.state.unregisteredPassword)
   }
-
+  errUnregistered = () => {
+    this.state.unregisteredMail && !this.state.unregisteredMail.match('^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$')?
+      message.error('邮箱格式不对噢~！')
+      :this.state.unregisteredUserName.length>16 &&this.state.unregisteredUserName.length >0?
+        message.error('不可以叫这么长的名字噢~')
+      :this.state.unregisteredPassword.length>16 &&this.state.unregisteredPassword.length >0?
+        message.error('就算是密码 也不能输这么长噢~'):
+        message.warning('不要调皮噢~不然就注册不了啦~')
+  }
   showLogin = (e) => {
     this.setState({
       show:false
@@ -174,6 +197,8 @@ class Login extends React.Component{
                       onChange={this.changeInputColor} 
                       value={this.state.userName} 
                       name="userName"
+                      key="0"
+                      maxLength="17"
                     />
                     <input 
                       type="password" 
@@ -181,6 +206,8 @@ class Login extends React.Component{
                       onChange={this.changeInputColor} 
                       value={this.state.Password} 
                       name="password"
+                      key="1"
+                      maxLength="17"
                     />
                     <button id="HomeLogin" onClick={this.login}>登录</button>
                   </div>
@@ -196,6 +223,9 @@ class Login extends React.Component{
                       onChange={ this.changeInputColor } 
                       value={ this.state.unregisteredUserName } 
                       name="unregisteredUserName"
+                      autoComplete="off"
+                      key="2"
+                      maxLength="17"
                     />
                     <input 
                       type="text" 
@@ -203,6 +233,8 @@ class Login extends React.Component{
                       onChange={ this.changeInputColor } 
                       value={ this.state.unregisteredMail } 
                       name="unregisteredMail"
+                      autoComplete="off"
+                      key="3"
                     />
                     <input 
                       type="password" 
@@ -210,14 +242,15 @@ class Login extends React.Component{
                       onChange={this.changeInputColor} 
                       value={this.state.unregisteredPassword} 
                       name="unregisteredPassword"
+                      key="4"
+                      maxLength="17"
                     />
-                    <p onClick={this.unregistered}>
-                       <img
-                        src={
-                          this.state.finishRegistered ?
-                            'https://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%B7%A6%E7%AE%AD%E5%A4%B4.png'
-                            :'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%94%99%E8%AF%AF.png'}
-                    />
+                    <p>
+                      {
+                        this.state.finishRegistered ?
+                        <img onClick={this.unregistered}src='https://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E5%B7%A6%E7%AE%AD%E5%A4%B4.png' />:
+                        <img onClick={this.errUnregistered} src={'http://sacc.oss-cn-beijing.aliyuncs.com/sacc-static/%E9%94%99%E8%AF%AF.png' } />
+                      }
                     </p>
                   </div>
                   :''
