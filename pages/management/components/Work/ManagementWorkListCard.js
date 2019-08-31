@@ -23,7 +23,7 @@ class ManagementWorkListCard extends React.Component{
                         <Col><div>开始时间: <span>2018-04-24 18:00:00</span></div></Col>
                     </Row>
                     <Row>
-                        <Col><div>练习状态: <span><Badge color="gray" text="已结束" /></span></div></Col>
+                        <Col><div>练习状态: <span><Badge color="gray" text="未进行" /></span></div></Col>
                     </Row>
                     <div className='ManagementGameListCard-icon'>
                         <span className='ManagementGameListCard-iconitem'><Icon type="home" theme="filled" onClick={this.props.changeShow}/></span>
