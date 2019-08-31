@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Layout, Breadcrumb } from 'antd';
 
 import ManagementWorkimport from '../components/Work/ManagementWorkimport'
+import ManagementWorkList from '../components/Work/ManagementWorkList'
 
 class ManagementWork extends React.Component{
     constructor(props){
@@ -25,7 +26,7 @@ class ManagementWork extends React.Component{
                     minHeight: 280,
                 }}
                 >
-                <ManagementWorkimport/>
+                <ManagementWorkList/>
                 </Content>
             </Layout>
         )
