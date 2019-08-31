@@ -48,14 +48,16 @@ export const Login = (username,password,ref) => {
     })
     .then(res => {
       console.log(res.data)
-      if(res.data.message == "登陆失败")
-        message.error('用户名/密码错误');
-      document.cookie = `authkey=${res.data.data.authKey}`;
-      setTimeout(function(){
-        dispatch(Iflogin(res.data.data.authKey,res.data.data.user.roles[0]));
-      },1100)
-      message.success('已经成功登陆啦~');
-      ref.current.classList.add("LoginNarrow");
+      if(res.data.message == "登陆成功"){
+         document.cookie = `authkey=${res.data.data.authKey}`;
+        setTimeout(function(){
+          dispatch(Iflogin(res.data.data.authKey,res.data.data.user.roles[0]));
+        },1100)
+        message.success('已经成功登陆啦~');
+        ref.current.classList.add("LoginNarrow");
+      }else{
+        message.error('再好好检查一下用户名和密码噢~')
+      }
     }).catch(err => {
       console.log(err)
     })
@@ -140,7 +142,7 @@ export const Registered = (username,password,email) => {
     })
     .then(res => {
       console.log(res.data)
-      message.success('注册成功啦~');
+      res.data.message == '注册成功'? message.success('注册成功啦~'):message.error(`${res.data.message}`);
     }).catch(err => {
       console.log(err)
     })

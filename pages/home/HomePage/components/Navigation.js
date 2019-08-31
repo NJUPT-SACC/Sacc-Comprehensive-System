@@ -25,7 +25,7 @@ class Navigation extends React.Component{
         </div>
         <div className="Homenavigation-right">
           <ul>
-            <li onClick={() => Router.push('/home')}>首页</li>
+            <li onClick={() => Router.push('/')}>首页</li>
             <li onClick={() => Router.push('/competition')}>比赛系统</li>
             <li onClick={() => Router.push('/assignment')}>练习系统</li>
             <li onClick={() => Router.push('/personcenter')}>个人中心</li>

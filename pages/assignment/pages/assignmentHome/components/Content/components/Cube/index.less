@@ -1,18 +1,14 @@
 @n_prisms:          6;
-@base:              3rem;
+@htmlFontSize:      16px;
+@base:              3 * @htmlFontSize;
 @base_angle:        360deg / @n_prisms;
 @radius:            3.5 * @base;
 @t:                 120s;
 @translateT:        1s;
 
-html {
-  font-size: 16px;
-}
 
 @media screen and (min-width: 1800px){
-  html{
-    font-size: 20px;
-  }
+  @htmlFontSize:    20px;
 }
 .assignment_container {
   width: 24em;

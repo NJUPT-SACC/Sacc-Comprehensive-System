@@ -42,11 +42,19 @@ class Login extends React.Component{
         this.setState({
           userName: e.target.value
         })
+        if(e.target.value.length>16){
+          message.warning('你怎么会叫这么长的名字！出错啦！')
+          e.target.className='err'
+        }
         break;
       case 'password':
         this.setState({
           Password: e.target.value
         })
+        if(e.target.value.length>16){
+          message.warning('你设的密码可没有那么长噢~')
+          e.target.className='err'
+        }
         break;
       case 'unregisteredUserName':
         this.setState({
@@ -55,7 +63,6 @@ class Login extends React.Component{
         if(e.target.value.length>16){
           message.warning('用户名只能输入16位噢~')
           e.target.className='err'
-          return e.returnValue = false
         }
         break;
       case 'unregisteredPassword':{
@@ -91,19 +98,29 @@ class Login extends React.Component{
     }
   }
   login =  async () =>{
-    await this.props.IfLogin(this.state.userName, this.state.Password,this.LoginRef)
-    this.props.showBlist()
-    const self = this;
-    setTimeout(function(){
-      self.setState({  
-        showSys: true
-      })
-    }, 1100)
+    !this.state.userName && this.state.Password?
+        message.error('你还没告诉我名字呢！')
+    :this.state.userName&&!this.state.Password?
+        message.error('你还没写密码呢！'):''
+    if(this.state.userName.length<=16 && this.state.Password.length<=16 && this.state.userName.length>0 && this.state.Password.length>0){
+      await this.props.IfLogin(this.state.userName, this.state.Password,this.LoginRef)
+      this.props.showBlist()
+      const self = this;
+      setTimeout(function(){
+        self.setState({  
+          showSys: true
+        })
+      }, 1100)
+    }
   }
   
   unregistered = async () => {
     await this.props.registered(this.state.unregisteredUserName, this.state.unregisteredPassword, this.state.unregisteredMail)
-    this.login(this.state.unregisteredUserName, this.state.unregisteredPassword)
+    this.setState({
+      userName: this.state.unregisteredUserName,
+      Password: this.state.unregisteredPassword
+    })
+    this.login()
   }
   errUnregistered = () => {
     this.state.unregisteredMail && !this.state.unregisteredMail.match('^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$')?
@@ -130,7 +147,12 @@ class Login extends React.Component{
       const innerText = e.target.innerText;
       setTimeout(function(){
         self.setState({
-          targetLogin:innerText
+          targetLogin:innerText,
+          userName:'',
+          Password:'',
+          unregisteredUserName:'',
+          unregisteredPassword:'',
+          unregisteredMail:''
         })
       },300)
 
