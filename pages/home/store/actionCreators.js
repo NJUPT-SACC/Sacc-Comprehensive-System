@@ -42,14 +42,14 @@ const saveNewBasicInformation = (NewBasicInformationList) => ({
 
 export const Login = (username,password,ref) => {
   return (dispatch) =>{
-    axios.post("http://192.168.1.6:8080/admin/login",{
+    axios.post("http://192.168.1.10:8080/admin/login",{
       username,
       password
     })
     .then(res => {
       console.log(res.data)
       if(res.data.message == "登陆成功"){
-         document.cookie = `authkey=${res.data.data.authKey}`;
+        document.cookie = `authkey=${res.data.data.authKey}`;
         setTimeout(function(){
           dispatch(Iflogin(res.data.data.authKey,res.data.data.user.roles[0]));
         },1100)
@@ -135,7 +135,7 @@ export const Skill = () => {
 
 export const Registered = (username,password,email) => {
   return (dispatch) => {
-    axios.post("http://192.168.1.6:8080/admin/signup",{
+    axios.post("http://192.168.1.10:8080/admin/signup",{
       username,
       password,
       email

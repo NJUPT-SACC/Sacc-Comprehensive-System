@@ -114,13 +114,8 @@ class Login extends React.Component{
     }
   }
   
-  unregistered = async () => {
-    await this.props.registered(this.state.unregisteredUserName, this.state.unregisteredPassword, this.state.unregisteredMail)
-    this.setState({
-      userName: this.state.unregisteredUserName,
-      Password: this.state.unregisteredPassword
-    })
-    this.login()
+  unregistered = () => {
+    this.props.registered(this.state.unregisteredUserName, this.state.unregisteredPassword, this.state.unregisteredMail)
   }
   errUnregistered = () => {
     this.state.unregisteredMail && !this.state.unregisteredMail.match('^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$')?

@@ -13,7 +13,7 @@ class Home extends React.Component{
 }
 const mapStateToProps = (state) =>{
 	return {
-		authkey: state.home.authkey
+		authKey: state.home.authKey
 	}
 }
 
