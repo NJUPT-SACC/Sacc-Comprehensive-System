@@ -42,7 +42,7 @@ const defaultState = {
     }
       ],
   skillList: [],
-  authkey:'',
+  authkey:'123',
   roles:''
 };
 

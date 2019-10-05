@@ -28,7 +28,10 @@ app.prepare()
     })
     let actualPage = '/home/PersonCenter/personCenter'
     let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
-    if(!cookieObject['authkey']){
+    if(cookieObject[' authkey']==''){
+      actualPage = '/home/home'
+      queryParams = {'Message':'请登录后再进行操作.'}
+    }else if(cookieObject['authkey']==''){
       actualPage = '/home/home'
       queryParams = {'Message':'请登录后再进行操作.'}
     }
@@ -43,7 +46,10 @@ app.prepare()
     })
     let actualPage = '/assignment/assignment'
     let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
-    if(!cookieObject['authkey']){
+    if(cookieObject[' authkey']==''){
+      actualPage = '/home/home'
+      queryParams = {'Message':'请登录后再进行操作.'}
+    }else if(cookieObject['authkey']==''){
       actualPage = '/home/home'
       queryParams = {'Message':'请登录后再进行操作.'}
     }
@@ -58,7 +64,10 @@ app.prepare()
     })
     let actualPage = `/assignment/pages/assignmentCoding/pages/codingHome`;
     let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']};
-    if(!cookieObject['authkey']){
+    if(cookieObject[' authkey']==''){
+      actualPage = '/home/home'
+      queryParams = {'Message':'请登录后再进行操作.'}
+    }else if(cookieObject['authkey']==''){
       actualPage = '/home/home'
       queryParams = {'Message':'请登录后再进行操作.'}
     }
@@ -73,7 +82,10 @@ app.prepare()
     })
     let actualPage = `/assignment/pages/assignmentCoding/pages/codingDetail`;
     let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
-    if(!cookieObject['authkey']){
+    if(cookieObject[' authkey']==''){
+      actualPage = '/home/home'
+      queryParams = {'Message':'请登录后再进行操作.'}
+    }else if(cookieObject['authkey']==''){
       actualPage = '/home/home'
       queryParams = {'Message':'请登录后再进行操作.'}
     }
@@ -86,9 +98,13 @@ app.prepare()
     cookies.map((item) => {
       cookieObject[item.split('=')[0]] = item.split('=')[1]
     })
+    console.log(cookieObject)
     let actualPage = '/competition/competition'
     let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
-    if(!cookieObject['authkey']){
+    if(cookieObject[' authkey']==''){
+      actualPage = '/home/home'
+      queryParams = {'Message':'请登录后再进行操作.'}
+    }else if(cookieObject['authkey']==''){
       actualPage = '/home/home'
       queryParams = {'Message':'请登录后再进行操作.'}
     }
@@ -103,7 +119,10 @@ app.prepare()
     })
     let actualPage = '/competition/competitionArena/competitionArena'
     let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
-    if(!cookieObject['authkey']){
+    if(cookieObject[' authkey']==''){
+      actualPage = '/home/home'
+      queryParams = {'Message':'请登录后再进行操作.'}
+    }else if(cookieObject['authkey']==''){
       actualPage = '/home/home'
       queryParams = {'Message':'请登录后再进行操作.'}
     }
@@ -118,11 +137,13 @@ app.prepare()
     })
     let actualPage = '/management/management'
     let queryParams = {'Message':'登录成功.','authkey':cookieObject['authkey']}
-    if(!cookieObject['authkey']){
+    if(cookieObject[' authkey']==''){
+      actualPage = '/home/home'
+      queryParams = {'Message':'请登录后再进行操作.'}
+    }else if(cookieObject['authkey']==''){
       actualPage = '/home/home'
       queryParams = {'Message':'请登录后再进行操作.'}
     }
-    
     app.render(req, res, actualPage, queryParams)
   })
 
