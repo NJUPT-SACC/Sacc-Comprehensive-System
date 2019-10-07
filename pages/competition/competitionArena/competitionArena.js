@@ -13,7 +13,7 @@ class CompetitionArena extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			
+			started:true
 		}
 	}
 
@@ -22,7 +22,7 @@ class CompetitionArena extends React.Component{
       <Layout className="layout">
         <div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
         <div style={{backgroundColor:'rgba(234,234,234,.4)',minHeight:'93vh'}}>
-					<CompetitionArenaReady/>
+					{this.state.started?<CompetitionArenaStart/>:<CompetitionArenaReady/>}
         </div>
       </Layout>		
 		);
