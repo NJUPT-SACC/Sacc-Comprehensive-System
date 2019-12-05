@@ -28,8 +28,7 @@ class CompetitionArenaStartItem extends React.Component{
       value
     })
   }
-  componentDidMount(){
-  }
+  
 	render(){
     const options = ['A、MIPS','B、Power','C、ARM','D、UltraSPARC'];
     const toolbar = {

@@ -14,7 +14,7 @@ function getOrCreateStore(initialState) {
     window[__NEXT_REDUX_STORE__] = initializeStore(initialState);
   }
   //需要放在外面，包含redux的初始function
-  return window[__NEXT_REDUX_STORE__]
+  return window[  ]
 }
 
 export default (App) => {
