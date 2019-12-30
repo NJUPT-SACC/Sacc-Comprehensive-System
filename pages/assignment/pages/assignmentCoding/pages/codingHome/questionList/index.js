@@ -24,11 +24,6 @@ class List extends React.Component {
         pageList.push(questionList[i]);
       }
     } else {
-      return (
-        <div className="loading">
-          <Loading />
-        </div>
-      )
     }
     return (
       pageList.map(item => {
