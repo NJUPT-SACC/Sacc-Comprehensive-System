@@ -1,12 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Select, Form, Switch, Icon, Checkbox, Input, Button, Slider, Steps, Divider} from 'antd';
 
-const { Option } = Select;
-const { TextArea } = Input;
-const { Step } = Steps;
+import {ManagementListRadioUI} from "../../containers/List"
 
-class ManagementListRadio extends React.Component{
+export default class ManagementListRadio extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -22,18 +18,9 @@ class ManagementListRadio extends React.Component{
                 Score:[0,'容易']
             }
         }
-        this.changeCheck = this.changeCheck.bind(this);
-        this.addItem = this.addItem.bind(this);
-        this.deleteItem = this.deleteItem.bind(this);
-        this.changeItem = this.changeItem.bind(this);
-        this.changeAnswer = this.changeAnswer.bind(this);
-        this.changeName = this.changeName.bind(this);
-        this.changeType = this.changeType.bind(this);
-        this.changeContent = this.changeContent.bind(this);
-        this.onCheck = this.onCheck.bind(this);
     }
 
-    changeCheck() {
+    changeCheck = () => {
         this.setState({
             fromTable:{
                 ...this.state.fromTable,
@@ -42,7 +29,7 @@ class ManagementListRadio extends React.Component{
         })
     }
 
-    addItem() {
+    addItem = () => {
         let select = this.state.fromTable.Selects;
         select.push('');
         this.setState({
@@ -53,7 +40,7 @@ class ManagementListRadio extends React.Component{
         })
     }
 
-    deleteItem() {
+    deleteItem = () => {
         let select = this.state.fromTable.Selects;
         select.splice(select.length - 1,1);
         this.setState({
@@ -64,7 +51,7 @@ class ManagementListRadio extends React.Component{
         })
     }
 
-    changeItem(e,index){
+    changeItem = (index,e) => {
         let select = this.state.fromTable.Selects;
         select[index] = e.target.value;
         this.setState({
@@ -75,9 +62,8 @@ class ManagementListRadio extends React.Component{
         })
     }
 
-    changeAnswer(e,index){
+    changeAnswer = (index,e) => {
         let answer = this.state.fromTable.answers;
-        console.log(e.target.checked)
         answer[index] = e.target.checked;
         this.setState({
             fromTable:{
@@ -88,7 +74,8 @@ class ManagementListRadio extends React.Component{
         
     }
 
-    changeName(e){
+    changeName = e => {
+      console.log(e.target)
         this.setState({
             fromTable:{
                 ...this.state.fromTable,
@@ -97,7 +84,7 @@ class ManagementListRadio extends React.Component{
         })
     }
 
-    changeType(e){
+    changeType = e => {
         this.setState({
             fromTable:{
                 ...this.state.fromTable,
@@ -106,7 +93,7 @@ class ManagementListRadio extends React.Component{
         })
     }
 
-    changeContent(e){
+    changeContent = e => {
         this.setState({
             fromTable:{
                 ...this.state.fromTable,
@@ -133,7 +120,7 @@ class ManagementListRadio extends React.Component{
         })
     }
 
-    onCheck(){
+    onCheck = () => {
         if(this.state.fromTable.Name=='')
         {
             this.setState({ current:0,error:'error' });
@@ -183,72 +170,20 @@ class ManagementListRadio extends React.Component{
     }
 
     render(){
-        const itemtype = ["算法","Python","JavaScript","Java"];
-        const { current } = this.state;
-        const formItemLayout = {
-            labelCol: { span: 6 },
-            wrapperCol: { span: 14 },
-        };
-        return (
-            <div>
-                <Steps current={current} status={this.state.error}>
-                    <Step title="Step 1" description="题目名称." />
-                    <Step title="Step 2" description="题目类型." />
-                    <Step title="Step 3" description="是否为多选题." />
-                    <Step title="Step 4" description="题目内容." />
-                    <Step title="Step 5" description="选项及答案." />
-                    <Step title="Step 6" description="题目分数及难度." />
-                </Steps>
-                <Divider />
-                <Form {...formItemLayout}>
-                    <Form.Item label="题目名称" hasFeedback>
-                        <Input placeholder="请输入题目名称" onChange={(e) => this.changeName(e)} value={this.state.fromTable.Name} onBlur={this.onCheck}/>
-                    </Form.Item>
-                    <Form.Item label="题目类型" hasFeedback>
-                        <Select placeholder="请输入题目类型" onChange={(e) => this.changeType(e)} value={this.state.fromTable.type}  onBlur={this.onCheck}>
-                            {itemtype.map((item,index) => <Option key={index} value={item}>{item}</Option>)}
-                        </Select>
-                    </Form.Item>
-                    <Form.Item label="是否为多选题" hasFeedback>
-                        <Switch
-                        checkedChildren={<Icon type="check" />}
-                        unCheckedChildren={<Icon type="close" />}
-                        onChange={this.changeCheck}
-                        onBlur={this.onCheck}
-                        />
-                    </Form.Item>
-                    <Form.Item label="题目内容" hasFeedback>
-                        <TextArea rows={4} onChange={(e) => this.changeContent(e)} value={this.state.fromTable.Content}  onBlur={this.onCheck}/>
-                    </Form.Item>
-                    <Form.Item label="选项及答案" hasFeedback>
-                        {this.state.fromTable.Selects?this.state.fromTable.Selects.map((item,_index) => <span>
-                            <Checkbox onChange={(e) => this.changeAnswer(e,_index)} value={() => this.state.fromTable.answers[_index]} onBlur={this.onCheck}></Checkbox>
-                            <Input placeholder="请输入选项内容" value={item} onChange={(e) => this.changeItem(e,_index)} />
-                        </span>):''}
-                        <Button type="dashed" onClick={this.addItem} style={{ width: '20%',marginRight:'2vw' }}>
-                            <Icon type="plus" /> Add field
-                        </Button>
-                        <Button type="dashed" onClick={this.deleteItem} style={{ width: '20%' }}>
-                            <Icon type="line" /> remove field
-                        </Button>
-                    </Form.Item>
-                    <Form.Item label="题目分数及难度" hasFeedback>
-                        <Slider min={1} max={10} value={this.state.fromTable.Score[0]} onChange={this.changeScore} marks={{2: '入门',4: '了解',6: '掌握',8: '熟练',10: '精通'}}  onBlur={this.onCheck}/>
-                    </Form.Item>
-                    <Button type="primary" style={{left:'50%',transform:'translateX(-50%)'}}>确认提交</Button>
-                </Form>
-            </div>      
-        )
+        return <ManagementListRadioUI
+                current={this.state.current}
+                error={this.state.error}
+                fromTable={this.state.fromTable}
+                onCheck={this.onCheck}
+                changeScore={this.changeScore}
+                changeContent={this.changeContent}
+                changeType={this.changeType}
+                changeName={this.changeName}
+                changeAnswer={this.changeAnswer}
+                addItem={this.addItem}
+                changeItem={this.changeItem}
+                deleteItem={this.deleteItem}
+                changeCheck={this.changeCheck}
+                />
     }
 }
-const mapStateToProps = (state) =>{
-	return {
-		
-	}
-}
-const mapDispatchToProps = (dispatch) => {
-	return {
-
-	}
-}
-export default connect(mapStateToProps,mapDispatchToProps)(ManagementListRadio);

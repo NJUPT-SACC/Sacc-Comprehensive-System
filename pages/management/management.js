@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import { actionCreators, store} from './store';
+import { actionCreators} from './store';
 
-import './less/management.less'; 
 
-import ManagementHome from './managementContent/managementHome';
-import ManagementWork from './managementContent/managementWork';
-import ManagementGame from './managementContent/managementGame';
-import ManagementList from './managementContent/managementList';
+import {ManagementHome} from './containers/Home';
+import {ManagementWork} from './containers/Work';
+import {ManagementGame} from './containers/Game';
+import {ManagementList} from './containers/List';
 
 class Management extends React.Component{
 	constructor(props){
@@ -24,6 +23,15 @@ class Management extends React.Component{
 		console.log(this.req)
 		return (
             <Layout style={{height:'100vh'}}>
+					<style jsx>{`
+					@import "~antd/dist/antd.less";
+					#components-layout-demo-top-side-2 .logo {
+						width: 120px;
+						height: 31px;
+						background: rgba(255, 255, 255, 0.2);
+						margin: 16px 28px 16px 0;
+						float: left;
+					}`}</style>
 				<Header className="header">
 				</Header>
 				<Layout>
