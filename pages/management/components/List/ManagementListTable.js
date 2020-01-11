@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Modal, Table, Divider, Tag, Icon} from 'antd';
+import { Modal, Table, Tag } from 'antd';
 import { actionCreators } from '../../store'
 
 class ManagementListTable extends React.Component{
