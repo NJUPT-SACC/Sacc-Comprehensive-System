@@ -2,6 +2,10 @@ import React from 'react';
 
 import {ManagementGameListUI} from "../../containers/Game";
 
+/**
+ * @author wwqin
+ * @description 比赛列表
+ */
 export default class ManagementGameList extends React.Component{
   constructor(props){
     super(props);

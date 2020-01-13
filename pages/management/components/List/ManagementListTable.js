@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import { Modal, Table, Tag } from 'antd';
 import { actionCreators } from '../../store'
 
+/**
+ * @author wwqin
+ * @description 题目列表
+ */
 class ManagementListTable extends React.Component{
   constructor(props){
       super(props);

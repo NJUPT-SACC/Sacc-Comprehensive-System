@@ -1,14 +1,19 @@
 import React from 'react';
+import dynamic from 'next/dynamic'
 import { Descriptions, Row, Col, Badge, Icon, Drawer, Divider, Input, Select, Form, Button, Steps, Layout, Breadcrumb } from 'antd';
 
-import ManagementGameimport from '../../components/Game/ManagementGameimport'
-import ManagementGameList from '../../components/Game/ManagementGameList'
-
+/**
+ * @author wwqin
+ * @description Game部分入口
+ * @param {String} props.content 当前状态
+ */
 export const ManagementGame = props =>{
   const { Content } = Layout;
+  const ManagementGameimport = dynamic(import('../../components/Game/ManagementGameimport'));//动态导入添加比赛组件
+  const ManagementGameList = dynamic(import('../../components/Game/ManagementGameList'));//动态导入比赛列表组件
   return (
     <Layout style={{ padding: '0 24px 24px' }}>
-      {props.show=='比赛详情'?
+      {props.content=='比赛详情'?
       <Breadcrumb style={{ margin: '16px 0' }}>
         <Breadcrumb.Item>比赛系统</Breadcrumb.Item>
         <Breadcrumb.Item>比赛列表</Breadcrumb.Item>
@@ -32,6 +37,18 @@ export const ManagementGame = props =>{
   )
 }
 
+/**
+ * @author wwqin
+ * @description 比赛详情
+ * @param {Num} props.id 比赛ID
+ * @param {String} props.name 比赛名称
+ * @param {Date} props.startTime 比赛开始时间
+ * @param {Date} props.endTime 比赛结束时间
+ * @param {String} props.site 比赛地点
+ * @param {String} props.did 比赛进行状况
+ * @param {Array} props.attention 注意事项
+ * @param {Array} props.list 题目列表
+ */
 export const ManagementGameDetails = (props) =>{
   return (
     <div>
@@ -81,6 +98,17 @@ export const ManagementGameDetails = (props) =>{
   )
 }
 
+/**
+ * @author wwqin
+ * @description 比赛简要信息卡片
+ * @param {String} props.did 比赛进行状况
+ * @param {String} props.name 比赛名称
+ * @param {Date} props.startTime 比赛开始时间
+ * @param {Date} props.endTime 比赛结束时间
+ * @param {String} props.site 比赛地点
+ * @param {Function} props.changeShow 改变显示比赛细节
+ * @param {Function} props.showDrawer 在侧边打开比赛信息
+ */
 export const ManagementGameListCard = (props) => {
   const didcolor = {background: 'linear-gradient(#F2F2EF,#EDE9E4)'};
   const willcolor = {background: 'linear-gradient(#fffc43, #ffd479)'};
@@ -177,6 +205,21 @@ export const ManagementGameListCard = (props) => {
     
 }
 
+/**
+ * @author wwqin
+ * @description 比赛列表UI部分
+ * @param {Function} props.showDrawer 在侧边打开比赛信息
+ * @param {Function} props.onClose 关闭在侧边打开的比赛信息
+ * @param {Boolean} props.visible 侧边信息显示状态
+ * @param {Num} props.id 比赛ID
+ * @param {String} props.name 比赛名称
+ * @param {Date} props.startTime 比赛开始时间
+ * @param {Date} props.endTime 比赛结束时间
+ * @param {String} props.site 比赛地点
+ * @param {String} props.did 比赛进行状况
+ * @param {Array} props.attention 注意事项
+ * @param {Array} props.list 题目列表
+ */
 export const ManagementGameListUI = (props) => {
   const { Search } = Input;
   const isDid = Date.now()>new Date("2019-9-21 14:50:00")?'已结束':Date.now()>new Date("2019-8-21 14:50:00")?'正在进行':'未开始'
@@ -255,6 +298,20 @@ export const ManagementGameListUI = (props) => {
   )
 }
 
+/**
+ * @author wwqin
+ * @description 添加比赛UI部分
+ * @param {Number} props.current Steps显示步数
+ * @param {String} props.error Steps状态
+ * @param {Function} props.changeName 改变比赛名称
+ * @param {Function} props.onChenk 输入后检查
+ * @param {Function} props.changePlace 改变比赛地点
+ * @param {Function} props.changeStartTime 改变比赛开始时间
+ * @param {Function} props.changeEndTime 改变比赛结束时间
+ * @param {Function} props.changeContent 改变比赛注意事项
+ * @param {Object} props.fromTable form详细数据
+ * @example props.fromTable={ Name:'',List:['0-0-0'],Place:'',StartTime:'',EndTime:'',Content:''}
+*/
 export const ManagemenGameimportUI = (props) => {
   const { Option } = Select;
   const { TextArea } = Input;
@@ -262,7 +319,7 @@ export const ManagemenGameimportUI = (props) => {
   const children = [];
   for (let i = 10; i < 36; i++) {
     children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
-  }
+  }//选项
   const formItemLayout = {
     labelCol: { span: 6 },
     wrapperCol: { span: 14 },
