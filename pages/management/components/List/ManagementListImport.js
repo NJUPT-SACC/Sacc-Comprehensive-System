@@ -2,6 +2,10 @@ import React from 'react';
 
 import {ManagementListRadioUI} from "../../containers/List"
 
+/**
+ * @author wwqin
+ * @description 添加题目
+ */
 export default class ManagementListRadio extends React.Component{
     constructor(props){
         super(props);

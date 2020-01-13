@@ -1,11 +1,16 @@
 import React from 'react';
+import dynamic from 'next/dynamic'
 import { Row, Col, Badge, Icon, Drawer, Descriptions, Input, Divider,Select, Form, Button, Steps, InputNumber, TimePicker, TreeSelect, Layout, Breadcrumb } from 'antd';
 
-import ManagemenWorkimport from '../../components/Work/ManagementWorkimport'
-import ManagementWorkList from '../../components/Work/ManagementWorkList'
-
+/**
+ * @author wwqin
+ * @description 练习部分入口
+ * @param {String} props.content 当前状态
+ */
 export const ManagementWork= props => {
   const { Content } = Layout;
+  const ManagemenWorkimport = dynamic(import('../../components/Work/ManagementWorkimport'));
+  const ManagementWorkList = dynamic(import('../../components/Work/ManagementWorkList'));
   return (
     <Layout style={{ padding: '0 24px 24px' }}>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -26,6 +31,17 @@ export const ManagementWork= props => {
   )
 }
 
+/**
+ * @author wwqin
+ * @description 练习简要信息卡片（≈比赛卡片）
+ * @param {String} props.did 练习进行状况
+ * @param {String} props.name 练习名称
+ * @param {Date} props.startTime 练习开始时间
+ * @param {Date} props.endTime 练习结束时间
+ * @param {String} props.site 练习地点
+ * @param {Function} props.changeShow 改变显示练习细节
+ * @param {Function} props.showDrawer 在侧边打开练习信息
+ */
 export const ManagementWorkListCard = props =>{
   const didcolor = {background: 'linear-gradient(#F2F2EF,#EDE9E4)'};
   const willcolor = {background: 'linear-gradient(#fffc43, #ffd479)'};
@@ -118,6 +134,21 @@ export const ManagementWorkListCard = props =>{
   )
 }
 
+/**
+ * @author wwqin
+ * @description 练习列表UI部分
+ * @param {Function} props.showDrawer 在侧边打开练习信息
+ * @param {Function} props.onClose 关闭在侧边打开的练习信息
+ * @param {Boolean} props.visible 侧边信息显示状态
+ * @param {Num} props.id 练习ID
+ * @param {String} props.name 练习名称
+ * @param {Date} props.startTime 练习开始时间
+ * @param {Date} props.endTime 练习结束时间
+ * @param {String} props.site 练习地点
+ * @param {String} props.did 练习进行状况
+ * @param {Array} props.attention 注意事项
+ * @param {Array} props.list 题目列表
+ */
 export const ManagementWorkListUI = props =>{
   const isDid = Date.now()>new Date("2019-9-21 14:50:00")?'已结束':Date.now()>new Date("2019-8-21 14:50:00")?'正在进行':'未开始'
   const { Search } = Input;
@@ -196,6 +227,20 @@ export const ManagementWorkListUI = props =>{
   )
 }
 
+/**
+ * @author wwqin
+ * @description 添加练习UI部分（不完善）
+ * @param {Number} props.current Steps显示步数
+ * @param {String} props.error Steps状态
+ * @param {Function} props.changeName 改变练习名称
+ * @param {Function} props.onChenk 输入后检查
+ * @param {Function} props.changePlace 改变练习地点
+ * @param {Function} props.changeStartTime 改变练习开始时间
+ * @param {Function} props.changeEndTime 改变练习结束时间
+ * @param {Function} props.changeContent 改变练习注意事项
+ * @param {Object} props.fromTable form详细数据
+ * @example props.fromTable={ Name:'',List:['0-0-0'],Place:'',StartTime:'',EndTime:'',Content:''}
+*/
 export const ManagemenWorkimportUI =props =>{
   const { Option } = Select;
   const { TextArea } = Input;

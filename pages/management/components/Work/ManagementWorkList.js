@@ -1,6 +1,10 @@
 import React from 'react';
 import {ManagementWorkListUI} from '../../containers/Work';
 
+/**
+ * @author wwqin
+ * @description 练习列表
+ */
 export default class ManagementWorkList extends React.Component{
   constructor(props){
     super(props);

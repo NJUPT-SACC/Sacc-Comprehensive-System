@@ -1,11 +1,16 @@
 import React from 'react';
+import dynamic from 'next/dynamic'
 import { Select, Form, Switch, Icon, Checkbox, Input, Button, Slider, Steps, Divider, Layout, Breadcrumb} from 'antd';
 
-import ManagementListRadio from '../../components/List/ManagementListImport'
-import ManagementListTable from '../../components/List/ManagementListTable'
-
+/**
+ * @author wwqin
+ * @description 题库入口
+ * @param {String} props.content 当前状态
+ */
 export const ManagementList = props => {
   const { Content } = Layout;
+  const ManagementListRadio = dynamic(import("../../components/List/ManagementListImport"));//动态导入添加题目组件
+  const ManagementListTable = dynamic(import("../../components/List/ManagementListTable"));//动态导入题目列表组件
   return (
     <Layout style={{ padding: '0 24px 24px'}}>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -26,6 +31,22 @@ export const ManagementList = props => {
   )
 }
 
+/**
+ * @author wwqin
+ * @description 添加题目I部分
+ * @param {Number} props.current Steps显示步数
+ * @param {String} props.error Steps状态
+ * @param {Function} props.changeName 改变题目名称
+ * @param {Function} props.onChenk 输入后检查
+ * @param {Function} props.changeType 改变题目类型
+ * @param {Function} props.changeCheck 改变题目是否多选
+ * @param {Function} props.addItem 添加选项
+ * @param {Function} props.deleteItem 删除选项
+ * @param {Function} props.changeScore 改变题目难度及分数
+ * @param {Function} props.changeContent 改变题目内容
+ * @param {Object} props.fromTable form详细数据
+ * @example props.fromTable={Name:'',type:'',Content:'',Selects:['','','',''],isCheckbos:false,answers:[false,false,false,false],Score:[0,'容易']}
+*/
 export const ManagementListRadioUI = props =>{
   const { Option } = Select;
   const { TextArea } = Input;

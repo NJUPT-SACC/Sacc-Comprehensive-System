@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import { actionCreators} from './store';
 
 
@@ -10,6 +9,10 @@ import {ManagementWork} from './containers/Work';
 import {ManagementGame} from './containers/Game';
 import {ManagementList} from './containers/List';
 
+/**
+ * @author wwqin
+ * @description 后台管理总入口
+ */
 class Management extends React.Component{
 	constructor(props){
 		super(props);
@@ -22,8 +25,8 @@ class Management extends React.Component{
 		const { Header, Content, Sider } = Layout;
 		console.log(this.req)
 		return (
-            <Layout style={{height:'100vh'}}>
-					<style jsx>{`
+			<Layout style={{height:'100vh'}}>
+				<style jsx>{`
 					@import "~antd/dist/antd.less";
 					#components-layout-demo-top-side-2 .logo {
 						width: 120px;

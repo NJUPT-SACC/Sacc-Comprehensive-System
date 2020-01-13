@@ -1,6 +1,11 @@
 import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 
+/**
+ * @author wwqin
+ * @description 操作日志入口
+ * @param {String} props.content 当前状态
+ */
 export const ManagementHome = props =>{
   const { Content } = Layout;
   return (

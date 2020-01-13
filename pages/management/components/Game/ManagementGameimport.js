@@ -2,6 +2,10 @@ import React from 'react';
 
 import {ManagemenGameimportUI} from '../../containers/Game/index'
 
+/**
+ * @author wwqin
+ * @description 添加比赛部分
+ */
 export default class ManagemenGameimport extends React.Component{
   constructor(props){
     super(props);

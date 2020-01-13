@@ -2,6 +2,10 @@ import React from 'react';
 
 import {ManagemenWorkimportUI} from '../../containers/Work'
 
+/**
+ * @author wwqin
+ * @description 添加练习部分
+ */
 export default class ManagemenWorkimport extends React.Component{
     constructor(props){
         super(props);
