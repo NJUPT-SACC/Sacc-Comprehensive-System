@@ -2,13 +2,14 @@
 NSCS is a system that combines competition, homework exercises, and offline lecture notifications. Written in HTMl, CSS, JavaScript, and other functional languages, it supports online refereeing and single-choice multiple choice questions
 
 ![License](https://img.shields.io/github/license/NJUPT-SACC/Sacc-Comprehensive-System.svg?style=flat-square)
-[![FOSSA Status](https://img.shields.io/badge/license%20scan-passing-green.svg?style=flat-square)](https://app.fossa.io/projects/git%2Bgithub.com%2FZsgsDesign%2FCodeMaster?ref=badge_shield)
 ![GitHub repo size](https://img.shields.io/github/repo-size/NJUPT-SACC/Sacc-Comprehensive-System.svg?style=flat-square)
 ![Stars](https://img.shields.io/github/stars/NJUPT-SACC/Sacc-Comprehensive-System.svg?style=flat-square)
 ![Forks](https://img.shields.io/github/forks/NJUPT-SACC/Sacc-Comprehensive-System.svg?style=flat-square)
 ## NSCS Development Team
+
 | [<b>Qin</b>](https://github.com/wwqin)<br />**Leader**   |  [<b>ZOULAIZOUQU</b>](https://github.com/big747386)<br />**Leader** | [<b>Tiki-Taka</b>](https://github.com/BinghuiXie)<br />**FrontEnd**<br />  | [<b>HKFPouu</b>](https://github.com/HKFPouu)<br />**FrontEnd** | [<b>goufaan</b>](https://github.com/goufaan)<br />**BackEnd** | [<b>ZCCy</b>](https://github.com/ZCCy)<br />**FrontEnd**   |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+
 ## start
 ### dev
 ```
