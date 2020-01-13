@@ -3,6 +3,8 @@
 1. 统一采用驼峰式命名。eg：startTime
 2. 组件名第一个字母必须大写
 3. 组件内命名必须是**组件名-类名**.eg:Management-myContainer
+4. 常量, 使用全部字母大写，单词间下划线分隔的命名方式。
+5. 私有属性、变量和方法以下划线 _ 开头。
 ### 注释规范
 每个函数或者组件前必须注释该组件或者函数的入参和用途
 ```
@@ -71,4 +73,4 @@ In general, comment for git submission can be divided into serval groups, starte
 - refactor
 - doc
 ### 其他
-出现问题或者自己无法解决的bug及时在工作群沟通或者提起issue。
+**代码全部两个缩进**，出现问题或者自己无法解决的bug及时在工作群沟通或者提起issue。
