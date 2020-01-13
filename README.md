@@ -3,7 +3,7 @@ NSCS is a system that combines competition, homework exercises, and offline lect
 
 ![License](https://img.shields.io/github/license/NJUPT-SACC/Sacc-Comprehensive-System.svg?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/NJUPT-SACC/Sacc-Comprehensive-System.svg?style=flat-square)
-![Stars](https://img.shields.io/github/stars/NJUPT-SACC/Sacc-Comprehensive-System.svg?style=flat-square)
+![Stars](https://img.shields.io/github/stars/NJUPT-SACC/Sacc-Comprehensive-System?style=flat-square)
 ![Forks](https://img.shields.io/github/forks/NJUPT-SACC/Sacc-Comprehensive-System.svg?style=flat-square)
 ## NSCS Development Team
 
