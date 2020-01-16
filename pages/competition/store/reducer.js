@@ -1,16 +1,16 @@
 import * as constants from './constants';
 
 const defaultState = {
-  competitionId:'',
-  competitionList:''
+  competitionList:'',
+  competitionEachRankList:''
 };
 
 export default (state = defaultState, action) => {
   switch(action.type){
-    case constants.COMPETITION_CHANGE_NAME:
-      return {...state,'competitionId':action.name}
-    case constants.COMPETITION_INIT_LIST:
-      return {...state,'competitionList':action.competitionList}
+    case constants.COMPETITION_RECEIVE_LIST:
+      return {...state,'competitionList':action.competitionList};
+    case constants.COMPETITION_RECEIVE_EACH_RANK_LIST:
+      return {...state,'competitionEachRankList':action.competitionEachRankList}
     default:
       return state;
   }

@@ -1,22 +1,35 @@
 import { constants } from './index'
 import axios from 'axios';
 
-export const competition_change_name = (name) => ({
-  type:constants.COMPETITION_CHANGE_NAME,
-  name
-})
-
-const competition_init_list = (competitionList) => ({
-  type: constants.COMPETITION_INIT_LIST,
+const showList = (competitionList) => ({
+  type: constants.COMPETITION_RECEIVE_LIST,
   competitionList
 })
 
-export const init_list = () =>{
+const showEachRankList = (competitionEachRankList) => ({
+  type: constants.COMPETITION_RECEIVE_EACH_RANK_LIST,
+  competitionEachRankList
+})
+
+export const receiveList = () =>{
   return (dispatch) => {
-    axios.get('http://139.155.83.63:3000/mock/13/competition/list')
+    axios.get('https://www.easy-mock.com/mock/5e205687e1c2cf1d346e0df0/getPersonalList')
     .then(res =>{
       console.log(res.data.data);
-      dispatch(competition_init_list(res.data.data))
+      dispatch(showList(res.data.data))
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+}
+
+export const receiveEachRankList = () =>{
+  return (dispatch) => {
+    axios.get('https://www.easy-mock.com/mock/5e205687e1c2cf1d346e0df0/getEachRank')
+    .then(res =>{
+      console.log(res.data.data);
+      dispatch(showEachRankList(res.data.data))
     })
     .catch(err => {
       console.log(err);

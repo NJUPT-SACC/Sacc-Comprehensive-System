@@ -1,47 +1,67 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
-import store from './store';
-import { Layout, Menu } from 'antd';
-import axios from 'axios';
-import Navigation from '../home/HomePage/components/Navigation'
-import CompetitionMain from './competitionContent/CompetitionMain'
-import CompetitionArena from './competitionArena/competitionArena'
-import Loading from '../components/loading/loading'
-import { actionCreators } from '../home/store';
+import { actionCreators} from './store';
 
-const { Header, Content, Footer } = Layout;
+import Navigation from '../../pages/home/HomePage/components/Navigation'
+import { CompetitionList } from './containers/List'
+import { CompetitionRank } from './containers/Rank'
+
+
 class Competition extends React.Component{
-	
-	render(){
-		return (
-			<Layout className="layout">
-				<div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
-				{/* <Loading width='100' height='100' scale='1'/> */}
-				<CompetitionMain/>
-		</Layout>	
-		);
-	}
-	componentDidMount(){
-		// 转json
-		// axios.get('https://wangwenqin.cn/Sacc-Comprehensive-System/mock/questionList.json')
-		// .then(res => {
-		// 	let data = eval('(' + res.data + ')')
-		// 	console.log(data.data)
-		// })
-		// .catch(err => {
-		// 	console.log(err)
-		// })
-	}
+  render(){
+    return (
+      <div className="Competition">
+        <Navigation></Navigation>
+
+        <Row>
+          <Col span={12} offset={2}>
+            <Col span={3}>
+              <div className="CompetitionList-Menu">
+                <p>所有比赛</p>
+                <p>我参加的</p>
+              </div>
+            </Col>
+            <Col span={24}><CompetitionList></CompetitionList></Col>
+          </Col>
+          <Col span={7} offset={1}>
+            <CompetitionRank></CompetitionRank>
+          </Col>
+        </Row>
+        <style jsx>{`
+        .Competition{
+          position: relative;
+        }
+        .CompetitionList-Menu{
+          position: absolute;
+          top: 10vh;
+          left: -1vw;
+          color:#ffffff;
+          z-index: 0
+        }
+        .CompetitionList-Menu p{
+          width: 5vw;
+          line-height: 1.5;
+          transition:all .5s;
+          background: #03a9f4;
+          cursor: pointer;
+          text-align: center
+        }
+        .CompetitionList-Menu p:hover{
+          transform: translateX(-4vw)
+        }
+        `}</style>
+      </div>
+    )
+  }
 }
+
 const mapStateToProps = (state) =>{
-	return {
-		
-	}
+
 }
+
 const mapDispatchToProps = (dispatch) => {
-	return {
-		
-	}
+
 }
+
 export default connect(mapStateToProps,mapDispatchToProps)(Competition);
