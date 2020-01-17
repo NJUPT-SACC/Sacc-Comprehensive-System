@@ -9,15 +9,18 @@ class CompetitionRankImport extends React.Component{
   }
 
   componentDidMount(){
-    this.props.receiveEachRankList()
-    console.log(this.props.competitionEachRankList)
+    this.props.receiveAllRankList()
   }
 
   render(){
+    const data = this.props.show == "所有比赛" ?
+    this.props.competitionAllRankList :
+    this.props.competitionList[this.props.competitionEachRankListId].rank
+
     return (
       <div>
       {
-        this.props.competitionEachRankList.map(item =>
+        data.map(item =>
         <Row>
           <Col span={8}>        
             <Avatar style={{ backgroundColor: '#00a2ae', verticalAlign: 'middle' }} size="large">
@@ -36,13 +39,16 @@ class CompetitionRankImport extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    competitionEachRankList:state.competition.competitionEachRankList
+    show: state.competition.show,
+    competitionList:state.competition.competitionList,
+    competitionAllRankList:state.competition.competitionAllRankList,
+    competitionEachRankListId:state.competition.competitionEachRankListId,
 	}
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-    receiveEachRankList(){
-      dispatch(actionCreators.receiveEachRankList());
+    receiveAllRankList(){
+      dispatch(actionCreators.receiveAllRankList());
     }
 	}
 }

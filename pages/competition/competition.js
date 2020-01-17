@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators} from './store';
+import './containers/competition.less';
 
 import Navigation from '../../pages/home/HomePage/components/Navigation'
 import { CompetitionList } from './containers/List'
@@ -9,6 +10,10 @@ import { CompetitionRank } from './containers/Rank'
 
 
 class Competition extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
   render(){
     return (
       <div className="Competition">
@@ -18,8 +23,8 @@ class Competition extends React.Component{
           <Col span={12} offset={2}>
             <Col span={3}>
               <div className="CompetitionList-Menu">
-                <p>所有比赛</p>
-                <p>我参加的</p>
+                <p onClick={this.props.changeShow} className={this.props.show == '所有比赛'? 'selected':''}>所有比赛</p>
+                <p onClick={this.props.changeShow} className={this.props.show == '我参加的'? 'selected':''}>我参加的</p>
               </div>
             </Col>
             <Col span={24}><CompetitionList></CompetitionList></Col>
@@ -28,40 +33,23 @@ class Competition extends React.Component{
             <CompetitionRank></CompetitionRank>
           </Col>
         </Row>
-        <style jsx>{`
-        .Competition{
-          position: relative;
-        }
-        .CompetitionList-Menu{
-          position: absolute;
-          top: 10vh;
-          left: -1vw;
-          color:#ffffff;
-          z-index: 0
-        }
-        .CompetitionList-Menu p{
-          width: 5vw;
-          line-height: 1.5;
-          transition:all .5s;
-          background: #03a9f4;
-          cursor: pointer;
-          text-align: center
-        }
-        .CompetitionList-Menu p:hover{
-          transform: translateX(-4vw)
-        }
-        `}</style>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) =>{
-
+  return {
+    show:state.competition.show
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-
+  return {
+    changeShow(e){
+      dispatch(actionCreators.changeShow(e.target.innerText))
+    }
+  }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Competition);
