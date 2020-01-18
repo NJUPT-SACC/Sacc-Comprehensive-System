@@ -66,7 +66,7 @@ export const ManagementGameListUI = (props) => {
 }
 ```
 ### 组件规范
-通过作用区分成两类组件UI组件和容器组件，UI组件专注负责UI部分放到**containers**目录下，容器组件专注业务逻辑和数据交互存放在**components**目录下。
+通过作用区分成两类组件UI组件和容器组件，UI组件专注负责UI部分放到**containers**目录下，相关的less文件放在**containers**目录下对应的文件夹内，容器组件专注业务逻辑和数据交互存放在**components**目录下。
 在容器组件中通过是否使用redux数据区分为两类，一类是通过**connect**链接**store**的，另一类是无需使用redux只使用自身state的。
 区分以上几种组件方便以后性能优化！
 ### commit规范
