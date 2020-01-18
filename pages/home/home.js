@@ -1,27 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HomePage from './HomePage/HomePage';
+import { actionCreators} from './store';
+
 
 class Home extends React.Component{
-	render(){
-		return (
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    return (
       <div>
-        <HomePage />
-				
+
       </div>
-		);
-	}
+    )
+  }
 }
+
 const mapStateToProps = (state) =>{
-	return {
-		authKey: state.home.authKey
-	}
+  return {
+
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-	return {
-		
-	}
+  return {
+
+  }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
