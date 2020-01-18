@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Row,Col,Avatar } from 'antd';
 import { actionCreators,store } from '../../store';
+
+import { CompetitionRankUI } from '../../containers/Rank/index'
 
 class CompetitionRankImport extends React.Component{
   constructor(props){
@@ -13,26 +14,12 @@ class CompetitionRankImport extends React.Component{
   }
 
   render(){
-    const data = this.props.show == "所有比赛" ?
-    this.props.competitionAllRankList :
-    this.props.competitionList[this.props.competitionEachRankListId].rank
-
     return (
-      <div>
-      {
-        data.map(item =>
-        <Row>
-          <Col span={8}>        
-            <Avatar style={{ backgroundColor: '#00a2ae', verticalAlign: 'middle' }} size="large">
-              {item.name}
-            </Avatar>
-          </Col>
-          <Col span={8}>{item.name}</Col>
-          <Col span={8}>{item.grade}</Col>
-        </Row>  
-        )
-      }
-    </div>
+      <CompetitionRankUI 
+        show={this.props.show}
+        personalRankingList={this.props.competitionList[this.props.competitionEachRankListId].rank}
+        allRankingList={this.props.competitionAllRankList}
+      />
     )
   }
 }
