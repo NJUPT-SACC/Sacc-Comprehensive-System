@@ -1,4 +1,10 @@
 # 开发规范
+### 开发提交规范
+现在主要有三个分支master、dev、refactor，开发的时候
+1. 从dev分支clone到本地
+2. 然后自己开设自己的分支，命名规则：名字缩写-需求类型，eg：wwq-refactor
+3. 开发完成后向dev/refactor分支提交合并请求
+4. 由指定人员进行review后合并，如果是未来还要进行的需求则保留分支，否则删除分支
 ### 命名规范
 1. 统一采用驼峰式命名。eg：startTime
 2. 组件名第一个字母必须大写
@@ -6,6 +12,7 @@
 4. 常量, 使用全部字母大写，单词间下划线分隔的命名方式。
 5. 私有属性、变量和方法以下划线 _ 开头。
 ### 注释规范
+必须的注释尽量详细，不必要的注释大可不必。
 每个函数或者组件前必须注释该组件或者函数的入参和用途
 ```
 /**
@@ -62,9 +69,7 @@ export const ManagementGameListUI = (props) => {
 通过作用区分成两类组件UI组件和容器组件，UI组件专注负责UI部分放到**containers**目录下，容器组件专注业务逻辑和数据交互存放在**components**目录下。
 在容器组件中通过是否使用redux数据区分为两类，一类是通过**connect**链接**store**的，另一类是无需使用redux只使用自身state的。
 区分以上几种组件方便以后性能优化！
-### 提交规范
-接到新需求后开设新分支或者在非master、dev分支上进行开发，开发完成后申请合并请求，合并必须有一或两个人进行review过后太可合并成功。
-#### commit规范
+### commit规范
 In general, comment for git submission can be divided into serval groups, started with a few verbs:
 - add ( add new demand into the project )
 - fixed ( fix bug )
