@@ -1,47 +1,55 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Row, Col } from 'antd';
 import { connect } from 'react-redux';
-import store from './store';
-import { Layout, Menu } from 'antd';
-import axios from 'axios';
-import Navigation from '../home/HomePage/components/Navigation'
-import CompetitionMain from './competitionContent/CompetitionMain'
-import CompetitionArena from './competitionArena/competitionArena'
-import Loading from '../components/loading/loading'
-import { actionCreators } from '../home/store';
+import { actionCreators} from './store';
+import './containers/competition.less';
 
-const { Header, Content, Footer } = Layout;
+import Navigation from '../../pages/home/HomePage/components/Navigation'
+import { CompetitionList } from './containers/List'
+import { CompetitionRank } from './containers/Rank'
+
+
 class Competition extends React.Component{
-	
-	render(){
-		return (
-			<Layout className="layout">
-				<div style={{backgroundColor:'#000',zIndex:'1'}}><Navigation/></div>
-				{/* <Loading width='100' height='100' scale='1'/> */}
-				<CompetitionMain/>
-		</Layout>	
-		);
-	}
-	componentDidMount(){
-		// 转json
-		// axios.get('https://wangwenqin.cn/Sacc-Comprehensive-System/mock/questionList.json')
-		// .then(res => {
-		// 	let data = eval('(' + res.data + ')')
-		// 	console.log(data.data)
-		// })
-		// .catch(err => {
-		// 	console.log(err)
-		// })
-	}
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    return (
+      <div className="Competition">
+        <Navigation></Navigation>
+
+        <Row>
+          <Col span={12} offset={2}>
+            <Col span={3}>
+              <div className="CompetitionList-Menu">
+                <p onClick={this.props.changeShow} className={this.props.show == '所有比赛'? 'selected':''}>所有比赛</p>
+                <p onClick={this.props.changeShow} className={this.props.show == '我参加的'? 'selected':''}>我参加的</p>
+              </div>
+            </Col>
+            <Col span={24}><CompetitionList></CompetitionList></Col>
+          </Col>
+          <Col span={7} offset={1}>
+            <CompetitionRank></CompetitionRank>
+          </Col>
+        </Row>
+      </div>
+    )
+  }
 }
+
 const mapStateToProps = (state) =>{
-	return {
-		
-	}
+  return {
+    show:state.competition.show
+  }
 }
+
 const mapDispatchToProps = (dispatch) => {
-	return {
-		
-	}
+  return {
+    changeShow(e){
+      dispatch(actionCreators.changeShow(e.target.innerText))
+    }
+  }
 }
+
 export default connect(mapStateToProps,mapDispatchToProps)(Competition);

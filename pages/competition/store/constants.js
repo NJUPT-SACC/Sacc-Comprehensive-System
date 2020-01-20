@@ -1,2 +1,5 @@
-export const COMPETITION_CHANGE_NAME = 'competition_change_name'
-export const COMPETITION_INIT_LIST = "competition_init_list"
+export const COMPETITION_RECEIVE_LIST = "competition_receive_list"
+export const COMPETITION_RECEIVE_ALL_RANK_LIST = "competition_receive_all_rank_list"
+export const COMPETITION_RECEIVE_ALL_LIST = "competition_receive_all_list"
+export const COMPETITION_CHANGE_SHOW = "competition_change_show"
+export const COMPETITION_EACH_RANK_LIST = "competition_each_rank_list"
