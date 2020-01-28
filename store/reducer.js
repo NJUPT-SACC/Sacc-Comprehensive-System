@@ -14,7 +14,7 @@ const homepersistConfig = {
 const competitionpersistConfig = {
     key: 'competition',
     storage,
-    whitelist: ['competitionList',"competitionAllList","competitionAllRankList"]
+    whitelist: ['competitionList',"competitionAllList","competitionAllRankList","competitionTopicList","topicId"]
 }  
 const managementpersistConfig = {
     key: 'management',

@@ -39,7 +39,7 @@ export const CompetitionListUI = props =>{
     <div>
       <Row>{ label.labelList.map(item =><Col span={label.span}>{item}</Col>) }</Row>
       { props.show == '我参加的' ?
-        personalListUI(props.personalList,props.showEachRankList)
+        personalListUI(props.personalList,props.showEachRankListOrTopic)
         :
         allListUI(props.allList)
       }

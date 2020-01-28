@@ -5,7 +5,10 @@ const defaultState = {
   competitionAllRankList:'',
   competitionAllList: '',
   show: '所有比赛',
-  competitionEachRankListId: 0
+  competitionEachRankListId: 0,
+  competitionTopicList: '',
+  competitionTopicId:'',
+  topicId: 0
 };
 
 export default (state = defaultState, action) => {
@@ -18,8 +21,14 @@ export default (state = defaultState, action) => {
       return {...state,'competitionList':action.competitionList};
     case constants.COMPETITION_RECEIVE_ALL_RANK_LIST:
       return {...state,'competitionAllRankList':action.competitionAllRankList};
-      case constants.COMPETITION_EACH_RANK_LIST:
-        return {...state,'competitionEachRankListId':action.competitionEachRankListId}
+    case constants.COMPETITION_EACH_RANK_LIST:
+      return {...state,'competitionEachRankListId':action.competitionEachRankListId}
+    case constants.COMPETITION_RECEIVE_TOPIC_LIST:
+      return {...state,'competitionTopicList':action.competitionTopicList}
+    case constants.COMPETITION_SHOW_TOPIC:
+      return {...state,'competitionTopicId':action.competitionTopicId}
+    case constants.COMPETITION_NEXT_TOPIC:
+      return {...state,'topicId':action.topicId}
     default:
       return state;
   }
