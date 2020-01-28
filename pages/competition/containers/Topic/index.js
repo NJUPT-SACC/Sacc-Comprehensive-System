@@ -19,29 +19,29 @@ export const CompetitionTopic = () =>{
  * @param { string } props.competitionTopicList 展示的题目
  */
 export const CompetitionTopicListUI  = props =>{
-  
-  return (
-    <div className="CompetitionTopicList">
-      <div className="CompetitionTopicTitle">
-      { props.competitionTopicList.title }
-      </div>
-      <div className="CompetitionTopicDescription">
-        <div>
-        <p>{ props.competitionTopicList.description }sdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+  if(props.competitionTopicList)
+    return (
+      <div className="CompetitionTopicList">
+        <div className="CompetitionTopicTitle">
+        { props.competitionTopicList.title }
+        </div>
+        <div className="CompetitionTopicDescription">
+          <div>
+          <p>{ props.competitionTopicList.description }sdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</p>
+          </div>
+        </div>
+        <div className="CompetitionTopicOption">
+          <div>
+          {
+            props.options.map(item =>
+              <p>{item.optionName} : {item.optionDescription}</p>)
+          }
+          </div>
+        </div>
+        <div className="CompetitionTopicSelect">
+          <button onClick={ props.nextTopic }>下一题</button>
+          <button>交卷</button>
         </div>
       </div>
-      <div className="CompetitionTopicOption">
-        <div>
-        {
-          props.options.map(item =>
-            <p>{item.optionName} : {item.optionDescription}</p>)
-			  }
-        </div>
-      </div>
-      <div className="CompetitionTopicSelect">
-        <button onClick={ props.nextTopic }>下一题</button>
-        <button>交卷</button>
-      </div>
-    </div>
-  )
+    )
 }

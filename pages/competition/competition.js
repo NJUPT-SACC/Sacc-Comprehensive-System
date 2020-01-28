@@ -8,6 +8,7 @@ import Navigation from '../../pages/home/HomePage/components/Navigation'
 import { CompetitionList } from './containers/List'
 import { CompetitionRank } from './containers/Rank'
 import { CompetitionTopic } from './containers/Topic'
+import { CompetitionCountDown } from './containers/CountDown'
 
 class Competition extends React.Component{
   constructor(props){
@@ -19,14 +20,16 @@ class Competition extends React.Component{
       <div className="Competition">
         <Navigation></Navigation>
 				{(()=>{
-          if(!this.props.competitionTopicId){
+          if(this.props.competitionTopicId != ''){
             return (
               <Row>
                 <Col span={11} offset={3}>
                   <CompetitionTopic />
                 </Col>
-                <Col span={7} offset={1}>
-                  <CompetitionRank />
+                <Col span={8} offset={1}>
+                  <div>
+                    <CompetitionCountDown />
+                  </div>
                 </Col>
             </Row>
             )

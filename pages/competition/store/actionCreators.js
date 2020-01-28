@@ -32,7 +32,7 @@ export const showTopic = (competitionTopicId) => ({
 })
 
 export const nextTopic = (topicId) => ({
-  type: constants.COMPETITION_SHOW_TOPIC,
+  type: constants.COMPETITION_NEXT_TOPIC,
   topicId
 })
 
