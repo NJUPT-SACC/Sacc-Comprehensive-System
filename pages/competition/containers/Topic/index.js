@@ -1,15 +1,16 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Menu, Icon, Dropdown } from 'antd';
 import dynamic from 'next/dynamic'
 import './index.less'
 
 export const CompetitionTopic = () =>{
 
   const CompetitionTopicList = dynamic(import("../../components/Topic/CompetitionTopicList"))
+  const CompetitionCodeMirror = dynamic(import("../../components/Topic/CompetitionChangeOptions"))
+
   return (
-    <div className="CompetitionTopic">
-      <CompetitionTopicList />
-    </div>
+      // <CompetitionTopicList />
+      <CompetitionCodeMirror />
   )
 }
 
@@ -21,7 +22,7 @@ export const CompetitionTopic = () =>{
 export const CompetitionTopicListUI  = props =>{
   if(props.competitionTopicList)
     return (
-      <div className="CompetitionTopicList">
+      <div className="CompetitionMultipleChoice">
         <div className="CompetitionTopicTitle">
         { props.competitionTopicList.title }
         </div>
@@ -44,4 +45,27 @@ export const CompetitionTopicListUI  = props =>{
         </div>
       </div>
     )
+}
+
+export const CompetitionCodeMirrorUI = props =>{
+  const CompetitionCodeMirrorShow = dynamic(import("../../components/Topic/CompetitionCodeMirrorShow"), {
+    ssr: false
+  })
+
+  const menu = (
+    <Menu onClick={props.changeMode}>
+      <Menu.Item key="1">C</Menu.Item>
+      <Menu.Item key="2">Cpp</Menu.Item>
+      <Menu.Item key="3">Java</Menu.Item>
+    </Menu>
+  );
+
+  return (
+    <div className="CompetitionProgrammingProblem">
+      <Dropdown overlay={menu} placement="bottomRight">
+        <Button>{props.mode}<Icon type="down" /></Button>
+      </Dropdown>
+      <CompetitionCodeMirrorShow />
+    </div> 
+  )
 }

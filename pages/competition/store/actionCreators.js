@@ -36,6 +36,11 @@ export const nextTopic = (topicId) => ({
   topicId
 })
 
+export const changeOptions = (codeMirrorOptions) => ({
+  type: constants.COMPETITION_CHANGE_OPTIONS,
+  codeMirrorOptions
+})
+
 export const showEachRankList = (competitionEachRankListId) => ({
   type: constants.COMPETITION_EACH_RANK_LIST,
   competitionEachRankListId

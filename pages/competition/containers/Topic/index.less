@@ -1,8 +1,12 @@
-.CompetitionTopicList {
+.commonContainer{
   border: 1px solid #ddd;
   box-shadow: 2px 3px 20px 2px #ddd;
   min-height: 80vh;
   margin: 3vh 0;
+}
+
+.CompetitionMultipleChoice {
+  .commonContainer();
 
   .CompetitionTopicTitle {
     min-height: 10vh;
@@ -61,5 +65,14 @@
       background: #fff;
       border-color: #d9d9d9;
     }
+  }
+}
+
+.CompetitionProgrammingProblem{
+  .commonContainer();
+  // background: #272822;
+  .ant-dropdown-trigger{
+    float: right;
+    margin: 1vh 1vw;
   }
 }

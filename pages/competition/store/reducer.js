@@ -8,7 +8,15 @@ const defaultState = {
   competitionEachRankListId: 0,
   competitionTopicList: '',
   competitionTopicId:'',
-  topicId: 0
+  topicId: 0,
+  codeMirrorOptions:{
+    theme: 'eclipse',
+    mode: 'c',
+    styleActiveLine: true,
+    lineNumbers: true,
+    smartIndent: true,
+    lineWrapping: true
+  }
 };
 
 export default (state = defaultState, action) => {
@@ -29,6 +37,8 @@ export default (state = defaultState, action) => {
       return {...state,'competitionTopicId':action.competitionTopicId}
     case constants.COMPETITION_NEXT_TOPIC:
       return {...state,'topicId':action.topicId}
+    case constants.COMPETITION_CHANGE_OPTIONS:
+      return {...state,'codeMirrorOptions':action.codeMirrorOptions}
     default:
       return state;
   }

@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1d21403-6dac-4ee0-a91f-98a7a8f238d5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/footerMenu/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/footerMenu/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/footerMenu/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/footerMenu/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/headerMenu/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/headerMenu/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingDetail/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/questionList/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/assignment/pages/assignmentCoding/pages/codingHome/questionList/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/iconfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/iconfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +34,9 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../learnReact/React开发简书" />
+    <property name="last_opened_file_path" value="E:/../learnReact/React开发简书" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -104,6 +94,7 @@
       <workItem from="1564319626018" duration="3238000" />
       <workItem from="1564362202529" duration="18034000" />
       <workItem from="1564447300450" duration="149000" />
+      <workItem from="1580384650859" duration="5000" />
     </task>
     <servers />
   </component>
