@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Affix } from 'antd';
 import { connect } from 'react-redux';
 import { actionCreators} from './store';
 import './containers/competition.less';
@@ -9,6 +9,7 @@ import { CompetitionList } from './containers/List'
 import { CompetitionRank } from './containers/Rank'
 import { CompetitionTopic } from './containers/Topic'
 import { CompetitionCountDown } from './containers/CountDown'
+import { CompetitionSerialNumber } from './containers/SerialNumber'
 
 class Competition extends React.Component{
   constructor(props){
@@ -23,13 +24,12 @@ class Competition extends React.Component{
           if(this.props.competitionTopicId != ''){
             return (
               <Row>
-                <Col span={11} offset={3}>
-                  <CompetitionTopic />
-                </Col>
+                <Col span={11} offset={3}><CompetitionTopic /></Col>
                 <Col span={8} offset={1}>
-                  <div>
-                    <CompetitionCountDown />
-                  </div>
+                <Affix offsetTop={120}>
+                  <CompetitionCountDown />
+                  <CompetitionSerialNumber />
+                </Affix>
                 </Col>
             </Row>
             )
@@ -46,9 +46,7 @@ class Competition extends React.Component{
                   </Col>
                   <Col span={24}><CompetitionList /></Col>
                 </Col>
-                <Col span={7} offset={1}>
-                  <CompetitionRank />
-                </Col>
+                <Col span={7} offset={1}><CompetitionRank /></Col>
               </Row>
             )
           }

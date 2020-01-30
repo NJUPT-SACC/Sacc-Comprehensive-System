@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row,Col } from 'antd';
+import { Button } from 'antd';
 import dynamic from 'next/dynamic'
 import './index.less'
 
@@ -39,8 +39,8 @@ export const CompetitionTopicListUI  = props =>{
           </div>
         </div>
         <div className="CompetitionTopicSelect">
-          <button onClick={ props.nextTopic }>下一题</button>
-          <button>交卷</button>
+          <Button onClick={ props.nextTopic }>下一题</Button>
+          <Button>交卷</Button>
         </div>
       </div>
     )
