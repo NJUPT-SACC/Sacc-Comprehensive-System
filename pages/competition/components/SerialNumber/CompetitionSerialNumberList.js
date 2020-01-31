@@ -8,22 +8,25 @@ class CompetitionSerialNumber extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      indexArr: []
+      multipleIndex: [],
+      programmingIndex: []
     }
   }
 
   componentDidMount(){
-    let indexArr = []
+    let multipleIndex = []
     for(let index = 1;index <= this.props.competitionTopicList.length; index++)
-      indexArr.push(index)
+      multipleIndex.push(index)
     this.setState({
-      indexArr: indexArr
+      multipleIndex: multipleIndex
     })
   }
   render(){
     return (
         <CompetitionSerialNumberUI
-          indexArr = { this.state.indexArr }
+          multipleIndex = { this.state.multipleIndex }
+          programmingIndex = { this.state.programmingIndex }
+          topicId = { this.props.topicId }
         />
     )
   }
@@ -31,7 +34,8 @@ class CompetitionSerialNumber extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    competitionTopicList:state.competition.competitionTopicList
+    competitionTopicList:state.competition.competitionTopicList,
+    topicId:state.competition.topicId
 	}
 }
 

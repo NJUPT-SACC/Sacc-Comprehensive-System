@@ -6,21 +6,21 @@ import './index.less'
 export const CompetitionTopic = () =>{
 
   const CompetitionTopicList = dynamic(import("../../components/Topic/CompetitionTopicList"))
-  const CompetitionCodeMirror = dynamic(import("../../components/Topic/CompetitionChangeOptions"))
 
   return (
-      // <CompetitionTopicList />
-      <CompetitionCodeMirror />
+      <CompetitionTopicList />
   )
 }
 
 /**
  * @author HKFPouu
- * @description 展示全部比赛以及具体比赛列表
- * @param { string } props.competitionTopicList 展示的题目
+ * @description 展示选择题题目
+ * @param { Object } props.competitionTopicList 展示的题目
  */
 export const CompetitionTopicListUI  = props =>{
-  if(props.competitionTopicList)
+  const CompetitionCodeMirror = dynamic(import("../../components/Topic/CompetitionChangeOptions"))
+  
+  if(props.show)
     return (
       <div className="CompetitionMultipleChoice">
         <div className="CompetitionTopicTitle">
@@ -35,7 +35,7 @@ export const CompetitionTopicListUI  = props =>{
           <div>
           {
             props.options.map(item =>
-              <p>{item.optionName} : {item.optionDescription}</p>)
+              <p onClick={props.getValue}>{item.optionName} : {item.optionDescription}</p>)
           }
           </div>
         </div>
@@ -45,6 +45,8 @@ export const CompetitionTopicListUI  = props =>{
         </div>
       </div>
     )
+  else
+    return <CompetitionCodeMirror />
 }
 
 export const CompetitionCodeMirrorUI = props =>{

@@ -14,6 +14,7 @@ class CompetitionTopicList extends React.Component{
 
   componentDidMount(){
     this.getOptions(this.props.topicId)
+    console.log('show:',this.props.topicId  , this.props.competitionTopicList.length -1);
   }
 
   getOptions(topicId){
@@ -36,6 +37,8 @@ class CompetitionTopicList extends React.Component{
           competitionTopicList = { this.props.competitionTopicList[this.props.topicId] }
           options = { this.state.options }
           nextTopic = { this.props.nextTopic.bind(this) }
+          getValue = { this.props.getValue.bind(this) }
+          show = {  this.props.topicId  <  this.props.competitionTopicList.length }
         />
     )
   }
@@ -56,6 +59,10 @@ const mapDispatchToProps = (dispatch) => {
     nextTopic(){
       let topicId = this.props.topicId + 1;
        dispatch(actionCreators.nextTopic(topicId))
+    },
+    getValue(e){
+      console.log('value',e.target);
+      
     }
 	}
 }

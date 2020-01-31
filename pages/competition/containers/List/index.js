@@ -37,11 +37,11 @@ export const CompetitionListUI = props =>{
   }
   return (
     <div>
-      <Row>{ label.labelList.map(item =><Col span={label.span}>{item}</Col>) }</Row>
+      <Row>{ label.labelList.map(item =><Col span={label.span} className={item == '举办单位' ? 'createBy' :''}>{item}</Col>) }</Row>
       { props.show == '我参加的' ?
-        personalListUI(props.personalList,props.showEachRankListOrTopic)
+        personalListUI(props.personalList,props.showEachRankList,props.showTopic)
         :
-        allListUI(props.allList)
+        allListUI(props.allList,props.showTopic)
       }
     </div>
   )
@@ -53,16 +53,16 @@ export const CompetitionListUI = props =>{
  * @param {Array} list 个人参与的比赛列表
  * @param {Function} func 切换查看该次比赛的排行榜
  */
-const personalListUI = (list,func) =>{
+const personalListUI = (list,showRank,showTopic) =>{
   return (
-    <div>
+    <div className="competitionPersonalList">
     {
       list.map(item => 
-        <Row style={{borderBottom: '1px solid #ddd'}}  id={item.id} onClick={func}>
+        <Row id={item.id} onClick={showRank}>
           <Col span={6}>{item.name}</Col>
           <Col span={6}>{item.time}</Col>
           <Col span={6}>{item.grade}</Col>
-          <Col span={6}>{item.status}</Col>
+          <Col span={6} onClick={showTopic}>{item.status}</Col>
         </Row>
       )
     }
@@ -75,17 +75,17 @@ const personalListUI = (list,func) =>{
  * @description 展示全部比赛列表的UI部分
  * @param {Array} list 全部比赛列表
  */
-const allListUI = list =>{
+const allListUI = (list,showTopic) =>{
   return (
-    <div>
+    <div className="competitionAllList">
       {
         list.map(item => 
-          <Row style={{borderBottom: '1px solid #ddd'}} key={item.id}>
+          <Row id={item.id}>
             <Col span={4}>{item.name}</Col>
             <Col span={4}>{item.endTime}</Col>
             <Col span={4}>{item.place}</Col>
             <Col span={6}>{item.createBy}</Col>
-            <Col span={4}>{item.status}</Col>
+            <Col span={4} onClick={showTopic}>{item.status}</Col>
           </Row>)
       }
     </div>

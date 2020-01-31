@@ -16,14 +16,24 @@ export const CompetitionSerialNumber = () =>{
 /**
  * @author HKFPouu
  * @description 展示比赛题目的序号列表
- * @param { Array } props.indexArr 题目序号数组
+ * @param { Array } props.multipleIndex 选择题序号数组
+ * @param { Array } props.programmingIndex 编程题序号数组
  */
 export const CompetitionSerialNumberUI  = props =>{
   return (
     <div className="CompetitionSerialNumberList">
-      <Row>
-      { props.indexArr.map(item => <Col span={5}>{item}</Col>)  }
-      </Row>
+      <div className="CompetitionSerialNumberMultiple">
+        <h4>选择题</h4>
+        <Row>
+        { props.multipleIndex.map((item,index) => <Col span={5} id={index} className={props.topicId > index ? 'serialNumberSelected':''}>{item}</Col>)  }
+        </Row>
+      </div>
+      <div className="CompetitionSerialNumberProgramming">
+        <h4>编程题</h4>
+        <Row>
+        { props.programmingIndex.map((item,index) => <Col span={5} id={index} className={props.topicId > index ? 'serialNumberSelected':''}>{item}</Col>)  }
+        </Row>
+      </div>
     </div>
   )
 }

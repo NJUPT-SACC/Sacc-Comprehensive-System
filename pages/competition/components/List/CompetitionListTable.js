@@ -14,14 +14,15 @@ class CompetitionListTable extends React.Component{
     this.props.receiveAllList()
     this.props.receiveTopicList()
   }
-  
+
   render(){
     return (
         <CompetitionListUI 
           show={this.props.show}
           allList={this.props.competitionAllList}
           personalList={this.props.competitionList}
-          showEachRankListOrTopic={this.props.showEachRankListOrTopic}
+          showEachRankList={this.props.showEachRankList}
+          showTopic={this.props.showTopic}
         />
     )
   }
@@ -46,12 +47,12 @@ const mapDispatchToProps = (dispatch) => {
     receiveTopicList(){
       dispatch(actionCreators.receiveTopicList())
     },
-    showEachRankListOrTopic(e){  
-      let competitionId = e.currentTarget.id
-      if(e.currentTarget.lastElementChild.innerText === '已结束')
-        dispatch(actionCreators.showTopic(competitionId))
-      else
-        dispatch(actionCreators.showEachRankList(competitionId))
+    showEachRankList(e){  
+        dispatch(actionCreators.showEachRankList(e.currentTarget.id))
+    },
+    showTopic(e){
+      if(e.target.innerText === '进行中')
+        dispatch(actionCreators.showTopic(e.target.parentNode.id))
     }
 	}
 }
