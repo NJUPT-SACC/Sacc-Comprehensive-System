@@ -16,7 +16,7 @@ class CompetitionRankImport extends React.Component{
   render(){
     return (
       <CompetitionRankUI 
-        show={this.props.show}
+        showList={this.props.showList}
         personalRankingList={this.props.competitionList[this.props.competitionEachRankListId].rank}
         allRankingList={this.props.competitionAllRankList}
       />
@@ -26,7 +26,7 @@ class CompetitionRankImport extends React.Component{
 
 const mapStateToProps = (state) =>{
 	return {
-    show: state.competition.show,
+    showList: state.competition.showList,
     competitionList:state.competition.competitionList,
     competitionAllRankList:state.competition.competitionAllRankList,
     competitionEachRankListId:state.competition.competitionEachRankListId,

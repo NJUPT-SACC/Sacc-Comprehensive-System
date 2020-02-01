@@ -1,4 +1,4 @@
-.commonContainer{
+.commonContainer {
   border: 1px solid #ddd;
   box-shadow: 2px 3px 20px 2px #ddd;
   min-height: 80vh;
@@ -70,11 +70,77 @@
   }
 }
 
-.CompetitionProgrammingProblem{
+.CompetitionProgrammingProblem {
   .commonContainer();
+
   // background: #272822;
-  .ant-dropdown-trigger{
+  .ant-dropdown-trigger {
     float: right;
     margin: 1vh 1vw;
+  }
+}
+
+.CompetitionSerialNumberList {
+  margin-top: 5vh;
+
+  .CompetitionSerialNumberProgramming {
+    margin-top: 3vh;
+  }
+
+  h4 {
+    margin-bottom: 1em;
+  }
+
+  .ant-col-5 {
+    font-size: 1.3rem;
+    width: 8vh;
+    line-height: 8vh;
+    text-align: center;
+    border: 1px solid #ddd;
+    word-spacing: 0.3rem;
+  }
+
+  .serialNumberSelected {
+    border-color: #1890ff;
+    color: #1890ff;
+    margin: 0 0 -1px -1px;
+  }
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.CompetitionCountDownList {
+  margin: 3vh 0;
+  height: 25vh;
+  position: relative;
+
+  .CompetitionCountDownList {
+    height: 10vh;
+    .center()
+  }
+
+  .ant-col-1 {
+    height: 10vh;
+    font-size: 2rem;
+  }
+
+  .ant-col-3 {
+    height: 10vh;
+    border: 1px solid #ddd;
+    box-shadow: 2px 3px 20px 2px #ddd;
+    font-size: 1.5rem;
+  }
+
+  p {
+    text-align: center;
+    line-height: 10vh;
+    color: #1890ff;
   }
 }

@@ -26,9 +26,10 @@ export const CompetitionList = () =>{
  * @param {Array} props.allList 所有比赛列表
  * @param {Array} props.personalList 具体比赛列表  
  * @param {Function} props.showEachRankList 切换具体比赛列表
+ * @param {Function} showPages 根据比赛状态切换 邀请 / 比赛题目界面
  */
 export const CompetitionListUI = props =>{
-  const label = props.show == '我参加的' ? {
+  const label = props.showList == '我参加的' ? {
     "labelList": personalLabelList,
     "span": 6
   }:{
@@ -38,10 +39,10 @@ export const CompetitionListUI = props =>{
   return (
     <div>
       <Row>{ label.labelList.map(item =><Col span={label.span} className={item == '举办单位' ? 'createBy' :''}>{item}</Col>) }</Row>
-      { props.show == '我参加的' ?
-        personalListUI(props.personalList,props.showEachRankList,props.showTopic)
+      { props.showList == '我参加的' ?
+        personalListUI(props.personalList,props.showEachRankList,props.showPages)
         :
-        allListUI(props.allList,props.showTopic)
+        allListUI(props.allList,props.showPages)
       }
     </div>
   )
@@ -51,9 +52,10 @@ export const CompetitionListUI = props =>{
  * @author HKFPouu
  * @description 展示具体比赛列表的UI部分
  * @param {Array} list 个人参与的比赛列表
- * @param {Function} func 切换查看该次比赛的排行榜
+ * @param {Function} showRank 切换查看该次比赛的排行榜
+ * @param {Function} showPages 根据比赛状态切换 邀请 / 比赛题目界面
  */
-const personalListUI = (list,showRank,showTopic) =>{
+const personalListUI = (list,showRank,showPages) =>{
   return (
     <div className="competitionPersonalList">
     {
@@ -62,7 +64,7 @@ const personalListUI = (list,showRank,showTopic) =>{
           <Col span={6}>{item.name}</Col>
           <Col span={6}>{item.time}</Col>
           <Col span={6}>{item.grade}</Col>
-          <Col span={6} onClick={showTopic}>{item.status}</Col>
+          <Col span={6} onClick={showPages}>{item.status}</Col>
         </Row>
       )
     }
@@ -74,8 +76,9 @@ const personalListUI = (list,showRank,showTopic) =>{
  * @author HKFPouu
  * @description 展示全部比赛列表的UI部分
  * @param {Array} list 全部比赛列表
+ * @param {Function} showPages 根据比赛状态切换 邀请 / 比赛题目界面
  */
-const allListUI = (list,showTopic) =>{
+const allListUI = (list,showPages) =>{
   return (
     <div className="competitionAllList">
       {
@@ -85,7 +88,7 @@ const allListUI = (list,showTopic) =>{
             <Col span={4}>{item.endTime}</Col>
             <Col span={4}>{item.place}</Col>
             <Col span={6}>{item.createBy}</Col>
-            <Col span={4} onClick={showTopic}>{item.status}</Col>
+            <Col span={4} onClick={showPages}>{item.status}</Col>
           </Row>)
       }
     </div>

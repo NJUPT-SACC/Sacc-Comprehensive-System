@@ -8,8 +8,7 @@ import Navigation from '../../pages/home/HomePage/components/Navigation'
 import { CompetitionList } from './containers/List'
 import { CompetitionRank } from './containers/Rank'
 import { CompetitionTopic } from './containers/Topic'
-import { CompetitionCountDown } from './containers/CountDown'
-import { CompetitionSerialNumber } from './containers/SerialNumber'
+import { CompetitionInvitation } from './containers/Invitation'
 
 class Competition extends React.Component{
   constructor(props){
@@ -21,34 +20,24 @@ class Competition extends React.Component{
       <div className="Competition">
         <Navigation></Navigation>
 				{(()=>{
-          if(this.props.competitionTopicId != ''){
-            return (
-              <Row>
-                <Col span={11} offset={3}><CompetitionTopic /></Col>
-                <Col span={8} offset={1}>
-                <Affix offsetTop={120}>
-                  <CompetitionCountDown />
-                  <CompetitionSerialNumber />
-                </Affix>
-                </Col>
-            </Row>
-            )
-          }
-          else{
-            return (
-              <Row>
-                <Col span={12} offset={2}>
-                  <Col span={3}>
-                    <div className="CompetitionList-Menu">
-                      <p onClick={this.props.changeShow} className={this.props.show == '所有比赛'? 'selected':''}>所有比赛</p>
-                      <p onClick={this.props.changeShow} className={this.props.show == '我参加的'? 'selected':''}>我参加的</p>
-                    </div>
-                  </Col>
-                  <Col span={24}><CompetitionList /></Col>
-                </Col>
-                <Col span={7} offset={1}><CompetitionRank /></Col>
-              </Row>
-            )
+          switch (this.props.showPages) {
+            case 'Topic':
+              return <CompetitionTopic />;
+            case 'List':
+              return (
+                <Row>
+                  <div className="CompetitionList-Menu">
+                    <p onClick={this.props.changeShow} className={this.props.showList == '所有比赛'? 'selected':''}>所有比赛</p>
+                    <p onClick={this.props.changeShow} className={this.props.showList == '我参加的'? 'selected':''}>我参加的</p>
+                  </div>
+                  <Col span={12} offset={2}><CompetitionList /></Col>
+                  <Col span={7} offset={1}><CompetitionRank /></Col>
+                </Row>
+              )
+            case 'Invitation':
+              return <CompetitionInvitation />;
+            default:
+              break;
           }
 				})()}
       </div>
@@ -58,8 +47,9 @@ class Competition extends React.Component{
 
 const mapStateToProps = (state) =>{
   return {
-    show:state.competition.show,
-    competitionTopicId:state.competition.competitionTopicId
+    showList:state.competition.showList,
+    competitionTopicId:state.competition.competitionTopicId,
+    showPages:state.competition.showPages
   }
 }
 

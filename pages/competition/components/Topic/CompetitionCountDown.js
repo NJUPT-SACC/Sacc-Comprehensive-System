@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { actionCreators,store } from '../../store';
-import { CompetitionCountDownUI } from '../../containers/CountDown/index'
+import { CompetitionCountDownUI } from '../../containers/Topic/index'
 
 class CompetitionCountDown extends React.Component{
   constructor(props){

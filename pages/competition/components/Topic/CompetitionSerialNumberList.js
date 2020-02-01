@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { actionCreators,store } from '../../store';
-import { CompetitionSerialNumberUI } from '../../containers/SerialNumber/index'
+import { CompetitionSerialNumberUI } from '../../containers/Topic/index'
 
 class CompetitionSerialNumber extends React.Component{
   constructor(props){

@@ -19,12 +19,12 @@ export const CompetitionRank = () =>{
 /**
  * @author HKFPouu
  * @description 展示排行榜的UI部分
- * @param {String} props.show 展示总榜/具体比赛榜
+ * @param {String} props.showList 展示总榜 / 具体比赛榜
  * @param {Array}  props.allRankingList 总榜
  * @param {Array}  props.personalRankingList 具体比赛榜
  */
 export const CompetitionRankUI = props =>{
-  const data = props.show == "所有比赛" ? props.allRankingList : props.personalRankingList
+  const data = props.showList == "所有比赛" ? props.allRankingList : props.personalRankingList
   return (
     <div>
       {

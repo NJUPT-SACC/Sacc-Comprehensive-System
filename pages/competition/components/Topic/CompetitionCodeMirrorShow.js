@@ -13,12 +13,23 @@ import 'codemirror/addon/hint/show-hint.css'
 class CompetitionCodeMirror extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      programmingValue: ''
+    }
+  }
+
+  getProgrammingValue(codeMirror){
+    this.setState({
+      programmingValue: codeMirror.doc.getValue()
+    })
   }
 
   render(){
     return (
       <CodeMirror
         options={ this.props.codeMirrorOptions }
+        value={this.state.programmingValue}
+        onBlur={this.getProgrammingValue.bind(this)}
       />
     )
   }

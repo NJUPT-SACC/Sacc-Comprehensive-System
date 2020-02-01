@@ -1,0 +1,39 @@
+.CompetitionInvitation {
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  min-height: 50vh;
+  margin-top: 5vh;
+  box-shadow: 2px 2px 2px #ddd;
+  background:#ffffff;
+  padding: 1vw;
+  animation: trTop .5s 1;
+
+  h2 {
+    padding-left: 1vw;
+
+    span {
+      margin: 0 0.5vw;
+      color: #1890ff;
+    }
+  }
+
+  .ant-form-item-control {
+    text-align: center;
+
+    button {
+      margin-right: 2vw;
+    }
+  }
+
+}
+
+@keyframes trTop {
+  0% {
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -18,11 +18,11 @@ class CompetitionListTable extends React.Component{
   render(){
     return (
         <CompetitionListUI 
-          show={this.props.show}
+          showList={this.props.showList}
           allList={this.props.competitionAllList}
           personalList={this.props.competitionList}
           showEachRankList={this.props.showEachRankList}
-          showTopic={this.props.showTopic}
+          showPages={this.props.showPages.bind(this)}
         />
     )
   }
@@ -32,7 +32,7 @@ const mapStateToProps = (state) =>{
 	return {
     competitionList:state.competition.competitionList,
     competitionAllList:state.competition.competitionAllList,
-    show:state.competition.show
+    showList:state.competition.showList
 	}
 }
 
@@ -48,11 +48,12 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actionCreators.receiveTopicList())
     },
     showEachRankList(e){  
-        dispatch(actionCreators.showEachRankList(e.currentTarget.id))
+      dispatch(actionCreators.showEachRankList(e.currentTarget.id))
     },
-    showTopic(e){
-      if(e.target.innerText === '进行中')
-        dispatch(actionCreators.showTopic(e.target.parentNode.id))
+    showPages(e){
+      let page = e.target.innerText == '进行中' ? 'Topic': 'Invitation',
+        competitionId = e.target.parentNode.id;
+        dispatch(actionCreators.changeShowPages(page,competitionId))
     }
 	}
 }

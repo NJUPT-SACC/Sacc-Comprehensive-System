@@ -21,14 +21,15 @@ const receiveTopic = (competitionTopicList) => ({
   competitionTopicList
 })
 
-export const changeShow = (show) => ({
-  type: constants.COMPETITION_CHANGE_SHOW,
-  show
+export const changeShow = (showList) => ({
+  type: constants.COMPETITION_CHANGE_SHOW_LIST,
+  showList
 })
 
-export const showTopic = (competitionTopicId) => ({
-  type: constants.COMPETITION_SHOW_TOPIC,
-  competitionTopicId
+export const changeShowPages = (showPages,competitionId) => ({
+  type: constants.COMPETITION_CHANGE_SHOW_PAGES,
+  showPages,
+  competitionId
 })
 
 export const nextTopic = (topicId) => ({
