@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { actionCreators,store } from '../../store';
+ 
 import { CompetitionListUI } from '../../containers/List/index'
 
 class CompetitionListTable extends React.Component{
