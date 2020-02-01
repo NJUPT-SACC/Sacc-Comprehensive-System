@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actionCreators} from './store';
+import { render } from 'react-dom';
+import {Box} from './containers/Login';
+
 
 
 class Home extends React.Component{
@@ -10,8 +13,8 @@ class Home extends React.Component{
 
   render(){
     return (
-      <div>
-
+      <div className="container">
+      <Box/>
       </div>
     )
   }
