@@ -25,7 +25,7 @@ class Navigation extends React.Component{
 
   judge(){
     if(!this.state.authkey){
-      return (<Link className="login" href="/loginPage"><div className="item">登录</div></Link>);
+      return (<Link className="login" href="/home/home"><div className="item">登录</div></Link>);
     }
     else{
     localStorage.clear();
@@ -33,7 +33,7 @@ class Navigation extends React.Component{
      setTimeout(() => {
       Router.push('/')
     }, 100);
-    return (<Link className="logout" href="/home"><div className="item">退出登录</div></Link>);
+    return (<Link className="logout" href="/home/home"><div className="item">退出登录</div></Link>);
     }
    
   }
@@ -44,13 +44,13 @@ class Navigation extends React.Component{
                    <div className="left split"><Link href="/home"><img src={imag}/></Link></div>
                    <div className="middle split"></div>
                    <div className="right split">
-                        <Link className="competition" href="/competition">
+                        <Link className="competition" href="/competition/competition">
                           <div className="item">比赛系统</div>
                         </Link>
-                        <Link className="practice" href="/practice">
+                        <Link className="assignment" href="/assignment/assignment">
                           <div className="item">练习系统</div>
                         </Link>
-                        <Link className="personalCenter" href="/personalCenter">
+                        <Link className="personalCenter" href="/home/PersonCenter/personCenter">
                         <div className="item">个人中心</div>
                         </Link>
 
