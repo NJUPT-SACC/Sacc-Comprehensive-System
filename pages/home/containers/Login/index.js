@@ -15,56 +15,67 @@ class Logbox extends Component{
     constructor(props,context){
         super(props,context);
         this.state={
-            background_colorone :'white',
-            background_colortwo:'white',
+            backgroundNameOne:'',
+            backgroundNameTwo:'',
+            oneValue:'',
+            twoValue:'',
             uesrName: '',
             password: ''
         }
     }
-    changeColorOne(e){
+    valueChangeOne(e){
+        this.setState({
+            oneValue:e.target.value
+        })
         if(e.target.value =='')
         {
             this.setState({
-                background_colorone :'white',
+                backgroundNameOne :'backgroundWhite'
             })
         }
         else if(e.target.value != '')
         {
             this .setState({
-                background_colorone : '#78A5F2'
+                backgroundNameOne : 'backgroundBlue'
             })
         }
-    }/*第一个框*/
-    changeColorTwo(e){
+    }
+    valueChangeTwo(e){
+        this.setState({
+            twoValue:e.target.value
+        })
         if(e.target.value =='')
         {
             this .setState({
-                background_colortwo :'white',
+                backgroundNameTwo :'backgroundWhite'
             })
         }
         else if(e.target.value != '')
         {
             this .setState({
-                background_colortwo : '#78A5F2'
+                backgroundNameTwo : 'backgroundBlue'
             })
         }
-    }/*第二个框*/
+    }
     click_log(){
-        if(this.dom1.value == '' || this.dom2.value =='')
+        if(this.state.oneValue == '' || this.state.twoValue =='')
         {
             alert("输入有误");
         }
         else{
-            this.setState({uesrName: this.dom1.value, password :this.dom2.value});
+            this.setState({
+                            uesrName: this.state.oneValue, 
+                            password: this.state.twoValue
+            });
         }
     }/*存入state 以及输入内容的筛选*/
     render(){
         return(
             <div>
-                <span>账号:</span><input ref={e => (this.dom1 = e)} onChange={(e)=>this.changeColorOne(e)} style={{background: this.state.background_colorone}}/>
+                <span>账号:</span><input value={this.state.oneValue} className={this.state.backgroundNameOne} onChange= {this.valueChangeOne.bind(this)}/>
                 <br/>
                 <br/>
-                <span>密码:</span><input type="password" ref={e => (this.dom2 = e)} onChange={(e)=>this.changeColorTwo(e)}  style={{background: this.state.background_colortwo}}/>
+                <span>密码:</span><input  value={this.state.twoValue} className={this.state.backgroundNameTwo}  type="password" onChange={this.valueChangeTwo.bind(this)} />
                 <br/><br/>
                 <button onClick={this.click_log.bind(this)}  className="Logbox-btn" >登录</button>
             </div>
@@ -75,76 +86,92 @@ class Registerbox extends Component{
     constructor(props,context){
         super(props,context);
         this.state={
-            background_colorone :'white',
-            background_colortwo:'white',
-            background_colorthree: 'white',
+            backgroundNameOne :'',
+            backgroundNameTwo:'',
+            backgroundNameThree: '',
+            oneValue:'',
+            twoValue:'',
+            threeValue:'',
             userName: '',
             password: '',
             mail: '',
         }
     }
-    changeColorOne(e){
+    valueChangeOne(e){
+            this.setState({
+                oneValue:e.target.value
+            })
         if(e.target.value =='')
         {
             this.setState({
-                background_colorone :'white',
+                backgroundNameOne :'backgroundWhite',
             })
         }
         else if(e.target.value != '')
         {
             this .setState({
-                background_colorone : '#78A5F2'
+                backgroundNameOne : 'backgroundBlue'
             })
         }
     }/*第一个框*/
-    changeColorTwo(e){
+    valueChangeTwo(e){
+        this.setState({
+            twoValue:e.target.value
+        })
         if(e.target.value =='')
         {
             this.setState({
-                background_colortwo :'white',
+                backgroundNameTwo :'backgroundWhite',
             })
         }
         else if(e.target.value != '')
         {
             this .setState({
-                background_colortwo : '#78A5F2'
+                backgroundNameTwo : 'backgroundBlue'
             })
         }
     }/*第二个框 */
-    changeColorThree(e){
+    valueChangeThree(e){
+        this.setState({
+            threeValue:e.target.value
+        })
         if(e.target.value =='')
         {
             this.setState({
-                background_colorthree :'white',
+                backgroundNameThree :'backgroundWhite',
             })
         }
         else if(e.target.value != '')
         {
             this .setState({
-                background_colorthree : '#78A5F2'
+                backgroundNameThree : 'backgroundBlue'
             })
         }
     }/*第三个框*/
 
     click_register(){
-        if(this.dom1.value == '' || this.dom2.value =='' || this.dom3.value == '')
+        if(this.state.oneValue == '' || this.state.twoValue =='' || this.state.threeValue== '')
         {
             alert("输入有误");
         }
         else{
-            this.setState({uesrName: this.dom1.value, password :this.dom2.value, mail:this.dom3.value});
+            this.setState({
+                userName: this.state.oneValue,
+                password: this.state.twoValue,
+                mail: this.state.threeValue
+            })
         }
     }/*存入state 以及输入内容的筛选*/
     render(){
         return(
             <div>
-                <span>账号:</span><input ref={e => (this.dom1 = e)} onChange={(e)=>this.changeColorOne(e)} style={{background: this.state.background_colorone}}/>
+                <span>账号:</span><input className={this.state.backgroundNameOne}  onChange= {this.valueChangeOne.bind(this)}/>
                 <br/>
                 <br/>
-                <span>密码:</span><input type="password" ref={e => (this.dom2 = e)} onChange={(e)=>this.changeColorTwo(e)}  style={{background: this.state.background_colortwo}}/>
+                <span>密码:</span><input className={this.state.backgroundNameTwo} type="password"  onChange= {this.valueChangeTwo.bind(this)}/>
                 <br/>
                 <br/>
-                <span>邮箱:</span><input ref={e => (this.dom3 = e)} onChange={(e)=>this.changeColorThree(e)}  style={{background: this.state.background_colorthree}}/>
+                <span>邮箱:</span><input className={this.state.backgroundNameThree}  onChange= {this.valueChangeThree.bind(this)}/>
                 <br/><br/>
                 <button onClick={this.click_register.bind(this) } className="Registerbox-btn">注册</button>
             </div>
@@ -153,43 +180,44 @@ class Registerbox extends Component{
 }
 
 class Box extends Component{
-    constructor(props, context) {
-        super(props, context);
+    constructor(props,context) {
+        super(props,context);
         this.state = {
-            display_log: 'block',
-            display_register:'none',
+            display_num: '1',
         }
     }
-    display_log() {
-        if (this.state.display_log == 'block') {
-            this.setState({
-                display_log: 'none',
-                display_register:'block',
-            })
+    display_change() {
+                    if(this.state.display_num === '1')
+                    {
+                        this.setState({
+                            display_num: '0'
+                        })
+                    }
+                    else{
+                        this.setState({
+                            display_num:'1'
+                        })
+                    }
         }
-        else if (this.state.display_log == 'none') {
-            this.setState({
-                display_log: 'block',
-                display_register:'none'
-            })
-        }
-}/*切换页面*/    
+    
 render(){
-    return ( 
-        <div>
-                <div style={{display: this.state.display_log}}>
+    if(this.state.display_num === '1')
+    {
+        return<div>
                 <Logbox/>
-                <button onClick={this.display_log.bind(this)} className="Box-switch_btn">登录/注册</button>
-                </div>
-
-               <div style={{display: this.state.display_register}}>
+                <button onClick={this.display_change.bind(this)} className="Box-switch_btn">登录/注册</button>
+            </div>
+    }
+    else{
+        return<div>
                 <Registerbox/>
-                <button onClick={this.display_log.bind(this) }  className="Box-switch_btn">登录/注册</button>
-                </div>
-        </div>
-    );
+                <button onClick={this.display_change.bind(this) }  className="Box-switch_btn">登录/注册</button>
+            </div>
+    }
 }
-}/*登录和注册界面 以及切换效果*/
+}
+
+/*登录和注册界面 以及切换效果*/
 
 export {Box};
 
