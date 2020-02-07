@@ -15,67 +15,33 @@ class Logbox extends Component{
     constructor(props,context){
         super(props,context);
         this.state={
-            backgroundNameOne:'',
-            backgroundNameTwo:'',
-            oneValue:'',
-            twoValue:'',
-            uesrName: '',
-            password: ''
+            userName: '',
+            password: '',
         }
     }
     valueChangeOne(e){
         this.setState({
-            oneValue:e.target.value
+            userName: e.target.value
         })
-        if(e.target.value =='')
-        {
-            this.setState({
-                backgroundNameOne :'backgroundWhite'
-            })
-        }
-        else if(e.target.value != '')
-        {
-            this .setState({
-                backgroundNameOne : 'backgroundBlue'
-            })
-        }
     }
     valueChangeTwo(e){
         this.setState({
-            twoValue:e.target.value
-        })
-        if(e.target.value =='')
-        {
-            this .setState({
-                backgroundNameTwo :'backgroundWhite'
-            })
-        }
-        else if(e.target.value != '')
-        {
-            this .setState({
-                backgroundNameTwo : 'backgroundBlue'
-            })
-        }
+            password: e.target.value
+        })    
     }
     click_log(){
-        if(this.state.oneValue == '' || this.state.twoValue =='')
+        if(this.state.userName == '' || this.state.password =='')
         {
             alert("输入有误");
         }
-        else{
-            this.setState({
-                            uesrName: this.state.oneValue, 
-                            password: this.state.twoValue
-            });
-        }
-    }/*存入state 以及输入内容的筛选*/
+        }/*存入state 以及输入内容的筛选*/
     render(){
         return(
             <div>
-                <span>账号:</span><input value={this.state.oneValue} className={this.state.backgroundNameOne} onChange= {this.valueChangeOne.bind(this)}/>
+                <span>账号:</span><input value={this.state.userName} className={this.state.userName?'backgroundBlue':'backgroundWhite'} onChange= {this.valueChangeOne.bind(this)}/>
                 <br/>
                 <br/>
-                <span>密码:</span><input  value={this.state.twoValue} className={this.state.backgroundNameTwo}  type="password" onChange={this.valueChangeTwo.bind(this)} />
+                <span>密码:</span><input  value={this.state.password} className={this.state.password?'backgroundBlue':"backgroundWhite"}  type="password" onChange={this.valueChangeTwo.bind(this)} />
                 <br/><br/>
                 <button onClick={this.click_log.bind(this)}  className="Logbox-btn" >登录</button>
             </div>
@@ -89,9 +55,6 @@ class Registerbox extends Component{
             backgroundNameOne :'',
             backgroundNameTwo:'',
             backgroundNameThree: '',
-            oneValue:'',
-            twoValue:'',
-            threeValue:'',
             userName: '',
             password: '',
             mail: '',
@@ -99,79 +62,36 @@ class Registerbox extends Component{
     }
     valueChangeOne(e){
             this.setState({
-                oneValue:e.target.value
+                userName:e.target.value
             })
-        if(e.target.value =='')
-        {
-            this.setState({
-                backgroundNameOne :'backgroundWhite',
-            })
-        }
-        else if(e.target.value != '')
-        {
-            this .setState({
-                backgroundNameOne : 'backgroundBlue'
-            })
-        }
     }/*第一个框*/
     valueChangeTwo(e){
         this.setState({
-            twoValue:e.target.value
+            password:e.target.value
         })
-        if(e.target.value =='')
-        {
-            this.setState({
-                backgroundNameTwo :'backgroundWhite',
-            })
-        }
-        else if(e.target.value != '')
-        {
-            this .setState({
-                backgroundNameTwo : 'backgroundBlue'
-            })
-        }
     }/*第二个框 */
     valueChangeThree(e){
         this.setState({
-            threeValue:e.target.value
+            mail:e.target.value
         })
-        if(e.target.value =='')
-        {
-            this.setState({
-                backgroundNameThree :'backgroundWhite',
-            })
-        }
-        else if(e.target.value != '')
-        {
-            this .setState({
-                backgroundNameThree : 'backgroundBlue'
-            })
-        }
     }/*第三个框*/
 
     click_register(){
-        if(this.state.oneValue == '' || this.state.twoValue =='' || this.state.threeValue== '')
+        if(this.state.userName == '' || this.state.password =='' || this.state.mail== '')
         {
             alert("输入有误");
-        }
-        else{
-            this.setState({
-                userName: this.state.oneValue,
-                password: this.state.twoValue,
-                mail: this.state.threeValue
-            })
         }
     }/*存入state 以及输入内容的筛选*/
     render(){
         return(
             <div>
-                <span>账号:</span><input className={this.state.backgroundNameOne}  onChange= {this.valueChangeOne.bind(this)}/>
+                <span>账号:</span><input className={this.state.userName?'backgroundBlue':'backgroundWhite'} value={this.state.userName}  onChange= {this.valueChangeOne.bind(this)}/>
                 <br/>
                 <br/>
-                <span>密码:</span><input className={this.state.backgroundNameTwo} type="password"  onChange= {this.valueChangeTwo.bind(this)}/>
+                <span>密码:</span><input className={this.state.password?'backgroundBlue':'backgroundWhite'}  value={this.state.password} type="password"  onChange= {this.valueChangeTwo.bind(this)}/>
                 <br/>
                 <br/>
-                <span>邮箱:</span><input className={this.state.backgroundNameThree}  onChange= {this.valueChangeThree.bind(this)}/>
+                <span>邮箱:</span><input className={this.state.mail?'backgroundBlue':'backgroundWhite'} value={this.state.mail} onChange= {this.valueChangeThree.bind(this)}/>
                 <br/><br/>
                 <button onClick={this.click_register.bind(this) } className="Registerbox-btn">注册</button>
             </div>
