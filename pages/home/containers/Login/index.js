@@ -52,9 +52,6 @@ class Registerbox extends Component{
     constructor(props,context){
         super(props,context);
         this.state={
-            backgroundNameOne :'',
-            backgroundNameTwo:'',
-            backgroundNameThree: '',
             userName: '',
             password: '',
             mail: '',
