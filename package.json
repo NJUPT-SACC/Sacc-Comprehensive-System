@@ -21,7 +21,7 @@
     "next-compose-plugins": "^2.2.0",
     "next-fonts": "^0.17.0",
     "next-redux-wrapper": "^3.0.0-alpha.3",
-    "prismjs": "^1.16.0",
+    "prismjs": "^1.23.0",
     "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.8.6",
